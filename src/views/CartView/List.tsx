@@ -3,11 +3,7 @@ import { useOutletContext } from "react-router";
 
 import { SVG_FORMA } from "../../consts/values";
 
-import type {
-  ClassDBItem,
-  TypeOrderBy,
-  TypeOutletContext,
-} from "../../consts/types";
+import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
 
 import { scrollStyle } from "../../libs/tvs";
 import {
@@ -17,7 +13,7 @@ import {
   toPriceFormat,
 } from "../../libs/functions";
 
-import { Button, Input, Spinner, type PressEvent } from "@heroui/react";
+import { Button, Input, type PressEvent } from "@heroui/react";
 
 import ImageCustom from "../../components/ImageCustom";
 import PriceLabel from "../../components/PriceLabel";
@@ -28,11 +24,10 @@ const images_all = import.meta.glob(
   "../../assets/items/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
 
 const cols = [
   {
@@ -78,11 +73,7 @@ export default function List({ downloading = false }) {
   const context: TypeOutletContext = useOutletContext();
   const cart = context.cart.value;
 
-  const [loading, setLoading] = useState(false);
-  const [orderBy, setOrderBy] = useState<TypeOrderBy>({
-    col: "label",
-    order: "asc",
-  });
+  const [orderBy, setOrderBy] = useState<string>("price-asc");
   const [items, setItems] = useState(Object.values(cart));
   const [totalVisibleItems, setTotalVisibleItems] = useState(itemsPerView);
   const [total, setTotal] = useState({ ...totalDefault });
@@ -105,9 +96,11 @@ export default function List({ downloading = false }) {
           <ImageCustom
             alt={`Imagen de ${row.label}`}
             className="object-contain w-[50px] min-w-[50px]"
-            src={srcs.find((src) =>
-              src.includes(row.imgs_data.preview.thumbnails)
-            )}
+            src={
+              srcs.find(([path, _]) =>
+                path.includes(row.imgs_data.preview.thumbnails)
+              )?.[1] || ""
+            }
           />
         );
       case "categorie":
@@ -133,10 +126,12 @@ export default function List({ downloading = false }) {
               startContent="x"
               endContent={row?.price_data?.salesUnit || "u"}
               min={0}
-              value={String(row?.qtt) || ""}
+              defaultValue={String(row?.qtt) || ""}
+              // value={String(row?.qtt) || ""}
               data-id={row.id}
-              onChange={handleQtt}
+              // onChange={handleQtt}
               onBlur={handleQttBlur}
+              onKeyDown={handleKeyDown}
             />
 
             <Button
@@ -166,16 +161,18 @@ export default function List({ downloading = false }) {
     }
   };
 
-  const handleQtt = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    const id = Number(e.target.dataset.id);
-    const cart_ = structuredClone(cart);
-    cart_[id].qtt = Number(value);
-    context.cart.set(cart_);
-  };
-  const handleQttBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const id = Number(e.target.dataset.id);
-    const qtt = Number(e.target?.value);
+  // const handleChangeQtt = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const value = e.target.value;
+  //   const id = Number(e.target.dataset.id);
+  //   const cart_ = structuredClone(cart);
+  //   cart_[id].qtt = Number(value);
+  //   context.cart.set(cart_);
+  // };
+
+  const handlePriceQtt = (target: HTMLInputElement) => {
+    const id = Number(target.dataset.id);
+    const qtt = Number(target.value);
+
     const cart_ = structuredClone(cart);
     const itemData = cart_[id];
     itemData.qtt = qtt;
@@ -185,6 +182,15 @@ export default function List({ downloading = false }) {
     cart_[id] = itemData;
 
     context.cart.set(cart_);
+  };
+  const handleQttBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    handlePriceQtt(e.target);
+  };
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      const target = e.target as HTMLInputElement;
+      handlePriceQtt(target);
+    }
   };
 
   const handleDelete = (e: PressEvent) => {
@@ -222,24 +228,28 @@ export default function List({ downloading = false }) {
 
   const handleSortCol = (e: React.MouseEvent<HTMLTableHeaderCellElement>) => {
     const col = e.currentTarget.dataset?.column || "price";
-    let order: "asc" | "desc" = "desc";
-    if (orderBy.order === "desc") order = "asc";
+    let order = "desc";
+    if (orderBy.includes("desc")) order = "asc";
 
-    const orderBy_ = { col: col, order: order };
+    setOrderBy(col + "-" + order);
+  };
 
-    setOrderBy(orderBy_);
+  const sortItems = () => {
+    if (orderBy) {
+      const [col, order] = orderBy.split("-");
+      const items_ = Object.values(cart).sort(cartItemsComparator(col, order));
+
+      setItems(items_);
+    }
   };
 
   useEffect(() => {
-    setLoading(true);
-
     const items_ = items.map((item) => {
       item.price_data = handlePriceData(item);
       return item;
     });
 
     setItems(items_);
-    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -247,36 +257,16 @@ export default function List({ downloading = false }) {
     setItems(Object.values(cart));
   }, [cart]);
 
+  useEffect(sortItems, [orderBy, cart]);
+
   useEffect(() => {
     if (downloading) setTotalVisibleItems(items.length);
   }, [downloading]);
-
-  useEffect(() => {
-    const sortItems = async () => {
-      setLoading(true);
-      if (orderBy) {
-        const items_ = items.sort(
-          cartItemsComparator(orderBy.col, orderBy.order)
-        );
-
-        setItems(items_);
-      }
-      setTimeout(() => {
-        setLoading(false);
-      }, 200);
-    };
-
-    sortItems();
-  }, [orderBy]);
 
   if (cart && Object.keys(cart).length < 1) {
     return (
       <b className="text-center text-xl p-4">Sin artículos para mostrar.</b>
     );
-  }
-
-  if (loading) {
-    return <Spinner color="secondary" />;
   }
 
   return (
@@ -307,8 +297,8 @@ export default function List({ downloading = false }) {
                   onClick={col?.disabledSort ? undefined : handleSortCol}
                 >
                   {col.label}
-                  {!col?.disabledSort && orderBy.col === col.id
-                    ? orderBy.order === "desc"
+                  {!col?.disabledSort && orderBy.includes(col.id)
+                    ? orderBy.includes("desc")
                       ? " 🡡"
                       : " 🡣"
                     : null}
@@ -326,7 +316,7 @@ export default function List({ downloading = false }) {
                 {cols.map((col) => (
                   <td
                     key={col.id + "-" + row.id}
-                    className="p-2 group-hover:font-semibold"
+                    className="p-2 group-hover:font-semibold whitespace-nowrap"
                     style={{ textAlign: col?.isNumeric ? "end" : "start" }}
                   >
                     {makeCell(col.id, row)}

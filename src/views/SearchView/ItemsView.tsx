@@ -20,11 +20,10 @@ const images_all = import.meta.glob(
   "../../assets/items/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
 
 export default function ItemsView({
   items,
@@ -35,7 +34,7 @@ export default function ItemsView({
   const cart = context.cart.value;
 
   return (
-    <section className="w-full grid xs:grid-cols-[repeat(auto-fit,_minmax(160px,_180px))] sm:grid-cols-[repeat(auto-fit,_minmax(200px,_250px))] gap-2 sm:gap-4 md:gap-10 justify-center">
+    <section className="w-full grid xs:grid-cols-[repeat(auto-fit,_minmax(160px,_180px))] sm:grid-cols-[repeat(auto-fit,_minmax(200px,_240px))] gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center">
       {items.map((item: ClassDBItem) => {
         const preview = item.imgs_data.preview;
         const SvgForma =
@@ -62,9 +61,14 @@ export default function ItemsView({
                   <ImageCustom
                     alt={`Imagen de ${item.label}`}
                     className="w-full object-contain p-4 h-[150px] rounded-lg shadow-small"
-                    src={srcs.find((src) =>
-                      src.includes(item.imgs_data.preview.src)
-                    )}
+                    // src={srcs.find((src) =>
+                    //   src.includes(item.imgs_data.preview.src)
+                    // )}
+                    src={
+                      srcs.find(([path, _]) =>
+                        path.includes(item.imgs_data.preview.src)
+                      )?.[1] || ""
+                    }
                   />
                 )}
 

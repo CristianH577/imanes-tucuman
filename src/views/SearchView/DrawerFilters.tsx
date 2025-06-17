@@ -104,6 +104,9 @@ export default function DrawerFilters({
         const items: any = (input.items || []).map((item) => (
           <SelectItem key={item.id}>{item.label}</SelectItem>
         ));
+        // const val = filtersValuesTemp[input.id as keyof typeof input.items]
+        // let selected=input.id==="orderBy"
+
         return (
           <Select
             className="max-w-xs text-foreground"

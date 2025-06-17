@@ -87,7 +87,7 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
       <NavbarContent justify="end" className="gap-3">
         <NavbarItem className="hidden sm:block md:hidden lg:block">
           <Redes
-            className="hidden sm:block md:hidden lg:block space-x-1"
+            className="hidden sm:flex md:hidden lg:flex items-center"
             classNames={{
               link: "text-neutral-400 hover:text-custom2 dark:hover:text-custom1",
               icon: "h-6 w-fit",

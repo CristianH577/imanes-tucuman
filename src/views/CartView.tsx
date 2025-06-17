@@ -31,7 +31,8 @@ export default function CartView() {
     items_msg.push(`*${entrega.label}\n`);
 
     let total: number = 0;
-    Object.values(cart).forEach((item) => {
+    const cart_ = Object.values(cart).filter((item) => Number(item.qtt) > 0);
+    cart_.forEach((item) => {
       const array = [];
       const use = item.price_data.usePrice;
       const price = item.price_data.prices[use] || 0;

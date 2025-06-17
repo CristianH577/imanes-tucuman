@@ -112,12 +112,8 @@ export default function SearchView() {
     }
 
     if (filtersValues?.orderBy) {
-      items_.sort(
-        cartItemsComparator(
-          filtersValues.orderBy.col,
-          filtersValues.orderBy.order
-        )
-      );
+      const [col, order] = filtersValues.orderBy.split("-");
+      items_.sort(cartItemsComparator(col, order));
     }
 
     setItems(items_);

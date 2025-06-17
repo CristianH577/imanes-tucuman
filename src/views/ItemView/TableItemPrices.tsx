@@ -100,7 +100,7 @@ export default function TableItemPrices({
   };
 
   return (
-    <section className="flex flex-col gap-2 md:gap-4 md:flex-row-reverse lg:flex-col p-2 sm:p-4 items-end md:items-start lg:items-end lg:border-2 rounded-lg border-divider">
+    <section className="flex flex-col gap-2 md:gap-4 md:flex-row-reverse lg:flex-col p-2 sm:p-4 items-end md:items-start lg:items-end lg:border-2 lg:min-w-64 rounded-lg border-divider h-full">
       <article className=" space-y-2 sm:space-y-4">
         <div className="flex flex-col gap-2 justify-center items-end sm:gap-4">
           {itemData?.noStock && (

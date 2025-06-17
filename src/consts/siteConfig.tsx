@@ -11,7 +11,7 @@ export const NAV_ITEMS = [
   { id: "", href: "", label: "Inicio", icon: HomeOutlinedIcon },
   {
     id: "search_view",
-    href: "search",
+    href: "buscar",
     label: "Buscar",
     icon: ContentPasteSearchOutlinedIcon,
     search: "?orderBy=price-asc",
@@ -97,8 +97,8 @@ export const FILTERS_INPUTS = [
     items: [
       { id: "id-asc", label: "Mas antiguo" },
       { id: "id-desc", label: "Mas reciente" },
-      { id: "label-desc", label: "Nombre 🡣" },
-      { id: "label-asc", label: "Nombre 🡡" },
+      { id: "label-desc", label: "Nombre 🡡" },
+      { id: "label-asc", label: "Nombre 🡣" },
       { id: "price-desc", label: "Precio 🡡" },
       { id: "price-asc", label: "Precio 🡣" },
     ],
@@ -150,7 +150,7 @@ export const FILTERS_INPUTS = [
 export const FILTERS_VALUES_DEFAULT: TypeFiltersValues = {
   apply: false,
   page: 1,
-  orderBy: { col: "price", order: "asc" },
+  orderBy: "price-asc",
   text: "",
   categorie: "",
   subcategorie: "",

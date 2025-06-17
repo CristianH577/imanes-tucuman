@@ -24,11 +24,10 @@ const images_all = import.meta.glob(
   "../../assets/items/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
 
 export default function ImagesSection({
   imgsData,
@@ -100,7 +99,10 @@ export default function ImagesSection({
                     <ImageCustom
                       alt={`Miniatura ${i}`}
                       className="object-cover h-full w-full"
-                      src={srcs.find((src) => src.includes(img.src))}
+                      src={
+                        srcs.find(([path, _]) => path.includes(img.src))?.[1] ||
+                        ""
+                      }
                       // @ts-ignore
                       onClick={() => setIndex(i)}
                     />
@@ -129,7 +131,9 @@ export default function ImagesSection({
             ) : (
               <ImageCustom
                 key={i}
-                src={srcs.find((src) => src.includes(img.src))}
+                src={
+                  srcs.find(([path, _]) => path.includes(img.src))?.[1] || ""
+                }
                 className="object-contain drop-shadow-custom h-full max-w-[300px]"
                 alt="Imagen seleccionada"
                 // @ts-ignore

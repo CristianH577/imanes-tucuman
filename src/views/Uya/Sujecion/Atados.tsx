@@ -4,17 +4,17 @@ const images_all = import.meta.glob(
   "../../assets/uya/sujecion/atados/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
 
 const class_img_wrapper = "md:rounded-none md:shadow-none md:border-none";
 
-export default function Atados() {
-  const getSrc = (name: string) => srcs.find((src) => src.includes(name));
+const getSrc = (name: string) =>
+  srcs.find(([path, _]) => path.includes(name))?.[1] || "";
 
+export default function Atados() {
   return (
     <div className="space-y-4">
       <p>

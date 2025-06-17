@@ -36,11 +36,10 @@ const images_all = import.meta.glob(
   "../../assets/home/Hero/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
 
 const imgs = Array.from({ length: 5 }).map((_, i) => {
   const sizes = [
@@ -67,8 +66,8 @@ const imgs = Array.from({ length: 5 }).map((_, i) => {
   ];
 
   sizes.forEach((size) => {
-    const src = srcs.find((src) => src.includes(`/${size.w}/${i + 1}`));
-    size.src = src || "";
+    size.src =
+      srcs.find(([path, _]) => path.includes(`/${size.w}/${i + 1}`))?.[1] || "";
   });
   return sizes;
 });

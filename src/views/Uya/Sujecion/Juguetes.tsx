@@ -6,15 +6,15 @@ const images_all = import.meta.glob(
   "../../assets/uya/sujecion/juguetes/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
+
+const getSrc = (name: string) =>
+  srcs.find(([path, _]) => path.includes(name))?.[1] || "";
 
 export default function Juguetes() {
-  const getSrc = (name: string) => srcs.find((src) => src.includes(name));
-
   return (
     <div className="flex flex-col items-center gap-4">
       <p>Los imanes pueden ser usados de distintas formas con los juguetes:</p>

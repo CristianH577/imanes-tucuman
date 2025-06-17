@@ -8,11 +8,10 @@ const images_all = import.meta.glob(
   "../../../assets/uya/asaber/revestimientos/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
+    import: "default",
   }
 );
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const srcs = Object.entries(images_all) as string[][];
 
 const columns = [
   {
@@ -210,7 +209,7 @@ const makeCellContent = (row: TypeObjectGeneral, col: string) => {
     case "img":
       return (
         <ImageCustom
-          src={srcs.find((src) => src.includes(row.id))}
+          src={srcs.find(([path, _]) => path.includes(row.id))?.[1] || ""}
           className="sm:min-w-32 drop-shadow-custom"
           alt={`Iman con recubrimiento de ${row?.label}`}
         />

@@ -71,6 +71,7 @@ export default function MenuMovilDrawer({
                 classNames={{
                   svgA: "h-full w-auto max-h-[44px]",
                 }}
+                onClick={onClose}
               />
             </DrawerHeader>
 

@@ -51,7 +51,7 @@ export default function LayoutDefault() {
         />
       </SuspenseCustom>
 
-      {JSON.stringify(magnetData) !== "{}" && (
+      {magnetData && (
         <SuspenseCustom classFall="absolute h-screen bg-black/50 inset-0 z-50">
           <ModalComparativeMagnet
             magnetData={magnetData}

@@ -25,6 +25,17 @@ import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 
 import tapa_img from "../assets/imanes/tapa.webp";
 
+import plano from "../assets/formas/plano.webp";
+import boton from "../assets/formas/boton.webp";
+import cilindro from "../assets/formas/cilindro.webp";
+import arandela from "../assets/formas/arandela.webp";
+import cuadrado from "../assets/formas/cuadrado.webp";
+import plancha from "../assets/formas/plancha.webp";
+import ladrillo from "../assets/formas/ladrillo.webp";
+import cuadrado_fresado from "../assets/formas/cuadrado-fresado.webp";
+import esfera from "../assets/formas/esfera.webp";
+import de_arrastre from "../assets/formas/de_arrastre.webp";
+
 interface TypeModalComparativeMagnetProps {
   magnetData: ClassDBItem | false;
   onClose: () => void;
@@ -44,15 +55,18 @@ type TypeSvgData = {
   sizes?: number[];
 };
 
-const images_all = import.meta.glob(
-  "../assets/formas/**/*.{png,jpg,jpeg,svg,webp}",
-  {
-    eager: true,
-  }
-);
-const srcs = Object.entries(images_all).map(
-  ([_, module]) => (module as { default: string }).default
-);
+const imgs = {
+  plano: plano,
+  boton: boton,
+  cilindro: cilindro,
+  arandela: arandela,
+  cuadrado: cuadrado,
+  plancha: plancha,
+  ladrillo: ladrillo,
+  cuadrado_fresado: cuadrado_fresado,
+  esfera: esfera,
+  de_arrastre: de_arrastre,
+};
 
 const tapa: ClassItemGraphData = {
   id: "tapa",
@@ -93,8 +107,6 @@ export default function ModalComparativeMagnet({
       const measures = magnetData.measures;
 
       if (!forma) return undefined;
-
-      // const magnet_: TypeItemGraphData = { ...magnet, forma: forma };
 
       const magnet_ = new ClassItemGraphData();
       magnet_.label = magnetData.label;
@@ -169,7 +181,7 @@ export default function ModalComparativeMagnet({
           break;
       }
 
-      if (img) img = srcs.find((src) => src.includes(`/${img}.webp`)) || "";
+      if (img) img = imgs[img as keyof typeof imgs];
       magnet_.img_data = { src: img, alt: "Referencia de forma del iman" };
 
       setMagnet(magnet_);
@@ -377,7 +389,7 @@ export default function ModalComparativeMagnet({
         wrapper: scrollStyle,
       }}
     >
-      <ModalContent className="!my-auto max-sm:max-w-none max-sm:mx-0 max-sm:mb-0 max-sm:rounded-none overflow-y-auto self-start max-sm:min-h-full border-3 border-custom1-3">
+      <ModalContent className="!my-auto max-sm:max-w-none max-sm:mx-0 max-sm:mb-0 max-sm:rounded-none overflow-y-auto self-start max-sm:min-h-full sm:border-3 sm:border-custom1-3">
         {(onClose) => (
           <>
             <ModalHeader className="text-2xl">Comparar tamaños</ModalHeader>

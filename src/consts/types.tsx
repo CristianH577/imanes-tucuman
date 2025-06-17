@@ -27,14 +27,10 @@ export type TypeOutletContext = {
   setMagnetData: (itemData: ClassDBItem) => {};
 };
 
-export type TypeOrderBy = {
-  col: string;
-  order: "asc" | "desc";
-};
 export type TypeFiltersValues = {
   apply: boolean;
   page: number;
-  orderBy: TypeOrderBy;
+  orderBy: string;
   text: string;
   categorie: string;
   subcategorie: string;

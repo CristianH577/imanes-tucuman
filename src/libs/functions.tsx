@@ -26,7 +26,7 @@ export const toPercentageFormat = (num = 0) => {
   }).format(num);
 };
 
-export function cartItemsComparator(col: string, order: "asc" | "desc") {
+export function cartItemsComparator(col: string, order: string) {
   return function (a: ClassDBItem, b: ClassDBItem) {
     let type = "text";
     if (["price", "id", "qtt", "subtotal"].includes(col)) type = "number";
@@ -42,11 +42,11 @@ export function cartItemsComparator(col: string, order: "asc" | "desc") {
     let bool = 0;
     if (type === "number") {
       if (col === "price") {
-        const use_a = a?.price_data?.usePrice;
-        const use_b = b?.price_data?.usePrice;
+        // const use_a = a?.price_data?.usePrice;
+        // const use_b = b?.price_data?.usePrice;
 
-        val_a = a?.price_data?.prices?.[use_a] || "";
-        val_b = b?.price_data?.prices?.[use_b] || "";
+        val_a = a?.price_data?.prices.base || "";
+        val_b = b?.price_data?.prices.base || "";
       }
       bool = Number(val_a) - Number(val_b);
     } else {
