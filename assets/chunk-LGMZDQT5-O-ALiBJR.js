@@ -1,0 +1,1 @@
+import{bv as o}from"./index-Coj7M6mq.js";function i(n,r){if(n!=null){if(o(n)){n(r);return}try{n.current=r}catch{throw new Error(`Cannot assign value '${r}' to ref '${n}'`)}}}function c(...n){return r=>{n.forEach(t=>i(t,r))}}export{c as m};

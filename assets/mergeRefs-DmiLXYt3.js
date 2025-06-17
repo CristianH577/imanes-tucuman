@@ -1,0 +1,1 @@
+function i(...n){return n.length===1&&n[0]?n[0]:t=>{let u=!1;const f=n.map(e=>{const c=o(e,t);return u||(u=typeof c=="function"),c});if(u)return()=>{f.forEach((e,c)=>{typeof e=="function"?e():o(n[c],null)})}}}function o(n,t){if(typeof n=="function")return n(t);n!=null&&(n.current=t)}export{i as $};
