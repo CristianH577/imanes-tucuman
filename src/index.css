@@ -1,0 +1,114 @@
+/* @import "tailwindcss";
+@config "../tailwind.config.js"; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "calvera";
+    src: url("./assets/fonts/Calvera.ttf");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "menulis";
+    src: url("./assets/fonts/menulis.ttf");
+    font-display: swap;
+  }
+}
+
+/* @theme {
+  --color-content1: #ffffff;
+  --color-content2: #f4f4f5;
+
+  --color-secondary: #7828c8;
+  --color-secondary-500: #9353d3;
+
+  --color-warning: #f5a524;
+} */
+
+:root {
+  --font-size-primary: medium;
+  --font-size-secondary: small;
+  --font-size-tertiary: large;
+}
+
+.dark {
+  --color-content1: #18181b;
+  --color-content2: #27272a;
+
+  --color-secondary: #9353d3;
+  --color-secondary-500: #7828c8;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-size: var(--font-size-primary);
+}
+.font-size-primary {
+  font-size: var(--font-size-primary);
+}
+.font-size-secondary {
+  font-size: var(--font-size-secondary);
+}
+.font-size-tertiary {
+  font-size: var(--font-size-tertiary);
+}
+
+.bg-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.clip-diagonal-y {
+  clip-path: polygon(0 0, 100% 4rem, 100% calc(100% - 4rem), 0 100%);
+}
+
+.drop-shadow-custom {
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+@media (max-width: 360px) {
+  .table-dinamic-xs {
+    thead {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    td:before {
+      content: attr(data-label);
+      text-transform: uppercase;
+      align-self: center;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .table-dinamic-sm,
+  .table-dinamic {
+    thead {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    td:before {
+      content: attr(data-label);
+      text-transform: uppercase;
+      align-self: center;
+      margin-right: 0.5rem;
+    }
+  }
+}

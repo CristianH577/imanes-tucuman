@@ -1,0 +1,10 @@
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: hsl(
+    var(--heroui-content1) / var(--heroui-content1-opacity, 1)
+  ) !important;
+  color: hsl(
+    var(--heroui-foreground) /
+      var(--heroui-foreground-opacity, var(--tw-text-opacity))
+  ) !important;
+}
