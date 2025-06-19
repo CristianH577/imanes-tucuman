@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { title } from "../../libs/tvs";
 
 import { Button, Link } from "@heroui/react";
@@ -85,11 +87,34 @@ const items = [
 
 export function AdvertisementsOwn() {
   return (
-    <section className="grid grid-cols-1 2xl:grid-cols-2 gap-4">
+    <motion.section
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 0.5,
+            staggerChildren: 0.2,
+          },
+        },
+      }}
+      initial="hidden"
+      whileInView="visible"
+      className="grid grid-cols-1 2xl:grid-cols-2 gap-4"
+    >
       {items.map((item, i) => {
         return (
-          <article
+          <motion.article
             key={i}
+            variants={{
+              hidden: { opacity: 0, x: i % 2 === 0 ? "-50%" : "50%" },
+              visible: {
+                opacity: 1,
+                x: 0,
+              },
+            }}
+            viewport={{ once: true }}
+            initial="hidden"
+            whileInView="visible"
             className="relative grid grid-cols-1 sm:grid-cols-2 w-full gap-8 p-2 xs:p-8"
           >
             <item.icon
@@ -131,7 +156,7 @@ export function AdvertisementsOwn() {
 
               <Button
                 as={Link}
-                href={`#search?${item?.href}`}
+                href={`#buscar?${item?.href}`}
                 className="bg-gradient-to-tr hover:to-50% hover:bg-custom1-2 from-custom2 to-custom2-10 -skew-x-12 font-bold px-4 text-custom1 dark:text-black dark:from-custom1 dark:to-custom1-5 shadow-md"
                 title={"Ver " + item.title}
               >
@@ -139,10 +164,10 @@ export function AdvertisementsOwn() {
                 <ArrowCircleRightIcon className="h-10 w-fit skew-x-12" />
               </Button>
             </div>
-          </article>
+          </motion.article>
         );
       })}
-    </section>
+    </motion.section>
   );
 }
 

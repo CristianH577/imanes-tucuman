@@ -48,13 +48,7 @@ export default function ItemView() {
           <ImagesSection
             imgsData={itemData.imgs_data}
             onComparate={() => context.setMagnetData(itemData)}
-            isComparable={
-              itemData?.categorie === "imanes" &&
-              itemData?.subcategorie !== undefined &&
-              ["neodimio", "arrastre", "ferrita"].includes(
-                itemData?.subcategorie
-              )
-            }
+            isComparable={itemData.isComparable ?? false}
           />
         </article>
 
@@ -103,12 +97,12 @@ export default function ItemView() {
           </article>
         ) : null}
 
-        {itemData?.info ? (
+        {itemData?.especificaciones ? (
           <article>
             <h3 className="text-tertiary">Especificaciones</h3>
 
             <ol className="list-none ps-0">
-              {Object.entries(itemData.info).map(([key, value]) => (
+              {Object.entries(itemData.especificaciones).map(([key, value]) => (
                 <li key={key}>
                   <span className="capitalize italic">
                     {key.replace(/_/g, " ")}:{" "}

@@ -96,12 +96,13 @@ export class ClassDBItem {
   label: string = "";
   categorie: string = "";
   subcategorie?: string;
-  info?: TypeObjectGeneral = {};
+  especificaciones?: TypeObjectGeneral = {};
   caracteristicas?: string[] = [];
   description?: string;
   price_data: ClassPriceData = new ClassPriceData();
   qtt?: number;
   measures?: TypeMeasures;
+  isComparable?: boolean;
   fuerza_N?: TypeObjectGeneral;
   links?: { [key: string]: string };
   imgs_data: ClassImgsData = new ClassImgsData();

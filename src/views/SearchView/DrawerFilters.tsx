@@ -8,6 +8,8 @@ import {
   FILTERS_VALUES_DEFAULT,
 } from "../../consts/siteConfig";
 
+import { getHrefSearch } from "../../libs/functions";
+
 import {
   Button,
   Divider,
@@ -71,24 +73,8 @@ export default function DrawerFilters({
   };
 
   const handleApply = () => {
-    const add = [];
-    for (const key in filtersValuesTemp) {
-      if (!["apply", "page"].includes(key)) {
-        const val = filtersValuesTemp[key as keyof TypeFiltersValues];
-        if (val) add.push([key, val]);
-      }
-    }
-
-    if (add.length > 0) {
-      let href = "";
-      add.forEach((e, i) => {
-        href += i === 0 ? "?" : "&";
-        href += e[0] + "=" + e[1];
-      });
-
-      navigate(href);
-    }
-
+    let href = getHrefSearch(filtersValuesTemp);
+    if (href) navigate(href);
     onClose();
   };
 
@@ -104,8 +90,6 @@ export default function DrawerFilters({
         const items: any = (input.items || []).map((item) => (
           <SelectItem key={item.id}>{item.label}</SelectItem>
         ));
-        // const val = filtersValuesTemp[input.id as keyof typeof input.items]
-        // let selected=input.id==="orderBy"
 
         return (
           <Select
@@ -214,7 +198,7 @@ export default function DrawerFilters({
             title="Limpiar filtros"
             isIconOnly
             as={Link}
-            href="#search?orderBy=price-asc"
+            href="#buscar?orderBy=price-asc"
             onPress={handleClean}
           >
             <SVGBroom className="h-6 w-fit" />

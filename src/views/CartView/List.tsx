@@ -86,6 +86,7 @@ export default function List({ downloading = false }) {
     switch (col) {
       case "img":
         const src = row.imgs_data.preview.src;
+        const thumbnails = row.imgs_data.preview.thumbnails ?? "";
         const SvgForma =
           row.imgs_data.preview.type === "svg" && src
             ? SVG_FORMA?.[src as keyof typeof SVG_FORMA]
@@ -97,9 +98,11 @@ export default function List({ downloading = false }) {
             alt={`Imagen de ${row.label}`}
             className="object-contain w-[50px] min-w-[50px]"
             src={
-              srcs.find(([path, _]) =>
-                path.includes(row.imgs_data.preview.thumbnails)
-              )?.[1] || ""
+              thumbnails
+                ? srcs.find(([path, _]) =>
+                    path.includes(row.imgs_data.preview.thumbnails)
+                  )?.[1] ?? ""
+                : ""
             }
           />
         );

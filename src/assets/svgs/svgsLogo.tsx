@@ -487,7 +487,7 @@ export const SVGTextoTucuman = (props: TypeObjectGeneral) => (
         <stop offset="100%" stopColor="#727472" />
       </linearGradient>
 
-      <filter
+      {/* <filter
         id={`drop-shadow-SVGTextoTucuman-${props?.id}`}
         width="200%"
         height="200%"
@@ -497,7 +497,7 @@ export const SVGTextoTucuman = (props: TypeObjectGeneral) => (
         <feMerge>
           <feMergeNode in="SourceGraphic"></feMergeNode>
         </feMerge>
-      </filter>
+      </filter> */}
 
       <filter
         id={`outline-filter-SVGTextoTucuman-${props?.id}`}
@@ -513,12 +513,12 @@ export const SVGTextoTucuman = (props: TypeObjectGeneral) => (
           radius="4"
           result="dilated"
         ></feMorphology>
-        <feComposite
+        {/* <feComposite
           in="flood"
           in2="dilated"
           operator="in"
           result="outline"
-        ></feComposite>
+        ></feComposite> */}
         <feMerge>
           <feMergeNode in="outline"></feMergeNode>
           <feMergeNode in="SourceGraphic"></feMergeNode>
@@ -532,7 +532,8 @@ export const SVGTextoTucuman = (props: TypeObjectGeneral) => (
       fill={`url(#gradient-SVGTextoTucuman-${props?.id})`}
       fontSize="100"
       fontWeight="700"
-      filter={`url(#outline-filter-SVGTextoTucuman-${props?.id}) url(#drop-shadow-SVGTextoTucuman-${props?.id})`}
+      filter={`url(#outline-filter-SVGTextoTucuman-${props?.id})`}
+      // url(#drop-shadow-SVGTextoTucuman-${props?.id})
       style={{
         textShadow: `0 1px 1px black`,
       }}

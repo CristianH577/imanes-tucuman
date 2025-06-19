@@ -51,7 +51,7 @@ export default function ItemsView({
               className="absolute top-2 z-20 right-2"
             />
 
-            <a href={`#search/${item.id}`} title="Ver el producto">
+            <a href={`#buscar/${item.id}`} title="Ver el producto">
               <div className="hover:scale-105 transition-transform bg-content1 rounded-lg shadow-md">
                 {SvgForma ? (
                   <div className="shadow-small rounded-lg p-4 self-center h-[150px] w-full">
@@ -61,9 +61,6 @@ export default function ItemsView({
                   <ImageCustom
                     alt={`Imagen de ${item.label}`}
                     className="w-full object-contain p-4 h-[150px] rounded-lg shadow-small"
-                    // src={srcs.find((src) =>
-                    //   src.includes(item.imgs_data.preview.src)
-                    // )}
                     src={
                       srcs.find(([path, _]) =>
                         path.includes(item.imgs_data.preview.src)

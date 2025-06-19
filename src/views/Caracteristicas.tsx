@@ -54,9 +54,9 @@ export default function Caracteristicas() {
         <p>
           No contamos con la informacion tecnica precisa.
           <br />
-          La fuerza experimental esta medida mediante la adhesión magnética de
-          un peso al imán que a su vez esta adherido a una placa de metal de
-          casi 10mm en un sentido vertical.
+          La fuerza experimental(F. exp.) esta medida mediante la adhesión
+          magnética de un peso al imán que a su vez esta adherido a una placa de
+          metal de casi 10mm en un sentido vertical.
           <br />
           Los valores de fuerza y gauss por grado son{" "}
           <span className={text_class}>aproximados</span> y bajo{" "}

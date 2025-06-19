@@ -63,7 +63,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
   return (
     <footer
       id="footer"
-      className="bg-gradient-to-b from-custom2-4 to-custom2 text-white w-full flex flex-col items-center px-2 py-4 gap-4 shadow-inner shadow-black/50 pt-16 sm:pt-12 max-sm:pb-12"
+      className="bg-gradient-to-b from-custom2-4 to-custom2 text-white w-full flex flex-col items-center px-2 py-4 gap-4 shadow-inner shadow-black/50 pt-16 sm:pt-12 max-sm:pb-14"
     >
       <ButtonGroup className="absolute bottom-2 right-6 z-20">
         <Button
@@ -110,14 +110,13 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
             target="_blank"
             rel="noopener noreferrer"
             title="Ir al chat de Whatsapp"
-            className="w-full h-full shadow-md shadow-black hover:scale-105 border-3 border-neutral-500 rounded-xl from-custom1 to-custom1-6 p-0 bg-gradient-to-t"
+            className="w- h-full shadow-md shadow-black hover:scale-105 border-3 border-neutral-500 rounded-xl from-custom1 to-custom1-6 p-0 bg-gradient-to-t"
           >
             <ImageCustom
               src={qr}
               alt="QR del link al chat de Whatsapp"
               width={150}
               height={150}
-              className="w-full "
             />
           </Button>
         </motion.div>
@@ -182,7 +181,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
           target="_blank"
           rel="noopener noreferrer"
           title="Ir al perfil de Github"
-          className="text-inherit"
+          className="text-inherit hover:underline"
         >
           <span className="font-mono">©</span>
           VerdeAve

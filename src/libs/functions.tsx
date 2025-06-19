@@ -1,5 +1,5 @@
 import { DB_ALL } from "../consts/dbs";
-import type { ClassDBItem } from "../consts/types";
+import type { ClassDBItem, TypeFiltersValues } from "../consts/types";
 
 export const scrollToTop = () => {
   const app = document.querySelector("#app");
@@ -35,8 +35,8 @@ export function cartItemsComparator(col: string, order: string) {
     let val_b = b?.[col as keyof ClassDBItem] || "";
 
     if (type === "text" && val_a === "") {
-      val_a = a.info?.[col] || "";
-      val_b = b.info?.[col] || "";
+      val_a = a.especificaciones?.[col] || "";
+      val_b = b.especificaciones?.[col] || "";
     }
 
     let bool = 0;
@@ -99,7 +99,7 @@ export const filterDbForms = (form = "redondo") => {
     (item) =>
       item.categorie === "imanes" &&
       item.subcategorie === "neodimio" &&
-      item.info?.forma === form
+      item.especificaciones?.forma === form
   );
 
   items.sort((a, b) => {
@@ -111,4 +111,24 @@ export const filterDbForms = (form = "redondo") => {
   });
 
   return items;
+};
+
+export const getHrefSearch = (filtersValues: TypeFiltersValues) => {
+  let href = "";
+  const add = [];
+  for (const key in filtersValues) {
+    if (!["apply", "page"].includes(key)) {
+      const val = filtersValues[key as keyof TypeFiltersValues];
+      if (val) add.push([key, val]);
+    }
+  }
+
+  if (add.length > 0) {
+    add.forEach((e, i) => {
+      href += i === 0 ? "?" : "&";
+      href += e[0] + "=" + e[1];
+    });
+  }
+
+  return href;
 };

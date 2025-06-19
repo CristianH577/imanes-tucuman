@@ -89,7 +89,7 @@ export default function TablePrices({
                 <td className="px-2 py-1 xs:py-2 whitespace-nowrap xs:col-span-2 max-xs:border-b-3 xs:border-e-3 xs:text-start">
                   <div className="flex gap-1 xs:gap-2 justify-end items-center w-full max-xs:flex-col xs:flex-row-reverse break-all">
                     <a
-                      href={"#search/" + item.id}
+                      href={"#buscar/" + item.id}
                       title="Ver producto"
                       className="max-xs:whitespace-normal"
                     >

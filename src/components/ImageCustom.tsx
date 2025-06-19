@@ -9,13 +9,14 @@ interface TypeImageCustomProps {
   className?: string;
   width?: number;
   height?: number;
+  // style?: { [key: string]: string };
 }
 export default function ImageCustom({
   src = "",
   alt = "Imagen desconocida",
   className = undefined,
-  width,
-  height,
+  width = 150,
+  height = 150,
   ...props
 }: TypeImageCustomProps) {
   const ref = useRef(null);

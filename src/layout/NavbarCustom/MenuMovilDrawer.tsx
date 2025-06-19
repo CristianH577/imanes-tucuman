@@ -38,7 +38,6 @@ export default function MenuMovilDrawer({
       onOpenChange={() => setIsOpen(!isOpen)}
       placement="left"
       className={`max-xs:rounded-none w-full xs:max-w-[255px] ps-[3%]`}
-      backdrop="transparent"
       classNames={{
         wrapper: "max-xs:ms-[3%]",
         closeButton: "text-2xl top-5 end-3",

@@ -136,6 +136,7 @@ export default function ImagesSection({
                 }
                 className="object-contain drop-shadow-custom h-full max-w-[300px]"
                 alt="Imagen seleccionada"
+                width={300}
                 // @ts-ignore
                 style={{ display: index === i ? "block" : "none" }}
               />

@@ -56,7 +56,7 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
       case "label":
         return (
           <a
-            href={"#search/" + row.id}
+            href={"#buscar/" + row.id}
             title="Ver producto"
             className="max-sm:whitespace-normal"
           >
@@ -66,7 +66,7 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
       case "peso":
         return row?.measures?.peso || "-";
       case "fuerza_experimental":
-        return row?.info?.fuerza_experimental || "-";
+        return row?.especificaciones?.fuerza_experimental || "-";
       case "grade":
         return caract
           ? Object.keys(caract).map((g, i) => <p key={i}>N{g}</p>)

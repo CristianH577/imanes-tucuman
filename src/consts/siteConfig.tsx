@@ -97,10 +97,10 @@ export const FILTERS_INPUTS = [
     items: [
       { id: "id-asc", label: "Mas antiguo" },
       { id: "id-desc", label: "Mas reciente" },
-      { id: "label-desc", label: "Nombre 🡡" },
-      { id: "label-asc", label: "Nombre 🡣" },
-      { id: "price-desc", label: "Precio 🡡" },
-      { id: "price-asc", label: "Precio 🡣" },
+      { id: "label-desc", label: "Nombre ↑" },
+      { id: "label-asc", label: "Nombre ↓" },
+      { id: "price-desc", label: "Precio ↑" },
+      { id: "price-asc", label: "Precio ↓" },
     ],
   },
   {
@@ -115,7 +115,7 @@ export const FILTERS_INPUTS = [
   },
   {
     id: "subcategorie",
-    label: "Sub-categoría",
+    label: "Subcategoría",
     format: "select",
     items: [
       { id: "arrastre", label: "De arrastre" },
@@ -133,13 +133,9 @@ export const FILTERS_INPUTS = [
       { id: "cuadrado_fresado", label: "Cuadrado fresado" },
       { id: "redondo", label: "Redondo" },
       { id: "redondo_fresado", label: "Redondo fresado" },
+      { id: "esfera", label: "Esfera" },
     ],
   },
-  // {
-  //   id: "marca",
-  //   label: "Marca",
-  //   format: "text",
-  // },
   {
     id: "price",
     label: "Precio",

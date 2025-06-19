@@ -37,7 +37,7 @@ const views = [
   },
   {
     id: "view",
-    href: "/search/:id",
+    href: "/buscar/:id",
     label: "",
   },
 ];

@@ -36,6 +36,7 @@ const COLORS_CUSTOM = {
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./z/**/*.{js,jsx,ts,tsx}",
     "./index.html",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],

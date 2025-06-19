@@ -14,6 +14,15 @@ import {
   SVGMagnetBlast,
 } from "../../assets/svgs/svgsIcons";
 
+const images_all = import.meta.glob(
+  "../../assets/home/Hero/**/*.{png,jpg,jpeg,svg,webp}",
+  {
+    eager: true,
+    import: "default",
+  }
+);
+const srcs = Object.entries(images_all) as string[][];
+
 const class_icons_main =
   "absolute w-12 xs:w-14 sm:w-20 lg:w-28 h-auto transition-all text-custom1/90";
 
@@ -31,15 +40,6 @@ const icons = [
     className={`bottom-0 left-2 sm:left-16 ${class_icons_main}`}
   />,
 ];
-
-const images_all = import.meta.glob(
-  "../../assets/home/Hero/**/*.{png,jpg,jpeg,svg,webp}",
-  {
-    eager: true,
-    import: "default",
-  }
-);
-const srcs = Object.entries(images_all) as string[][];
 
 const imgs = Array.from({ length: 5 }).map((_, i) => {
   const sizes = [
@@ -74,7 +74,16 @@ const imgs = Array.from({ length: 5 }).map((_, i) => {
 
 export default function Hero() {
   return (
-    <section
+    <motion.section
+      variants={{
+        hidden: { opacity: 0 },
+        visible: {
+          opacity: 1,
+        },
+      }}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 1 }}
       className="w-screen relative right-2 xs:right-4 sm:right-10 lg:right-12 overflow-hidden shadow-md shadow-black/50 min-[2000px]:h-[1200px] mt-16 pt-2 bg-radial from-custom2-10 to-custom2"
       style={{
         height: "calc(100dvh - 4rem)",
@@ -177,6 +186,6 @@ export default function Hero() {
           </Button>
         </article>
       </div>
-    </section>
+    </motion.section>
   );
 }

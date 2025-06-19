@@ -64,10 +64,6 @@ body {
   background: radial-gradient(circle, var(--tw-gradient-stops));
 }
 
-.clip-diagonal-y {
-  clip-path: polygon(0 0, 100% 4rem, 100% calc(100% - 4rem), 0 100%);
-}
-
 .drop-shadow-custom {
   filter: drop-shadow(2px 4px 6px black);
 }

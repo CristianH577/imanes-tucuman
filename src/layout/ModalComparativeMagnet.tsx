@@ -103,7 +103,7 @@ export default function ModalComparativeMagnet({
   };
   const MakeMagnet = () => {
     if (magnetData && magnetData?.measures) {
-      const forma = magnetData?.info?.forma;
+      const forma = magnetData?.especificaciones?.forma;
       const measures = magnetData.measures;
 
       if (!forma) return undefined;
@@ -120,6 +120,10 @@ export default function ModalComparativeMagnet({
       magnet_.alto = alto;
 
       switch (forma) {
+        case "esfera":
+          magnet_.radios = [largo, largo, largo];
+          img = "esfera";
+          break;
         case "redondo":
           const radio = largo / 2;
           magnet_.radios = [radio];
@@ -202,6 +206,7 @@ export default function ModalComparativeMagnet({
     switch (view) {
       case "sup":
         switch (item.forma) {
+          case "esfera":
           case "de_arrastre":
           case "redondo":
             obj.radios = item.radios;
@@ -223,6 +228,9 @@ export default function ModalComparativeMagnet({
         break;
       case "front":
         switch (item?.forma) {
+          case "esfera":
+            obj.radios = item.radios;
+            break;
           case "de_arrastre":
           case "redondo":
             obj.sizes = [radio * 2, item?.alto];
@@ -243,6 +251,9 @@ export default function ModalComparativeMagnet({
         break;
       case "lat":
         switch (item?.forma) {
+          case "esfera":
+            obj.radios = item.radios;
+            break;
           case "de_arrastre":
           case "redondo":
             obj.sizes = [radio * 2, item?.alto];
@@ -292,8 +303,8 @@ export default function ModalComparativeMagnet({
         fix_h = 0.2;
         h = d;
       }
-      obj.radios.forEach((item) => {
-        content.push(<circle key={item} cx="50%" cy="50%" r={item} />);
+      obj.radios.forEach((item, i) => {
+        content.push(<circle key={"radio" + i} cx="50%" cy="50%" r={item} />);
       });
     }
 

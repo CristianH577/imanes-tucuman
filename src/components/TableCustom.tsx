@@ -1,7 +1,8 @@
 import React from "react";
 
-import { Spinner } from "@heroui/react";
 import type { TypeObjectGeneral } from "../consts/types";
+
+import { Spinner } from "@heroui/react";
 
 interface InterfaceTableCustomProps {
   id?: string;

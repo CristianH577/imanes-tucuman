@@ -84,7 +84,7 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
         ))}
       </NavbarContent>
 
-      <NavbarContent justify="end" className="gap-3">
+      <NavbarContent justify="end" className="gap-4">
         <NavbarItem className="hidden sm:block md:hidden lg:block">
           <Redes
             className="hidden sm:flex md:hidden lg:flex items-center"
@@ -124,7 +124,7 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
           <Link
             href={links.whatsapp}
             target="_blank"
-            className="flex items-center hover:scale-110 transition-transform"
+            className="flex items-center hover:scale-110 transition-transform px-1"
             title="Consulte por Whatsapp"
           >
             <WhatsAppIcon className="text-success h-6 w-fit" />

@@ -1,16 +1,16 @@
 import { lazy, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 
+import { DB_ALL } from "../consts/dbs";
+import { FILTERS_VALUES_DEFAULT } from "../consts/siteConfig";
+
 import type {
   ClassDBItem,
   TypeFiltersValues,
   TypeObjectGeneral,
 } from "../consts/types";
 
-import { DB_ALL } from "../consts/dbs";
-import { FILTERS_VALUES_DEFAULT } from "../consts/siteConfig";
-
-import { cartItemsComparator } from "../libs/functions";
+import { cartItemsComparator, getHrefSearch } from "../libs/functions";
 
 import { Button, ButtonGroup, Link, Spinner } from "@heroui/react";
 
@@ -68,9 +68,13 @@ export default function SearchView() {
         const filter_value = String(val).toLowerCase().replace(/_/g, " ");
         items_ = items_.filter(
           (item) =>
-            item?.info &&
-            filterKey in item.info &&
-            String(item.info[filterKey as keyof typeof item.info])
+            item?.especificaciones &&
+            filterKey in item.especificaciones &&
+            String(
+              item.especificaciones[
+                filterKey as keyof typeof item.especificaciones
+              ]
+            )
               .toLowerCase()
               .includes(filter_value)
         );
@@ -123,17 +127,16 @@ export default function SearchView() {
 
   const handleSearch = () => {
     let href = "?orderBy=price-asc";
-    if (inputText) {
-      href += "&text=" + inputText;
-    }
+    if (inputText) href += "&text=" + inputText;
     navigate(href);
   };
+
   const handleClean = () => setInputText("");
 
   const showMoreItems = () => {
-    let href = "";
-    if (search) {
-      href += search + "&";
+    let href = getHrefSearch(filtersValues);
+    if (href) {
+      href += "&";
     } else {
       href += "?";
     }
@@ -176,6 +179,7 @@ export default function SearchView() {
             value={inputText}
             setValue={setInputText}
             handleSearch={handleSearch}
+            onClear={() => navigate("?orderBy=price-asc")}
           />
 
           <ButtonGroup>
@@ -183,7 +187,7 @@ export default function SearchView() {
               isIconOnly
               as={Link}
               title="Limpiar filtros"
-              href="#search?orderBy=price-asc"
+              href="#buscar?orderBy=price-asc"
               onPress={handleClean}
             >
               <SVGBroom className="h-6 w-fit" />
@@ -205,14 +209,6 @@ export default function SearchView() {
           <br />
           <span className="text-second">Los precios pueden variar.</span>
         </article>
-
-        <SuspenseCustom classFall="absolute w-screen min-h-[100dvh] bg-black/50 z-30">
-          <DrawerFilters
-            isOpen={isOpenFiltersDrawer}
-            setIsOpen={setIsOpenFiltersDrawer}
-            filtersValues={filtersValues}
-          />
-        </SuspenseCustom>
       </section>
 
       {items.length < 1 ? (
@@ -225,6 +221,16 @@ export default function SearchView() {
           showMoreItems={showMoreItems}
           totalItems={items.length}
         />
+      )}
+
+      {isOpenFiltersDrawer && (
+        <SuspenseCustom classFall="absolute w-screen min-h-screen top-0 bg-black/50 z-30">
+          <DrawerFilters
+            isOpen={isOpenFiltersDrawer}
+            setIsOpen={setIsOpenFiltersDrawer}
+            filtersValues={filtersValues}
+          />
+        </SuspenseCustom>
       )}
     </>
   );

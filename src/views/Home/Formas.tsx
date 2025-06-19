@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import ImageCustom from "../../components/ImageCustom";
 
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
@@ -82,47 +84,59 @@ export default function Formas() {
         </p>
       </article>
 
-      <article className="grid xs:grid-cols-[repeat(auto-fit,_minmax(150px,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4 sm:gap-8">
-        {items.map((item) => {
-          // test +=
-          //   "import " +
-          //   item.id +
-          //   " from '../../assets/formas/" +
-          //   item.id +
-          //   ".webp'\n";
-          // console.log(test);
-          return (
-            <a
-              href={
-                "#search?categorie=imanes&subcategorie=" +
-                (item.id === "de_arrastre" ? "arrastre" : "neodimio") +
-                item.hrefAdd
-              }
-              key={item.id}
-              className="bg-neutral-500/20 rounded-lg p-4 sm:p-8 max-w-[400px] xs:min-h-[150px] max-h-[400px] flex items-center justify-center relative select-none group/item"
+      <motion.article
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              delayChildren: 0.5,
+              staggerChildren: 0.2,
+            },
+          },
+        }}
+        initial="hidden"
+        whileInView="visible"
+        className="grid xs:grid-cols-[repeat(auto-fit,_minmax(150px,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4 sm:gap-8"
+      >
+        {items.map((item) => (
+          <motion.a
+            key={item.id}
+            variants={{
+              hidden: { opacity: 0, scale: 0 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+              },
+            }}
+            viewport={{ once: true }}
+            href={
+              "#buscar?categorie=imanes&subcategorie=" +
+              (item.id === "de_arrastre" ? "arrastre" : "neodimio") +
+              item.hrefAdd
+            }
+            className="bg-neutral-500/20 rounded-lg p-4 sm:p-8 max-w-[400px] xs:min-h-[150px] max-h-[400px] flex items-center justify-center relative select-none group/item"
+          >
+            <ImageCustom
+              src={item.src}
+              alt={`Iman ${item.label}`}
+              width={200}
+              height={200}
+              className="object-contain group-hover/item:blur-sm h-fit drop-shadow-[-2px_4px_6px_black]"
+            />
+            <span
+              className="absolute text-3xl font-bold hidden text-center px-4 sm:px-8 text-white group-hover/item:block"
+              style={{
+                textShadow: "-2px 4px 6px black",
+              }}
             >
-              <ImageCustom
-                src={item.src}
-                alt={`Iman ${item.label}`}
-                width={200}
-                height={200}
-                className="object-contain group-hover/item:blur-sm h-fit drop-shadow-[-2px_4px_6px_black]"
-              />
-              <span
-                className="absolute text-3xl font-bold hidden text-center px-4 sm:px-8 text-white group-hover/item:block"
-                style={{
-                  textShadow: "-2px 4px 6px black",
-                }}
-              >
-                {item.label}
-              </span>
-              <span className="absolute bottom-4 right-4 opacity-50 group-hover/item:opacity-100 text-custom2 dark:text-custom1">
-                <ArrowCircleRightIcon className="h-12 w-fit" />
-              </span>
-            </a>
-          );
-        })}
-      </article>
+              {item.label}
+            </span>
+            <span className="absolute bottom-4 right-4 opacity-50 group-hover/item:opacity-100 text-custom2 dark:text-custom1">
+              <ArrowCircleRightIcon className="h-12 w-fit" />
+            </span>
+          </motion.a>
+        ))}
+      </motion.article>
     </section>
   );
 }

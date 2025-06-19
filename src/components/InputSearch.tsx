@@ -8,6 +8,7 @@ export default function InputSearch({
     val;
   },
   handleSearch = () => {},
+  onClear = () => {},
 }) {
   const onKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") handleSearch();
@@ -26,6 +27,7 @@ export default function InputSearch({
         onValueChange={(e) => setValue(e)}
         onKeyDown={onKeyDown}
         isClearable
+        onClear={onClear}
       />
       <Button
         isIconOnly

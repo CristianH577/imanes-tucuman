@@ -44,7 +44,7 @@ export default function LayoutDefault() {
       id="app"
       className="min-h-screen h-[100dvh] text-foreground dark:bg-content2 dark:text-white font-[menulis] flex flex-col justify-between overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
     >
-      <SuspenseCustom classFall="absolute h-14 bg-black/50 inset-0 z-50">
+      <SuspenseCustom classFall="absolute h-16 bg-black/50 inset-0 z-50">
         <NavbarCustom
           cartLength={Object.keys(cart.value).length}
           links={LINKS_SITES}

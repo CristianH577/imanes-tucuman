@@ -1,7 +1,5 @@
 import { tv } from "tailwind-variants";
 
-// import { button as buttonStyles } from "@nextui-org/theme";
-
 export const title = tv({
   base: "uppercase font-[calvera]",
   variants: {

@@ -38,7 +38,7 @@ export default function Opiniones() {
   ];
 
   return (
-    <section className="flex flex-col items-center sm:flex-row gap-4 sm:gap-8 w-full max-w-[900px]">
+    <section className="flex flex-col items-center sm:flex-row gap-4 md:gap-8 w-full max-w-[900px]">
       <ImageCustom
         src={imgOpinions}
         className="border-3 border-neutral-500/30 rounded-lg"
