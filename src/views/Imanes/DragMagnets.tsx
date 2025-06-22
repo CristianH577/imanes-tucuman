@@ -1,4 +1,4 @@
-import { Button } from "@heroui/react";
+import { motion } from "framer-motion";
 
 import type {
   ClassDBItem,
@@ -7,6 +7,8 @@ import type {
 } from "../../consts/types";
 
 import { scrollStyle } from "../../libs/tvs";
+
+import { Button } from "@heroui/react";
 
 import ButtonAddCart from "../../components/ButtonAddCart";
 import PriceLabel from "../../components/PriceLabel";
@@ -46,7 +48,18 @@ export default function DragMagnets({
         <SVGDragMagnetMeasures className="h-full w-full max-h-[250px]" />
       </div>
 
-      <div
+      <motion.div
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              delayChildren: 0.1,
+              staggerChildren: 0.1,
+            },
+          },
+        }}
+        initial="hidden"
+        animate="visible"
         data-slot="table-container"
         className={"w-full overflow-x-auto " + scrollStyle}
       >
@@ -78,8 +91,15 @@ export default function DragMagnets({
               const inCart = item.id in cart;
 
               return (
-                <tr
+                <motion.tr
                   key={item.id}
+                  variants={{
+                    hidden: { opacity: 0, x: 100 },
+                    visible: {
+                      opacity: 1,
+                      x: 0,
+                    },
+                  }}
                   className="even:text-custom2-10 dark:even:text-custom1 group hover:font-semibold"
                 >
                   <td
@@ -143,7 +163,7 @@ export default function DragMagnets({
                       }}
                     />
                   </td>
-                </tr>
+                </motion.tr>
               );
             })}
 
@@ -152,7 +172,7 @@ export default function DragMagnets({
             </tr>
           </tbody>
         </table>
-      </div>
+      </motion.div>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useInView, motion } from "framer-motion";
 
 import TitleCustom from "./TitleCustom";
 
@@ -12,26 +12,23 @@ export default function ViewDefault({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
-    //@ts-ignore
-    threshold: 0.3,
     once: true,
   });
   const isInView_ = disabledInView ? true : isInView;
 
   return (
-    <div
+    <motion.div
       id={id || undefined}
       ref={ref}
-      className={`w-full max-w-[1200px] flex flex-col items-center gap-6 place-self-center pt-20 min-h-[100dvh]${
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={`w-full min-h-screen max-w-[1200px] flex flex-col items-center gap-6 place-self-center pt-20${
         className ? " " + className : ""
       }`}
-      // style={{
-      //   minHeight: isInView_ ? "100dvh" : "none",
-      // }}
     >
       {isInView_ && title && <TitleCustom title={title} />}
 
       {isInView_ && children}
-    </div>
+    </motion.div>
   );
 }

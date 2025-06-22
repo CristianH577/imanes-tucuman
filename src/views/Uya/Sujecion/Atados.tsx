@@ -1,7 +1,7 @@
 import CardUya from "../CardUya";
 
 const images_all = import.meta.glob(
-  "../../assets/uya/sujecion/atados/**/*.{png,jpg,jpeg,svg,webp}",
+  "../../../assets/uya/sujecion/atados/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
     import: "default",
@@ -53,7 +53,7 @@ export default function Atados() {
 
         <div className="flex flex-col max-md:items-center md:col-span-2 md:col-start-3 sm:flex-row max-md:gap-4">
           <CardUya
-            src={getSrc(`./3.webp`)}
+            src={getSrc(`/3.webp`)}
             alt="Lingas con imanes en las puntas"
             className="md:w-2/3"
             classNames={{
@@ -63,7 +63,7 @@ export default function Atados() {
           />
 
           <CardUya
-            src={getSrc(`./4.jpg`)}
+            src={getSrc(`/4.jpg`)}
             alt="Persiana sostenida con cuerdas agarradas a ganchos magnéticos"
             className="md:w-2/3"
             classNames={{

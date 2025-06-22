@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import { motion } from "framer-motion";
 
 import type { TypeFiltersInput, TypeFiltersValues } from "../../consts/types";
 
@@ -170,16 +171,39 @@ export default function DrawerFilters({
       <DrawerContent>
         <DrawerHeader className="pb-0">Filtros</DrawerHeader>
 
-        <DrawerBody className="px-2">
+        <DrawerBody className="px-2 overflow-x-hidden">
           <Divider />
 
-          <article className="p-4">
-            <ol aria-label="Filtros" className="space-y-4">
-              {FILTERS_INPUTS.map((input: TypeFiltersInput) => (
-                <li key={input.id}>{makeInput(input)}</li>
-              ))}
-            </ol>
-          </article>
+          <motion.ol
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  delayChildren: 0.1,
+                  staggerChildren: 0.1,
+                },
+              },
+            }}
+            initial="hidden"
+            animate="visible"
+            aria-label="Filtros"
+            className="space-y-4 p-4"
+          >
+            {FILTERS_INPUTS.map((input: TypeFiltersInput) => (
+              <motion.li
+                key={input.id}
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                  },
+                }}
+              >
+                {makeInput(input)}
+              </motion.li>
+            ))}
+          </motion.ol>
 
           <Divider />
         </DrawerBody>
@@ -195,8 +219,8 @@ export default function DrawerFilters({
           </Button>
 
           <Button
-            title="Limpiar filtros"
             isIconOnly
+            title="Limpiar filtros"
             as={Link}
             href="#buscar?orderBy=price-asc"
             onPress={handleClean}

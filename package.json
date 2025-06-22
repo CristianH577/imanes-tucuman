@@ -1,7 +1,7 @@
 {
   "name": "imanes-tuc-app",
   "private": true,
-  "version": "2.0.3",
+  "version": "2.0.4",
   "type": "module",
   "homepage": "https://imanestucuman.com.ar/",
   "scripts": {

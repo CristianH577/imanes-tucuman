@@ -1,4 +1,5 @@
 import { lazy, useState } from "react";
+import { motion } from "framer-motion";
 
 import { NAV_ITEMS } from "../consts/siteConfig";
 
@@ -24,6 +25,9 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const MenuMovilDrawer = lazy(() => import("./NavbarCustom/MenuMovilDrawer"));
+
+const MotionNavbarContent = motion.create(NavbarContent);
+const MotionLinkRouter = motion.create(LinkRouter);
 
 function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,21 +72,39 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
         </NavbarItem>
       </NavbarContent>
 
-      <NavbarContent className="hidden md:flex gap-4" justify="center">
+      <MotionNavbarContent
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              delayChildren: 0.1,
+              staggerChildren: 0.1,
+            },
+          },
+        }}
+        initial="hidden"
+        whileInView="visible"
+        className="hidden md:flex gap-4"
+        justify="center"
+      >
         {NAV_ITEMS.map((item) => (
           <NavbarItem
             key={item.id}
             className="hover:scale-105 transition-transform"
           >
-            <LinkRouter
+            <MotionLinkRouter
+              variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+              }}
               to={item.href + (item?.search || "")}
               className="text-[medium] capitalize text-custom2 dark:text-custom1"
             >
               {item.label}
-            </LinkRouter>
+            </MotionLinkRouter>
           </NavbarItem>
         ))}
-      </NavbarContent>
+      </MotionNavbarContent>
 
       <NavbarContent justify="end" className="gap-4">
         <NavbarItem className="hidden sm:block md:hidden lg:block">

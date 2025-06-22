@@ -85,7 +85,6 @@ export default function SearchView() {
       const min = Number(filtersValues?.priceMin);
       items_ = items_.filter((item) => {
         const usePrice = item.price_data.usePrice;
-        // @ts-ignore
         const price = item.price_data.prices[usePrice];
         return Number(price) >= min;
       });
@@ -94,7 +93,6 @@ export default function SearchView() {
       const max = Number(filtersValues?.priceMax);
       items_ = items_.filter((item) => {
         const usePrice = item.price_data.usePrice;
-        // @ts-ignore
         const price = item.price_data.prices[usePrice];
         return Number(price) <= max;
       });

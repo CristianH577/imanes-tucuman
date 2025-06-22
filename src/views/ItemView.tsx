@@ -1,5 +1,6 @@
 import { useOutletContext, useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import { DB_ALL } from "../consts/dbs";
 import { MEASURES_MEASURES } from "../consts/values";
@@ -39,30 +40,64 @@ export default function ItemView() {
   }
 
   return (
-    <div className="w-full max-w-[700px] lg:max-w-[1000px] mt-4">
-      <section className="lg:flex gap-4">
-        <article className="w-full">
-          <h1 className="text-4xl font-bold">{itemData?.label}</h1>
+    <motion.div
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 0.2,
+            staggerChildren: 0.2,
+          },
+        },
+      }}
+      initial="hidden"
+      animate="visible"
+      className="w-full max-w-[700px] lg:max-w-[1000px] mt-4 lg:grid grid-cols-5 gap-2"
+    >
+      <motion.section
+        variants={{
+          hidden: { opacity: 0, x: 200 },
+          visible: { opacity: 1, x: 0 },
+        }}
+        className="lg:col-span-3"
+      >
+        <h1 className="text-4xl font-bold">{itemData?.label}</h1>
 
-          <Divider />
-          <ImagesSection
-            imgsData={itemData.imgs_data}
-            onComparate={() => context.setMagnetData(itemData)}
-            isComparable={itemData.isComparable ?? false}
-          />
-        </article>
+        <Divider />
+        <ImagesSection
+          imgsData={itemData.imgs_data}
+          onComparate={() => context.setMagnetData(itemData)}
+          isComparable={itemData.isComparable ?? false}
+        />
+      </motion.section>
 
-        <article>
-          <Divider className="lg:hidden" />
-          <TableItemPrices itemData={itemData} />
-        </article>
-      </section>
+      <motion.section
+        variants={{
+          hidden: { opacity: 0, x: 200 },
+          visible: { opacity: 1, x: 0 },
+        }}
+        className="lg:col-span-2"
+      >
+        <Divider className="lg:hidden" />
+        <TableItemPrices itemData={itemData} />
+      </motion.section>
 
-      <Divider className="mt-4" />
+      <Divider className="col-span-full lg:mt-2" />
 
-      <section className="flex flex- flex-wrap gap-2 xs:gap-4 sm:gap-8 prose dark:prose-invert">
-        {itemData?.measures ? (
-          <article>
+      <motion.section
+        variants={{
+          hidden: { opacity: 0, x: 200 },
+          visible: { opacity: 1, x: 0 },
+        }}
+        className="flex flex-wrap gap-2 xs:gap-4 sm:gap-8 prose dark:prose-invert lg:col-span-full"
+      >
+        {itemData?.measures && (
+          <motion.article
+          // variants={{
+          //   hidden: { opacity: 0, x: 100 },
+          //   visible: { opacity: 1, x: 0 },
+          // }}
+          >
             <h3 className="text-tertiary">Medidas</h3>
 
             <ol className="list-none ps-0">
@@ -76,11 +111,16 @@ export default function ItemView() {
                 );
               })}
             </ol>
-          </article>
-        ) : null}
+          </motion.article>
+        )}
 
-        {itemData?.caracteristicas ? (
-          <article>
+        {itemData?.caracteristicas && (
+          <motion.article
+          // variants={{
+          //   hidden: { opacity: 0, x: 100 },
+          //   visible: { opacity: 1, x: 0 },
+          // }}
+          >
             <h3 className="text-tertiary">Caracteristicas</h3>
 
             <ol className="list-none ps-0 flex flex-wrap gap-4">
@@ -94,11 +134,16 @@ export default function ItemView() {
                   </li>
                 ))}
             </ol>
-          </article>
-        ) : null}
+          </motion.article>
+        )}
 
-        {itemData?.especificaciones ? (
-          <article>
+        {itemData?.especificaciones && (
+          <motion.article
+          // variants={{
+          //   hidden: { opacity: 0, x: 200 },
+          //   visible: { opacity: 1, x: 0 },
+          // }}
+          >
             <h3 className="text-tertiary">Especificaciones</h3>
 
             <ol className="list-none ps-0">
@@ -112,18 +157,26 @@ export default function ItemView() {
                 </li>
               ))}
             </ol>
-          </article>
-        ) : null}
-      </section>
+          </motion.article>
+        )}
+      </motion.section>
 
-      {itemData?.description ? (
-        <section className="prose dark:prose-invert">
-          <Divider className="my-4" />
-          <h3 className="text-tertiary">Descripcion</h3>
-          <p>{itemData.description}.</p>
-          <Divider className="my-4" />
-        </section>
-      ) : null}
-    </div>
+      <motion.section
+        variants={{
+          hidden: { opacity: 0, x: 200 },
+          visible: { opacity: 1, x: 0 },
+        }}
+        className="prose dark:prose-invert lg:col-span-full"
+      >
+        {itemData?.description && (
+          <>
+            <Divider className="my-4" />
+            <h3 className="text-tertiary">Descripcion</h3>
+            <p>{itemData.description}.</p>
+            <Divider className="my-4" />
+          </>
+        )}
+      </motion.section>
+    </motion.div>
   );
 }

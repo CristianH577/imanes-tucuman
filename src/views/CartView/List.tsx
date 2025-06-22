@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
+import { motion } from "framer-motion";
 
 import { SVG_FORMA } from "../../consts/values";
 
@@ -278,7 +279,18 @@ export default function List({ downloading = false }) {
         Total: {items.length}
       </span>
 
-      <section
+      <motion.section
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              delayChildren: 0.1,
+              staggerChildren: 0.1,
+            },
+          },
+        }}
+        initial="hidden"
+        animate="visible"
         className={`w-full px-4 ${scrollStyle}`}
         style={{
           overflowX: downloading ? "visible" : "auto",
@@ -312,8 +324,15 @@ export default function List({ downloading = false }) {
 
           <tbody>
             {visibleItems.map((row) => (
-              <tr
+              <motion.tr
                 key={row.id}
+                variants={{
+                  hidden: { opacity: 0, x: 100 },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                  },
+                }}
                 className="even:text-custom2-10 dark:even:text-custom1 group hover:bg-secondary/30"
               >
                 {cols.map((col) => (
@@ -325,7 +344,7 @@ export default function List({ downloading = false }) {
                     {makeCell(col.id, row)}
                   </td>
                 ))}
-              </tr>
+              </motion.tr>
             ))}
 
             <tr>
@@ -344,7 +363,7 @@ export default function List({ downloading = false }) {
             </tr>
           </tbody>
         </table>
-      </section>
+      </motion.section>
 
       {Object.keys(cart).length > 0 && (
         <section className="self-end font-semibold px-4 text-end">

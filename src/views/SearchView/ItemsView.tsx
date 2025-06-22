@@ -1,4 +1,5 @@
 import { useOutletContext } from "react-router";
+import { motion } from "framer-motion";
 
 import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
 
@@ -26,7 +27,7 @@ const images_all = import.meta.glob(
 const srcs = Object.entries(images_all) as string[][];
 
 export default function ItemsView({
-  items,
+  items = [],
   showMoreItems,
   totalItems = 0,
 }: TypeItemsViewProps) {
@@ -34,7 +35,20 @@ export default function ItemsView({
   const cart = context.cart.value;
 
   return (
-    <section className="w-full grid xs:grid-cols-[repeat(auto-fit,_minmax(160px,_180px))] sm:grid-cols-[repeat(auto-fit,_minmax(200px,_240px))] gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center">
+    <motion.section
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.1,
+          },
+        },
+      }}
+      initial="hidden"
+      animate="visible"
+      className="w-full grid xs:grid-cols-[repeat(auto-fit,_minmax(160px,_180px))] sm:grid-cols-[repeat(auto-fit,_minmax(200px,_240px))] gap-2 sm:gap-4 md:gap-6 lg:gap-8 justify-center"
+    >
       {items.map((item: ClassDBItem) => {
         const preview = item.imgs_data.preview;
         const SvgForma =
@@ -43,7 +57,17 @@ export default function ItemsView({
             : false;
 
         return (
-          <div key={item.id} className="relative">
+          <motion.div
+            key={item.id}
+            variants={{
+              hidden: { opacity: 0, scale: 0 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+              },
+            }}
+            className="relative"
+          >
             <ButtonAddCart
               inCart={item.id in cart}
               itemData={item}
@@ -88,7 +112,7 @@ export default function ItemsView({
                 </div>
               </div>
             </a>
-          </div>
+          </motion.div>
         );
       })}
 
@@ -106,6 +130,6 @@ export default function ItemsView({
           </div>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }

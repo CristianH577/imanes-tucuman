@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 import type { ClassDBItem, TypeCartValue } from "../../consts/types";
 
@@ -50,7 +51,18 @@ export default function TablePrices({
   }, [isInView]);
 
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.1,
+          },
+        },
+      }}
+      initial="hidden"
+      animate="visible"
       data-slot="table-container"
       className={"w-full overflow-x-auto " + scrollStyle}
     >
@@ -80,7 +92,14 @@ export default function TablePrices({
             const inCart = item.id in cart;
 
             return (
-              <tr
+              <motion.tr
+                variants={{
+                  hidden: { opacity: 0, x: 100 },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                  },
+                }}
                 key={item.id}
                 className="group hover:font-semibold hover:bg-secondary/30 data-[incart=false]:data-[nostock=true]:bg-divider data-[incart=true]:!bg-success/30 max-xs:grid max-xs:grid-cols-1 max-xs:border-3 max-xs:rounded-lg max-xs:mb-3 xs:even:text-custom2-10 xs:dark:even:text-custom1"
                 data-nostock={noStock}
@@ -144,7 +163,7 @@ export default function TablePrices({
                       );
                     }
                   )}
-              </tr>
+              </motion.tr>
             );
           })}
 
@@ -165,6 +184,6 @@ export default function TablePrices({
           </tr>
         </tbody>
       </table>
-    </div>
+    </motion.div>
   );
 }

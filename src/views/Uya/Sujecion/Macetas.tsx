@@ -1,7 +1,7 @@
 import CardUya from "../CardUya";
 
 const images_all = import.meta.glob(
-  "../../assets/uya/sujecion/macetas/**/*.{png,jpg,jpeg,svg,webp}",
+  "../../../assets/uya/sujecion/macetas/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
     import: "default",
@@ -10,7 +10,7 @@ const images_all = import.meta.glob(
 const srcs = Object.entries(images_all) as string[][];
 
 const getSrc = (name: string) =>
-  srcs.find(([path, _]) => path.includes(name))?.[1] || "";
+  srcs.find(([path, _]) => path.includes(name))?.[1] ?? "";
 
 export default function Macetas() {
   return (
@@ -41,10 +41,10 @@ export default function Macetas() {
         ].map((item, i) => (
           <CardUya
             key={i + 1}
-            src={getSrc(`./320/${i + 1}.webp`)}
+            src={getSrc(`/320/${i + 1}.webp`)}
             srcSet={`
-                ${getSrc(`./320/${i + 1}.webp`)} 359w,
-                ${getSrc(`./${i + 1}.webp`)} 360w,
+                ${getSrc(`/320/${i + 1}.webp`)} 359w,
+                ${getSrc(`/${i + 1}.webp`)} 360w,
               `}
             className={"sm:max-w-none" + (item?.class ? ` ${item.class}` : "")}
             classNames={{

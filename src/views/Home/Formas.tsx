@@ -89,13 +89,14 @@ export default function Formas() {
           hidden: {},
           visible: {
             transition: {
-              delayChildren: 0.5,
+              delayChildren: 0.2,
               staggerChildren: 0.2,
             },
           },
         }}
         initial="hidden"
         whileInView="visible"
+        viewport={{ once: true }}
         className="grid xs:grid-cols-[repeat(auto-fit,_minmax(150px,_1fr))] sm:grid-cols-[repeat(auto-fit,_minmax(250px,_1fr))] gap-4 sm:gap-8"
       >
         {items.map((item) => (
@@ -108,7 +109,6 @@ export default function Formas() {
                 scale: 1,
               },
             }}
-            viewport={{ once: true }}
             href={
               "#buscar?categorie=imanes&subcategorie=" +
               (item.id === "de_arrastre" ? "arrastre" : "neodimio") +

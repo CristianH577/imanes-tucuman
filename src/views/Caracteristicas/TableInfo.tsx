@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
+import { motion } from "framer-motion";
+
+import type { ClassDBItem } from "../../consts/types";
 
 import { scrollStyle } from "../../libs/tvs";
 
 import { Button } from "@heroui/react";
-import type { ClassDBItem } from "../../consts/types";
 
 interface InterfaceTableInfoProps {
   tableAriaLabel: string;
@@ -92,7 +94,18 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
   }, [isInView]);
 
   return (
-    <div
+    <motion.div
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            delayChildren: 0.1,
+            staggerChildren: 0.1,
+          },
+        },
+      }}
+      initial="hidden"
+      animate="visible"
       data-slot="table-container"
       className={`w-full overflow-x-auto ${scrollStyle}`}
     >
@@ -113,8 +126,15 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
 
         <tbody>
           {visibleRows.map((row) => (
-            <tr
+            <motion.tr
               key={row.id}
+              variants={{
+                hidden: { opacity: 0, x: 100 },
+                visible: {
+                  opacity: 1,
+                  x: 0,
+                },
+              }}
               className="even:text-custom2-10 dark:even:text-custom1 group hover:font-semibold hover:bg-secondary/30"
             >
               {columns.map((col) => (
@@ -128,7 +148,7 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
                   {makeCell(row, col.key)}
                 </td>
               ))}
-            </tr>
+            </motion.tr>
           ))}
 
           <tr>
@@ -148,7 +168,7 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
           </tr>
         </tbody>
       </table>
-    </div>
+    </motion.div>
   );
 }
 

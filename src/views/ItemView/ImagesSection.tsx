@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 import { scrollStyle } from "../../libs/tvs";
 
@@ -48,104 +49,144 @@ export default function ImagesSection({
   };
 
   return (
-    <section className="flex flex-col items-center justify-center p-2 sm:p-4 relative">
+    <section className="flex flex-col items-center justify-center p-2 gap-2 sm:p-4">
       {imgsData?.thumbnails && imgsData?.thumbnails?.length > 1 && (
-        <>
-          <Button
-            isIconOnly
-            variant="ghost"
-            radius="full"
-            size="lg"
-            className="absolute top-1/2 left-0 z-[11] text-custom2 dark:text-custom1"
-            title="Mostrar imagen anterior"
-            onPress={() => handleButtons(-1)}
-          >
-            <KeyboardArrowLeftIcon className="h-12 w-fit" />
-          </Button>
-
-          <Button
-            isIconOnly
-            variant="ghost"
-            radius="full"
-            size="lg"
-            className="absolute top-1/2 right-0 z-[11] text-custom2 dark:text-custom1"
-            title="Mostrar imagen siguiente"
-            onPress={() => handleButtons(1)}
-          >
-            <KeyboardArrowRightIcon className="h-12 w-full" />
-          </Button>
-
-          <article
-            className={`w-full max-w-[90vw] p-2 place-self-center grid grid-flow-col auto-cols-[50px] overflow-auto gap-2 ${scrollStyle}`}
-          >
-            {imgsData?.thumbnails?.map((img, i) => {
-              const SvgForma =
-                img.type === "svg" && img.src
-                  ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
-                  : false;
-
-              return (
-                <div
-                  key={i}
-                  className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 data-[selected=true]:opacity-100 data-[selected=true]:border-2 data-[selected=true]:border-custom1 overflow-hidden max-h-[52px] "
-                  data-selected={index === i}
-                >
-                  {SvgForma ? (
-                    <SvgForma
-                      className="w-full h-[50px]"
-                      onClick={() => setIndex(i)}
-                    />
-                  ) : (
-                    <ImageCustom
-                      alt={`Miniatura ${i}`}
-                      className="object-cover h-full w-full"
-                      src={
-                        srcs.find(([path, _]) => path.includes(img.src))?.[1] ||
-                        ""
-                      }
-                      // @ts-ignore
-                      onClick={() => setIndex(i)}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </article>
-        </>
-      )}
-
-      <article className="w-full h-[350px] flex items-center justify-center p-4">
-        {imgsData?.imgs && imgsData?.imgs?.length > 0 ? (
-          imgsData?.imgs.map((img, i) => {
+        <motion.article
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                delayChildren: 0.1,
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          initial="hidden"
+          animate="visible"
+          className={`w-full max-w-[90vw] p-2 place-self-center grid grid-flow-col auto-cols-[50px] overflow-auto gap-2 ${scrollStyle}`}
+        >
+          {imgsData.thumbnails.map((img, i) => {
             const SvgForma =
               img.type === "svg" && img.src
                 ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
                 : false;
 
-            return SvgForma ? (
-              <SvgForma
+            return (
+              <motion.div
                 key={i}
-                className="w-full max-w-[300px] h-full p-4"
-                style={{ display: index === i ? "block" : "none" }}
-              />
-            ) : (
-              <ImageCustom
+                variants={{
+                  hidden: { opacity: 0, scale: 0 },
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                  },
+                }}
+                className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 data-[selected=true]:opacity-100 data-[selected=true]:border-2 data-[selected=true]:border-custom1 overflow-hidden max-h-[52px] "
+                data-selected={index === i}
+              >
+                {SvgForma ? (
+                  <SvgForma
+                    className="w-full h-[50px]"
+                    onClick={() => setIndex(i)}
+                  />
+                ) : (
+                  <ImageCustom
+                    alt={`Miniatura ${i}`}
+                    className="object-cover h-full w-full"
+                    src={
+                      srcs.find(([path, _]) => path.includes(img.src))?.[1] ||
+                      ""
+                    }
+                    // @ts-ignore
+                    onClick={() => setIndex(i)}
+                  />
+                )}
+              </motion.div>
+            );
+          })}
+        </motion.article>
+      )}
+
+      <motion.article
+        variants={{
+          hidden: { opacity: 0, scale: 0 },
+          visible: { opacity: 1, scale: 1 },
+        }}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className="w-screen sm:w-full h-[350px] flex items-center justify-center py-4 xs:px-4 relative"
+      >
+        {imgsData?.imgs && imgsData?.imgs?.length > 1 && (
+          <>
+            <Button
+              isIconOnly
+              variant="ghost"
+              radius="full"
+              size="lg"
+              className="absolute left-0 z-[11] text-custom2 dark:text-custom1 h-full opacity-0 max-sm:hover:opacity-100 sm:opacity-100 sm:h-fit"
+              title="Mostrar imagen anterior"
+              onPress={() => handleButtons(-1)}
+            >
+              <KeyboardArrowLeftIcon className="h-12 w-fit" />
+            </Button>
+
+            <Button
+              isIconOnly
+              variant="ghost"
+              radius="full"
+              size="lg"
+              className="absolute right-0 z-[11] text-custom2 dark:text-custom1 h-full opacity-0 max-sm:hover:opacity-100 sm:opacity-100 sm:h-fit"
+              title="Mostrar imagen siguiente"
+              onPress={() => handleButtons(1)}
+            >
+              <KeyboardArrowRightIcon className="h-12 w-full" />
+            </Button>
+          </>
+        )}
+
+        {imgsData?.imgs && imgsData?.imgs?.length > 0 ? (
+          imgsData.imgs.map((img, i) => {
+            const SvgForma =
+              img.type === "svg" && img.src
+                ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
+                : false;
+
+            return (
+              <motion.div
                 key={i}
-                src={
-                  srcs.find(([path, _]) => path.includes(img.src))?.[1] || ""
-                }
-                className="object-contain drop-shadow-custom h-full max-w-[300px]"
-                alt="Imagen seleccionada"
-                width={300}
-                // @ts-ignore
-                style={{ display: index === i ? "block" : "none" }}
-              />
+                variants={{
+                  hidden: { opacity: 0, scale: 0, width: 0 },
+                  visible: {
+                    opacity: 1,
+                    scale: 1,
+                    width: "fit-content",
+                    height: "100%",
+                  },
+                }}
+                initial="hidden"
+                animate={index === i ? "visible" : "hidden"}
+              >
+                {SvgForma ? (
+                  <SvgForma className="w-full max-w-[300px] h-full p-4" />
+                ) : (
+                  <ImageCustom
+                    src={
+                      srcs.find(([path, _]) => path.includes(img.src))?.[1] ||
+                      ""
+                    }
+                    className="object-contain drop-shadow-custom h-full w-full max-w-[300px]"
+                    alt="Imagen seleccionada"
+                    width={300}
+                  />
+                )}
+              </motion.div>
             );
           })
         ) : (
           <ImageCustom className="bg-neutral-500/50" />
         )}
-      </article>
+      </motion.article>
 
       {isComparable && (
         <Button

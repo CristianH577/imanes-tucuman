@@ -3,7 +3,7 @@ import CardUya from "../CardUya";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 
 const images_all = import.meta.glob(
-  "../../assets/uya/sujecion/juguetes/**/*.{png,jpg,jpeg,svg,webp}",
+  "../../../assets/uya/sujecion/juguetes/**/*.{png,jpg,jpeg,svg,webp}",
   {
     eager: true,
     import: "default",
@@ -27,10 +27,10 @@ export default function Juguetes() {
         ].map((item, i) => (
           <CardUya
             key={i + 1}
-            src={getSrc(`./300/${i + 1}.webp`)}
+            src={getSrc(`/300/${i + 1}.webp`)}
             srcSet={`
-              ${getSrc(`./300/${i + 1}.webp`)} 359w,
-              ${getSrc(`./380/${i + 1}.webp`)} 360w,
+              ${getSrc(`/300/${i + 1}.webp`)} 359w,
+              ${getSrc(`/380/${i + 1}.webp`)} 360w,
             `}
             text={item}
           />
@@ -40,10 +40,10 @@ export default function Juguetes() {
       <div className="max-sm:max-w-[400px]">
         <div className="flex flex-col items-center gap-4 sm:grid sm:grid-cols-7">
           <CardUya
-            src={getSrc(`./300/4.webp`)}
+            src={getSrc(`/300/4.webp`)}
             srcSet={`
-              ${getSrc(`./300/4.webp`)} 359w,
-              ${getSrc(`./380/4.webp`)} 360w,
+              ${getSrc(`/300/4.webp`)} 359w,
+              ${getSrc(`/380/4.webp`)} 360w,
             `}
             alt="Juguetes desarmados"
             className="col-span-3 place-self-center"
@@ -52,10 +52,10 @@ export default function Juguetes() {
           <ArrowDropDownCircleIcon className="w-1/5 sm:w-full h-auto sm:-rotate-90" />
 
           <CardUya
-            src={getSrc(`./300/5.webp`)}
+            src={getSrc(`/300/5.webp`)}
             srcSet={`
-              ${getSrc(`./300/5.webp`)} 359w,
-              ${getSrc(`./380/5.webp`)} 360w,
+              ${getSrc(`/300/5.webp`)} 359w,
+              ${getSrc(`/380/5.webp`)} 360w,
             `}
             alt="Juguetes armardos"
             className="col-span-3 place-self-center"

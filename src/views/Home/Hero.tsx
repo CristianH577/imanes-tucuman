@@ -84,9 +84,9 @@ export default function Hero() {
       initial="hidden"
       animate="visible"
       transition={{ duration: 1 }}
-      className="w-screen relative right-2 xs:right-4 sm:right-10 lg:right-12 overflow-hidden shadow-md shadow-black/50 min-[2000px]:h-[1200px] mt-16 pt-2 bg-radial from-custom2-10 to-custom2"
+      className="w-screen relative right-2 sm:right-10 lg:right-12 overflow-hidden shadow-md shadow-black/50 min-[2000px]:h-[1200px] mt-16 pt-2 bg-radial from-custom2-10 to-custom2"
       style={{
-        height: "calc(100dvh - 4rem)",
+        height: "calc(100vh - 4rem)",
       }}
     >
       <div className="relative flex flex-col gap-4 items-center w-full h-full max-w-7xl place-self-center">

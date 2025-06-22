@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { LINKS_SITES } from "../consts/siteConfig";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -12,6 +14,8 @@ import { Tooltip } from "@mui/material";
 import { Link } from "@heroui/react";
 
 import { SVGMercadoLibre, SVGSSignalMessenger } from "../assets/svgs/svgsIcons";
+
+const MotionLink = motion.create(Link);
 
 type LinkKey = keyof typeof LINKS_SITES;
 
@@ -80,7 +84,16 @@ export default function Redes({
     >
       {redes.slice(0, slice || redes.length).map((item, i) => (
         <Tooltip key={i} title={item.label} hidden={!item?.label}>
-          <Link
+          <MotionLink
+            variants={{
+              hidden: { opacity: 0, scale: 0 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+              },
+            }}
+            initial="hidden"
+            animate="visible"
             href={LINKS_SITES[item.id as LinkKey]}
             className={`text-neutral-400 transition-all${
               classNames.link ? " " + classNames.link : ""
@@ -91,7 +104,7 @@ export default function Redes({
             <item.icon
               className={"" + (classNames?.icon ? " " + classNames.icon : "")}
             />
-          </Link>
+          </MotionLink>
         </Tooltip>
       ))}
     </div>

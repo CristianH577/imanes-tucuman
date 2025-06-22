@@ -13,7 +13,6 @@ export default function FuerzaEnPerspectiva() {
             "bg-white max-w-[400px] sm:float-left sm:me-4 max-sm:justify-self-center border-3 border-divider",
         }}
         alt="Imanes con gancho sosteniendo pesos"
-        // @ts-ignore
         width={400}
       />
 

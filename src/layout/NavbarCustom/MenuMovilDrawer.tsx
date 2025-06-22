@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import type { TypeRoute } from "../../consts/types";
 
 import {
@@ -25,6 +27,9 @@ type TypeMenuMovilDrawer = {
   setIsOpen: (bool: React.SetStateAction<boolean>) => void;
 };
 
+const MotionList = motion.create(List);
+const MotionListItemButton = motion.create(ListItemButton);
+
 export default function MenuMovilDrawer({
   isOpen = false,
   setIsOpen,
@@ -47,15 +52,14 @@ export default function MenuMovilDrawer({
           enter: {
             opacity: 1,
             x: "-3%",
-            // @ts-ignore
-            duration: 0.3,
           },
           exit: {
             x: -100,
             opacity: 0,
-            // @ts-ignore
-            duration: 0.3,
           },
+        },
+        transition: {
+          duration: 0.2,
         },
       }}
     >
@@ -77,10 +81,32 @@ export default function MenuMovilDrawer({
             <Divider className="w-4/5 self-center" />
 
             <DrawerBody className="h-fit px-2">
-              <List aria-label="Lista de secciones" className="py-0">
+              <MotionList
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      delayChildren: 0.1,
+                      staggerChildren: 0.1,
+                    },
+                  },
+                }}
+                initial="hidden"
+                animate="visible"
+                aria-label="Lista de secciones"
+                className="py-0"
+              >
                 {NAV_ITEMS.map((item) => (
-                  <ListItemButton
+                  <MotionListItemButton
                     key={item.id}
+                    variants={{
+                      hidden: { opacity: 0, x: -50 },
+                      visible: {
+                        opacity: 1,
+                        x: 0,
+                      },
+                    }}
+                    // @ts-ignore
                     component="a"
                     className="text-custom2 dark:text-custom1 capitalize py-2 hover:shadow-md dark:hover:bg-neutral-500/20"
                     href={`#${item.href}${item?.search || ""}`}
@@ -96,10 +122,17 @@ export default function MenuMovilDrawer({
                       primary={item.label}
                       classes={{ primary: "text-lg font-semibold" }}
                     />
-                  </ListItemButton>
+                  </MotionListItemButton>
                 ))}
 
-                <ListItemButton
+                <MotionListItemButton
+                  variants={{
+                    hidden: { opacity: 0, x: -50 },
+                    visible: {
+                      opacity: 1,
+                      x: 0,
+                    },
+                  }}
                   className="text-neutral-400 py-2 hover:shadow-md dark:hover:bg-neutral-500/20 hover:text-foreground "
                   onClick={onClose}
                 >
@@ -111,8 +144,8 @@ export default function MenuMovilDrawer({
                     primary="Cerrar"
                     classes={{ primary: "text-lg font-semibold" }}
                   />
-                </ListItemButton>
-              </List>
+                </MotionListItemButton>
+              </MotionList>
 
               <Divider className="w-4/5 self-center" />
 

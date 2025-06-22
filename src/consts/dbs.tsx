@@ -6996,11 +6996,11 @@ export const DB_ALL = [
         },
         {
           type: "img",
-          src: "95/thumbnails/16x3 (1).jpg",
+          src: "95/thumbnails/16x3 (1).webp",
         },
         {
           type: "img",
-          src: "95/thumbnails/16x3 (2).jpg",
+          src: "95/thumbnails/16x3 (2).webp",
         },
         {
           type: "img",
@@ -7014,11 +7014,11 @@ export const DB_ALL = [
         },
         {
           type: "img",
-          src: "95/16x3 (1).jpg",
+          src: "95/16x3 (1).webp",
         },
         {
           type: "img",
-          src: "95/16x3 (2).jpg",
+          src: "95/16x3 (2).webp",
         },
         {
           type: "img",
@@ -7083,11 +7083,7 @@ export const DB_ALL = [
         },
         {
           type: "img",
-          src: "96/thumbnails/7x1.5_N35 (1).jpg",
-        },
-        {
-          type: "img",
-          src: "96/thumbnails/7x1.5_N35 (2).jpg",
+          src: "96/thumbnails/7x1.5_N35 (1).webp",
         },
       ],
       imgs: [
@@ -7097,11 +7093,7 @@ export const DB_ALL = [
         },
         {
           type: "img",
-          src: "96/7x1.5_N35 (1).jpg",
-        },
-        {
-          type: "img",
-          src: "96/7x1.5_N35 (2).jpg",
+          src: "96/7x1.5_N35 (1).webp",
         },
       ],
     },
@@ -7161,11 +7153,11 @@ export const DB_ALL = [
         },
         {
           type: "img",
-          src: "97/thumbnails/9x1.5_N35 (1).jpg",
+          src: "97/thumbnails/9x1.5_N35 (1).webp",
         },
         {
           type: "img",
-          src: "97/thumbnails/9x1.5_N35 (2).jpg",
+          src: "97/thumbnails/9x1.5_N35 (2).webp",
         },
       ],
       imgs: [
@@ -7175,11 +7167,11 @@ export const DB_ALL = [
         },
         {
           type: "img",
-          src: "97/9x1.5_N35 (1).jpg",
+          src: "97/9x1.5_N35 (1).webp",
         },
         {
           type: "img",
-          src: "97/9x1.5_N35 (2).jpg",
+          src: "97/9x1.5_N35 (2).webp",
         },
       ],
     },
@@ -7225,11 +7217,35 @@ export const DB_ALL = [
           type: "svg",
           src: "redondo",
         },
+        {
+          type: "img",
+          src: "98/thumbnails/6x4 (1).webp",
+        },
+        {
+          type: "img",
+          src: "98/thumbnails/6x4 (2).webp",
+        },
+        {
+          type: "img",
+          src: "98/thumbnails/6x4 (3).webp",
+        },
       ],
       imgs: [
         {
           type: "svg",
           src: "redondo",
+        },
+        {
+          type: "img",
+          src: "98/6x4 (1).webp",
+        },
+        {
+          type: "img",
+          src: "98/6x4 (2).webp",
+        },
+        {
+          type: "img",
+          src: "98/6x4 (3).webp",
         },
       ],
     },

@@ -181,7 +181,7 @@ export default function TableItemPrices({
           className="max-sm:border-separate border-spacing-y-2 w-fit"
           shadow="none"
           classNames={{
-            wrapper: `w-full max-w-[90vw] overflow-auto ${scrollStyle}`,
+            wrapper: `w-full max-w-[90vw] lg:max-w-[335px] overflow-auto ${scrollStyle}`,
             th: "text-foreground",
           }}
         >
