@@ -1,0 +1,1 @@
+import{a as i}from"./useControlledState-Ck84yGEM.js";function o(e={}){let{isReadOnly:t}=e,[c,d]=i(e.isSelected,e.defaultSelected||!1,e.onChange);function l(f){t||d(f)}function a(){t||d(!c)}return{isSelected:c,setSelected:l,toggle:a}}export{o as $};

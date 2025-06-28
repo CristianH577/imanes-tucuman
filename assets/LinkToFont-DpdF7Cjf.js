@@ -1,0 +1,1 @@
+import{j as e,l as a}from"./index-DjcpITjI.js";function s({href:r="#",text:t="Link",title:n="Ir a la fuente"}){return e.jsxs("p",{className:"text-default-500 border-t border-divider pt-1 w-2/3 place-self-center",children:["Fuente:"," ",e.jsx(a,{href:r,className:"text-default-500 break-all",underline:"hover",isExternal:!0,showAnchorIcon:!0,title:n,children:t})]})}export{s as L};
