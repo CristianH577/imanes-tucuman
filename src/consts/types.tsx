@@ -59,14 +59,15 @@ export type TypeMeasures = {
 };
 
 export type TypeSalesUnit = "u" | "m" | "kg" | string;
+
 export class ClassPriceData {
   usePrice: string = "base";
   prices: {
     base: number;
     [key: string]: number | undefined;
   } = { base: 0 };
-  discounts_percentages?: {
-    [key: string]: number | undefined;
+  discountsPercentages?: {
+    [key: string]: number;
   } = {};
   prices_qtts?: {
     [key: number]: number | undefined;
@@ -74,20 +75,13 @@ export class ClassPriceData {
   update?: string = "";
   salesUnit?: TypeSalesUnit;
 }
-
-export class ClassImgsData {
+export type TypeItemImgs = {
   preview: {
-    type: string;
+    type: "svg" | "img";
     src: string;
-    thumbnails: string;
-  } = {
-    type: "",
-    src: "",
-    thumbnails: "",
   };
-  thumbnails?: { type: string; src: string }[] = [{ type: "", src: "" }];
-  imgs?: { type: string; src: string }[] = [{ type: "", src: "" }];
-}
+  imgs?: string[];
+};
 
 export class ClassDBItem {
   hidden?: boolean = false;
@@ -105,5 +99,5 @@ export class ClassDBItem {
   isComparable?: boolean;
   fuerza_N?: TypeObjectGeneral;
   links?: { [key: string]: string };
-  imgs_data: ClassImgsData = new ClassImgsData();
+  // imgs_data: ClassImgsData = new ClassImgsData();
 }

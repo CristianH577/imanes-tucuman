@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-import { scrollStyle } from "../../libs/tvs";
+import { DB_IMGS } from "../../consts/dbs";
 
-import type { ClassImgsData } from "../../consts/types";
+import { scrollStyle } from "../../libs/tvs";
 
 import { Button } from "@heroui/react";
 
@@ -13,10 +13,8 @@ import CompareIcon from "@mui/icons-material/Compare";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 
-import { SVG_FORMA } from "../../consts/values";
-
 interface TypeImagesSectionProps {
-  imgsData: ClassImgsData;
+  id: number;
   isComparable: boolean;
   onComparate: () => void;
 }
@@ -31,10 +29,11 @@ const images_all = import.meta.glob(
 const srcs = Object.entries(images_all) as string[][];
 
 export default function ImagesSection({
-  imgsData,
+  id,
   isComparable = false,
   onComparate = () => {},
 }: TypeImagesSectionProps) {
+  const imgsData = DB_IMGS[String(id) as keyof typeof DB_IMGS];
   const [index, setIndex] = useState(0);
 
   const handleButtons = (num: number) => {
@@ -49,8 +48,8 @@ export default function ImagesSection({
   };
 
   return (
-    <section className="flex flex-col items-center justify-center p-2 gap-2 sm:p-4">
-      {imgsData?.thumbnails && imgsData?.thumbnails?.length > 1 && (
+    <section className="flex flex-col items-center justify-center p-2 gap-2 sm:p-4 relative">
+      {imgsData?.imgs && imgsData.imgs?.length > 1 && (
         <motion.article
           variants={{
             hidden: {},
@@ -65,12 +64,19 @@ export default function ImagesSection({
           animate="visible"
           className={`w-full max-w-[90vw] p-2 place-self-center grid grid-flow-col auto-cols-[50px] overflow-auto gap-2 ${scrollStyle}`}
         >
-          {imgsData.thumbnails.map((img, i) => {
-            const SvgForma =
-              img.type === "svg" && img.src
-                ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
-                : false;
-
+          {/* {imgsData.preview.type==="svg"&&
+          
+            const SvgForma = false;
+            // img.type === "svg" && img.src
+            //   ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
+            //   : false;
+                  <SvgForma
+                    className="w-full h-[50px]"
+                    onClick={() => setIndex(i)}
+                  />
+          
+          } */}
+          {imgsData.imgs.map((img, i) => {
             return (
               <motion.div
                 key={i}
@@ -81,26 +87,20 @@ export default function ImagesSection({
                     scale: 1,
                   },
                 }}
-                className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 data-[selected=true]:opacity-100 data-[selected=true]:border-2 data-[selected=true]:border-custom1 overflow-hidden max-h-[52px] "
+                className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 data-[selected=true]:opacity-100 data-[selected=true]:border-2 data-[selected=true]:border-custom1 overflow-hidden bg-content4 h-[50px]"
                 data-selected={index === i}
               >
-                {SvgForma ? (
-                  <SvgForma
-                    className="w-full h-[50px]"
-                    onClick={() => setIndex(i)}
-                  />
-                ) : (
-                  <ImageCustom
-                    alt={`Miniatura ${i}`}
-                    className="object-cover h-full w-full"
-                    src={
-                      srcs.find(([path, _]) => path.includes(img.src))?.[1] ||
-                      ""
-                    }
-                    // @ts-ignore
-                    onClick={() => setIndex(i)}
-                  />
-                )}
+                <ImageCustom
+                  alt={`Miniatura ${i}`}
+                  className="object-contain h-full w-full"
+                  src={
+                    srcs.find(([_, path]) =>
+                      path.includes(`/${id}/thumbnails/${img}`)
+                    )?.[1] || ""
+                  }
+                  // @ts-ignore
+                  onClick={() => setIndex(i)}
+                />
               </motion.div>
             );
           })}
@@ -147,10 +147,10 @@ export default function ImagesSection({
 
         {imgsData?.imgs && imgsData?.imgs?.length > 0 ? (
           imgsData.imgs.map((img, i) => {
-            const SvgForma =
-              img.type === "svg" && img.src
-                ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
-                : false;
+            // const SvgForma =
+            //   img.type === "svg" && img.src
+            //     ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
+            //     : false;
 
             return (
               <motion.div
@@ -167,19 +167,20 @@ export default function ImagesSection({
                 initial="hidden"
                 animate={index === i ? "visible" : "hidden"}
               >
-                {SvgForma ? (
-                  <SvgForma className="w-full max-w-[300px] h-full p-4" />
-                ) : (
-                  <ImageCustom
-                    src={
-                      srcs.find(([path, _]) => path.includes(img.src))?.[1] ||
-                      ""
-                    }
-                    className="object-contain drop-shadow-custom h-full w-full max-w-[300px]"
-                    alt="Imagen seleccionada"
-                    width={300}
-                  />
-                )}
+                {/* {SvgForma ? (
+                  <SvgForma className="w-full h-full max-w-[300px] max-h-[300px] p-4" />
+                ) : ( */}
+                <ImageCustom
+                  src={
+                    srcs.find(([_, path]) =>
+                      path.includes(`/${id}/320/${img}`)
+                    )?.[1] || ""
+                  }
+                  className="object-contain drop-shadow-custom h-full w-full max-w-[300px] max-h-[300px]"
+                  alt="Imagen seleccionada"
+                  width={300}
+                />
+                {/* )} */}
               </motion.div>
             );
           })

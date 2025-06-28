@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { VERSION_CURRENT } from "../consts/siteConfig";
+
 import type { ClassDBItem, TypeCartValue } from "../consts/types";
 
 const itemCartData_default = { id: 0, qtt: 0 };
@@ -22,9 +24,17 @@ export function useCart() {
   };
 
   useEffect(() => {
+    const version = localStorage.getItem("version");
     const saved = localStorage.getItem("cart");
-    if (saved) setCart(JSON.parse(saved));
+    if (version === VERSION_CURRENT) {
+      if (saved) setCart(JSON.parse(saved));
+    } else {
+      if (saved) localStorage.removeItem("cart");
+      setCart({});
+      localStorage.setItem("version", VERSION_CURRENT);
+    }
   }, []);
+
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);

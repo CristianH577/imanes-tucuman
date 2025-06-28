@@ -100,8 +100,8 @@ export default function TableItemPrices({
   };
 
   return (
-    <section className="flex flex-col gap-2 md:gap-4 md:flex-row-reverse lg:flex-col p-2 pt-4 sm:p-4 items-end md:items-start lg:items-end lg:border-2 lg:min-w-64 rounded-lg border-divider h-full">
-      <article className=" space-y-2 sm:space-y-4">
+    <section className="w-full flex flex-col gap-2 md:gap-4 md:flex-row-reverse lg:flex-col p-2  sm:p-4 items-end md:items-start lg:items-center lg:border-2 lg:min-w-64 rounded-lg border-divider h-full">
+      <article className="space-y-2 sm:space-y-4 lg:self-end">
         <div className="flex flex-col gap-2 justify-center items-end sm:gap-4">
           {itemData?.noStock && (
             <b className="text-danger text-tert">Sin Stock</b>
@@ -145,7 +145,6 @@ export default function TableItemPrices({
 
         {itemData?.links && (
           <div className="place-self-center xs:place-self-end flex flex-col gap-3">
-            <p>Tambien puede comprar por:</p>
             {itemData.links?.ML && (
               <Button
                 showAnchorIcon
@@ -181,7 +180,7 @@ export default function TableItemPrices({
           className="max-sm:border-separate border-spacing-y-2 w-fit"
           shadow="none"
           classNames={{
-            wrapper: `w-full max-w-[90vw] lg:max-w-[335px] overflow-auto ${scrollStyle}`,
+            wrapper: `w-full max-w-[90vw] lg:max-w-[320px] overflow-auto ${scrollStyle}`,
             th: "text-foreground",
           }}
         >
@@ -195,7 +194,7 @@ export default function TableItemPrices({
 
           <TableBody>
             {Object.entries(pricesQtts).map(([qtt, price]) => (
-              <TableRow key={qtt} className="sm:hover:bg-violet-500/20">
+              <TableRow key={qtt} className="sm:hover:bg-secondary-500/20">
                 {cols.map((col) => (
                   <TableCell
                     key={col.id + "-" + qtt}

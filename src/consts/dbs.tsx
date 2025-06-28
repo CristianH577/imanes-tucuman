@@ -1,3 +1,5 @@
+import type { TypeItemImgs } from "./types";
+
 export const DB_ALL = [
   {
     id: 1,
@@ -9,7 +11,6 @@ export const DB_ALL = [
       prices: {
         base: 125,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 125,
         "25": 115,
@@ -40,49 +41,6 @@ export const DB_ALL = [
         gauss: "2350-2450",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "1/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "1/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "1/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "1/1.webp",
-        },
-        {
-          type: "img",
-          src: "1/2.webp",
-        },
-        {
-          type: "img",
-          src: "1/3.webp",
-        },
-      ],
-    },
   },
   {
     id: 2,
@@ -94,7 +52,6 @@ export const DB_ALL = [
       prices: {
         base: 140,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 140,
         "25": 130,
@@ -125,49 +82,6 @@ export const DB_ALL = [
         gauss: "2350-2450",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "2/thumbnails/2x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "2/thumbnails/2x4 (2).webp",
-        },
-        {
-          type: "img",
-          src: "2/thumbnails/2x4 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "2/2x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "2/2x4 (2).webp",
-        },
-        {
-          type: "img",
-          src: "2/2x4 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 3,
@@ -179,7 +93,6 @@ export const DB_ALL = [
       prices: {
         base: 120,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 120,
         "25": 115,
@@ -210,49 +123,6 @@ export const DB_ALL = [
         gauss: "2450-2550",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "3/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "3/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "3/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "3/1.webp",
-        },
-        {
-          type: "img",
-          src: "3/2.webp",
-        },
-        {
-          type: "img",
-          src: "3/3.webp",
-        },
-      ],
-    },
   },
   {
     id: 4,
@@ -264,7 +134,6 @@ export const DB_ALL = [
       prices: {
         base: 125,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 125,
         "25": 120,
@@ -295,49 +164,6 @@ export const DB_ALL = [
         gauss: "2500-2600",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "4/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "4/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "4/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "4/1.webp",
-        },
-        {
-          type: "img",
-          src: "4/2.webp",
-        },
-        {
-          type: "img",
-          src: "4/3.webp",
-        },
-      ],
-    },
   },
   {
     id: 5,
@@ -349,7 +175,6 @@ export const DB_ALL = [
       prices: {
         base: 130,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 130,
         "25": 120,
@@ -380,49 +205,6 @@ export const DB_ALL = [
         gauss: "2600-2700",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "5/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "5/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "5/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "5/1.webp",
-        },
-        {
-          type: "img",
-          src: "5/2.webp",
-        },
-        {
-          type: "img",
-          src: "5/3.webp",
-        },
-      ],
-    },
   },
   {
     id: 6,
@@ -434,7 +216,6 @@ export const DB_ALL = [
       prices: {
         base: 135,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 135,
         "25": 125,
@@ -465,49 +246,6 @@ export const DB_ALL = [
         gauss: "2600-2700",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "6/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "6/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "6/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "6/1.webp",
-        },
-        {
-          type: "img",
-          src: "6/2.webp",
-        },
-        {
-          type: "img",
-          src: "6/3.webp",
-        },
-      ],
-    },
   },
   {
     id: 7,
@@ -519,7 +257,6 @@ export const DB_ALL = [
       prices: {
         base: 130,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 130,
         "25": 125,
@@ -550,49 +287,6 @@ export const DB_ALL = [
         gauss: "2200-2300",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "7/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "7/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "7/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "7/1.webp",
-        },
-        {
-          type: "img",
-          src: "7/2.webp",
-        },
-        {
-          type: "img",
-          src: "7/3.webp",
-        },
-      ],
-    },
   },
   {
     id: 8,
@@ -604,7 +298,6 @@ export const DB_ALL = [
       prices: {
         base: 140,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 140,
         "25": 135,
@@ -635,41 +328,6 @@ export const DB_ALL = [
         gauss: "2000-2100",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "8/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "8/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "8/1.webp",
-        },
-        {
-          type: "img",
-          src: "8/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 9,
@@ -681,7 +339,6 @@ export const DB_ALL = [
       prices: {
         base: 205,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 205,
         "25": 195,
@@ -712,41 +369,6 @@ export const DB_ALL = [
         gauss: "2000-2100",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "9/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "9/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "9/1.webp",
-        },
-        {
-          type: "img",
-          src: "9/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 10,
@@ -759,7 +381,6 @@ export const DB_ALL = [
       prices: {
         base: 235,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 235,
         "25": 220,
@@ -789,25 +410,6 @@ export const DB_ALL = [
         gauss: "2000-2100",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-      ],
-    },
   },
   {
     id: 11,
@@ -819,7 +421,6 @@ export const DB_ALL = [
       prices: {
         base: 230,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 230,
         "25": 215,
@@ -850,41 +451,6 @@ export const DB_ALL = [
         gauss: "2100-2200",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "11/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "11/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "11/1.webp",
-        },
-        {
-          type: "img",
-          src: "11/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 12,
@@ -896,7 +462,6 @@ export const DB_ALL = [
       prices: {
         base: 185,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 185,
         "25": 175,
@@ -927,41 +492,6 @@ export const DB_ALL = [
         gauss: "2100-2200",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "12/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "12/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "12/1.webp",
-        },
-        {
-          type: "img",
-          src: "12/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 13,
@@ -973,7 +503,6 @@ export const DB_ALL = [
       prices: {
         base: 530,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 530,
         "25": 500,
@@ -1004,49 +533,6 @@ export const DB_ALL = [
         gauss: "2200-2700",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "13/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "13/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "13/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "13/1.webp",
-        },
-        {
-          type: "img",
-          src: "13/2.webp",
-        },
-        {
-          type: "img",
-          src: "13/3.webp",
-        },
-      ],
-    },
     linkML:
       "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU3009555105?pdp_filters=seller_id%3A177470483&highlight=false&headerTopBrand=false#polycard_client=search-nordic&searchVariation=MLAU3009555105&wid=MLA1476345237&position=6&search_layout=grid&type=product&tracking_id=cb434426-5d8a-4700-a496-d2c2b9c3b70f&sid=search",
   },
@@ -1060,7 +546,6 @@ export const DB_ALL = [
       prices: {
         base: 360,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 360,
         "25": 340,
@@ -1091,49 +576,6 @@ export const DB_ALL = [
         gauss: "3000-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "14/thumbnails/8x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "14/thumbnails/8x3 (2).webp",
-        },
-        {
-          type: "img",
-          src: "14/thumbnails/8x3 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "14/8x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "14/8x3 (2).webp",
-        },
-        {
-          type: "img",
-          src: "14/8x3 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 15,
@@ -1145,7 +587,6 @@ export const DB_ALL = [
       prices: {
         base: 475,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 475,
         "25": 445,
@@ -1176,41 +617,6 @@ export const DB_ALL = [
         gauss: "3500-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "15/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "15/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "15/1.webp",
-        },
-        {
-          type: "img",
-          src: "15/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 16,
@@ -1222,7 +628,6 @@ export const DB_ALL = [
       prices: {
         base: 530,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 530,
         "25": 500,
@@ -1253,41 +658,6 @@ export const DB_ALL = [
         gauss: "3500-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "16/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "16/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "16/1.webp",
-        },
-        {
-          type: "img",
-          src: "16/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 17,
@@ -1299,7 +669,6 @@ export const DB_ALL = [
       prices: {
         base: 300,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 300,
         "25": 285,
@@ -1330,49 +699,6 @@ export const DB_ALL = [
         gauss: "2500-3000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "17/thumbnails/9x1,5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "17/thumbnails/9x1,5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "17/thumbnails/9x1,5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "17/1.webp",
-        },
-        {
-          type: "img",
-          src: "17/9x1,5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "17/9x1,5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 18,
@@ -1384,7 +710,6 @@ export const DB_ALL = [
       prices: {
         base: 375,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 375,
         "25": 355,
@@ -1415,49 +740,6 @@ export const DB_ALL = [
         gauss: "2800-3200",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "18/thumbnails/9x2,5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "18/thumbnails/9x2,5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "18/thumbnails/9x2,5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "18/9x2,5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "18/9x2,5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "18/9x2,5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 19,
@@ -1469,7 +751,6 @@ export const DB_ALL = [
       prices: {
         base: 410,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 410,
         "25": 390,
@@ -1500,49 +781,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "19/thumbnails/10x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "19/thumbnails/10x2 (2).webp",
-        },
-        {
-          type: "img",
-          src: "19/thumbnails/10x2 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "19/10x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "19/10x2 (2).webp",
-        },
-        {
-          type: "img",
-          src: "19/10x2 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 20,
@@ -1554,7 +792,6 @@ export const DB_ALL = [
       prices: {
         base: 520,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 520,
         "25": 490,
@@ -1585,49 +822,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "20/thumbnails/10x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "20/thumbnails/10x3 (2).webp",
-        },
-        {
-          type: "img",
-          src: "20/thumbnails/10x3 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "20/10x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "20/10x3 (2).webp",
-        },
-        {
-          type: "img",
-          src: "20/10x3 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 21,
@@ -1639,7 +833,6 @@ export const DB_ALL = [
       prices: {
         base: 700,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 700,
         "25": 660,
@@ -1670,41 +863,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "21/thumbnails/10x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "21/thumbnails/10x4 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "21/10x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "21/10x4 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 22,
@@ -1716,7 +874,6 @@ export const DB_ALL = [
       prices: {
         base: 870,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 870,
         "25": 820,
@@ -1747,41 +904,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "22/thumbnails/10x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "22/thumbnails/10x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "22/10x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "22/10x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 23,
@@ -1793,7 +915,6 @@ export const DB_ALL = [
       prices: {
         base: 1230,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1230,
         "25": 1170,
@@ -1824,49 +945,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "23/thumbnails/10x10 (1).webp",
-        },
-        {
-          type: "img",
-          src: "23/thumbnails/10x10 (2).webp",
-        },
-        {
-          type: "img",
-          src: "23/thumbnails/10x10 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "23/10x10 (1).webp",
-        },
-        {
-          type: "img",
-          src: "23/10x10 (2).webp",
-        },
-        {
-          type: "img",
-          src: "23/10x10 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 24,
@@ -1878,7 +956,6 @@ export const DB_ALL = [
       prices: {
         base: 2150,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 2150,
         "20": 2050,
@@ -1909,49 +986,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "24/thumbnails/10x20 (1).webp",
-        },
-        {
-          type: "img",
-          src: "24/thumbnails/10x20 (2).webp",
-        },
-        {
-          type: "img",
-          src: "24/thumbnails/10x20 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "24/10x20 (1).webp",
-        },
-        {
-          type: "img",
-          src: "24/10x20 (2).webp",
-        },
-        {
-          type: "img",
-          src: "24/10x20 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 25,
@@ -1963,7 +997,6 @@ export const DB_ALL = [
       prices: {
         base: 860,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 860,
         "25": 810,
@@ -1994,49 +1027,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "25/thumbnails/11x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "25/thumbnails/11x4 (2).webp",
-        },
-        {
-          type: "img",
-          src: "25/thumbnails/11x4 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "25/11x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "25/11x4 (2).webp",
-        },
-        {
-          type: "img",
-          src: "25/11x4 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 26,
@@ -2048,7 +1038,6 @@ export const DB_ALL = [
       prices: {
         base: 950,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 950,
         "25": 890,
@@ -2079,49 +1068,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "26/thumbnails/11x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "26/thumbnails/11x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "26/thumbnails/11x5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "26/11x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "26/11x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "26/11x5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 27,
@@ -2133,7 +1079,6 @@ export const DB_ALL = [
       prices: {
         base: 860,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 860,
         "25": 810,
@@ -2164,41 +1109,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "27/thumbnails/12x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "27/thumbnails/12x3 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "27/12x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "27/12x3 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 28,
@@ -2210,7 +1120,6 @@ export const DB_ALL = [
       prices: {
         base: 1020,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1020,
         "25": 960,
@@ -2241,41 +1150,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "28/thumbnails/12x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "28/thumbnails/12x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "28/12x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "28/12x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 29,
@@ -2287,7 +1161,6 @@ export const DB_ALL = [
       prices: {
         base: 730,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 730,
         "25": 690,
@@ -2319,49 +1192,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "29/thumbnails/15x2_N35 (1).jpg",
-        },
-        {
-          type: "img",
-          src: "29/thumbnails/15x2_N35 (2).jpg",
-        },
-        {
-          type: "img",
-          src: "29/thumbnails/15x2_N35 (3).jpg",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "29/15x2_N35 (1).jpg",
-        },
-        {
-          type: "img",
-          src: "29/15x2_N35 (2).jpg",
-        },
-        {
-          type: "img",
-          src: "29/15x2_N35 (3).jpg",
-        },
-      ],
-    },
   },
   {
     id: 30,
@@ -2373,7 +1203,6 @@ export const DB_ALL = [
       prices: {
         base: 890,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 890,
         "25": 840,
@@ -2404,49 +1233,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "30/thumbnails/15x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "30/thumbnails/15x2 (2).webp",
-        },
-        {
-          type: "img",
-          src: "30/thumbnails/15x2 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "30/15x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "30/15x2 (2).webp",
-        },
-        {
-          type: "img",
-          src: "30/15x2 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 31,
@@ -2458,7 +1244,6 @@ export const DB_ALL = [
       prices: {
         base: 1430,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1430,
         "25": 1350,
@@ -2489,49 +1274,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "31/thumbnails/15x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "31/thumbnails/15x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "31/thumbnails/15x5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "31/15x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "31/15x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "31/15x5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 32,
@@ -2543,7 +1285,6 @@ export const DB_ALL = [
       prices: {
         base: 1270,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1270,
         "25": 1200,
@@ -2574,41 +1315,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "32/thumbnails/20x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "32/thumbnails/20x2 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "32/20x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "32/20x2 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 33,
@@ -2620,7 +1326,6 @@ export const DB_ALL = [
       prices: {
         base: 2500,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 2500,
         "20": 2350,
@@ -2651,49 +1356,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "33/thumbnails/20x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "33/thumbnails/20x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "33/thumbnails/20x5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "33/20x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "33/20x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "33/20x5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 34,
@@ -2705,7 +1367,6 @@ export const DB_ALL = [
       prices: {
         base: 1750,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1750,
         "25": 1650,
@@ -2737,41 +1398,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "34/thumbnails/25x2_N35 (1).jpg",
-        },
-        {
-          type: "img",
-          src: "34/thumbnails/25x2_N35 (2).jpg",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "34/25x2_N35 (1).jpg",
-        },
-        {
-          type: "img",
-          src: "34/25x2_N35 (2).jpg",
-        },
-      ],
-    },
   },
   {
     id: 35,
@@ -2783,7 +1409,6 @@ export const DB_ALL = [
       prices: {
         base: 2050,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 2050,
         "25": 1900,
@@ -2814,41 +1439,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "35/thumbnails/25x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "35/thumbnails/25x2 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "35/25x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "35/25x2 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 36,
@@ -2860,7 +1450,6 @@ export const DB_ALL = [
       prices: {
         base: 1750,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1750,
         "25": 1650,
@@ -2891,49 +1480,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "36/thumbnails/25x2,5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "36/thumbnails/25x2,5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "36/thumbnails/25x2,5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "36/25x2,5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "36/25x2,5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "36/25x2,5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 37,
@@ -2945,7 +1491,6 @@ export const DB_ALL = [
       prices: {
         base: 3000,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 3000,
         "20": 2800,
@@ -2976,41 +1521,6 @@ export const DB_ALL = [
         gauss: "2800-3000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "37/thumbnails/25x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "37/thumbnails/25x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "37/25x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "37/25x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 38,
@@ -3022,7 +1532,6 @@ export const DB_ALL = [
       prices: {
         base: 2500,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 2500,
         "20": 2350,
@@ -3053,41 +1562,6 @@ export const DB_ALL = [
         gauss: "3000-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "38/thumbnails/30x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "38/thumbnails/30x3 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "38/30x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "38/30x3 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 39,
@@ -3099,7 +1573,6 @@ export const DB_ALL = [
       prices: {
         base: 4850,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 4850,
         "20": 4650,
@@ -3129,49 +1602,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "39/thumbnails/30x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "39/thumbnails/30x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "39/thumbnails/30x5 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "39/30x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "39/30x5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "39/30x5 (3).webp",
-        },
-      ],
-    },
   },
   {
     id: 40,
@@ -3183,7 +1613,6 @@ export const DB_ALL = [
       prices: {
         base: 5050,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 5050,
         "20": 4850,
@@ -3213,41 +1642,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "40/thumbnails/35x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "40/thumbnails/35x4 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "40/35x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "40/35x4 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 41,
@@ -3259,7 +1653,6 @@ export const DB_ALL = [
       prices: {
         base: 5450,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 5450,
         "20": 5250,
@@ -3289,41 +1682,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "41/thumbnails/35x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "41/thumbnails/35x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "41/35x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "41/35x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 42,
@@ -3335,7 +1693,6 @@ export const DB_ALL = [
       prices: {
         base: 5500,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 5500,
         "20": 5300,
@@ -3365,41 +1722,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "42/thumbnails/37x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "42/thumbnails/37x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "42/37x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "42/37x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 43,
@@ -3411,7 +1733,6 @@ export const DB_ALL = [
       prices: {
         base: 8300,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 8300,
         "10": 8000,
@@ -3441,41 +1762,6 @@ export const DB_ALL = [
         gauss: "3000-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "43/thumbnails/38x8 (1).webp",
-        },
-        {
-          type: "img",
-          src: "43/thumbnails/38x8 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "43/38x8 (1).webp",
-        },
-        {
-          type: "img",
-          src: "43/38x8 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 44,
@@ -3488,7 +1774,6 @@ export const DB_ALL = [
       prices: {
         base: 6100,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 6100,
         "10": 5900,
@@ -3518,25 +1803,6 @@ export const DB_ALL = [
         gauss: "3200-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-      ],
-    },
   },
   {
     id: 45,
@@ -3548,7 +1814,6 @@ export const DB_ALL = [
       prices: {
         base: 6550,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 6550,
         "10": 6300,
@@ -3578,41 +1843,6 @@ export const DB_ALL = [
         gauss: "3200-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "45/thumbnails/54x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "45/thumbnails/54x3 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "45/54x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "45/54x3 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 46,
@@ -3625,7 +1855,6 @@ export const DB_ALL = [
       prices: {
         base: 385,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 385,
         "25": 360,
@@ -3656,41 +1885,6 @@ export const DB_ALL = [
         gauss: "2100-2700",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "46/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "46/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "46/1.webp",
-        },
-        {
-          type: "img",
-          src: "46/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 47,
@@ -3702,7 +1896,6 @@ export const DB_ALL = [
       prices: {
         base: 510,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 510,
         "25": 480,
@@ -3734,41 +1927,6 @@ export const DB_ALL = [
         gauss: "2400-2800",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "47/thumbnails/10x8x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "47/thumbnails/10x8x3 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "47/10x8x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "47/10x8x3 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 48,
@@ -3780,7 +1938,6 @@ export const DB_ALL = [
       prices: {
         base: 410,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 410,
         "25": 390,
@@ -3812,41 +1969,6 @@ export const DB_ALL = [
         gauss: "2200-2600",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "48/thumbnails/10x10x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "48/thumbnails/10x10x2 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "48/10x10x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "48/10x10x2 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 49,
@@ -3858,7 +1980,6 @@ export const DB_ALL = [
       prices: {
         base: 600,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 600,
         "25": 570,
@@ -3890,41 +2011,6 @@ export const DB_ALL = [
         gauss: "2400-2800",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "49/thumbnails/14,5x7x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "49/thumbnails/14,5x7x2 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "49/14,5x7x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "49/14,5x7x2 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 50,
@@ -3936,7 +2022,6 @@ export const DB_ALL = [
       prices: {
         base: 1450,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1450,
         "25": 1370,
@@ -3968,41 +2053,6 @@ export const DB_ALL = [
         gauss: "3100-3600",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "50/thumbnails/15x10x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "50/thumbnails/15x10x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "50/15x10x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "50/15x10x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 51,
@@ -4014,7 +2064,6 @@ export const DB_ALL = [
       prices: {
         base: 3050,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 3050,
         "20": 2900,
@@ -4046,41 +2095,6 @@ export const DB_ALL = [
         gauss: "3100-3600",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "51/thumbnails/20x10x10 (1).webp",
-        },
-        {
-          type: "img",
-          src: "51/thumbnails/20x10x10 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "51/20x10x10 (1).webp",
-        },
-        {
-          type: "img",
-          src: "51/20x10x10 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 52,
@@ -4092,7 +2106,6 @@ export const DB_ALL = [
       prices: {
         base: 1250,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1250,
         "25": 1180,
@@ -4124,41 +2137,6 @@ export const DB_ALL = [
         gauss: "2500-2900",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "52/thumbnails/25x10x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "52/thumbnails/25x10x2 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "52/25x10x2 (1).webp",
-        },
-        {
-          type: "img",
-          src: "52/25x10x2 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 53,
@@ -4170,7 +2148,6 @@ export const DB_ALL = [
       prices: {
         base: 2050,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 2050,
         "25": 1950,
@@ -4202,41 +2179,6 @@ export const DB_ALL = [
         gauss: "2700-3100",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "53/thumbnails/28x20x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "53/thumbnails/28x20x3 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "53/28x20x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "53/28x20x3 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 54,
@@ -4249,7 +2191,6 @@ export const DB_ALL = [
       prices: {
         base: 3700,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 3700,
         "20": 3500,
@@ -4280,25 +2221,6 @@ export const DB_ALL = [
         gauss: "4400-4900",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-      ],
-    },
   },
   {
     id: 55,
@@ -4310,7 +2232,6 @@ export const DB_ALL = [
       prices: {
         base: 4650,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 4650,
         "20": 4500,
@@ -4342,33 +2263,6 @@ export const DB_ALL = [
         gauss: "2900-3300",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "55/thumbnails/30x20x5.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "55/30x20x5.webp",
-        },
-      ],
-    },
   },
   {
     id: 56,
@@ -4380,7 +2274,6 @@ export const DB_ALL = [
       prices: {
         base: 4350,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 4350,
         "20": 4100,
@@ -4412,41 +2305,6 @@ export const DB_ALL = [
         gauss: "3300-3700",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "56/thumbnails/40x10x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "56/thumbnails/40x10x5 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "56/40x10x5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "56/40x10x5 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 57,
@@ -4458,7 +2316,6 @@ export const DB_ALL = [
       prices: {
         base: 7250,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 7250,
         "10": 7000,
@@ -4489,33 +2346,6 @@ export const DB_ALL = [
         gauss: "2000-2400",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "57/thumbnails/40x20x5.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "57/40x20x5.webp",
-        },
-      ],
-    },
   },
   {
     id: 58,
@@ -4527,7 +2357,6 @@ export const DB_ALL = [
       prices: {
         base: 16100,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 16100,
         "5": 15600,
@@ -4558,33 +2387,6 @@ export const DB_ALL = [
         gauss: "3400-3800",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "58/thumbnails/40x25x10.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "58/40x25x10.webp",
-        },
-      ],
-    },
   },
   {
     id: 59,
@@ -4596,7 +2398,6 @@ export const DB_ALL = [
       prices: {
         base: 3800,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 3800,
         "20": 3550,
@@ -4628,41 +2429,6 @@ export const DB_ALL = [
         gauss: "3000-3500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "59/thumbnails/50x10x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "59/thumbnails/50x10x3 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "59/50x10x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "59/50x10x3 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 60,
@@ -4674,7 +2440,6 @@ export const DB_ALL = [
       prices: {
         base: 17200,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 17200,
         "5": 16700,
@@ -4705,41 +2470,6 @@ export const DB_ALL = [
         gauss: "3200-3600",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "60/thumbnails/50x20x10.webp",
-        },
-        {
-          type: "img",
-          src: "60/thumbnails/50x20x10~1.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-        {
-          type: "img",
-          src: "60/50x20x10.webp",
-        },
-        {
-          type: "img",
-          src: "60/50x20x10~1.webp",
-        },
-      ],
-    },
   },
   {
     id: 61,
@@ -4752,7 +2482,6 @@ export const DB_ALL = [
       prices: {
         base: 18700,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 18700,
         "5": 18200,
@@ -4783,25 +2512,6 @@ export const DB_ALL = [
         gauss: "3500-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado",
-        },
-      ],
-    },
   },
   {
     id: 62,
@@ -4813,7 +2523,6 @@ export const DB_ALL = [
       prices: {
         base: 455,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 455,
         "25": 430,
@@ -4847,65 +2556,6 @@ export const DB_ALL = [
         gauss: "3500-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo fresado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "62/thumbnails/8x3-6a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "62/thumbnails/8x3-6a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "62/thumbnails/8x3-6a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "62/thumbnails/8x3-6a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "62/thumbnails/8x3-6a3.5 (5).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "62/8x3-6a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "62/8x3-6a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "62/8x3-6a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "62/8x3-6a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "62/8x3-6a3.5 (5).webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070?pdp_filters=item_id%3AMLA1474422881#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1474422881",
       MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070?highlight=false&pdp_filters=seller_id%3A177470483&headerTopBrand=false#polycard_client=search-nordic-mshops&position=5&search_layout=grid&type=item&tracking_id=f774d24c-dea5-4340-b673-b98bd2375e27&wid=MLA1474422881&sid=search",
@@ -4921,7 +2571,6 @@ export const DB_ALL = [
       prices: {
         base: 710,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 710,
         "25": 670,
@@ -4955,65 +2604,6 @@ export const DB_ALL = [
         gauss: "3500-4000",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo fresado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "63/thumbnails/12x3-6a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "63/thumbnails/12x3-6a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "63/thumbnails/12x3-6a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "63/thumbnails/12x3-6a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "63/thumbnails/12x3-6a3.5 (5).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "63/12x3-6a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "63/12x3-6a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "63/12x3-6a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "63/12x3-6a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "63/12x3-6a3.5 (5).webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417?pdp_filters=item_id%3AMLA1474422963&attributes=CUSTOM%3A12x3%206a3.5mm#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1474422963",
       MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417?product_trigger_id=MLA34178531&pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU2995880070&highlight=false&headerTopBrand=false&quantity=1",
@@ -5029,7 +2619,6 @@ export const DB_ALL = [
       prices: {
         base: 1000,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1000,
         "25": 950,
@@ -5063,65 +2652,6 @@ export const DB_ALL = [
         gauss: "3500-4200",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo fresado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "64/thumbnails/15x3-7a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "64/thumbnails/15x3-7a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "64/thumbnails/15x3-7a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "64/thumbnails/15x3-7a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "64/thumbnails/15x3-7a3.5 (5).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "64/15x3-7a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "64/15x3-7a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "64/15x3-7a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "64/15x3-7a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "64/15x3-7a3.5 (5).webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094?pdp_filters=item_id%3AMLA1474487295&attributes=CUSTOM%3A15x3%207a3.5#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1474487295",
       MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094?pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU2995880070&product_trigger_id=MLA34178531&highlight=false&headerTopBrand=false&quantity=1",
@@ -5137,7 +2667,6 @@ export const DB_ALL = [
       prices: {
         base: 1800,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1800,
         "25": 1700,
@@ -5171,49 +2700,6 @@ export const DB_ALL = [
         gauss: "3500-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo fresado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "65/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "65/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "65/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "65/1.webp",
-        },
-        {
-          type: "img",
-          src: "65/2.webp",
-        },
-        {
-          type: "img",
-          src: "65/3.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711?pdp_filters=item_id%3AMLA2006655184&attributes=CUSTOM%3A20x4%2011a4.5#origin%3Dshare%26sid%3Dshare%26wid%3DMLA2006655184",
       MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711?pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU2995880070&product_trigger_id=MLA34178531&highlight=false&headerTopBrand=false&quantity=1",
@@ -5229,7 +2715,6 @@ export const DB_ALL = [
       prices: {
         base: 3700,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 3700,
         "20": 3500,
@@ -5263,49 +2748,6 @@ export const DB_ALL = [
         gauss: "3500-4500",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "cuadrado fresado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "cuadrado fresado",
-        },
-        {
-          type: "img",
-          src: "66/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "66/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "66/thumbnails/3.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "cuadrado fresado",
-        },
-        {
-          type: "img",
-          src: "66/1.webp",
-        },
-        {
-          type: "img",
-          src: "66/2.webp",
-        },
-        {
-          type: "img",
-          src: "66/3.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado-fresado/up/MLAU2991651617?pdp_filters=item_id%3AMLA2006886336#origin%3Dshare%26sid%3Dshare%26wid%3DMLA2006886336",
       MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-cuadrado-fresado/up/MLAU2991651617?highlight=false&pdp_filters=seller_id%3A177470483&headerTopBrand=false#polycard_client=search-nordic-mshops&position=2&search_layout=grid&type=item&tracking_id=f774d24c-dea5-4340-b673-b98bd2375e27&wid=MLA2006886336&sid=search",
@@ -5323,7 +2765,7 @@ export const DB_ALL = [
         base: 12000,
         discount: 11500,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.042,
       },
       update: "18/5/25",
@@ -5336,41 +2778,6 @@ export const DB_ALL = [
       peso: 23,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "67/thumbnails/20 (1).webp",
-        },
-        {
-          type: "img",
-          src: "67/thumbnails/20 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "67/20 (1).webp",
-        },
-        {
-          type: "img",
-          src: "67/20 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 68,
@@ -5383,7 +2790,7 @@ export const DB_ALL = [
         base: 14200,
         discount: 13600,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.042,
       },
       update: "18/5/25",
@@ -5396,41 +2803,6 @@ export const DB_ALL = [
       peso: 42,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "68/thumbnails/25 (1).webp",
-        },
-        {
-          type: "img",
-          src: "68/thumbnails/25 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "68/25 (1).webp",
-        },
-        {
-          type: "img",
-          src: "68/25 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 69,
@@ -5443,7 +2815,7 @@ export const DB_ALL = [
         base: 19500,
         discount: 18700,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.041,
       },
       update: "18/5/25",
@@ -5456,41 +2828,6 @@ export const DB_ALL = [
       peso: 70,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "69/thumbnails/32 (1).webp",
-        },
-        {
-          type: "img",
-          src: "69/thumbnails/32 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "69/32 (1).webp",
-        },
-        {
-          type: "img",
-          src: "69/32 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 70,
@@ -5503,7 +2840,7 @@ export const DB_ALL = [
         base: 21000,
         discount: 20100,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.043,
       },
       update: "18/5/25",
@@ -5516,41 +2853,6 @@ export const DB_ALL = [
       peso: 85,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "70/thumbnails/36 (1).webp",
-        },
-        {
-          type: "img",
-          src: "70/thumbnails/36 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "70/36 (1).webp",
-        },
-        {
-          type: "img",
-          src: "70/36 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 71,
@@ -5563,7 +2865,7 @@ export const DB_ALL = [
         base: 23200,
         discount: 22200,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.043,
       },
       update: "18/5/25",
@@ -5576,41 +2878,6 @@ export const DB_ALL = [
       peso: 118,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "71/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "71/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "71/1.webp",
-        },
-        {
-          type: "img",
-          src: "71/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 72,
@@ -5623,7 +2890,7 @@ export const DB_ALL = [
         base: 33000,
         discount: 31000,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.061,
       },
       update: "18/5/25",
@@ -5636,41 +2903,6 @@ export const DB_ALL = [
       peso: 249,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "72/thumbnails/48 (1).webp",
-        },
-        {
-          type: "img",
-          src: "72/thumbnails/48 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-        {
-          type: "img",
-          src: "72/48 (1).webp",
-        },
-        {
-          type: "img",
-          src: "72/48 (2).webp",
-        },
-      ],
-    },
   },
   {
     id: 73,
@@ -5683,7 +2915,6 @@ export const DB_ALL = [
       prices: {
         base: 55000,
       },
-      discounts_percentages: {},
     },
     measures: {
       largo: 75,
@@ -5693,25 +2924,6 @@ export const DB_ALL = [
       peso: 670,
     },
     tags: ["pesca"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "arrastre",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "arrastre",
-        },
-      ],
-    },
   },
   {
     id: 74,
@@ -5724,7 +2936,6 @@ export const DB_ALL = [
       prices: {
         base: 180,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 180,
         "10": 150,
@@ -5740,20 +2951,6 @@ export const DB_ALL = [
     caracteristicas: ["reutilizable"],
     description:
       "Se recomienda su uso para conexiones de baja tensión, como lámparas",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "74.webp",
-        thumbnails: "74.webp",
-      },
-      thumbnails: [],
-      imgs: [
-        {
-          type: "img",
-          src: "74.webp",
-        },
-      ],
-    },
   },
   {
     id: 75,
@@ -5764,7 +2961,6 @@ export const DB_ALL = [
       prices: {
         base: 1500,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1500,
         "3": 1250,
@@ -5779,25 +2975,6 @@ export const DB_ALL = [
       peso: "8g",
     },
     caracteristicas: ["reutilizable"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "75/preview.webp",
-        thumbnails: "75/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "75/thumbnails/75.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "75/75.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877354416-borneraterminalconectorempalme-clip-2-vias-x3u-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877354416-borneraterminalconectorempalme-clip-2-vias-x3u-_JM?searchVariation=181314142862&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314142862&position=5&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
@@ -5812,7 +2989,6 @@ export const DB_ALL = [
       prices: {
         base: 2000,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 2000,
         "3": 1850,
@@ -5828,25 +3004,6 @@ export const DB_ALL = [
       peso: "11.4g",
     },
     caracteristicas: ["reutilizable"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "76/preview.webp",
-        thumbnails: "76/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "76/thumbnails/76.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "76/76.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877316430-borneraterminalconectorempalme-clip-3-vias-x3u-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877316430-borneraterminalconectorempalme-clip-3-vias-x3u-_JM?searchVariation=181314187502&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314187502&position=7&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
@@ -5861,7 +3018,6 @@ export const DB_ALL = [
       prices: {
         base: 580,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 580,
         "10": 500,
@@ -5876,25 +3032,6 @@ export const DB_ALL = [
       materiales: "ABS",
     },
     caracteristicas: ["reutilizable"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "77/preview.webp",
-        thumbnails: "77/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "77/thumbnails/77.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "77/77.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877351970-borneraterminalconectorempalme-clip-2-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877351970-borneraterminalconectorempalme-clip-2-cables-x5u-_JM?searchVariation=181314138382&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314138382&position=2&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
@@ -5909,7 +3046,6 @@ export const DB_ALL = [
       prices: {
         base: 800,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 800,
         "10": 700,
@@ -5923,25 +3059,6 @@ export const DB_ALL = [
       materiales: "ABS",
     },
     caracteristicas: ["reutilizable"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "78/preview.webp",
-        thumbnails: "78/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "78/thumbnails/78.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "78/78.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877326576-borneraterminalconectorempalme-clip-3-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877326576-borneraterminalconectorempalme-clip-3-cables-x5u-_JM?searchVariation=184148246937&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=184148246937&position=4&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
@@ -5956,7 +3073,6 @@ export const DB_ALL = [
       prices: {
         base: 1200,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1200,
         "10": 1000,
@@ -5970,25 +3086,6 @@ export const DB_ALL = [
       materiales: "ABS",
     },
     caracteristicas: ["reutilizable"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "79/preview.webp",
-        thumbnails: "79/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "79/thumbnails/79.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "79/79.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877327498-borneraterminalconectorempalme-clip-5-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877327498-borneraterminalconectorempalme-clip-5-cables-x5u-_JM?searchVariation=184148250357&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=184148250357&position=6&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
@@ -6003,7 +3100,6 @@ export const DB_ALL = [
       prices: {
         base: 600,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 600,
         "10": 500,
@@ -6018,65 +3114,6 @@ export const DB_ALL = [
     },
     caracteristicas: ["exterior"],
     description: "Deriva un cable de 1.5-2.5 a uno de 1-1.5",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "80/preview.webp",
-        thumbnails: "80/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "80/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "80/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "80/thumbnails/3.webp",
-        },
-        {
-          type: "img",
-          src: "80/thumbnails/4.webp",
-        },
-        {
-          type: "img",
-          src: "80/thumbnails/5.webp",
-        },
-        {
-          type: "img",
-          src: "80/thumbnails/6.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "80/1.webp",
-        },
-        {
-          type: "img",
-          src: "80/2.webp",
-        },
-        {
-          type: "img",
-          src: "80/3.webp",
-        },
-        {
-          type: "img",
-          src: "80/4.webp",
-        },
-        {
-          type: "img",
-          src: "80/5.webp",
-        },
-        {
-          type: "img",
-          src: "80/6.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877283648-empalme-rapido-exterior-1a2-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877283648-empalme-rapido-exterior-1a2-cables-x5u-_JM?utm_source=mercadoshops&utm_medium=referral&utm_campaign=twitter_share",
@@ -6091,7 +3128,6 @@ export const DB_ALL = [
       prices: {
         base: 750,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 750,
         "10": 700,
@@ -6106,73 +3142,6 @@ export const DB_ALL = [
       voltaje: "450V",
       materiales: "Policarbonato",
       modelo: "Helacon Plus",
-    },
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "81/preview.webp",
-        thumbnails: "81/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "81/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "81/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "81/thumbnails/3.webp",
-        },
-        {
-          type: "img",
-          src: "81/thumbnails/4.webp",
-        },
-        {
-          type: "img",
-          src: "81/thumbnails/5.webp",
-        },
-        {
-          type: "img",
-          src: "81/thumbnails/6.webp",
-        },
-        {
-          type: "img",
-          src: "81/thumbnails/7.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "81/1.webp",
-        },
-        {
-          type: "img",
-          src: "81/2.webp",
-        },
-        {
-          type: "img",
-          src: "81/3.webp",
-        },
-        {
-          type: "img",
-          src: "81/4.webp",
-        },
-        {
-          type: "img",
-          src: "81/5.webp",
-        },
-        {
-          type: "img",
-          src: "81/6.webp",
-        },
-        {
-          type: "img",
-          src: "81/7.webp",
-        },
-      ],
     },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877317474-empalme-rapido-3-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
@@ -6189,7 +3158,6 @@ export const DB_ALL = [
       prices: {
         base: 1800,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1800,
         "5": 1500,
@@ -6204,25 +3172,6 @@ export const DB_ALL = [
     caracteristicas: ["flexible"],
     description:
       "Imantado de una cara. Usado frecuentemente para hacer mosquiteros y manualidades",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "82/preview.webp",
-        thumbnails: "82/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "82/thumbnails/50.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "82/320.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1985406268-iman-tira-flexible-9x2mm-x10m-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1985406268-iman-tira-flexible-9x2mm-x10m-_JM#item_id=MLA1985406268&component=collection_grid&page_from=home&custom_categories=false",
@@ -6238,7 +3187,6 @@ export const DB_ALL = [
       prices: {
         base: 1900,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 1900,
         "5": 1600,
@@ -6253,25 +3201,6 @@ export const DB_ALL = [
     caracteristicas: ["flexible"],
     description:
       "Imantado de una cara. Usado frecuentemente para hacer mosquiteros y manualidades",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "83/preview.webp",
-        thumbnails: "83/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "83/thumbnails/83.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "83/83.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1985431476-iman-tira-flexible-13x17mm-x10m-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1985431476-iman-tira-flexible-13x17mm-x10m-_JM#item_id=MLA1985431476&component=collection_grid&page_from=home&custom_categories=false",
@@ -6287,29 +3216,9 @@ export const DB_ALL = [
       prices: {
         base: 13500,
       },
-      discounts_percentages: {},
     },
     description:
       "Juego de 20 piedras ovaladas de hematita magnetizadas y pulidas de 35mm de largo y 13mm de diámetro central + cuerda de polipropileno",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "84/preview.webp",
-        thumbnails: "84/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "84/thumbnails/84.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "84/84.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379?pdp_filters=item_id%3AMLA1941241742#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1941241742",
       MS: "https://imanestucuman.mercadoshops.com.ar/juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379?pdp_filters=category%3AMLA1161%7Cseller_id%3A177470483%7Citem_id%3AMLA1941241742#item_id=MLA1941241742&component=collection_grid&page_from=home&custom_categories=false",
@@ -6327,7 +3236,6 @@ export const DB_ALL = [
       prices: {
         base: 18500,
       },
-      discounts_percentages: {},
     },
     especificaciones: {
       medidas: "3x3x3cm",
@@ -6335,32 +3243,17 @@ export const DB_ALL = [
     },
     description:
       "216 imanes esféricos de 5mm de diámetro. Multicolor(6 distintos)",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "85.webp",
-        thumbnails: "85.webp",
-      },
-      thumbnails: [],
-      imgs: [
-        {
-          type: "img",
-          src: "85.webp",
-        },
-      ],
-    },
   },
   {
     id: 86,
     label: "Neocube Dorado",
     categorie: "imanes",
-    subcategorie: "neodimio",
+    subcategorie: "otros",
     price_data: {
       usePrice: "base",
       prices: {
         base: 18500,
       },
-      discounts_percentages: {},
     },
     measures: {
       largo: 5,
@@ -6371,28 +3264,10 @@ export const DB_ALL = [
     especificaciones: {
       medida_total: "3x3x3cm",
       forma: "esfera",
+      materiales: "neodimio",
     },
     description: "216 imanes esféricos de 5mm de diámetro de color dorado",
     tags: ["juguete"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "86/preview.webp",
-        thumbnails: "86/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "86/thumbnails/86.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "86/86.webp",
-        },
-      ],
-    },
   },
   {
     id: 87,
@@ -6405,7 +3280,7 @@ export const DB_ALL = [
         base: 4000,
         discount: 3800,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.05,
       },
       prices_qtts: {
@@ -6428,33 +3303,6 @@ export const DB_ALL = [
     description:
       "Frecuentemente usado para soportar puertas de hornos que no cierran bien",
     tags: ["ceramico"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "87/preview.webp",
-        thumbnails: "87/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "87/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "87/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "87/1.webp",
-        },
-        {
-          type: "img",
-          src: "87/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 88,
@@ -6467,7 +3315,7 @@ export const DB_ALL = [
         base: 2100,
         discount: 2000,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.047619047619047616,
       },
     },
@@ -6483,33 +3331,6 @@ export const DB_ALL = [
       temperatura: "Hasta 200°C",
     },
     tags: ["ceramico"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "88/preview.webp",
-        thumbnails: "88/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "88/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "88/thumbnails/2.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "88/1.webp",
-        },
-        {
-          type: "img",
-          src: "88/2.webp",
-        },
-      ],
-    },
   },
   {
     id: 89,
@@ -6521,7 +3342,6 @@ export const DB_ALL = [
       prices: {
         base: 7000,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 7000,
         "3": 6400,
@@ -6537,25 +3357,6 @@ export const DB_ALL = [
     caracteristicas: ["flexible", "adhesivo"],
     description:
       "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "89/preview.webp",
-        thumbnails: "89/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "89/thumbnails/89.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "89/89.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://www.mercadolibre.com.ar/iman-plancha-flexible-adhesivo-31cmx03mmx1mm/up/MLAU3114462818?pdp_filters=item_id%3AMLA1487776775#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1487776775",
       MS: "https://imanestucuman.mercadoshops.com.ar/iman-plancha-flexible-adhesivo-31cmx03mmx1mm/up/MLAU3114462818?pdp_filters=category%3AMLA378161%7Cseller_id%3A177470483%7Citem_id%3AMLA1487776775#item_id=MLA1487776775&component=collection_grid&page_from=home&custom_categories=false",
@@ -6572,7 +3373,7 @@ export const DB_ALL = [
         base: 26000,
         discount: 24000,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.077,
       },
       prices_qtts: {
@@ -6587,65 +3388,6 @@ export const DB_ALL = [
       rendimiento: "8-12meses en tanque de 1000L y 6-8 meses en boya(aprox.)",
     },
     caracteristicas: ["Calidad Alimentaria"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "90/preview.webp",
-        thumbnails: "90/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "90/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "90/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "90/thumbnails/3.webp",
-        },
-        {
-          type: "img",
-          src: "90/thumbnails/4.webp",
-        },
-        {
-          type: "img",
-          src: "90/thumbnails/5.webp",
-        },
-        {
-          type: "img",
-          src: "90/thumbnails/6.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "90/1.webp",
-        },
-        {
-          type: "img",
-          src: "90/2.webp",
-        },
-        {
-          type: "img",
-          src: "90/3.webp",
-        },
-        {
-          type: "img",
-          src: "90/4.webp",
-        },
-        {
-          type: "img",
-          src: "90/5.webp",
-        },
-        {
-          type: "img",
-          src: "90/6.webp",
-        },
-      ],
-    },
   },
   {
     id: 91,
@@ -6656,72 +3398,12 @@ export const DB_ALL = [
       prices: {
         base: 23000,
       },
-      discounts_percentages: {},
       salesUnit: "kg",
     },
     especificaciones: {
       modelo: "Italiana",
     },
     caracteristicas: ["Calidad Alimentaria"],
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "91/preview.webp",
-        thumbnails: "91/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "91/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "91/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "91/thumbnails/3.webp",
-        },
-        {
-          type: "img",
-          src: "91/thumbnails/4.webp",
-        },
-        {
-          type: "img",
-          src: "91/thumbnails/5.webp",
-        },
-        {
-          type: "img",
-          src: "91/thumbnails/6.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "91/1.webp",
-        },
-        {
-          type: "img",
-          src: "91/2.webp",
-        },
-        {
-          type: "img",
-          src: "91/3.webp",
-        },
-        {
-          type: "img",
-          src: "91/4.webp",
-        },
-        {
-          type: "img",
-          src: "91/5.webp",
-        },
-        {
-          type: "img",
-          src: "91/6.webp",
-        },
-      ],
-    },
   },
   {
     id: 92,
@@ -6733,7 +3415,7 @@ export const DB_ALL = [
         base: 26000,
         discount: 23000,
       },
-      discounts_percentages: {
+      discountsPercentages: {
         discount: 0.11538461538461539,
       },
       salesUnit: "kg",
@@ -6745,73 +3427,6 @@ export const DB_ALL = [
     },
     description:
       "SE MOJARON UN POCO DURANTE UNA TORMENTA, IGUALMENTE FUNCIONAN",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "92/preview.webp",
-        thumbnails: "92/thumbnails/1.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "92/thumbnails/1.webp",
-        },
-        {
-          type: "img",
-          src: "92/thumbnails/2.webp",
-        },
-        {
-          type: "img",
-          src: "92/thumbnails/3.webp",
-        },
-        {
-          type: "img",
-          src: "92/thumbnails/4.webp",
-        },
-        {
-          type: "img",
-          src: "92/thumbnails/5.webp",
-        },
-        {
-          type: "img",
-          src: "92/thumbnails/6.webp",
-        },
-        {
-          type: "img",
-          src: "92/thumbnails/90.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "92/1.webp",
-        },
-        {
-          type: "img",
-          src: "92/2.webp",
-        },
-        {
-          type: "img",
-          src: "92/3.webp",
-        },
-        {
-          type: "img",
-          src: "92/4.webp",
-        },
-        {
-          type: "img",
-          src: "92/5.webp",
-        },
-        {
-          type: "img",
-          src: "92/6.webp",
-        },
-        {
-          type: "img",
-          src: "92/90.webp",
-        },
-      ],
-    },
   },
   {
     id: 93,
@@ -6823,7 +3438,6 @@ export const DB_ALL = [
       prices: {
         base: 530,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 530,
         "25": 500,
@@ -6847,66 +3461,6 @@ export const DB_ALL = [
       fuerza_experimental: "1.7kg",
     },
     tags: ["arandela"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo fresado",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "93/thumbnails/9.6x3_6a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "93/thumbnails/9.6x3_6a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "93/thumbnails/9.6x3_6a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "93/thumbnails/9.6x3_6a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "93/thumbnails/9.6x3_6a3.5 (5).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo fresado",
-        },
-        {
-          type: "img",
-          src: "93/9.6x3_6a3.5 (1).webp",
-        },
-        {
-          type: "img",
-          src: "93/9.6x3_6a3.5 (2).webp",
-        },
-        {
-          type: "img",
-          src: "93/9.6x3_6a3.5 (3).webp",
-        },
-        {
-          type: "img",
-          src: "93/9.6x3_6a3.5 (4).webp",
-        },
-        {
-          type: "img",
-          src: "93/9.6x3_6a3.5 (5).webp",
-        },
-      ],
-    },
-    test: "ERROR",
   },
   {
     id: 94,
@@ -6918,7 +3472,6 @@ export const DB_ALL = [
       prices: {
         base: 850,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 850,
         "10": 750,
@@ -6928,25 +3481,6 @@ export const DB_ALL = [
     },
     description:
       "Piedras ovaladas de hematita magnetizadas y pulidas de 35mm de largo y 13mm de diámetro central. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
-    imgs_data: {
-      preview: {
-        type: "img",
-        src: "94/preview.webp",
-        thumbnails: "94/preview.webp",
-      },
-      thumbnails: [
-        {
-          type: "img",
-          src: "94/thumbnails/50.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "img",
-          src: "94/320.webp",
-        },
-      ],
-    },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1989274886-pack-imanes-ovalados-x20-_JM#origin%3Dshare%26sid%3Dshare",
       MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1989274886-pack-imanes-ovalados-x20-_JM#item_id=MLA1989274886&component=collection_grid&page_from=home&custom_categories=false",
@@ -6962,7 +3496,6 @@ export const DB_ALL = [
       prices: {
         base: 120,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 120,
         "25": 105,
@@ -6983,49 +3516,6 @@ export const DB_ALL = [
     description:
       "Usados frecuentemente en manualidades, artesanias, heladeras, etc",
     tags: ["ceramico"],
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "95/thumbnails/16x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "95/thumbnails/16x3 (2).webp",
-        },
-        {
-          type: "img",
-          src: "95/thumbnails/50.webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "95/16x3 (1).webp",
-        },
-        {
-          type: "img",
-          src: "95/16x3 (2).webp",
-        },
-        {
-          type: "img",
-          src: "95/320.webp",
-        },
-      ],
-    },
   },
   {
     id: 96,
@@ -7038,7 +3528,6 @@ export const DB_ALL = [
       prices: {
         base: 135,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 135,
         "25": 130,
@@ -7070,33 +3559,6 @@ export const DB_ALL = [
         gauss: "2100-2200",
       },
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "96/thumbnails/7x1.5_N35 (1).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "96/7x1.5_N35 (1).webp",
-        },
-      ],
-    },
   },
   {
     id: 97,
@@ -7108,7 +3570,6 @@ export const DB_ALL = [
       prices: {
         base: 155,
       },
-      discounts_percentages: {},
       prices_qtts: {
         "1": 155,
         "25": 145,
@@ -7139,41 +3600,6 @@ export const DB_ALL = [
         fuerza: "1.2-1.5",
         gauss: "2500-3000",
       },
-    },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
-      },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "97/thumbnails/9x1.5_N35 (1).webp",
-        },
-        {
-          type: "img",
-          src: "97/thumbnails/9x1.5_N35 (2).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "97/9x1.5_N35 (1).webp",
-        },
-        {
-          type: "img",
-          src: "97/9x1.5_N35 (2).webp",
-        },
-      ],
     },
   },
   {
@@ -7206,48 +3632,768 @@ export const DB_ALL = [
       forma: "redondo",
       fuerza_experimental: "0.84kg",
     },
-    imgs_data: {
-      preview: {
-        type: "svg",
-        src: "redondo",
-        thumbnails: "",
+  },
+  {
+    id: 99,
+    label: "Pegamento Poxipol 21g/14ml",
+    categorie: "otros",
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 5500,
       },
-      thumbnails: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "98/thumbnails/6x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "98/thumbnails/6x4 (2).webp",
-        },
-        {
-          type: "img",
-          src: "98/thumbnails/6x4 (3).webp",
-        },
-      ],
-      imgs: [
-        {
-          type: "svg",
-          src: "redondo",
-        },
-        {
-          type: "img",
-          src: "98/6x4 (1).webp",
-        },
-        {
-          type: "img",
-          src: "98/6x4 (2).webp",
-        },
-        {
-          type: "img",
-          src: "98/6x4 (3).webp",
-        },
-      ],
+      update: "27/6/25",
     },
+    especificaciones: {
+      resistencia: "1000kg",
+      endurecimiento: "10min",
+      pega: "metal, cemento, loza, madera, mármol, vidrio, cerámica y porcelana",
+    },
+    caracteristicas: [
+      "Gran resistencia",
+      "Gran durabilidad",
+      "Resistente al agua",
+    ],
+    description:
+      "Adhesivo epoxi o soldadura plástica de 2 componentes que se mezclan y aplican",
+  },
+  {
+    id: 100,
+    label: "Pegamento Éccole 3g",
+    categorie: "otros",
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 2700,
+      },
+      update: "27/6/25",
+    },
+    caracteristicas: ["Sin olor", "No inflamable"],
+    description:
+      "Adhesivo de cianoacrilato.\n Pega en 60 segundos, pero su resistencia final se logra luego de 3 horas de secado.\n No adhiere sobre polietileno, polipropileno, teflón ni superficies siliconadas",
   },
 ];
+
+export const DB_IMGS: Record<string, TypeItemImgs> = {
+  "1": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "2": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["2x4%20(1).webp", "2x4%20(2).webp", "2x4%20(3).webp"],
+  },
+  "3": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "4": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "5": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "6": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "7": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "8": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "9": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "10": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+  },
+  "11": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "12": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "13": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "14": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "15": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "16": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "17": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "18": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "19": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "20": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "21": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "22": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "23": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "24": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "25": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "26": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "27": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "28": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "29": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "30": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "31": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "32": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "33": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "34": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "35": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "36": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "37": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "38": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "39": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "40": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "41": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["35x5%20(1).webp", "35x5%20(2).webp"],
+  },
+  "42": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["37x5%20(1).webp", "37x5%20(2).webp"],
+  },
+  "43": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["38x8%20(1).webp", "38x8%20(2).webp"],
+  },
+  "44": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+  },
+  "45": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["54x3%20(1).webp", "54x3%20(2).webp"],
+  },
+  "46": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "47": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["10x8x3%20(1).webp", "10x8x3%20(2).webp"],
+  },
+  "48": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["10x10x2%20(1).webp", "10x10x2%20(2).webp"],
+  },
+  "49": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["14,5x7x2%20(1).webp", "14,5x7x2%20(2).webp"],
+  },
+  "50": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["15x10x5%20(1).webp", "15x10x5%20(2).webp"],
+  },
+  "51": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["20x10x10%20(1).webp", "20x10x10%20(2).webp"],
+  },
+  "52": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["25x10x2%20(1).webp", "25x10x2%20(2).webp"],
+  },
+  "53": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["28x20x3%20(1).webp", "28x20x3%20(2).webp"],
+  },
+  "54": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+  },
+  "55": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["30x20x5.webp"],
+  },
+  "56": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["40x10x5%20(1).webp", "40x10x5%20(2).webp"],
+  },
+  "57": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["40x20x5.webp"],
+  },
+  "58": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["40x25x10.webp"],
+  },
+  "59": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["50x10x3%20(1).webp", "50x10x3%20(2).webp"],
+  },
+  "60": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["50x20x10.webp", "50x20x10~1.webp"],
+  },
+  "61": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+  },
+  "62": {
+    preview: {
+      type: "svg",
+      src: "redondo fresado",
+    },
+    imgs: [
+      "8x3-6a3.5%20(1).webp",
+      "8x3-6a3.5%20(2).webp",
+      "8x3-6a3.5%20(3).webp",
+      "8x3-6a3.5%20(4).webp",
+      "8x3-6a3.5%20(5).webp",
+    ],
+  },
+  "63": {
+    preview: {
+      type: "svg",
+      src: "redondo fresado",
+    },
+    imgs: [
+      "12x3-6a3.5%20(1).webp",
+      "12x3-6a3.5%20(2).webp",
+      "12x3-6a3.5%20(3).webp",
+      "12x3-6a3.5%20(4).webp",
+      "12x3-6a3.5%20(5).webp",
+    ],
+  },
+  "64": {
+    preview: {
+      type: "svg",
+      src: "redondo fresado",
+    },
+    imgs: [
+      "15x3-7a3.5%20(1).webp",
+      "15x3-7a3.5%20(2).webp",
+      "15x3-7a3.5%20(3).webp",
+      "15x3-7a3.5%20(4).webp",
+      "15x3-7a3.5%20(5).webp",
+    ],
+  },
+  "65": {
+    preview: {
+      type: "svg",
+      src: "redondo fresado",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "66": {
+    preview: {
+      type: "svg",
+      src: "cuadrado fresado",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "67": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+    imgs: ["20%20(1).webp", "20%20(2).webp"],
+  },
+  "68": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+    imgs: ["25%20(1).webp", "25%20(2).webp"],
+  },
+  "69": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+    imgs: ["32%20(1).webp", "32%20(2).webp"],
+  },
+  "70": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+    imgs: ["36%20(1).webp", "36%20(2).webp"],
+  },
+  "71": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "72": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+    imgs: ["48%20(1).webp", "48%20(2).webp"],
+  },
+  "73": {
+    preview: {
+      type: "svg",
+      src: "arrastre",
+    },
+  },
+  "75": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["75.webp"],
+  },
+  "76": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["76.webp"],
+  },
+  "77": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["77.webp"],
+  },
+  "78": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["78.webp"],
+  },
+  "79": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["79.webp"],
+  },
+  "80": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp"],
+  },
+  "81": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp",
+      "7.webp",
+    ],
+  },
+  "82": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["1.webp"],
+  },
+  "83": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["83.webp"],
+  },
+  "84": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["84.webp"],
+  },
+  "86": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["86.webp"],
+  },
+  "87": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "88": {
+    preview: {
+      type: "svg",
+      src: "cuadrado",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "89": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["89.webp"],
+  },
+  "90": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp"],
+  },
+  "91": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp"],
+  },
+  "92": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: [
+      "1.webp",
+      "2.webp",
+      "3.webp",
+      "4.webp",
+      "5.webp",
+      "6.webp",
+      "90.webp",
+    ],
+  },
+  "93": {
+    preview: {
+      type: "svg",
+      src: "redondo fresado",
+    },
+    imgs: [
+      "9.6x3_6a3.5%20(1).webp",
+      "9.6x3_6a3.5%20(2).webp",
+      "9.6x3_6a3.5%20(3).webp",
+      "9.6x3_6a3.5%20(4).webp",
+      "9.6x3_6a3.5%20(5).webp",
+    ],
+  },
+  "94": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["1.webp"],
+  },
+  "95": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["1.webp", "2.webp", "3.webp"],
+  },
+  "96": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["7x1.5_N35%20(1).webp"],
+  },
+  "97": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["9x1.5_N35%20(1).webp", "9x1.5_N35%20(2).webp"],
+  },
+  "98": {
+    preview: {
+      type: "svg",
+      src: "redondo",
+    },
+    imgs: ["6x4%20(1).webp", "6x4%20(2).webp", "6x4%20(3).webp"],
+  },
+  "99": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["1.webp", "2.webp"],
+  },
+  "100": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["eccole-3g%20(1).webp", "eccole-3g%20(2).webp"],
+  },
+};

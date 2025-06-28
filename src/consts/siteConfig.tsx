@@ -1,3 +1,5 @@
+import type { TypeFiltersValues } from "./types";
+
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
 import TagIcon from "@mui/icons-material/Tag";
@@ -5,7 +7,8 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 import { SVGMagnet } from "../assets/svgs/svgsIcons";
-import type { TypeFiltersValues } from "./types";
+
+export const VERSION_CURRENT = "2.0.5"; // usada para controlar cambios de funcionamiento
 
 export const NAV_ITEMS = [
   { id: "", href: "", label: "Inicio", icon: HomeOutlinedIcon },

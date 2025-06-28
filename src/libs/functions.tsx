@@ -78,10 +78,10 @@ export const handlePriceData = (itemData: ClassDBItem) => {
     const base = price_data.prices.base;
     price_data.prices.qtt = price_qtt;
 
-    if (!price_data.discounts_percentages) {
-      price_data.discounts_percentages = {};
+    if (!price_data.discountsPercentages) {
+      price_data.discountsPercentages = {};
     }
-    price_data.discounts_percentages.qtt = (base - price_qtt) / base;
+    price_data.discountsPercentages.qtt = (base - price_qtt) / base;
 
     let use = "base";
     const prices = price_data.prices;

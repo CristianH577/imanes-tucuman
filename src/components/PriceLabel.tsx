@@ -24,13 +24,14 @@ export default function PriceLabel({
             classNames?.discountWrapper ? ` ${classNames?.discountWrapper}` : ""
           }`}
         >
-          <b className="text-red-700">
-            -
-            {itemData.price_data.discounts_percentages?.[usePrice] &&
-              toPercentageFormat(
-                itemData.price_data.discounts_percentages[usePrice]
+          {itemData.price_data?.discountsPercentages?.[usePrice] && (
+            <b className="text-red-700">
+              -{" "}
+              {toPercentageFormat(
+                itemData.price_data.discountsPercentages[usePrice]
               )}
-          </b>{" "}
+            </b>
+          )}{" "}
           <span className="text-neutral-400 line-through">
             {toPriceFormat(itemData.price_data.prices.base)}
           </span>

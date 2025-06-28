@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
 import { motion } from "framer-motion";
 
+import { DB_IMGS } from "../../consts/dbs";
 import { SVG_FORMA } from "../../consts/values";
 
 import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
@@ -86,12 +87,14 @@ export default function List({ downloading = false }) {
 
     switch (col) {
       case "img":
-        const src = row.imgs_data.preview.src;
-        const thumbnails = row.imgs_data.preview.thumbnails ?? "";
+        const item_imgs = DB_IMGS[String(row.id) as keyof typeof DB_IMGS];
+        const preview = item_imgs.preview;
+        const thumbnails_name = item_imgs.imgs ? item_imgs.imgs[0] ?? "" : "";
         const SvgForma =
-          row.imgs_data.preview.type === "svg" && src
-            ? SVG_FORMA?.[src as keyof typeof SVG_FORMA]
+          preview.type === "svg" && preview.src
+            ? SVG_FORMA?.[preview.src as keyof typeof SVG_FORMA]
             : false;
+
         return SvgForma ? (
           <SvgForma className="w-[50px] h-fit self-center" />
         ) : (
@@ -99,11 +102,9 @@ export default function List({ downloading = false }) {
             alt={`Imagen de ${row.label}`}
             className="object-contain w-[50px] min-w-[50px]"
             src={
-              thumbnails
-                ? srcs.find(([path, _]) =>
-                    path.includes(row.imgs_data.preview.thumbnails)
-                  )?.[1] ?? ""
-                : ""
+              srcs.find(([_, path]) =>
+                path.includes(`/${row.id}/thumbnails/${thumbnails_name}`)
+              )?.[1] || ""
             }
           />
         );
