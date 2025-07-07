@@ -1,10 +1,10 @@
 import CardUya from "../CardUya";
-import ImageHeroCustom from "../../../components/ImageHeroCustom";
 
 import img_1 from "../../../assets/uya/sujecion/cortinas/1.webp";
 import img_2 from "../../../assets/uya/sujecion/cortinas/2.webp";
 import img_3 from "../../../assets/uya/sujecion/cortinas/3.webp";
 import img_4 from "../../../assets/uya/sujecion/cortinas/4.webp";
+import ImageCustom from "../../../components/ImageCustom";
 
 const items = [
   {
@@ -26,16 +26,12 @@ export default function Cortinas() {
 
       <div className="flex flex-col items-center justify-center gap-4 sm:gap-8 sm:flex-row sm:flex-wrap">
         <div className="max-w-[320px] sm:max-w-[660px]">
-          <div className="sm:flex justify-center border-5 border-divider rounded-large shadow-md overflow-hidden">
+          <div className="sm:flex justify-center rounded-lg shadow-md overflow-hidden">
             {[img_1, img_2].map((src, i) => (
-              <ImageHeroCustom
+              <ImageCustom
                 key={i}
                 src={src}
-                className="w-full"
-                classNames={{ wrapper: "max-w-none" }}
                 alt={`Imagen de ejemplo ${i + 1}`}
-                // @ts-ignore
-                radius="none"
               />
             ))}
           </div>
@@ -51,8 +47,8 @@ export default function Cortinas() {
             key={i + 3}
             src={item.src}
             text={item.text}
-            classNames={{
-              img: "object-cover w-full object-bottom max-h-[350px]",
+            classes={{
+              img: "object-cover w-full max-h-[350px]",
             }}
           />
         ))}

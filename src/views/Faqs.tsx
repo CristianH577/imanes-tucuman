@@ -3,14 +3,15 @@ import { useOutletContext } from "react-router";
 
 import type { TypeOutletContext } from "../consts/types";
 
-import { Accordion, AccordionItem } from "@heroui/react";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
-import LinkCustom from "../components/LinkCustom";
 import Pagos from "./Faqs/Pagos";
 import Envios from "./Faqs/Envios";
 import InputSearch from "../components/InputSearch";
+import LinkCustom from "../components/LinkCustom";
 
 import EmergencyIcon from "@mui/icons-material/Emergency";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 function Faqs() {
   const context: TypeOutletContext = useOutletContext();
@@ -301,22 +302,28 @@ function Faqs() {
       {items.length < 1 ? (
         <b>Sin resultados</b>
       ) : (
-        <Accordion selectionMode="multiple" className="max-w-[65ch]">
+        <section className="w-full max-w-[900px]">
           {items.map((item, idx) => (
-            <AccordionItem
+            <Accordion
               key={idx}
-              aria-label={item.title}
-              title={item.title}
-              className="prose dark:prose-invert data-[open=true]:border-y-4 border-custom2 dark:border-custom1"
-              classNames={{
-                title: "font-bold",
-                heading: "m-0",
-              }}
+              className="w-full bg-content1 text-foreground dark:shadow-none hover:bg-custom1/20 dark:hover:bg-custom2-10/50 transition-colors"
+              classes={{ expanded: "bg-custom1/10 dark:bg-custom2-10/20" }}
             >
-              {item.content}
-            </AccordionItem>
+              <AccordionSummary
+                id={"panel-header " + idx}
+                aria-controls={"panel-content " + idx}
+                expandIcon={<ExpandMoreIcon className="text-foreground" />}
+                className="font-semibold"
+              >
+                {item.title}
+              </AccordionSummary>
+
+              <AccordionDetails className="prose dark:prose-invert data-[open=true]:border-y-4 border-custom2 dark:border-custom1">
+                {item.content}
+              </AccordionDetails>
+            </Accordion>
           ))}
-        </Accordion>
+        </section>
       )}
     </>
   );

@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
+import { AnimatePresence, motion } from "framer-motion";
 
-import { DB_ALL } from "../consts/dbs";
+import { TABLES_FORMS } from "../consts/values";
+import type { ClassDBItem, TypeOutletContext } from "../consts/types";
 
-import type { ClassDBItem, TypeIcon, TypeOutletContext } from "../consts/types";
-
+import { scrollStyle } from "../libs/tvs";
 import { filterDbForms } from "../libs/functions";
 
-import { Tabs, Tab } from "@heroui/react";
+import { Button } from "@mui/material";
 
 import TablePrices from "./Imanes/TablePrices";
-import DragMagnets from "./Imanes/DragMagnets";
 
 import {
   SVGRedondoFresadoMeasures,
@@ -19,56 +19,34 @@ import {
   SVGCuadradoFresadoMeasures,
 } from "../assets/svgs/svgsFormas";
 
-type TypeTableMagnets = {
-  form: string;
+type TypeTableFormItem = {
+  id: string;
+  label: string;
   measureFormat: string;
-  items: ClassDBItem[];
-  svg: TypeIcon;
+  items?: ClassDBItem[];
 };
-const tables_default: TypeTableMagnets[] = [
-  {
-    form: "redondo",
-    measureFormat: "AxB",
-    svg: SVGRedondoMeasures,
-    items: [],
-  },
-  {
-    form: "cuadrado",
-    measureFormat: "AxBxC",
-    svg: SVGCuadradoMeasures,
-    items: [],
-  },
-  {
-    form: "redondo fresado",
-    measureFormat: "AxB D-d",
-    svg: SVGRedondoFresadoMeasures,
-    items: [],
-  },
-  {
-    form: "cuadrado fresado",
-    measureFormat: "AxBxC D-d",
-    svg: SVGCuadradoFresadoMeasures,
-    items: [],
-  },
-];
+
+const svgs = {
+  redondo: SVGRedondoMeasures,
+  cuadrado: SVGCuadradoMeasures,
+  "redondo fresado": SVGRedondoFresadoMeasures,
+  "cuadrado fresado": SVGCuadradoFresadoMeasures,
+};
 
 export default function Imanes() {
   const context: TypeOutletContext = useOutletContext();
 
-  const [tables, setTables] = useState(tables_default);
-  const [arrastreItems, setArrastreItems] = useState<ClassDBItem[]>([]);
+  const [tabSelected, setTabSelected] = useState(0);
+  const [tables, setTables] = useState<TypeTableFormItem[] | []>([]);
+
+  const Svg = svgs[TABLES_FORMS[tabSelected].id as keyof typeof svgs];
 
   useEffect(() => {
-    const tables_ = [...tables_default];
+    const tables_: TypeTableFormItem[] = [...TABLES_FORMS];
 
-    tables_.map((table) => (table.items = filterDbForms(table.form)));
-
-    const arrastre_ = DB_ALL.filter(
-      (item) => item.categorie === "imanes" && item.subcategorie === "arrastre"
-    );
+    tables_.map((table) => (table.items = filterDbForms(table.id)));
 
     setTables(tables_);
-    setArrastreItems(arrastre_);
   }, []);
 
   return (
@@ -93,46 +71,66 @@ export default function Imanes() {
         </p>
       </section>
 
-      <section className="w-full text-center md:flex flex-col items-center">
-        <Tabs
-          aria-label="Categorias del imanes"
-          classNames={{
-            tabList:
-              "bg-gradient-to-t from-custom1 to-custom1-3 flex-wrap justify-center w-full",
-            tabContent:
-              "text-custom2 font-bold group-data-[selected=true]:text-white capitalize whitespace-normal",
-            cursor: "bg-gradient-to-t from-custom2 to-custom2-10",
-            panel: "mt-4 flex flex-col items-center gap-2 w-full",
-            tab: "w-fit",
-          }}
+      <section
+        className={
+          "max-sm:w-full overflow-x-auto bg-gradient-to-t from-custom2 to-custom2-10 rounded-lg px-2 py-1 shadow-md " +
+          scrollStyle
+        }
+      >
+        <motion.ul
+          role="tabs-wrapper"
+          aria-label="formas de los imanes"
+          className="flex w-fit relative gap-2"
         >
-          {tables.map((table) => (
-            <Tab key={table.form} title={table.form}>
-              <div className="flex items-center justify-center h-[250px]">
-                <table.svg className="w-full h-full" />
-              </div>
-
-              <TablePrices
-                tableAriaLabel={`Tabla de precios: ${table.form}`}
-                measureFormat={table.measureFormat}
-                rows={table.items}
-                cart={context.cart.value}
-                handleAdd={context.cart.add}
-                setItemToComparate={context.setMagnetData}
-              />
-            </Tab>
+          {tables.map((table, i) => (
+            <li key={i}>
+              <Button
+                color="inherit"
+                size="small"
+                role="tab"
+                data-selected={i === tabSelected}
+                className="whitespace-nowrap font-semibold data-[selected=true]:text-shadow-md data-[selected=true]:text-custom2 text-shadow-black/30 text-white"
+                title={"Ver " + table.label}
+                onClick={() => setTabSelected(i)}
+              >
+                {tabSelected === i && (
+                  <motion.div
+                    layoutId="highlight-imanes"
+                    className="absolute right-0 bottom-0 rounded-lg w-full h-full bg-gradient-to-t from-custom1 to-custom1-3"
+                  />
+                )}
+                <span className="z-10 capitalize">{table.label}</span>
+              </Button>
+            </li>
           ))}
-
-          <Tab key="drag" title="De arrastre">
-            <DragMagnets
-              rows={arrastreItems}
-              cart={context.cart.value}
-              handleAdd={context.cart.add}
-              setItemToComparate={context.setMagnetData}
-            />
-          </Tab>
-        </Tabs>
+        </motion.ul>
       </section>
+
+      <AnimatePresence mode="wait">
+        <motion.section
+          key={tabSelected}
+          role="tabpanel"
+          layoutId="content-imanes"
+          className="w-full text-center sm:flex flex-col items-center "
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="flex items-center justify-center h-[250px]">
+            <Svg className="w-full h-full" />
+          </div>
+
+          <TablePrices
+            tableAriaLabel={`Tabla de precios: ${TABLES_FORMS[tabSelected].label}`}
+            measureFormat={TABLES_FORMS[tabSelected].measureFormat}
+            rows={tables[tabSelected]?.items || []}
+            cart={context.cart.value}
+            handleAdd={context.cart.add}
+            setItemToComparate={context.setMagnetData}
+          />
+        </motion.section>
+      </AnimatePresence>
     </>
   );
 }

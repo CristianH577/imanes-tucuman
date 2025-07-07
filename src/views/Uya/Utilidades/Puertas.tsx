@@ -1,4 +1,4 @@
-import ImageHeroCustom from "../../../components/ImageHeroCustom";
+import ImageCustom from "../../../components/ImageCustom";
 
 import img_1 from "../../../assets/uya/utilidades/puertas/1.webp";
 import img_2 from "../../../assets/uya/utilidades/puertas/2.webp";
@@ -16,14 +16,11 @@ export default function Puertas() {
 
       <div className="grid sm:grid-cols-2 gap-8">
         {[img_1, img_2, img_3, img_4].map((src, i) => (
-          <ImageHeroCustom
+          <ImageCustom
             key={i + 1}
             src={src}
-            className="object-cover w-[300px] h-[300px] border-5 border-divider"
+            className="object-cover w-[300px] h-[300px] rounded-lg border-5 border-divider shadow-md"
             alt={`Imagen de ejemplo ${i + 1}`}
-            // @ts-ignore
-            shadow="md"
-            radius="full"
             height={300}
             widht={300}
           />

@@ -1,15 +1,17 @@
-import { Accordion, AccordionItem } from "@heroui/react";
+import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
+
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 type TypeArticlesListItem = {
   id: string;
   title: string;
   content: React.ReactElement;
 };
-interface InterfaceArticlesListProps {
+interface Props {
   list: TypeArticlesListItem[];
 }
 
-export default function ArticlesList({ list }: InterfaceArticlesListProps) {
+export default function ArticlesList({ list }: Props) {
   const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
     const target = e.target as HTMLElement;
     const id = target.dataset?.id;
@@ -28,17 +30,20 @@ export default function ArticlesList({ list }: InterfaceArticlesListProps) {
   };
 
   return (
-    <Accordion variant="splitted" className="w-full max-w-sm">
-      <AccordionItem
-        key="articles"
-        aria-label="Artículos"
-        title="Artículos"
-        className="border-3 border-custom1-2"
-        classNames={{
-          title: "font-bold border-b",
-          content: "pt-0 pb-4",
-        }}
+    <Accordion
+      className="w-full max-w-sm border-3 border-custom1-2 bg-content1 text-foreground shadow-none rounded-lg"
+      title="Ver artículos"
+    >
+      <AccordionSummary
+        id="panel-header"
+        aria-controls="panel-content"
+        expandIcon={<ExpandMoreIcon className="text-foreground" />}
+        className="font-semibold"
       >
+        Artículos
+      </AccordionSummary>
+
+      <AccordionDetails>
         <ul className="list-disc list-inside text-start space-y-2">
           {list.map((item, i: number) => (
             <li
@@ -51,7 +56,7 @@ export default function ArticlesList({ list }: InterfaceArticlesListProps) {
             </li>
           ))}
         </ul>
-      </AccordionItem>
+      </AccordionDetails>
     </Accordion>
   );
 }

@@ -11,23 +11,21 @@ import {
 
 import { getHrefSearch } from "../../libs/functions";
 
+import { Select, SelectItem } from "@heroui/select";
+import { Input } from "@heroui/input";
+import { Button } from "@heroui/button";
 import {
-  Button,
-  Divider,
   Drawer,
   DrawerBody,
   DrawerContent,
   DrawerFooter,
   DrawerHeader,
-  Input,
-  Link,
-  Select,
-  SelectItem,
-} from "@heroui/react";
+} from "@heroui/drawer";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import { SVGBroom } from "../../assets/svgs/svgsIcons";
+import { Divider } from "@mui/material";
 
 type TypeDrawerFilters = {
   isOpen: boolean;
@@ -172,7 +170,7 @@ export default function DrawerFilters({
         <DrawerHeader className="pb-0">Filtros</DrawerHeader>
 
         <DrawerBody className="px-2 overflow-x-hidden">
-          <Divider />
+          <Divider className="bg-neutral-500/50" />
 
           <motion.ol
             variants={{
@@ -205,7 +203,7 @@ export default function DrawerFilters({
             ))}
           </motion.ol>
 
-          <Divider />
+          <Divider className="bg-neutral-500/50" />
         </DrawerBody>
 
         <DrawerFooter className="px-2 py-4 flex flex-wrap gap-2 justify-center">
@@ -221,7 +219,7 @@ export default function DrawerFilters({
           <Button
             isIconOnly
             title="Limpiar filtros"
-            as={Link}
+            as={"a"}
             href="#buscar?orderBy=price-asc"
             onPress={handleClean}
           >

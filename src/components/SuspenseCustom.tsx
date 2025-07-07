@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 
-import { Spinner } from "@heroui/react";
+import { CircularProgress } from "@mui/material";
 
 export default function SuspenseCustom({ children = <></>, classFall = "" }) {
   return (
@@ -14,7 +14,7 @@ export default function SuspenseCustom({ children = <></>, classFall = "" }) {
               (classFall ? " " + classFall : "")
             }
           >
-            <Spinner color="secondary" />
+            <CircularProgress color="secondary" />
           </span>
         }
       >

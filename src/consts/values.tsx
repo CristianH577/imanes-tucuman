@@ -24,3 +24,26 @@ export const SVG_FORMA = {
   "cuadrado fresado": SVGCuadradoFresado,
   arrastre: SVGArrastre,
 };
+
+export const TABLES_FORMS = [
+  {
+    id: "redondo",
+    label: "redondos",
+    measureFormat: "AxB",
+  },
+  {
+    id: "cuadrado",
+    label: "cuadrados",
+    measureFormat: "AxBxC",
+  },
+  {
+    id: "redondo fresado",
+    label: "redondos fresados",
+    measureFormat: "AxB D-d",
+  },
+  {
+    id: "cuadrado fresado",
+    label: "cuadrados fresados",
+    measureFormat: "AxBxC D-d",
+  },
+];

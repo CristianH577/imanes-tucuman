@@ -1,4 +1,4 @@
-import ImageHeroCustom from "../../../components/ImageHeroCustom";
+import ImageCustom from "../../../components/ImageCustom";
 
 import img_1 from "../../../assets/uya/utilidades/perfiles/perfiles-1.webp";
 import img_2 from "../../../assets/uya/utilidades/perfiles/perfiles-2.webp";
@@ -6,17 +6,14 @@ import img_2 from "../../../assets/uya/utilidades/perfiles/perfiles-2.webp";
 export default function Perfiles() {
   return (
     <div className="grid sm:grid-cols-2 gap-4 items-center">
-      <ImageHeroCustom
+      <ImageCustom
         src={img_1}
-        className="object-cover w-full h-full"
-        classNames={{
+        className="object-cover h-full rounded-full"
+        classes={{
           wrapper:
-            "w-[300px] h-[300px] place-self-center border-5 border-divider",
+            "w-[300px] h-[300px] place-self-center border-5 border-divider rounded-full shadow-md",
         }}
         alt="Pared de perfiles de aluminio sin tapar"
-        // @ts-ignore
-        shadow="md"
-        radius="full"
         height={300}
       />
       <p>
@@ -29,17 +26,14 @@ export default function Perfiles() {
         perfil quedara fijo.
       </p>
 
-      <ImageHeroCustom
+      <ImageCustom
         src={img_2}
-        className="object-cover h-full object-left"
-        classNames={{
+        className="object-cover h-full object-left rounded-full"
+        classes={{
           wrapper:
-            "w-[300px] h-[300px] place-self-center border-5 border-divider",
+            "w-[300px] h-[300px] place-self-center border-5 border-divider rounded-full shadow-md",
         }}
         alt="Dedo señalando un iman sobre pared de drywall"
-        // @ts-ignore
-        shadow="md"
-        radius="full"
         height={300}
       />
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 import type { TypeObjectGeneral } from "../consts/types";
 
-import { Spinner } from "@heroui/react";
+import { CircularProgress } from "@mui/material";
 
 interface InterfaceTableCustomProps {
   id?: string;
@@ -103,7 +103,7 @@ function TableCustom({
         const tdObj = {
           key: id + "_" + idCol,
           ...mergedData,
-          className: `py-2 px-3 first:rounded-l-lg last:rounded-r-lg ${classNames_.td}`,
+          className: `py-2 px-3 ${classNames_.td}`,
         };
         if (makeCell) td = makeCell(row, idCol);
         if (tdLabel) tdObj["data-label"] = col?.label || "";
@@ -143,15 +143,13 @@ function TableCustom({
     <div
       id={id || ""}
       data-slot="container"
-      className={`p-4 bg-content1 rounded-large overflow-auto w-full${
+      className={`p-4 bg-content1 rounded-large overflow-auto${
         className ? " " + className : ""
       }`}
     >
       <table
         aria-label={ariaLabel ? ariaLabel : undefined}
-        className={
-          "min-w-full h-auto table-auto space-y-4 " + classNames_?.table
-        }
+        className={"h-auto table-auto space-y-4 " + classNames_.table}
       >
         <thead className={"bg-content2 p-4 " + classNames_.thead}>
           <tr data-slot="theadRow" className={"pb-4 " + classNames_.theadRow}>
@@ -174,7 +172,7 @@ function TableCustom({
                   key={key}
                   data-slot="th"
                   className={
-                    "p-3 text- align-middle bg-default-200 whitespace-nowrap font-semibold first:rounded-l-lg last:rounded-r-lg " +
+                    "p-3 align-middle bg-default-200 whitespace-nowrap font-semibold first:rounded-l-lg last:rounded-r-lg " +
                     classNames_.th
                   }
                 >
@@ -191,7 +189,7 @@ function TableCustom({
           {isLoading ? (
             <tr>
               <td colSpan={columns_.length} className="text-center p-4">
-                <Spinner className="self-center" />
+                <CircularProgress className="self-center" />
               </td>
             </tr>
           ) : !rows?.length ? (

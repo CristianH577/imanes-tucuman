@@ -1,9 +1,9 @@
-import { Button, Link } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 export default function NotFound() {
   return (
     <Button
-      as={Link}
+      as={"a"}
       href="#"
       variant="ghost"
       color="warning"

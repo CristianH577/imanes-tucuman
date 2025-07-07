@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import ImageHeroCustom from "../../../components/ImageHeroCustom";
+
+import ImageCustom from "../../../components/ImageCustom";
 
 import img_1 from "../../../assets/uya/asaber/aguas_duras/1.webp";
 import img_2 from "../../../assets/uya/asaber/aguas_duras/2.webp";
@@ -98,9 +99,9 @@ export default function AguasDuras() {
       ),
       img: (
         <span className="grid grid-cols-1 justify-items-center gap-4 max-w-xs xs:grid-cols-2 xs:items-center drop-shadow-custom">
-          <ImageHeroCustom alt="Filtro largo" src={img_3} />
+          <ImageCustom alt="Filtro largo" src={img_3} height={300} />
 
-          <ImageHeroCustom alt="Filtro boya" src={img_4} />
+          <ImageCustom alt="Filtro boya" src={img_4} height={300} />
         </span>
       ),
     },
@@ -123,11 +124,13 @@ export default function AguasDuras() {
           {item?.img ? (
             item.img
           ) : (
-            <ImageHeroCustom
+            <ImageCustom
               src={item.src}
-              className="w-full max-w-xs"
-              classNames={{ wrapper: "w-full drop-shadow-custom" }}
+              className="w-full rounded-lg"
+              classes={{ wrapper: "sm:w-full drop-shadow-custom" }}
               alt={item.alt}
+              width={300}
+              height={300}
             />
           )}
 

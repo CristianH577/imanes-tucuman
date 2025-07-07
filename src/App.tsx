@@ -9,7 +9,6 @@ import { Route, Routes } from "react-router";
 import LayoutDefault from "./layout/LayoutDefault";
 import NotFound from "./layout/NotFound";
 import ViewDefault from "./components/ViewDefault.tsx";
-import SuspenseCustom from "./components/SuspenseCustom.tsx";
 
 const Home = lazy(() => import("./views/Home"));
 const SearchView = lazy(() => import("./views/SearchView"));
@@ -55,18 +54,12 @@ function App() {
                 key={route.id}
                 path={route.href}
                 element={
-                  <SuspenseCustom classFall="h-screen">
-                    <ViewDefault
-                      id={route.id}
-                      title={route?.title || route?.label || undefined}
-                    >
-                      {
-                        routesComponent[
-                          route.id as keyof typeof routesComponent
-                        ]
-                      }
-                    </ViewDefault>
-                  </SuspenseCustom>
+                  <ViewDefault
+                    id={route.id}
+                    title={route?.title || route?.label || undefined}
+                  >
+                    {routesComponent[route.id as keyof typeof routesComponent]}
+                  </ViewDefault>
                 }
               />
             );

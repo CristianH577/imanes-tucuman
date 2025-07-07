@@ -15,7 +15,8 @@ import {
   toPriceFormat,
 } from "../../libs/functions";
 
-import { Button, Input, type PressEvent } from "@heroui/react";
+import { Button, type PressEvent } from "@heroui/button";
+import { Input } from "@heroui/input";
 
 import ImageCustom from "../../components/ImageCustom";
 import PriceLabel from "../../components/PriceLabel";
@@ -86,6 +87,17 @@ export default function List({ downloading = false }) {
     const val_str = typeof val === "string" ? val : "-";
 
     switch (col) {
+      case "label":
+        return (
+          <a
+            href={"#buscar/" + row.id}
+            title="Ver producto"
+            className="max-xs:whitespace-normal hover:underline"
+          >
+            {row.label}
+          </a>
+        );
+
       case "img":
         const item_imgs = DB_IMGS[String(row.id) as keyof typeof DB_IMGS];
         const preview = item_imgs.preview;
@@ -102,7 +114,7 @@ export default function List({ downloading = false }) {
             alt={`Imagen de ${row.label}`}
             className="object-contain w-[50px] min-w-[50px]"
             src={
-              srcs.find(([_, path]) =>
+              srcs.find(([path, _]) =>
                 path.includes(`/${row.id}/thumbnails/${thumbnails_name}`)
               )?.[1] || ""
             }

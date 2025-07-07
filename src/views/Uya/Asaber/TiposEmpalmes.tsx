@@ -41,9 +41,9 @@ export default function TiposEmpalmes() {
               <b>{item.tipo}</b>: {item.desc}
             </>
           }
-          classNames={{
+          classes={{
             img: "h-full",
-            wrapper: "h-full",
+            imgWrapper: "h-full",
           }}
         />
       ))}

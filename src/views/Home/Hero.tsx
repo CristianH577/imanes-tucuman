@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { title, title1 } from "../../libs/tvs";
 
-import { Button } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
@@ -104,7 +104,7 @@ export default function Hero() {
             }}
           />
 
-          {imgs.map((sizes, i) => (
+          {/* {imgs.map((sizes, i) => (
             <motion.img
               key={i}
               loading="eager"
@@ -129,7 +129,7 @@ export default function Hero() {
                 repeatType: "loop",
               }}
             />
-          ))}
+          ))} */}
 
           {imgs.map((sizes, i) => (
             <img
@@ -138,7 +138,8 @@ export default function Hero() {
               width={"100%"}
               height={"100%"}
               alt={`Iman de neodimio ${i + 1}`}
-              className="sm:hidden object-contain h-full absolute inset-0 mx-auto pb-2 sm:pb-4 drop-shadow-custom"
+              // sm:hidden
+              className="object-contain h-full absolute inset-0 mx-auto pb-2 sm:pb-4 drop-shadow-custom"
               src={sizes[0].src}
               srcSet={`
                   ${sizes[0].src} 360w,
@@ -147,6 +148,7 @@ export default function Hero() {
                   ${sizes[3].src} 1024w,
                   ${sizes[4].src} 1280w,
                 `}
+              fetchPriority="high"
             />
           ))}
         </article>

@@ -1,49 +1,33 @@
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import { Tabs, Tab } from "@heroui/react";
-
-import TableInfo from "./Caracteristicas/TableInfo";
-import { filterDbForms } from "../libs/functions";
+import { TABLES_FORMS } from "../consts/values";
 import type { ClassDBItem } from "../consts/types";
 
-type TypeTableMagnetsCaract = {
-  form: string;
+import { scrollStyle } from "../libs/tvs";
+import { filterDbForms } from "../libs/functions";
+
+import TableInfo from "./Caracteristicas/TableInfo";
+
+import { Button } from "@mui/material";
+
+type TypeTableFormItem = {
+  id: string;
+  label: string;
   measureFormat: string;
-  items: ClassDBItem[];
+  items?: ClassDBItem[];
 };
 
 const text_class = "text-danger-300 dark:text-danger-600";
-const tables_default: TypeTableMagnetsCaract[] = [
-  {
-    form: "redondo",
-    measureFormat: "AxB",
-    items: [],
-  },
-  {
-    form: "cuadrado",
-    measureFormat: "AxBxC",
-    items: [],
-  },
-  {
-    form: "redondo fresado",
-    measureFormat: "AxB D-d",
-    items: [],
-  },
-  {
-    form: "cuadrado fresado",
-    measureFormat: "AxBxC D-d",
-    items: [],
-  },
-];
 
 export default function Caracteristicas() {
-  const [tab, setTab] = useState<string>("redondo");
-  const [tables, setTables] = useState(tables_default);
+  const [tabSelected, setTabSelected] = useState(0);
+  const [tables, setTables] = useState<TypeTableFormItem[] | []>([]);
 
   useEffect(() => {
-    const tables_ = [...tables_default];
+    const tables_: TypeTableFormItem[] = [...TABLES_FORMS];
 
-    tables_.map((table) => (table.items = filterDbForms(table.form)));
+    tables_.map((table) => (table.items = filterDbForms(table.id)));
 
     setTables(tables_);
   }, []);
@@ -67,31 +51,58 @@ export default function Caracteristicas() {
         </p>
       </section>
 
-      <section className="w-full text-center sm:flex flex-col items-center">
-        <Tabs
-          aria-label="Categorias del imanes"
-          classNames={{
-            tabList:
-              "bg-gradient-to-t from-custom1 to-custom1-3 flex-wrap justify-center shadow-md ",
-            tabContent:
-              "text-custom2 font-bold group-data-[selected=true]:text-white capitalize",
-            cursor: "bg-gradient-to-t from-custom2 to-custom2-10",
-            panel: "mt-4 flex flex-col md:items-center w-full md:w-fit",
-            tab: "w-fit",
-          }}
-          selectedKey={tab}
-          onSelectionChange={(key) => setTab(String(key))}
+      <section
+        className={
+          "max-sm:w-full overflow-x-auto bg-gradient-to-t from-custom2 to-custom2-10 rounded-lg px-2 py-1  shadow-md " +
+          scrollStyle
+        }
+      >
+        <motion.ul
+          role="tabs-wrapper"
+          aria-label="formas de los imanes"
+          className="flex w-fit relative gap-2"
         >
-          {tables.map((table) => (
-            <Tab key={table.form} title={table.form}>
-              <TableInfo
-                tableAriaLabel={`Tabla de precios: ${table.form}`}
-                rows={table.items}
-              />
-            </Tab>
+          {tables.map((table, i) => (
+            <li key={i}>
+              <Button
+                color="inherit"
+                size="small"
+                role="tab"
+                data-selected={i === tabSelected}
+                className="whitespace-nowrap font-semibold data-[selected=true]:text-shadow-md data-[selected=true]:text-custom2 text-shadow-black/30 text-white"
+                title={"Ver " + table.label}
+                onClick={() => setTabSelected(i)}
+              >
+                {tabSelected === i && (
+                  <motion.div
+                    layoutId="highlight-caracteristicas"
+                    className="absolute right-0 bottom-0 rounded-lg w-full h-full bg-gradient-to-t from-custom1 to-custom1-3"
+                  />
+                )}
+                <span className="z-10 capitalize">{table.label}</span>
+              </Button>
+            </li>
           ))}
-        </Tabs>
+        </motion.ul>
       </section>
+
+      <AnimatePresence mode="wait">
+        <motion.section
+          key={tabSelected}
+          role="tabpanel"
+          layoutId="content-caracteristicas"
+          className="w-full text-center sm:flex flex-col items-center "
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <TableInfo
+            tableAriaLabel={`Tabla de precios: ${TABLES_FORMS[tabSelected].label}`}
+            rows={tables[tabSelected]?.items || []}
+          />
+        </motion.section>
+      </AnimatePresence>
     </>
   );
 }

@@ -11,7 +11,7 @@ import ButtonAddCart from "../../components/ButtonAddCart";
 import PriceLabel from "../../components/PriceLabel";
 
 import { SVGViewGridAdd } from "../../assets/svgs/svgsIcons";
-import { Divider } from "@heroui/react";
+import { Divider } from "@mui/material";
 
 type TypeItemsViewProps = {
   items: ClassDBItem[];
@@ -67,13 +67,6 @@ export default function ItemsView({
             whileHover="hover"
             className="bg-content1 rounded-lg shadow-md flex flex-col pb-2"
           >
-            {/* <ButtonAddCart
-              inCart={item.id in cart}
-              itemData={item}
-              handleAdd={context.cart.add}
-              className="absolute top-2 z-20 right-2 opacity-30"
-            /> */}
-
             <a
               href={`#buscar/${item.id}`}
               title={item.label}
@@ -86,8 +79,9 @@ export default function ItemsView({
                   <ImageCustom
                     alt={`Imagen de ${item.label}`}
                     className="object-contain h-full"
+                    classes={{ wrapper: "h-full w-full" }}
                     src={
-                      srcs.find(([_, path]) =>
+                      srcs.find(([path, _]) =>
                         path.includes(`/${item.id}/${preview.src}`)
                       )?.[1] || ""
                     }
@@ -115,7 +109,7 @@ export default function ItemsView({
               </div>
             </a>
 
-            <Divider className="mb-2 w-4/5 self-center" />
+            <Divider variant="middle" className="mb-2 bg-neutral-500/50" />
 
             <ButtonAddCart
               inCart={item.id in cart}

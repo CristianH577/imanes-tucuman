@@ -1,4 +1,5 @@
-import { Button, Input } from "@heroui/react";
+import { Input } from "@heroui/input";
+import { Button } from "@mui/material";
 
 import SearchIcon from "@mui/icons-material/Search";
 
@@ -30,12 +31,11 @@ export default function InputSearch({
         onClear={onClear}
       />
       <Button
-        isIconOnly
-        variant="light"
-        title="Buscar"
+        variant="outlined"
         color="warning"
-        className="border-3 border-custom1-3 border-s-0 rounded-xl rounded-s-none"
-        onPress={handleSearch}
+        title="Buscar"
+        className="border-3 border-custom1-3 border-s-0 rounded-xl rounded-s-none min-w-0"
+        onClick={handleSearch}
       >
         <SearchIcon className="h-6 w-fit" />
       </Button>

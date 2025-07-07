@@ -783,6 +783,7 @@ export const DB_ALL = [
     },
   },
   {
+    noStock: true,
     id: 20,
     label: "10x3mm",
     categorie: "imanes",
@@ -3687,7 +3688,7 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["2x4%20(1).webp", "2x4%20(2).webp", "2x4%20(3).webp"],
+    imgs: ["2x4 (1).webp", "2x4 (2).webp", "2x4 (3).webp"],
   },
   "3": {
     preview: {
@@ -3959,21 +3960,21 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["35x5%20(1).webp", "35x5%20(2).webp"],
+    imgs: ["35x5 (1).webp", "35x5 (2).webp"],
   },
   "42": {
     preview: {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["37x5%20(1).webp", "37x5%20(2).webp"],
+    imgs: ["37x5 (1).webp", "37x5 (2).webp"],
   },
   "43": {
     preview: {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["38x8%20(1).webp", "38x8%20(2).webp"],
+    imgs: ["38x8 (1).webp", "38x8 (2).webp"],
   },
   "44": {
     preview: {
@@ -3986,7 +3987,7 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["54x3%20(1).webp", "54x3%20(2).webp"],
+    imgs: ["54x3 (1).webp", "54x3 (2).webp"],
   },
   "46": {
     preview: {
@@ -4000,49 +4001,49 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["10x8x3%20(1).webp", "10x8x3%20(2).webp"],
+    imgs: ["10x8x3 (1).webp", "10x8x3 (2).webp"],
   },
   "48": {
     preview: {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["10x10x2%20(1).webp", "10x10x2%20(2).webp"],
+    imgs: ["10x10x2 (1).webp", "10x10x2 (2).webp"],
   },
   "49": {
     preview: {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["14,5x7x2%20(1).webp", "14,5x7x2%20(2).webp"],
+    imgs: ["14,5x7x2 (1).webp", "14,5x7x2 (2).webp"],
   },
   "50": {
     preview: {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["15x10x5%20(1).webp", "15x10x5%20(2).webp"],
+    imgs: ["15x10x5 (1).webp", "15x10x5 (2).webp"],
   },
   "51": {
     preview: {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["20x10x10%20(1).webp", "20x10x10%20(2).webp"],
+    imgs: ["20x10x10 (1).webp", "20x10x10 (2).webp"],
   },
   "52": {
     preview: {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["25x10x2%20(1).webp", "25x10x2%20(2).webp"],
+    imgs: ["25x10x2 (1).webp", "25x10x2 (2).webp"],
   },
   "53": {
     preview: {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["28x20x3%20(1).webp", "28x20x3%20(2).webp"],
+    imgs: ["28x20x3 (1).webp", "28x20x3 (2).webp"],
   },
   "54": {
     preview: {
@@ -4062,7 +4063,7 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["40x10x5%20(1).webp", "40x10x5%20(2).webp"],
+    imgs: ["40x10x5 (1).webp", "40x10x5 (2).webp"],
   },
   "57": {
     preview: {
@@ -4083,7 +4084,7 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "cuadrado",
     },
-    imgs: ["50x10x3%20(1).webp", "50x10x3%20(2).webp"],
+    imgs: ["50x10x3 (1).webp", "50x10x3 (2).webp"],
   },
   "60": {
     preview: {
@@ -4104,11 +4105,11 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       src: "redondo fresado",
     },
     imgs: [
-      "8x3-6a3.5%20(1).webp",
-      "8x3-6a3.5%20(2).webp",
-      "8x3-6a3.5%20(3).webp",
-      "8x3-6a3.5%20(4).webp",
-      "8x3-6a3.5%20(5).webp",
+      "8x3-6a3.5 (1).webp",
+      "8x3-6a3.5 (2).webp",
+      "8x3-6a3.5 (3).webp",
+      "8x3-6a3.5 (4).webp",
+      "8x3-6a3.5 (5).webp",
     ],
   },
   "63": {
@@ -4117,11 +4118,11 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       src: "redondo fresado",
     },
     imgs: [
-      "12x3-6a3.5%20(1).webp",
-      "12x3-6a3.5%20(2).webp",
-      "12x3-6a3.5%20(3).webp",
-      "12x3-6a3.5%20(4).webp",
-      "12x3-6a3.5%20(5).webp",
+      "12x3-6a3.5 (1).webp",
+      "12x3-6a3.5 (2).webp",
+      "12x3-6a3.5 (3).webp",
+      "12x3-6a3.5 (4).webp",
+      "12x3-6a3.5 (5).webp",
     ],
   },
   "64": {
@@ -4130,11 +4131,11 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       src: "redondo fresado",
     },
     imgs: [
-      "15x3-7a3.5%20(1).webp",
-      "15x3-7a3.5%20(2).webp",
-      "15x3-7a3.5%20(3).webp",
-      "15x3-7a3.5%20(4).webp",
-      "15x3-7a3.5%20(5).webp",
+      "15x3-7a3.5 (1).webp",
+      "15x3-7a3.5 (2).webp",
+      "15x3-7a3.5 (3).webp",
+      "15x3-7a3.5 (4).webp",
+      "15x3-7a3.5 (5).webp",
     ],
   },
   "65": {
@@ -4156,28 +4157,28 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "arrastre",
     },
-    imgs: ["20%20(1).webp", "20%20(2).webp"],
+    imgs: ["20 (1).webp", "20 (2).webp"],
   },
   "68": {
     preview: {
       type: "svg",
       src: "arrastre",
     },
-    imgs: ["25%20(1).webp", "25%20(2).webp"],
+    imgs: ["25 (1).webp", "25 (2).webp"],
   },
   "69": {
     preview: {
       type: "svg",
       src: "arrastre",
     },
-    imgs: ["32%20(1).webp", "32%20(2).webp"],
+    imgs: ["32 (1).webp", "32 (2).webp"],
   },
   "70": {
     preview: {
       type: "svg",
       src: "arrastre",
     },
-    imgs: ["36%20(1).webp", "36%20(2).webp"],
+    imgs: ["36 (1).webp", "36 (2).webp"],
   },
   "71": {
     preview: {
@@ -4191,7 +4192,7 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "arrastre",
     },
-    imgs: ["48%20(1).webp", "48%20(2).webp"],
+    imgs: ["48 (1).webp", "48 (2).webp"],
   },
   "73": {
     preview: {
@@ -4340,11 +4341,11 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       src: "redondo fresado",
     },
     imgs: [
-      "9.6x3_6a3.5%20(1).webp",
-      "9.6x3_6a3.5%20(2).webp",
-      "9.6x3_6a3.5%20(3).webp",
-      "9.6x3_6a3.5%20(4).webp",
-      "9.6x3_6a3.5%20(5).webp",
+      "9.6x3_6a3.5 (1).webp",
+      "9.6x3_6a3.5 (2).webp",
+      "9.6x3_6a3.5 (3).webp",
+      "9.6x3_6a3.5 (4).webp",
+      "9.6x3_6a3.5 (5).webp",
     ],
   },
   "94": {
@@ -4366,21 +4367,21 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["7x1.5_N35%20(1).webp"],
+    imgs: ["7x1.5_N35 (1).webp"],
   },
   "97": {
     preview: {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["9x1.5_N35%20(1).webp", "9x1.5_N35%20(2).webp"],
+    imgs: ["9x1.5_N35 (1).webp", "9x1.5_N35 (2).webp"],
   },
   "98": {
     preview: {
       type: "svg",
       src: "redondo",
     },
-    imgs: ["6x4%20(1).webp", "6x4%20(2).webp", "6x4%20(3).webp"],
+    imgs: ["6x4 (1).webp", "6x4 (2).webp", "6x4 (3).webp"],
   },
   "99": {
     preview: {
@@ -4394,6 +4395,6 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "img",
       src: "preview.webp",
     },
-    imgs: ["eccole-3g%20(1).webp", "eccole-3g%20(2).webp"],
+    imgs: ["eccole-3g (1).webp", "eccole-3g (2).webp"],
   },
 };

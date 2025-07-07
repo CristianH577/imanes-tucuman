@@ -41,10 +41,11 @@ export default function Opiniones() {
     <section className="flex flex-col items-center sm:flex-row gap-4 md:gap-8 w-full max-w-[900px]">
       <ImageCustom
         src={imgOpinions}
-        className="border-3 border-neutral-500/30 rounded-lg"
         alt="Imagen de opiniones"
         width={300}
         height={240}
+        className="xs:max-w-none rounded-lg"
+        classes={{ wrapper: "sm:w-full" }}
       />
 
       <article className="text-center prose dark:prose-invert">

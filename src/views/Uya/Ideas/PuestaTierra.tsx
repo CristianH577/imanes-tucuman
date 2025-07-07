@@ -15,6 +15,7 @@ export default function PuestaTierra() {
         src={img}
         className="place-self-center"
         alt="Brazo con pulsera de ejemplo"
+        classes={{ img: "w-full" }}
       />
     </div>
   );

@@ -1,4 +1,4 @@
-import ImageHeroCustom from "../../../components/ImageHeroCustom";
+import ImageCustom from "../../../components/ImageCustom";
 
 import img_1 from "../../../assets/uya/utilidades/usar_bornera_clip/1.webp";
 import img_2 from "../../../assets/uya/utilidades/usar_bornera_clip/2.webp";
@@ -29,11 +29,10 @@ export default function UsarBorneraClip() {
     <div className="grid sm:grid-cols-2 gap-6 justify-items-center">
       {items.map((item, i) => (
         <div key={i + 1} className="flex flex-col justify-around max-w-xs">
-          <ImageHeroCustom
+          <ImageCustom
             src={item.src}
             classNames={{ wrapper: "drop-shadow-custom" }}
             alt={`Imagen de instruccion ${i + 1}`}
-            // @ts-ignore
             widht={300}
           />
 

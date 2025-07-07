@@ -6,9 +6,9 @@ import { toPriceFormat } from "../libs/functions";
 
 import type { TypeOutletContext } from "../consts/types";
 
-import { Spinner } from "@heroui/react";
+import { Button } from "@heroui/button";
+import { CircularProgress, Tooltip } from "@mui/material";
 
-import ButtonCart from "./CartView/ButtonCart";
 import Estimate from "./CartView/Estimate";
 
 import SendIcon from "@mui/icons-material/Send";
@@ -144,18 +144,27 @@ export default function CartView() {
 
         {downloading && (
           <span className="bg-black/50 absolute inset-0 z-10 flex items-center justify-center">
-            <Spinner size="lg" color="secondary" />
+            <CircularProgress size="lg" color="secondary" />
           </span>
         )}
       </section>
 
       <section className="flex gap-2 items-center max-xs:px-2 max-xs:flex-wrap">
         {buttonConsole.map((button, i) => (
-          <ButtonCart
-            key={i}
-            isDisabled={Object.keys(cart)?.length < 1 || downloading}
-            {...button}
-          />
+          <Tooltip key={i} title={button.label} arrow>
+            <span>
+              <Button
+                // @ts-ignore
+                color={button.color}
+                isIconOnly
+                className="p-2 max-xs:w-full"
+                isDisabled={Object.keys(cart)?.length < 1 || downloading}
+                onPress={button?.onPress || null}
+              >
+                {button?.icon ? <button.icon className="h-full w-fit" /> : null}
+              </Button>
+            </span>
+          </Tooltip>
         ))}
       </section>
 

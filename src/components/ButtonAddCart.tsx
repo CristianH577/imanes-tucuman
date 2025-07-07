@@ -1,6 +1,6 @@
 import type { ClassDBItem } from "../consts/types";
 
-import { Button } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";

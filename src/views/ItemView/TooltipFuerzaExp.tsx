@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Button, Tooltip } from "@heroui/react";
+import { IconButton, Tooltip } from "@mui/material";
 
 import HelpIcon from "@mui/icons-material/Help";
 
@@ -9,24 +9,17 @@ export default function TooltipFuerzaExp() {
 
   return (
     <Tooltip
-      isOpen={open}
-      onOpenChange={setOpen}
-      content="La fuerza experimental esta medida mediante la adhesión
+      open={open}
+      onOpen={() => setOpen(true)}
+      onClose={() => setOpen(false)}
+      title="La fuerza experimental esta medida mediante la adhesión
       magnética de un peso al imán que a su vez esta adherido a una
       placa de metal de casi 10mm en un sentido vertical."
-      className="dark:text-white max-w-44 p-2 text-center border-3 border-custom1-3"
-      title="Este es un tooltip"
-      shadow="md"
+      classes={{ popper: "max-w-44 p-2 text-center" }}
     >
-      <Button
-        isIconOnly
-        // @ts-ignore
-        variant=""
-        size="sm"
-        onPress={() => setOpen(!open)}
-      >
+      <IconButton color="inherit" size="small" onClick={() => setOpen(!open)}>
         <HelpIcon />
-      </Button>
+      </IconButton>
     </Tooltip>
   );
 }

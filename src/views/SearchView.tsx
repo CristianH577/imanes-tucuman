@@ -12,7 +12,8 @@ import type {
 
 import { cartItemsComparator, getHrefSearch } from "../libs/functions";
 
-import { Button, ButtonGroup, Link, Spinner } from "@heroui/react";
+import { Button, ButtonGroup } from "@heroui/button";
+import { CircularProgress } from "@mui/material";
 
 import ItemsView from "./SearchView/ItemsView";
 import SuspenseCustom from "../components/SuspenseCustom";
@@ -183,7 +184,7 @@ export default function SearchView() {
           <ButtonGroup>
             <Button
               isIconOnly
-              as={Link}
+              as={"a"}
               title="Limpiar filtros"
               href="#buscar?orderBy=price-asc"
               onPress={handleClean}
@@ -212,7 +213,7 @@ export default function SearchView() {
       {items.length < 1 ? (
         <b>Sin Resultados</b>
       ) : loading ? (
-        <Spinner color="secondary" />
+        <CircularProgress color="secondary" />
       ) : (
         <ItemsView
           items={visibleItems}

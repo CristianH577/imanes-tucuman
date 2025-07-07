@@ -73,8 +73,10 @@ export default function NeodimioVSFerrita() {
       return val ? (
         <ImageCustom
           src={val}
-          className="max-sm:self-center drop-shadow-custom"
+          classes={{ wrapper: "max-sm:self-center drop-shadow-custom" }}
           alt="Imanes redondos"
+          width={300}
+          height={300}
         />
       ) : null;
     }

@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 
 import { LINKS_SITES } from "../consts/siteConfig";
 
+import { Tooltip } from "@mui/material";
+
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -10,12 +12,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import DescriptionIcon from "@mui/icons-material/Description";
 
-import { Tooltip } from "@mui/material";
-import { Link } from "@heroui/react";
-
 import { SVGMercadoLibre, SVGSSignalMessenger } from "../assets/svgs/svgsIcons";
-
-const MotionLink = motion.create(Link);
 
 type LinkKey = keyof typeof LINKS_SITES;
 
@@ -83,8 +80,8 @@ export default function Redes({
       }`}
     >
       {redes.slice(0, slice || redes.length).map((item, i) => (
-        <Tooltip key={i} title={item.label} hidden={!item?.label}>
-          <MotionLink
+        <Tooltip key={i} title={item.label} hidden={!item?.label} arrow>
+          <motion.a
             variants={{
               hidden: { opacity: 0, scale: 0 },
               visible: {
@@ -104,7 +101,7 @@ export default function Redes({
             <item.icon
               className={"" + (classNames?.icon ? " " + classNames.icon : "")}
             />
-          </MotionLink>
+          </motion.a>
         </Tooltip>
       ))}
     </div>

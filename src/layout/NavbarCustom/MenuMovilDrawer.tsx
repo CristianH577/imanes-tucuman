@@ -7,9 +7,10 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerBody,
-  Divider,
-} from "@heroui/react";
+} from "@heroui/drawer";
+
 import {
+  Divider,
   List,
   ListItemButton,
   ListItemIcon,
@@ -36,6 +37,108 @@ export default function MenuMovilDrawer({
   NAV_ITEMS,
 }: TypeMenuMovilDrawer) {
   const onClose = () => setIsOpen(false);
+
+  // return (
+  //   <Drawer
+  //     open={isOpen}
+  //     onClose={onClose}
+  //     anchor="left"
+  //     classes={{
+  //       paper: "w-full xs:max-w-[255px] bg-background space-y-4",
+  //     }}
+  //   >
+  //     <section className="p-4">
+  //       <Logo
+  //         id="menu_movil_logo"
+  //         href="#"
+  //         title="Ir al inicio"
+  //         className="h-full"
+  //         classNames={{
+  //           svgA: "h-full w-auto max-h-[44px]",
+  //         }}
+  //         onClick={onClose}
+  //       />
+  //     </section>
+
+  //     <Divider variant="middle" className="bg-neutral-500/50" />
+
+  //     <MotionList
+  //       variants={{
+  //         hidden: {},
+  //         visible: {
+  //           transition: {
+  //             delayChildren: 0.1,
+  //             staggerChildren: 0.1,
+  //           },
+  //         },
+  //       }}
+  //       initial="hidden"
+  //       animate="visible"
+  //       aria-label="Lista de secciones"
+  //       className="py-0"
+  //     >
+  //       {NAV_ITEMS.map((item) => (
+  //         <MotionListItemButton
+  //           key={item.id}
+  //           variants={{
+  //             hidden: { opacity: 0, x: -50 },
+  //             visible: {
+  //               opacity: 1,
+  //               x: 0,
+  //             },
+  //           }}
+  //           // @ts-ignore
+  //           component="a"
+  //           className="text-custom2 dark:text-custom1 capitalize py-2 hover:shadow-md dark:hover:bg-neutral-500/20"
+  //           href={`#${item.href}${item?.search || ""}`}
+  //           onClick={onClose}
+  //         >
+  //           {item?.icon && (
+  //             <ListItemIcon className="text-inherit">
+  //               <item.icon className="h-8 w-fit" />
+  //             </ListItemIcon>
+  //           )}
+
+  //           <ListItemText
+  //             primary={item.label}
+  //             classes={{ primary: "text-lg font-semibold" }}
+  //           />
+  //         </MotionListItemButton>
+  //       ))}
+
+  //       <MotionListItemButton
+  //         variants={{
+  //           hidden: { opacity: 0, x: -50 },
+  //           visible: {
+  //             opacity: 1,
+  //             x: 0,
+  //           },
+  //         }}
+  //         className="text-neutral-400 py-2 hover:shadow-md dark:hover:bg-neutral-500/20 hover:text-foreground "
+  //         onClick={onClose}
+  //       >
+  //         <ListItemIcon className="text-inherit">
+  //           <ArrowBackIcon className="h-8 w-fit" />
+  //         </ListItemIcon>
+
+  //         <ListItemText
+  //           primary="Cerrar"
+  //           classes={{ primary: "text-lg font-semibold" }}
+  //         />
+  //       </MotionListItemButton>
+  //     </MotionList>
+
+  //     <Divider variant="middle" className="bg-neutral-500/50" />
+
+  //     <Redes
+  //       className="px-2 gap-6"
+  //       classNames={{
+  //         link: "hover:text-custom2 dark:hover:text-custom1",
+  //         icon: "h-8 w-fit",
+  //       }}
+  //     />
+  //   </Drawer>
+  // );
 
   return (
     <Drawer
@@ -78,9 +181,9 @@ export default function MenuMovilDrawer({
               />
             </DrawerHeader>
 
-            <Divider className="w-4/5 self-center" />
+            <Divider variant="middle" className="bg-neutral-500/50" />
 
-            <DrawerBody className="h-fit px-2">
+            <DrawerBody className="h-fit px-0">
               <MotionList
                 variants={{
                   hidden: {},
@@ -96,34 +199,38 @@ export default function MenuMovilDrawer({
                 aria-label="Lista de secciones"
                 className="py-0"
               >
-                {NAV_ITEMS.map((item) => (
-                  <MotionListItemButton
-                    key={item.id}
-                    variants={{
-                      hidden: { opacity: 0, x: -50 },
-                      visible: {
-                        opacity: 1,
-                        x: 0,
-                      },
-                    }}
-                    // @ts-ignore
-                    component="a"
-                    className="text-custom2 dark:text-custom1 capitalize py-2 hover:shadow-md dark:hover:bg-neutral-500/20"
-                    href={`#${item.href}${item?.search || ""}`}
-                    onClick={onClose}
-                  >
-                    {item?.icon && (
-                      <ListItemIcon className="text-inherit">
-                        <item.icon className="h-8 w-fit" />
-                      </ListItemIcon>
-                    )}
+                {NAV_ITEMS.map(
+                  (item) =>
+                    item.id !== "" && (
+                      <MotionListItemButton
+                        key={item.id}
+                        variants={{
+                          hidden: { opacity: 0, x: -50 },
+                          visible: {
+                            opacity: 1,
+                            x: 0,
+                          },
+                        }}
+                        // @ts-ignore
+                        component="a"
+                        className="text-custom2 dark:text-custom1 capitalize py-2 hover:shadow-md dark:hover:bg-neutral-500/20"
+                        href={`#${item.href}${item?.search || ""}`}
+                        title={"Ir a " + item.label}
+                        onClick={onClose}
+                      >
+                        {item?.icon && (
+                          <ListItemIcon className="text-inherit">
+                            <item.icon className="h-8 w-fit" />
+                          </ListItemIcon>
+                        )}
 
-                    <ListItemText
-                      primary={item.label}
-                      classes={{ primary: "text-lg font-semibold" }}
-                    />
-                  </MotionListItemButton>
-                ))}
+                        <ListItemText
+                          primary={item.label}
+                          classes={{ primary: "text-lg font-semibold" }}
+                        />
+                      </MotionListItemButton>
+                    )
+                )}
 
                 <MotionListItemButton
                   variants={{
@@ -134,6 +241,7 @@ export default function MenuMovilDrawer({
                     },
                   }}
                   className="text-neutral-400 py-2 hover:shadow-md dark:hover:bg-neutral-500/20 hover:text-foreground "
+                  title="Cerrar menú"
                   onClick={onClose}
                 >
                   <ListItemIcon className="text-inherit">
@@ -147,7 +255,7 @@ export default function MenuMovilDrawer({
                 </MotionListItemButton>
               </MotionList>
 
-              <Divider className="w-4/5 self-center" />
+              <Divider variant="middle" className="bg-neutral-500/50" />
 
               <Redes
                 className="px-2 gap-6"

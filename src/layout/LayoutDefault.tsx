@@ -23,6 +23,7 @@ export default function LayoutDefault() {
   const [magnetData, setMagnetData] = useState<ClassDBItem | false>(false);
 
   useEffect(scrollToTop, [pathname]);
+
   useEffect(() => {
     if (search) {
       const params = new URLSearchParams(search);
@@ -42,7 +43,7 @@ export default function LayoutDefault() {
   return (
     <div
       id="app"
-      className="min-h-screen h-[100dvh] text-foreground dark:bg-content2 dark:text-white font-[menulis] flex flex-col justify-between overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
+      className="text-foreground dark:bg-content2 dark:text-white font-[menulis] flex flex-col justify-between min-h-screen h-[100dvh] overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
     >
       <SuspenseCustom classFall="absolute h-16 bg-black/50 inset-0 z-50">
         <NavbarCustom

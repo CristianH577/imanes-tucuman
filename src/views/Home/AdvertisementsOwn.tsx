@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { title } from "../../libs/tvs";
 
-import { Button, Link } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 import ImageCustom from "../../components/ImageCustom";
 
@@ -128,10 +128,12 @@ export function AdvertisementsOwn() {
               alt={item.title}
               height={320}
               width={320}
-              className={
-                "object-contain z-10 place-self-center drop-shadow-md" +
-                (i % 2 === 0 ? "" : " sm:order-2")
-              }
+              className="object-contain"
+              classes={{
+                wrapper:
+                  "z-10 place-self-center drop-shadow-md" +
+                  (i % 2 === 0 ? "" : " sm:order-2"),
+              }}
             />
 
             <div
@@ -155,7 +157,7 @@ export function AdvertisementsOwn() {
               <p className="font-semibold max-sm:text-center">{item.text}.</p>
 
               <Button
-                as={Link}
+                as={"a"}
                 href={`#buscar?${item?.href}`}
                 className="bg-gradient-to-tr hover:to-50% hover:bg-custom1-2 from-custom2 to-custom2-10 -skew-x-12 font-bold px-4 text-custom1 dark:text-black dark:from-custom1 dark:to-custom1-5 shadow-md"
                 title={"Ver " + item.title}

@@ -1,11 +1,11 @@
-import ImageHeroCustom from "../../components/ImageHeroCustom";
+import ImageCustom from "../../components/ImageCustom";
 
 interface InterfaceCardUyaProps {
   id?: string;
   src?: string;
   text?: string | React.ReactElement;
   className?: string;
-  classNames?: { img?: string; wrapper?: string };
+  classes?: { img?: string; imgWrapper?: string };
   alt?: string;
   contentPlus?: React.ReactElement;
   width?: number;
@@ -17,7 +17,7 @@ export default function CardUya({
   src,
   text = "",
   className = "",
-  classNames = { img: "", wrapper: "" },
+  classes = { img: "", imgWrapper: "" },
   alt = "",
   contentPlus,
   width = 300,
@@ -30,17 +30,12 @@ export default function CardUya({
         (className ? ` ${className}` : "")
       }
     >
-      <ImageHeroCustom
+      <ImageCustom
         src={src}
-        alt={alt || id ? `Imagen de ejemplo ${id}` : ""}
-        className={
-          "object-cover rounded-none" +
-          (classNames?.img ? ` ${classNames.img}` : "")
-        }
-        classNames={{
-          wrapper:
-            "border-5 border-divider overflow-hidden" +
-            (classNames?.wrapper ? ` ${classNames.wrapper}` : ""),
+        alt={alt ? alt : id ? `Imagen de ejemplo ${id}` : ""}
+        className={"rounded-md" + (classes?.img ? ` ${classes.img}` : "")}
+        classes={{
+          wrapper: classes?.imgWrapper ? classes.imgWrapper : "",
         }}
         width={width}
         srcSet={srcSet}

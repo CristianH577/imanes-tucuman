@@ -31,9 +31,9 @@ export default function Atados() {
             `}
           alt="Cortina atada y accesorio"
           className="col-span-2 row-span-3 md:max-w-full"
-          classNames={{
-            img: "h-full",
-            wrapper: `h-full ${class_img_wrapper}`,
+          classes={{
+            img: "h-full w-full md:rounded-none",
+            imgWrapper: `h-full ${class_img_wrapper}`,
           }}
         />
 
@@ -45,9 +45,9 @@ export default function Atados() {
             `}
           alt="Cuerda con imanes en las puntas"
           className="col-span-2 col-start-3 md:max-w-full"
-          classNames={{
-            img: "h-full",
-            wrapper: `h-full ${class_img_wrapper}`,
+          classes={{
+            img: "h-full w-full md:rounded-none",
+            imgWrapper: `h-full ${class_img_wrapper}`,
           }}
         />
 
@@ -56,9 +56,9 @@ export default function Atados() {
             src={getSrc(`/3.webp`)}
             alt="Lingas con imanes en las puntas"
             className="md:w-2/3"
-            classNames={{
-              img: "h-full",
-              wrapper: `h-full ${class_img_wrapper}`,
+            classes={{
+              img: "h-full w-full md:rounded-none",
+              imgWrapper: `h-full ${class_img_wrapper}`,
             }}
           />
 
@@ -66,9 +66,9 @@ export default function Atados() {
             src={getSrc(`/4.jpg`)}
             alt="Persiana sostenida con cuerdas agarradas a ganchos magnéticos"
             className="md:w-2/3"
-            classNames={{
-              img: "h-full",
-              wrapper: `h-full ${class_img_wrapper}`,
+            classes={{
+              img: "h-full w-full md:rounded-none",
+              imgWrapper: `h-full ${class_img_wrapper}`,
             }}
             width={225}
           />

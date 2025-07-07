@@ -1,4 +1,5 @@
-import { Select, SelectItem, Divider } from "@heroui/react";
+import { Select, SelectItem } from "@heroui/select";
+import { Divider } from "@mui/material";
 
 import Logo from "../../components/Logo";
 import List from "./List";
@@ -115,7 +116,7 @@ function Estimate({
           <SVGLogoPaypal className="h-5 w-fit" />
         </div>
 
-        <Divider className="w-2/3 bg-neutral-400" />
+        <Divider className="w-2/3 bg-neutral-500/50" />
 
         <p>Gracias por su compra.</p>
         {downloading && <p>{downloading}</p>}

@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { scrollToBottom, scrollToTop } from "../libs/functions";
 
+import { Button, ButtonGroup } from "@heroui/button";
+import { Divider } from "@mui/material";
+
 import Logo from "../components/Logo";
 import Redes from "../components/Redes";
 import ImageCustom from "../components/ImageCustom";
@@ -16,7 +19,6 @@ import {
   SVGArrowBigDownLine,
   SVGArrowBigUpLine,
 } from "../assets/svgs/svgsIcons";
-import { Button, ButtonGroup, Divider, Link } from "@heroui/react";
 
 function Footer({ whatsapp = "#", fotos = "#" }) {
   const info_items = [
@@ -33,7 +35,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
       icon: CalendarTodayIcon,
       text: (
         <>
-          Lunes a Sábados(
+          Lunes a Sábados (
           <LinkCustom
             href={
               whatsapp +
@@ -50,7 +52,6 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
         </>
       ),
     },
-    { text: "Esta empresa sigue el principio de imputación de Menger." },
   ];
 
   const sections = [
@@ -97,7 +98,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
         }}
       />
 
-      <Divider className="self-center w-4/6 bg-neutral-500/80" />
+      <Divider variant="middle" className="w-4/6 bg-neutral-500/80" />
 
       <div className="flex flex-col items-center gap-4 md:flex-row-reverse">
         <motion.div
@@ -105,7 +106,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
           whileInView={{ opacity: 1, scale: 1 }}
         >
           <Button
-            as={Link}
+            as={"a"}
             href={whatsapp}
             target="_blank"
             rel="noopener noreferrer"
@@ -155,7 +156,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
         </motion.div>
       </div>
 
-      <Divider className="self-center w-3/5 bg-neutral-500/80" />
+      <Divider variant="middle" className="w-3/5 bg-neutral-500/80" />
 
       <div className="flex flex-wrap justify-evenly gap-4 font-size-secondary">
         {sections.map((section) => (
@@ -172,11 +173,11 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
         ))}
       </div>
 
-      <Divider className="self-center w-5/6 bg-neutral-500/80" />
+      <Divider variant="middle" className="w-5/6 bg-neutral-500/80" />
 
       <p className="text-neutral-500 text-center">
         2024 - Diseñado por{" "}
-        <Link
+        <a
           href="https://github.com/CristianH577"
           target="_blank"
           rel="noopener noreferrer"
@@ -186,7 +187,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
           <span className="font-mono">©</span>
           VerdeAve
           <OpenInNewIcon className="h-4 w-fit" />
-        </Link>
+        </a>
       </p>
     </footer>
   );

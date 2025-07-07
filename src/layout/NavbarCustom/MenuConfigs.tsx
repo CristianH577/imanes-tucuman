@@ -1,20 +1,19 @@
-import { useConfigs } from "../../hooks/useConfigs";
+import { useState } from "react";
 
 import { FONTS_VALUES } from "../../consts/siteConfig";
 
-import SettingsIcon from "@mui/icons-material/Settings";
+import { useConfigs } from "../../hooks/useConfigs";
+
+import { IconButton, Menu, MenuItem } from "@mui/material";
 
 import ThemeSwitch from "./ThemeSwitch";
-import {
-  Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
-} from "@heroui/react";
+
+import SettingsIcon from "@mui/icons-material/Settings";
 
 export default function MenuConfigs() {
   const configs = useConfigs();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
 
   const switchTheme = () => {
     const theme_ = configs.value.theme === "light" ? "dark" : "light";
@@ -36,47 +35,50 @@ export default function MenuConfigs() {
     });
   };
 
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <Dropdown
-      classNames={{
-        content: "min-w-0 p-0 border-2 border-custom1-2 overflow-hidden",
-      }}
-    >
-      <DropdownTrigger>
-        <Button
-          isIconOnly
-          // @ts-ignore
-          variant=""
-          className="text-neutral-400 hover:scale-110 transition-all"
-          aria-label="Configuraciones"
-          title="Configuraciones"
-        >
-          <SettingsIcon className="h-7 w-fit" />
-        </Button>
-      </DropdownTrigger>
-
-      <DropdownMenu
-        aria-label="Configuraciones"
-        closeOnSelect={false}
-        classNames={{
-          base: "p-0",
-        }}
+    <div>
+      <IconButton
+        color="default"
+        id="configs-button"
+        aria-controls={open ? "Configuraciones" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        title="Configuraciones"
+        onClick={handleClick}
       >
-        <DropdownItem key="theme" textValue="tema" onClick={switchTheme}>
-          <ThemeSwitch isSelected={configs.value.theme} />
-        </DropdownItem>
+        <SettingsIcon fontSize="inherit" />
+      </IconButton>
 
-        <DropdownItem key="font" textValue="fuente" className="p-0">
-          <Button
-            isIconOnly
-            className="uppercase font-bold bg-transparent w-full"
-            title="Cambiar tamaño del texto"
-            onClick={switchFont}
-          >
-            {configs.value.font}
-          </Button>
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+      <Menu
+        id="configs-menu"
+        anchorEl={anchorEl}
+        open={open}
+        slotProps={{
+          list: {
+            "aria-labelledby": "configs-button",
+          },
+        }}
+        onClose={handleClose}
+      >
+        <MenuItem title="Cambiar tema" onClick={switchTheme}>
+          <ThemeSwitch isSelected={configs.value.theme} />
+        </MenuItem>
+
+        <MenuItem
+          title="Cambiar tamaño del texto"
+          className="uppercase font-bold justify-center"
+          onClick={switchFont}
+        >
+          {configs.value.font}
+        </MenuItem>
+      </Menu>
+    </div>
   );
 }

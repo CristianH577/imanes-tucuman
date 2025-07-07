@@ -7,7 +7,7 @@ import type { ClassDBItem, TypeCartValue } from "../../consts/types";
 import { scrollStyle } from "../../libs/tvs";
 import { toPriceFormat } from "../../libs/functions";
 
-import { Button } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 import ButtonAddCart from "../../components/ButtonAddCart";
 
@@ -110,7 +110,7 @@ export default function TablePrices({
                     <a
                       href={"#buscar/" + item.id}
                       title="Ver producto"
-                      className="max-xs:whitespace-normal"
+                      className="max-xs:whitespace-normal hover:underline"
                     >
                       {item.label}
                     </a>

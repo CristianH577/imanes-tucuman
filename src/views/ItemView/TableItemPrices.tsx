@@ -1,28 +1,23 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
 
+import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
+
 import { handlePriceData, toPriceFormat } from "../../libs/functions";
 
 import { scrollStyle } from "../../libs/tvs";
 
-import {
-  Input,
-  Table,
-  TableBody,
-  TableCell,
-  TableColumn,
-  TableHeader,
-  TableRow,
-  Button,
-  Link,
-} from "@heroui/react";
+import { Button } from "@heroui/button";
+import { Input } from "@heroui/input";
 
 import ButtonAddCart from "../../components/ButtonAddCart";
 import PriceLabel from "../../components/PriceLabel";
 
 import ML from "../../assets/layout/ml.webp";
 import MS from "../../assets/layout/ms.webp";
-import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
+
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import TableCustom from "../../components/TableCustom";
 
 interface InterfaceTableItemPricesPros {
   itemData: ClassDBItem;
@@ -43,6 +38,11 @@ export default function TableItemPrices({
   const inCart = itemData.id in cart;
   const qttCart = inCart ? cart[itemData.id].qtt : 0;
   const pricesQtts = itemData?.price_data?.prices_qtts;
+  const rows = !pricesQtts
+    ? []
+    : Object.entries(pricesQtts).map(([qtt, price]) => {
+        return { qtt: Number(qtt), price: Number(price) };
+      });
 
   const [qttFix, setQttFix] = useState(0);
 
@@ -68,16 +68,16 @@ export default function TableItemPrices({
     context?.cart?.add(itemData);
   };
 
-  const makeCell = (col = "", qtt = 0, price = 0) => {
+  const makeCellContent = (row = { qtt: 0, price: 0 }, col = "") => {
     switch (col) {
       case "qtt":
-        return qtt;
+        return row.qtt;
       case "price":
-        return toPriceFormat(price);
+        return toPriceFormat(row.price);
       case "subtotal":
-        return toPriceFormat(qtt * price);
+        return toPriceFormat(row.qtt * row.price);
       case "panel":
-        const inCart_qtt = inCart && qttCart === qtt;
+        const inCart_qtt = inCart && qttCart === row.qtt;
         return (
           <ButtonAddCart
             // @ts-ignore
@@ -86,7 +86,7 @@ export default function TableItemPrices({
             itemData={itemData}
             handleAdd={() => {
               let qtt_ = 0;
-              if (!inCart_qtt) qtt_ = qtt;
+              if (!inCart_qtt) qtt_ = row.qtt;
               itemData.qtt = qtt_;
 
               context.cart.add(itemData);
@@ -100,7 +100,7 @@ export default function TableItemPrices({
   };
 
   return (
-    <section className="w-full flex flex-col gap-2 md:gap-4 md:flex-row-reverse lg:flex-col p-2  sm:p-4 items-end md:items-start lg:items-center lg:border-2 lg:min-w-64 rounded-lg border-divider h-full">
+    <section className="w-full flex flex-col gap-2 md:gap-4 md:flex-row-reverse lg:flex-col p-2 sm:p-4 items-end md:items-start lg:items-center lg:border-2 lg:min-w-64 rounded-lg border-divider h-full">
       <article className="space-y-2 sm:space-y-4 lg:self-end">
         <div className="flex flex-col gap-2 justify-center items-end sm:gap-4">
           {itemData?.noStock && (
@@ -114,7 +114,7 @@ export default function TableItemPrices({
             }}
           />
 
-          <div className="flex flex-col gap-3 items-end xs:flex-row xs:items-center">
+          <div className="flex flex-wrap gap-3 items-end xs:flex-row xs:items-center">
             <Input
               type="number"
               label="Cantidad"
@@ -147,27 +147,27 @@ export default function TableItemPrices({
           <div className="place-self-center xs:place-self-end flex flex-col gap-3">
             {itemData.links?.ML && (
               <Button
-                showAnchorIcon
-                as={Link}
+                as={"a"}
                 className="bg-[#fee701] font-bold text-blue-900 shadow-md"
                 href={itemData.links.ML}
-                isExternal
                 title="Ir a Mercado Libre"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <img src={ML} /> Mercado Libre
+                <img src={ML} /> Mercado Libre <OpenInNewIcon />
               </Button>
             )}
 
             {itemData.links?.MS && (
               <Button
-                showAnchorIcon
-                as={Link}
+                as={"a"}
                 className="bg-[#e82d88] font-bold text-white shadow-md"
                 href={itemData.links.MS}
-                isExternal
                 title="Ir a Mercado Shops"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <img src={MS} /> Mercado Shops
+                <img src={MS} /> Mercado Shops <OpenInNewIcon />
               </Button>
             )}
           </div>
@@ -175,39 +175,21 @@ export default function TableItemPrices({
       </article>
 
       {pricesQtts && (
-        <Table
+        <TableCustom
           aria-label="Tabla de precios"
-          className="max-sm:border-separate border-spacing-y-2 w-fit"
-          shadow="none"
+          columns={cols}
+          rows={rows}
+          tdLabel
+          className={`lg:max-w-full max-w-[90vw] overflow-x-auto table-dinamic !p-3 ${scrollStyle}`}
           classNames={{
-            wrapper: `w-full max-w-[90vw] lg:max-w-[320px] overflow-auto ${scrollStyle}`,
-            th: "text-foreground",
+            row: "border-b border-neutral-500/50 hover:bg-violet-500/50",
+            td: "first:text-end text-center",
+            th: "!py-1",
+            table: "",
           }}
-        >
-          <TableHeader>
-            {cols.map((col) => (
-              <TableColumn key={col.id} className="text-end !text-prima">
-                {col.label}
-              </TableColumn>
-            ))}
-          </TableHeader>
-
-          <TableBody>
-            {Object.entries(pricesQtts).map(([qtt, price]) => (
-              <TableRow key={qtt} className="sm:hover:bg-secondary-500/20">
-                {cols.map((col) => (
-                  <TableCell
-                    key={col.id + "-" + qtt}
-                    className="first:font-bold text-end !text-prima"
-                    data-label={col.label}
-                  >
-                    {makeCell(col.id, Number(qtt), Number(price))}
-                  </TableCell>
-                ))}
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+          // @ts-ignore
+          makeCellContent={makeCellContent}
+        />
       )}
     </section>
   );

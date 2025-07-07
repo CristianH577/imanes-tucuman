@@ -47,12 +47,11 @@ export default function Macetas() {
                 ${getSrc(`/${i + 1}.webp`)} 360w,
               `}
             className={"sm:max-w-none" + (item?.class ? ` ${item.class}` : "")}
-            classNames={{
+            classes={{
               img:
-                "w-full h-full" + (item?.class_img ? ` ${item.class_img}` : ""),
-              wrapper:
-                "sm:border-0 sm:rounded-none h-full" +
-                (item?.wrapper ? ` ${item.wrapper}` : ""),
+                "w-full h-full sm:rounded-none object-cover" +
+                (item?.class_img ? ` ${item.class_img}` : ""),
+              imgWrapper: "h-full" + (item?.wrapper ? ` ${item.wrapper}` : ""),
             }}
           />
         ))}

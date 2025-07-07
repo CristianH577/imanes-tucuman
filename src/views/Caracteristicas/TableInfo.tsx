@@ -6,9 +6,9 @@ import type { ClassDBItem } from "../../consts/types";
 
 import { scrollStyle } from "../../libs/tvs";
 
-import { Button } from "@heroui/react";
+import { Button } from "@heroui/button";
 
-interface InterfaceTableInfoProps {
+interface InterfaceProps {
   tableAriaLabel: string;
   rows: ClassDBItem[];
 }
@@ -44,7 +44,7 @@ const columns = [
   },
 ];
 
-function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
+function TableInfo({ tableAriaLabel = "", rows }: InterfaceProps) {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -111,7 +111,7 @@ function TableInfo({ tableAriaLabel = "", rows }: InterfaceTableInfoProps) {
     >
       <table
         aria-label={tableAriaLabel || undefined}
-        className="w-full sm:min-w-[750px] max-w-[900px] lg:place-self-center table-dinamic-sm max-sm:border-separate border-spacing-y-3"
+        className="w-full sm:min-w-[750px] max-w-[900px] lg:place-self-center table-dinamic-sm max-sm:border-separate border-spacing-y-3 pb-4"
       >
         <thead className="border-b-3">
           <tr>

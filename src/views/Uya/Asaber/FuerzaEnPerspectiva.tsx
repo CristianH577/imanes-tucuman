@@ -1,19 +1,19 @@
-import fuerzaImg from "../../../assets/uya/asaber/fuerza.webp";
+import ImageCustom from "../../../components/ImageCustom";
 
-import ImageHeroCustom from "../../../components/ImageHeroCustom";
+import fuerzaImg from "../../../assets/uya/asaber/fuerza.webp";
 
 export default function FuerzaEnPerspectiva() {
   return (
     <div className="sm:text-start mt-4 prose dark:prose-invert">
-      <ImageHeroCustom
+      <ImageCustom
         src={fuerzaImg}
-        className="object-contain m-0 p-4"
-        classNames={{
-          wrapper:
-            "bg-white max-w-[400px] sm:float-left sm:me-4 max-sm:justify-self-center border-3 border-divider",
-        }}
         alt="Imanes con gancho sosteniendo pesos"
         width={400}
+        className="object-contain m-0 p-4"
+        classes={{
+          wrapper:
+            "bg-white max-w-[400px] sm:float-left sm:me-4 max-sm:justify-self-center border-3 border-divider rounded-lg",
+        }}
       />
 
       <div className="mt-4 indent-6">

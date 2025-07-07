@@ -7,12 +7,11 @@ import { MEASURES_MEASURES } from "../consts/values";
 
 import { ClassDBItem, type TypeOutletContext } from "../consts/types";
 
-import { Divider, Spinner } from "@heroui/react";
-
 import TableItemPrices from "./ItemView/TableItemPrices";
 import NotFound from "../layout/NotFound";
 import ImagesSection from "./ItemView/ImagesSection";
 import TooltipFuerzaExp from "./ItemView/TooltipFuerzaExp";
+import { CircularProgress, Divider } from "@mui/material";
 
 export default function ItemView() {
   const context: TypeOutletContext = useOutletContext();
@@ -34,7 +33,7 @@ export default function ItemView() {
   }, []);
 
   if (loading) {
-    return <Spinner color="secondary" />;
+    return <CircularProgress color="secondary" />;
   } else if (Object.keys(itemData)?.length < 1) {
     return <NotFound />;
   }
@@ -55,7 +54,7 @@ export default function ItemView() {
       className={
         "w-full max-w-[700px] lg:max-w-[1000px] mt-4 lg:grid gap-2 " +
         (itemData?.price_data?.prices_qtts
-          ? "grid-cols-[minmax(0,1fr)_minmax(150px,350px)]"
+          ? "grid-cols-[minmax(0,1fr)_minmax(150px,360px)]"
           : "grid-cols-[minmax(0,1fr)_minmax(150px,260px)]")
       }
     >
@@ -67,7 +66,7 @@ export default function ItemView() {
       >
         <h1 className="text-4xl font-bold pb-2">{itemData?.label}</h1>
 
-        <Divider />
+        <Divider className="bg-neutral-500/50" />
         <ImagesSection
           id={itemData.id}
           onComparate={() => context.setMagnetData(itemData)}
@@ -82,11 +81,11 @@ export default function ItemView() {
         }}
         className="overflow-hidden"
       >
-        <Divider className="lg:hidden" />
+        <Divider className="bg-neutral-500/50 lg:hidden" />
         <TableItemPrices itemData={itemData} />
       </motion.section>
 
-      <Divider className="col-span-full mt-2 mb-4 md:mt-0" />
+      <Divider className="bg-neutral-500/50 col-span-full mt-2 mb-4 md:mt-0" />
 
       <motion.section
         variants={{
@@ -159,10 +158,10 @@ export default function ItemView() {
       >
         {itemData?.description && (
           <>
-            <Divider className="my-4" />
+            <Divider className="bg-neutral-500/50 my-4" />
             <h3 className="text-tertiary">Descripcion</h3>
             <p>{itemData.description}.</p>
-            <Divider className="my-4" />
+            <Divider className="bg-neutral-500/50 my-4" />
           </>
         )}
       </motion.section>

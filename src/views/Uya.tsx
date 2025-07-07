@@ -1,6 +1,9 @@
-import { lazy } from "react";
+import { lazy, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
-import { Tabs, Tab } from "@heroui/react";
+import { scrollStyle } from "../libs/tvs";
+
+import { Button } from "@mui/material";
 
 import ArticleView from "./Uya/ArticleView";
 import ArticlesList from "./Uya/ArticlesList";
@@ -44,6 +47,8 @@ const RecogedorSimple = lazy(() => import("./Uya/Ideas/RecogedorSimple"));
 const Recogedor = lazy(() => import("./Uya/Ideas/Recogedor"));
 
 export default function UyA() {
+  const [tabSelected, setTabSelected] = useState(0);
+
   const tabs = [
     {
       id: "asaber",
@@ -205,31 +210,64 @@ export default function UyA() {
   };
 
   return (
-    <div className="w-full max-w-4xl text-center md:flex flex-col items-center">
-      <Tabs
-        aria-label="Usos y aplicaciones"
-        classNames={{
-          tabList:
-            "bg-gradient-to-t from-custom1 to-custom1-3 flex-wrap justify-center",
-          tabContent:
-            "text-custom2 font-bold group-data-[selected=true]:text-white",
-          cursor: "bg-gradient-to-t from-custom2 to-custom2-10",
-          panel: "mt-4 flex flex-col items-center w-full",
-          tab: "w-fit",
-        }}
+    <>
+      <section
+        className={
+          "max-sm:w-full overflow-x-auto bg-gradient-to-t from-custom2 to-custom2-10 rounded-lg px-2 py-1 shadow-md " +
+          scrollStyle
+        }
       >
-        {tabs.map((tab) => (
-          <Tab key={tab.id} title={tab.title}>
-            <ArticlesList list={items[tab.id as keyof typeof items]} />
+        <motion.ul
+          role="tabs-wrapper"
+          aria-label="formas de los imanes"
+          className="flex w-fit relative gap-2"
+        >
+          {tabs.map((tab, i) => (
+            <li key={i}>
+              <Button
+                color="inherit"
+                size="small"
+                role="tab"
+                data-selected={i === tabSelected}
+                className="whitespace-nowrap font-semibold data-[selected=true]:text-shadow-md data-[selected=true]:text-custom2 text-shadow-black/30 text-white"
+                title={"Ver " + tab.title}
+                onClick={() => setTabSelected(i)}
+              >
+                {tabSelected === i && (
+                  <motion.div
+                    layoutId="highlight-uya"
+                    className="absolute right-0 bottom-0 rounded-lg w-full h-full bg-gradient-to-t from-custom1 to-custom1-3"
+                  />
+                )}
+                <span className="z-10 capitalize">{tab.title}</span>
+              </Button>
+            </li>
+          ))}
+        </motion.ul>
+      </section>
 
-            {items[tab.id as keyof typeof items].map((item) => (
-              <ArticleView key={item.id} id={item.id} h1={item.title}>
-                {item.content}
-              </ArticleView>
-            ))}
-          </Tab>
-        ))}
-      </Tabs>
-    </div>
+      <AnimatePresence mode="wait">
+        <motion.section
+          key={tabSelected}
+          role="tabpanel"
+          layoutId="content-uya"
+          className="w-full text-center sm:flex flex-col items-center "
+          initial={{ x: "100%", opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: "-100%", opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ArticlesList
+            list={items[tabs[tabSelected].id as keyof typeof items]}
+          />
+
+          {items[tabs[tabSelected].id as keyof typeof items].map((item) => (
+            <ArticleView key={item.id} id={item.id} h1={item.title}>
+              {item.content}
+            </ArticleView>
+          ))}
+        </motion.section>
+      </AnimatePresence>
+    </>
   );
 }

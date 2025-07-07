@@ -9,19 +9,14 @@ import type {
 
 import { scrollStyle } from "../libs/tvs";
 
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from "@heroui/react";
+import { Button } from "@heroui/button";
+import { Modal } from "@mui/material";
 
 import ImageCustom from "../components/ImageCustom";
 
 import RestartAltOutlinedIcon from "@mui/icons-material/RestartAltOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
+import CloseIcon from "@mui/icons-material/Close";
 
 import tapa_img from "../assets/imanes/tapa.webp";
 
@@ -36,7 +31,7 @@ import cuadrado_fresado from "../assets/formas/cuadrado-fresado.webp";
 import esfera from "../assets/formas/esfera.webp";
 import de_arrastre from "../assets/formas/de_arrastre.webp";
 
-interface TypeModalComparativeMagnetProps {
+interface InterfaceProps {
   magnetData: ClassDBItem | false;
   onClose: () => void;
 }
@@ -88,7 +83,7 @@ const views = [
 export default function ModalComparativeMagnet({
   magnetData,
   onClose = () => {},
-}: TypeModalComparativeMagnetProps) {
+}: InterfaceProps) {
   const constraintsRef = useRef(null);
 
   const [magnet, setMagnet] = useState<ClassItemGraphData>(
@@ -392,127 +387,123 @@ export default function ModalComparativeMagnet({
 
   return (
     <Modal
-      isOpen={openModal}
-      placement="top-center"
-      className="text-foreground max-w-3xl"
+      open={openModal}
       onClose={handleClose}
-      classNames={{
-        wrapper: scrollStyle,
-      }}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+      className={"sm:p-4 overflow-auto " + scrollStyle}
     >
-      <ModalContent className="!my-auto max-sm:max-w-none max-sm:mx-0 max-sm:mb-0 max-sm:rounded-none overflow-y-auto self-start max-sm:min-h-full sm:border-3 sm:border-custom1-3">
-        {(onClose) => (
-          <>
-            <ModalHeader className="text-2xl">Comparar tamaños</ModalHeader>
+      <div className="text-foreground max-w-3xl bg-content1 sm:border-3 sm:border-custom1-3 p-2 sm:p-4 sm:rounded-lg space-y-4 m-auto">
+        <article className="flex justify-between">
+          <h1 id="modal-title" className="text-2xl font-bold">
+            Comparar tamaños
+          </h1>
 
-            <ModalBody className="overflow-hidden max-sm:px-2">
-              <p className="max-sm:text-center">
-                La comparación es con una tapa plástica común de botella.
-                <br />
-                Asegúrese de que el circulo amarillo tenga 30mm de diámetro con
-                una regla. Si no los tiene ajuste el zoom de la pantalla hasta
-                que lo tenga.
-              </p>
+          <Button
+            variant="light"
+            onPress={onClose}
+            isIconOnly
+            title="Cerrar vista"
+            size="sm"
+          >
+            <CloseIcon className="text-3xl" />
+          </Button>
+        </article>
 
-              <p className="font-size-secondary text-neutral-400 text-center">
-                Las imágenes y esquemas son solo a modo ilustrativo y pueden no
-                coincidir con la realidad.
-              </p>
+        <p id="modal-description" className="max-sm:text-center">
+          La comparación es con una tapa plástica común de botella.
+          <br />
+          Asegúrese de que el circulo amarillo tenga 30mm de diámetro con una
+          regla. Si no los tiene ajuste el zoom de la pantalla hasta que lo
+          tenga.
+        </p>
 
-              <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[tapa, magnet].map((e, i) => (
-                  <article key={i} className="flex flex-col items-center">
-                    <p className="max-w-[250px] text-2xl font-semibold">
-                      {e.label}
-                    </p>
+        <p className="font-size-secondary text-neutral-400 text-center">
+          Las imágenes y esquemas son solo a modo ilustrativo y pueden no
+          coincidir con la realidad.
+        </p>
 
-                    <div className="rounded-lg p-4 sm:h-full select-none flex items-center justify-center place-self-center">
-                      <ImageCustom
-                        src={e?.img_data?.src}
-                        width={150}
-                        className="w-full max-w-[150px]"
-                        alt={e?.img_data?.alt || ""}
-                        // @ts-ignore
-                        style={{
-                          filter: "drop-shadow(2px 4px 6px black)",
-                        }}
-                      />
-                    </div>
-                  </article>
-                ))}
-              </section>
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[tapa, magnet].map((e, i) => (
+            <article key={i} className="flex flex-col items-center">
+              <p className="max-w-[250px] text-2xl font-semibold">{e.label}</p>
 
-              <h2 className="text-center text-xl font-semibold">Vistas</h2>
+              <div className="rounded-lg p-4 sm:h-full select-none flex items-center justify-center place-self-center drop-shadow-custom">
+                <ImageCustom
+                  src={e?.img_data?.src}
+                  width={150}
+                  alt={e?.img_data?.alt || ""}
+                />
+              </div>
+            </article>
+          ))}
+        </section>
 
-              {magnet && (
-                <section
-                  ref={constraintsRef}
-                  key={count}
-                  className={`flex flex-col items-center gap-6 sm:flex-row text-center pt-2 pb-6 px-4 rounded-lg relative overflow-y-hidden overflow-x-auto shadow-medium border-3 border-neutral-400 ${scrollStyle}`}
-                >
-                  <Button
-                    variant="light"
-                    onPress={handleResetView}
-                    isIconOnly
-                    className="text-xl absolute top-2 left-2"
-                    title="Acomodar vista"
-                  >
-                    <RestartAltOutlinedIcon />
-                  </Button>
+        <h2 className="text-center text-xl font-semibold">Vistas</h2>
 
-                  {views.map((view) => (
-                    <article
-                      key={view.id}
-                      className="flex flex-col gap-4 w-full"
+        {magnet && (
+          <section
+            ref={constraintsRef}
+            key={count}
+            className={`flex flex-col items-center gap-6 sm:flex-row text-center pt-2 pb-6 px-4 rounded-lg relative overflow-y-hidden overflow-x-auto shadow-medium border-3 border-neutral-400 ${scrollStyle}`}
+          >
+            <Button
+              variant="light"
+              onPress={handleResetView}
+              isIconOnly
+              className="text-xl absolute top-2 left-2"
+              title="Acomodar vista"
+            >
+              <RestartAltOutlinedIcon />
+            </Button>
+
+            {views.map((view) => (
+              <article key={view.id} className="flex flex-col gap-4 w-full">
+                <p>{view.label}</p>
+
+                <div className="flex flex-col items-start xs:items-center gap-8 w-full">
+                  {[tapa, magnet].map((item, i) => (
+                    <motion.span
+                      key={i}
+                      drag
+                      dragConstraints={constraintsRef}
+                      whileDrag={{
+                        zIndex: 20,
+                        filter: "drop-shadow(0px 0px 1px black)",
+                      }}
+                      className={`flex items-center h-full cursor-pointer ${
+                        i > 0 ? "z-10" : ""
+                      }`}
+                      style={{
+                        filter: "drop-shadow(0px 0px 1px black)",
+                      }}
                     >
-                      <p>{view.label}</p>
-
-                      <div className="flex flex-col items-start xs:items-center gap-8 w-full">
-                        {[tapa, magnet].map((item, i) => (
-                          <motion.span
-                            key={i}
-                            drag
-                            dragConstraints={constraintsRef}
-                            whileDrag={{
-                              zIndex: 20,
-                              filter: "drop-shadow(0px 0px 1px black)",
-                            }}
-                            className={`flex items-center h-full cursor-pointer ${
-                              i > 0 ? "z-10" : ""
-                            }`}
-                            style={{
-                              filter: "drop-shadow(0px 0px 1px black)",
-                            }}
-                          >
-                            {MakeSvgView(view.id, item)}
-                          </motion.span>
-                        ))}
-                      </div>
-                    </article>
+                      {MakeSvgView(view.id, item)}
+                    </motion.span>
                   ))}
-                </section>
-              )}
-
-              <p className="max-sm:text-center text-neutral-400 font-size-secondary">
-                Los tamaños son aproximados y pueden tener errores de medidas.
-                <br />
-                Puede arrastrar los iconos para sobreponerlos.
-              </p>
-            </ModalBody>
-
-            <ModalFooter className="items-center ">
-              <Button
-                variant="light"
-                onPress={onClose}
-                isIconOnly
-                title="Cerrar vista"
-              >
-                <ArrowBackOutlinedIcon className="text-3xl" />
-              </Button>
-            </ModalFooter>
-          </>
+                </div>
+              </article>
+            ))}
+          </section>
         )}
-      </ModalContent>
+
+        <p className="max-sm:text-center text-neutral-400 font-size-secondary">
+          Los tamaños son aproximados y pueden tener errores de medidas.
+          <br />
+          Puede arrastrar los iconos para sobreponerlos.
+        </p>
+
+        <div className="place-self-end">
+          <Button
+            variant="light"
+            onPress={onClose}
+            isIconOnly
+            title="Cerrar vista"
+          >
+            <ArrowBackOutlinedIcon className="text-3xl" />
+          </Button>
+        </div>
+      </div>
     </Modal>
   );
 }

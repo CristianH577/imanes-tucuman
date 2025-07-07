@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { DB_IMGS } from "../../consts/dbs";
 
 import { scrollStyle } from "../../libs/tvs";
 
-import { Button } from "@heroui/react";
+import { Button } from "@heroui/button";
 
 import ImageCustom from "../../components/ImageCustom";
 
@@ -34,17 +34,17 @@ export default function ImagesSection({
   onComparate = () => {},
 }: TypeImagesSectionProps) {
   const imgsData = DB_IMGS[String(id) as keyof typeof DB_IMGS];
-  const [index, setIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handleButtons = (num: number) => {
-    let idx_ = index + num;
+    let idx_ = selectedIndex + num;
     const max = imgsData.imgs?.length || 0;
     if (idx_ < 0) {
       idx_ = max - 1;
     } else if (idx_ >= max) {
       idx_ = 0;
     }
-    setIndex(idx_);
+    setSelectedIndex(idx_);
   };
 
   return (
@@ -64,19 +64,12 @@ export default function ImagesSection({
           animate="visible"
           className={`w-full max-w-[90vw] p-2 place-self-center grid grid-flow-col auto-cols-[50px] overflow-auto gap-2 ${scrollStyle}`}
         >
-          {/* {imgsData.preview.type==="svg"&&
-          
-            const SvgForma = false;
-            // img.type === "svg" && img.src
-            //   ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
-            //   : false;
-                  <SvgForma
-                    className="w-full h-[50px]"
-                    onClick={() => setIndex(i)}
-                  />
-          
-          } */}
           {imgsData.imgs.map((img, i) => {
+            const src =
+              srcs.find(([path, _]) =>
+                path.includes(`/${id}/thumbnails/${img}`)
+              )?.[1] || "";
+
             return (
               <motion.div
                 key={i}
@@ -88,18 +81,14 @@ export default function ImagesSection({
                   },
                 }}
                 className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 data-[selected=true]:opacity-100 data-[selected=true]:border-2 data-[selected=true]:border-custom1 overflow-hidden bg-content4 h-[50px]"
-                data-selected={index === i}
+                data-selected={selectedIndex === i}
+                onClick={() => setSelectedIndex(i)}
               >
                 <ImageCustom
                   alt={`Miniatura ${i}`}
-                  className="object-contain h-full w-full"
-                  src={
-                    srcs.find(([_, path]) =>
-                      path.includes(`/${id}/thumbnails/${img}`)
-                    )?.[1] || ""
-                  }
-                  // @ts-ignore
-                  onClick={() => setIndex(i)}
+                  className="object-contain h-full"
+                  classes={{ wrapper: "h-full" }}
+                  src={src}
                 />
               </motion.div>
             );
@@ -145,12 +134,42 @@ export default function ImagesSection({
           </>
         )}
 
-        {imgsData?.imgs && imgsData?.imgs?.length > 0 ? (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={imgsData?.imgs?.[selectedIndex]}
+            variants={{
+              hidden: { opacity: 0, scale: 0 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                x: 0,
+              },
+              exit: { opacity: 0, x: -100 },
+            }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+          >
+            <ImageCustom
+              src={
+                srcs.find(([path, _]) =>
+                  path.includes(`/${id}/320/${imgsData?.imgs?.[selectedIndex]}`)
+                )?.[1]
+              }
+              alt="Imagen seleccionada"
+              width={300}
+              className="object-contain drop-shadow-custom h-full max-h-[300px] max-w-[300px]"
+              classes={{ wrapper: "h-full" }}
+            />
+          </motion.div>
+        </AnimatePresence>
+
+        {/* {imgsData?.imgs && imgsData?.imgs?.length > 0 ? (
           imgsData.imgs.map((img, i) => {
-            // const SvgForma =
-            //   img.type === "svg" && img.src
-            //     ? SVG_FORMA?.[img.src as keyof typeof SVG_FORMA]
-            //     : false;
+            const src =
+              srcs.find(([path, _]) =>
+                path.includes(`/${id}/320/${img}`)
+              )?.[1] || "";
 
             return (
               <motion.div
@@ -165,28 +184,21 @@ export default function ImagesSection({
                   },
                 }}
                 initial="hidden"
-                animate={index === i ? "visible" : "hidden"}
+                animate={selectedIndex === i ? "visible" : "hidden"}
               >
-                {/* {SvgForma ? (
-                  <SvgForma className="w-full h-full max-w-[300px] max-h-[300px] p-4" />
-                ) : ( */}
                 <ImageCustom
-                  src={
-                    srcs.find(([_, path]) =>
-                      path.includes(`/${id}/320/${img}`)
-                    )?.[1] || ""
-                  }
-                  className="object-contain drop-shadow-custom h-full w-full max-w-[300px] max-h-[300px]"
+                  src={src}
                   alt="Imagen seleccionada"
                   width={300}
+                  className="object-contain drop-shadow-custom h-full max-h-[300px] max-w-[300px]"
+                  classes={{ wrapper: "h-full" }}
                 />
-                {/* )} */}
               </motion.div>
             );
           })
         ) : (
           <ImageCustom className="bg-neutral-500/50" />
-        )}
+        )} */}
       </motion.article>
 
       {isComparable && (

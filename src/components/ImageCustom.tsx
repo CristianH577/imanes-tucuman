@@ -1,42 +1,51 @@
-import { useRef } from "react";
-import { useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
+
+import { Skeleton } from "@mui/material";
 
 import UnknowImg from "../assets/layout/unknow-img.webp";
 
-interface TypeImageCustomProps {
-  src?: string;
-  alt?: string;
-  className?: string;
-  width?: number;
-  height?: number;
-  // style?: { [key: string]: string };
-}
+const MotionSkeleton = motion.create(Skeleton);
+
 export default function ImageCustom({
-  src = "",
+  src = UnknowImg,
   alt = "Imagen desconocida",
-  className = undefined,
-  width = 150,
-  height = 150,
+  className = "",
+  width = 100,
+  height = 100,
+  classes = { wrapper: "" },
+  propsWrapper = {},
   ...props
-}: TypeImageCustomProps) {
+}) {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    //@ts-ignore
-    threshold: 0.3,
-    once: true,
-  });
+  const [load, setLoad] = useState(false);
+  const isInView = useInView(ref, { once: true });
 
   return (
-    <img
+    <div
       ref={ref}
-      src={isInView && src ? src : UnknowImg}
-      alt={alt}
-      loading="lazy"
-      decoding="async"
-      className={className}
-      width={width}
-      height={height}
-      {...props}
-    />
+      className={"relative" + (classes.wrapper ? " " + classes.wrapper : "")}
+      {...propsWrapper}
+    >
+      <MotionSkeleton
+        variant="rounded"
+        className="w-full h-full absolute inset-0"
+        initial={{ opacity: 1 }}
+        animate={isInView && load && { opacity: 0, display: "none" }}
+      />
+
+      <motion.img
+        src={src}
+        width={width}
+        height={height}
+        loading="lazy"
+        alt={alt}
+        className={"w-full" + (className ? " " + className : "")}
+        initial={{ opacity: 0 }}
+        animate={isInView && load && { opacity: 1 }}
+        onLoad={() => setLoad(true)}
+        {...props}
+      />
+    </div>
   );
 }

@@ -20,6 +20,7 @@ const sections = [
     id: "formas",
     label: "Formas",
     content: <Formas />,
+    className: "",
   },
   {
     label: "variedades",

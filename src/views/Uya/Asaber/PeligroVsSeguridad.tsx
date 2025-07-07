@@ -67,7 +67,7 @@ export default function PeligroVsSeguridad() {
               src={item.src}
               text={item.text}
               className="row-span-2"
-              classNames={{
+              classes={{
                 img: "sm:h-[200px]",
               }}
             />

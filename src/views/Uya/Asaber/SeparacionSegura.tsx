@@ -31,17 +31,17 @@ export default function SeparacionSegura() {
   ];
 
   return (
-    <div className="grid sm:grid-cols-2 gap-8">
+    <div className="grid sm:grid-cols-2 gap-8 justify-center">
       {items.map((item, i) => (
         <CardUya
           key={i + 1}
           src={item.src}
           text={item.text}
           className="relative w-full"
-          classNames={{
+          classes={{
             img: "object-contain",
-            wrapper:
-              "bg-white w-full max-h-[250px] max-w-none flex justify-center " +
+            imgWrapper:
+              "bg-white w-full max-h-[250px] max-w-none flex justify-center border-5 rounded-lg " +
               (i < 2 ? "border-success" : "border-danger"),
           }}
           contentPlus={

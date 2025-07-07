@@ -12,10 +12,12 @@ export default function DireccionMagnetica() {
 
       <CardUya
         src={img}
-        className="place-self-center sm:max-w-[700px]"
+        className="sm:max-w-[720px] place-self-center"
         alt="Ejemplos de direcciones magnéticas"
+        classes={{ img: "w-full" }}
         // @ts-ignore
-        widht={700}
+        widht={720}
+        height={720}
       />
     </div>
   );

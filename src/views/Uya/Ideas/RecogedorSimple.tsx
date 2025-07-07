@@ -1,4 +1,4 @@
-import { Divider } from "@heroui/react";
+import { Divider } from "@mui/material";
 
 import ImageCustom from "../../../components/ImageCustom";
 

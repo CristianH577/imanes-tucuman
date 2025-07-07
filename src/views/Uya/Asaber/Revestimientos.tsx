@@ -212,6 +212,8 @@ const makeCellContent = (row: TypeObjectGeneral, col: string) => {
           src={srcs.find(([path, _]) => path.includes(row.id))?.[1] || ""}
           className="sm:min-w-32 drop-shadow-custom"
           alt={`Iman con recubrimiento de ${row?.label}`}
+          width={128}
+          height={128}
         />
       );
     case "id":

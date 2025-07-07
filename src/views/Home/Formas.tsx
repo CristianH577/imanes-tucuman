@@ -89,8 +89,8 @@ export default function Formas() {
           hidden: {},
           visible: {
             transition: {
-              delayChildren: 0.2,
-              staggerChildren: 0.2,
+              delayChildren: 0.1,
+              staggerChildren: 0.1,
             },
           },
         }}

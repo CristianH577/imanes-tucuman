@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { useColorScheme } from "@mui/material/styles";
+
 import { FONTS_VALUES } from "../consts/siteConfig";
 
 type TypeConfigs = {
@@ -9,6 +11,7 @@ type TypeConfigs = {
 type LinkKey = keyof typeof FONTS_VALUES;
 
 export function useConfigs() {
+  const { setMode } = useColorScheme();
   const [configs, setConfigs] = useState<TypeConfigs>({
     theme: "light",
     font: "md",
@@ -25,6 +28,7 @@ export function useConfigs() {
     const theme_remove = configs_.theme === "dark" ? "light" : "dark";
     document.body.classList?.remove(theme_remove);
     document.body.classList?.add(configs_.theme);
+    setMode(configs_.theme as "system" | "light" | "dark");
 
     localStorage.setItem("theme", configs_.theme);
   };
