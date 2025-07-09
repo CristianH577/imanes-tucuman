@@ -28,6 +28,7 @@ const routesComponent = {
   faqs: <Faqs />,
   uya: <UyA />,
 };
+
 const views = [
   {
     id: "cart",
@@ -55,7 +56,7 @@ function App() {
                 path={route.href}
                 element={
                   <ViewDefault
-                    id={route.id}
+                    // id={route.id}
                     title={route?.title || route?.label || undefined}
                   >
                     {routesComponent[route.id as keyof typeof routesComponent]}

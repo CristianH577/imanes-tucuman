@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { NAV_ITEMS } from "../consts/siteConfig";
 
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 import { IconButton, Badge } from "@mui/material";
 
@@ -16,16 +16,26 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
+import InputSearch from "../components/InputSearch";
 
 const MenuMovilDrawer = lazy(() => import("./NavbarCustom/MenuMovilDrawer"));
 
 const MotionLinkRouter = motion.create(Link);
 
 function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
+  const navigate = useNavigate();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [inputText, setInputText] = useState("");
+
+  const handleSearch = () => {
+    let href = "buscar?orderBy=price-asc";
+    if (inputText) href += "&text=" + inputText;
+    navigate(href);
+  };
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full backdrop-blur-md">
+    <nav className="sticky top-0 left-0 z-50 w-full backdrop-blur-md">
       <div className="xs:p-2 flex items-center xs:gap-4 justify-between md:justify-around w-full max-w-[1200px] h-16 place-self-center sm:p-4">
         <section className="flex gap-1 items-center">
           <IconButton
@@ -90,23 +100,33 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
         </motion.ul>
 
         <section className="flex items-center gap-1">
-          <article className="hidden sm:block md:hidden lg:block mx-2">
-            <Redes
-              className="hidden sm:flex md:hidden lg:flex items-center"
-              classNames={{
-                link: "text-neutral-400 hover:text-custom2 dark:hover:text-custom1",
-                icon: "h-6 w-fit",
-              }}
-              slice={2}
-            />
-          </article>
+          <Redes
+            className="hidden lg:flex items-center"
+            classNames={{
+              link: "text-neutral-400 hover:text-custom2 dark:hover:text-custom1",
+              icon: "h-6 w-fit",
+            }}
+            slice={2}
+          />
 
-          <IconButton component="a" href="#buscar" title="Buscar">
+          <IconButton
+            component="a"
+            href="#buscar"
+            title="Buscar"
+            className="sm:hidden mx-1"
+          >
             <ContentPasteSearchOutlinedIcon
               className="text-custom2 dark:text-custom1"
               data-active={cartLength > 0}
             />
           </IconButton>
+
+          <InputSearch
+            className="hidden sm:flex mx-1"
+            value={inputText}
+            setValue={setInputText}
+            handleSearch={handleSearch}
+          />
 
           <MenuConfigs />
 

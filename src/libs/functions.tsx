@@ -58,9 +58,21 @@ export function cartItemsComparator(col: string, order: string) {
   };
 }
 
-export const handlePriceData = (itemData: ClassDBItem) => {
+export const handlePriceData = (itemData: ClassDBItem, following = false) => {
   const price_data = itemData?.price_data;
   const prices_qtts = price_data?.prices_qtts;
+  const price_following = price_data.prices?.following;
+
+  if (following && !price_following) {
+    let discount = 0.1;
+    const price = itemData.price_data.prices.base;
+    if (price > 12000) discount = 0.05;
+    itemData.price_data.prices.following = price * (1 - discount);
+    if (!itemData.price_data.discountsPercentages) {
+      itemData.price_data.discountsPercentages = {};
+    }
+    itemData.price_data.discountsPercentages.following = discount;
+  }
 
   if (prices_qtts) {
     let price_qtt = 0;
@@ -82,14 +94,17 @@ export const handlePriceData = (itemData: ClassDBItem) => {
       price_data.discountsPercentages = {};
     }
     price_data.discountsPercentages.qtt = (base - price_qtt) / base;
+  }
 
-    let use = "base";
-    const prices = price_data.prices;
-    for (const key in prices) {
+  let use = "base";
+  const prices = price_data.prices;
+  for (const key in prices) {
+    if (key === "following" && !following) {
+    } else {
       if (prices[key] && prices[key] < (prices[use] || 0)) use = key;
     }
-    price_data.usePrice = use;
   }
+  price_data.usePrice = use;
 
   return price_data;
 };

@@ -1,5 +1,5 @@
 import { Select, SelectItem } from "@heroui/select";
-import { Divider } from "@mui/material";
+import { Checkbox, Divider, FormControl, FormLabel } from "@mui/material";
 
 import Logo from "../../components/Logo";
 import List from "./List";
@@ -15,9 +15,11 @@ import {
 
 interface InterfaceEstimateProps {
   downloading: boolean;
-  entrega: { value: string; label: string };
-  setEntrega: (obj: { value: string; label: string }) => void;
+  entrega: TypeEntrega;
+  setEntrega: (obj: TypeEntrega) => void;
 }
+
+type TypeEntrega = { value: string; label: string; following: boolean };
 
 const conditions_items = {
   retiro: {
@@ -59,9 +61,9 @@ const conditions_items = {
   },
 };
 
-function Estimate({
+export default function Estimate({
   downloading = false,
-  entrega = { value: "retiro", label: "" },
+  entrega = { value: "retiro", label: "", following: false },
   setEntrega,
 }: InterfaceEstimateProps) {
   return (
@@ -71,7 +73,18 @@ function Estimate({
     >
       <Logo id="presupuesto_logo" className="max-w-44 my-2" />
 
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col items-center gap-2">
+        <FormControl className="flex-row items-center ">
+          <Checkbox
+            checked={entrega.following}
+            color="warning"
+            onChange={(e) =>
+              setEntrega({ ...entrega, following: e.target.checked })
+            }
+          />
+          <FormLabel className="font-semibold">Sigo las redes</FormLabel>
+        </FormControl>
+
         <Select
           name="shipping"
           size="sm"
@@ -86,11 +99,12 @@ function Estimate({
           selectedKeys={[entrega.value]}
           onSelectionChange={(e) => {
             const val = e.currentKey || "retiro";
-            setEntrega({
-              value: val,
-              label:
-                conditions_items?.[val as keyof typeof conditions_items]?.label,
-            });
+            const entrega_: TypeEntrega = { ...entrega };
+            entrega_.value = val;
+            entrega_.label =
+              conditions_items?.[val as keyof typeof conditions_items]?.label;
+
+            setEntrega(entrega_);
           }}
           description={
             conditions_items?.[entrega.value as keyof typeof conditions_items]
@@ -105,7 +119,7 @@ function Estimate({
         </Select>
       </section>
 
-      <List downloading={downloading} />
+      <List downloading={downloading} following={entrega.following} />
 
       <section className="flex flex-col items-center gap-2 text-neutral-400 text-center">
         <div className="w-full flex flex-wrap items-center justify-center gap-3">
@@ -124,5 +138,3 @@ function Estimate({
     </div>
   );
 }
-
-export default Estimate;

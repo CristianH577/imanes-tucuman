@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 export default function InputSearch({
   value = "",
+  className = "",
   setValue = (val: string) => {
     val;
   },
@@ -16,13 +17,13 @@ export default function InputSearch({
   };
 
   return (
-    <div className="flex">
+    <div className={"flex" + (className ? " " + className : "")}>
       <Input
         name="text"
         placeholder="Buscar..."
         title="Buscar..."
         classNames={{
-          inputWrapper: "border-3 border-custom1-3 border-e-0 rounded-e-none",
+          inputWrapper: "border-2 border-custom1-3 border-e-0 rounded-e-none",
         }}
         value={value}
         onValueChange={(e) => setValue(e)}
@@ -34,7 +35,7 @@ export default function InputSearch({
         variant="outlined"
         color="warning"
         title="Buscar"
-        className="border-3 border-custom1-3 border-s-0 rounded-xl rounded-s-none min-w-0"
+        className="border-2 border-custom1-3 border-s-0 rounded-xl rounded-s-none min-w-0"
         onClick={handleSearch}
       >
         <SearchIcon className="h-6 w-fit" />

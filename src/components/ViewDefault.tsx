@@ -6,7 +6,7 @@ import TitleCustom from "./TitleCustom";
 export default function ViewDefault({
   children = <></>,
   disabledInView = false,
-  id = "",
+  // id = "",
   className = "",
   title = "",
 }) {
@@ -18,11 +18,11 @@ export default function ViewDefault({
 
   return (
     <motion.div
-      id={id || undefined}
+      // id={id || undefined}
       ref={ref}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className={`w-full min-h-screen max-w-[1200px] flex flex-col items-center gap-6 place-self-center pt-20${
+      className={`w-full min-h-screen max-w-[1200px] flex flex-col items-center gap-6 place-self-center pt-${
         className ? " " + className : ""
       }`}
     >

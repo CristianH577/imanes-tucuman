@@ -24,11 +24,16 @@ export default function CartView() {
   const [entrega, setEntrega] = useState({
     value: "retiro",
     label: "Voy a retirar",
+    following: false,
   });
 
   const handleSend = () => {
     const items_msg = ["Hola. Me interesa hacer este pedido:\n"];
     items_msg.push(`*${entrega.label}\n`);
+
+    if (entrega.following) {
+      items_msg.push(`*Sigo las redes.\n`);
+    }
 
     let total: number = 0;
     const cart_ = Object.values(cart).filter((item) => Number(item.qtt) > 0);

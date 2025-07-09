@@ -72,7 +72,7 @@ const totalDefault = {
 
 const itemsPerView = 10;
 
-export default function List({ downloading = false }) {
+export default function List({ downloading = false, following = false }) {
   const context: TypeOutletContext = useOutletContext();
   const cart = context.cart.value;
 
@@ -178,14 +178,6 @@ export default function List({ downloading = false }) {
     }
   };
 
-  // const handleChangeQtt = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const value = e.target.value;
-  //   const id = Number(e.target.dataset.id);
-  //   const cart_ = structuredClone(cart);
-  //   cart_[id].qtt = Number(value);
-  //   context.cart.set(cart_);
-  // };
-
   const handlePriceQtt = (target: HTMLInputElement) => {
     const id = Number(target.dataset.id);
     const qtt = Number(target.value);
@@ -194,7 +186,10 @@ export default function List({ downloading = false }) {
     const itemData = cart_[id];
     itemData.qtt = qtt;
 
-    itemData.price_data = handlePriceData(itemData);
+    itemData.price_data = handlePriceData(
+      itemData,
+      (following = itemData.categorie === "imanes" && following)
+    );
 
     cart_[id] = itemData;
 
@@ -219,10 +214,10 @@ export default function List({ downloading = false }) {
     context.cart.add(itemData);
   };
   const getTotal = () => {
-    if (cart && Object.values(cart).length > 0) {
+    if (items.length > 0) {
       let total_ = structuredClone(totalDefault);
 
-      Object.values(cart).forEach((item) => {
+      items.forEach((item) => {
         const use = item.price_data.usePrice;
         const price = item.price_data.prices[use];
         const base = item.price_data.prices.base;
@@ -261,18 +256,22 @@ export default function List({ downloading = false }) {
   };
 
   useEffect(() => {
-    const items_ = items.map((item) => {
-      item.price_data = handlePriceData(item);
+    Object.entries(cart).map(([_, item]) => {
+      item.price_data = handlePriceData(
+        item,
+        (following = item.categorie === "imanes" && following)
+      );
       return item;
     });
-
-    setItems(items_);
-  }, []);
+    context.cart.set({ ...cart });
+  }, [following]);
 
   useEffect(() => {
-    getTotal();
     setItems(Object.values(cart));
   }, [cart]);
+  useEffect(() => {
+    getTotal();
+  }, [items]);
 
   useEffect(sortItems, [orderBy, cart]);
 
