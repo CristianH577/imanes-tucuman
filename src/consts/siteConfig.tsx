@@ -8,7 +8,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 import { SVGMagnet } from "../assets/svgs/svgsIcons";
 
-export const VERSION_CURRENT = "2.0.9"; // usada para controlar cambios de funcionamiento
+export const VERSION_CURRENT = "2.1.0"; // usada para controlar cambios de funcionamiento
 
 export const NAV_ITEMS = [
   { id: "", href: "", label: "Inicio", icon: HomeOutlinedIcon },

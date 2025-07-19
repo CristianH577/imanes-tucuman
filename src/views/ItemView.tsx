@@ -52,9 +52,9 @@ export default function ItemView() {
       initial="hidden"
       animate="visible"
       className={
-        "w-full max-w-[700px] lg:max-w-[1000px] mt-4 lg:grid gap-2 " +
+        "w-full max-w-[700px] lg:w-f lg:max-w-none mt-4 lg:grid gap-2 " +
         (itemData?.price_data?.prices_qtts
-          ? "grid-cols-[minmax(0,1fr)_minmax(150px,360px)]"
+          ? "grid-cols-[minmax(0,1fr)_minmax(150px,465px)]"
           : "grid-cols-[minmax(0,1fr)_minmax(150px,260px)]")
       }
     >
@@ -98,7 +98,7 @@ export default function ItemView() {
           <article>
             <h3 className="text-tertiary mt-0">Medidas</h3>
 
-            <ol className="list-none ps-0">
+            <ol className="list-none ps-0 flex flex-col">
               {Object.entries(itemData.measures).map(([key, value]) => {
                 return (
                   <li key={key}>
@@ -108,6 +108,24 @@ export default function ItemView() {
                   </li>
                 );
               })}
+            </ol>
+          </article>
+        )}
+
+        {itemData?.especificaciones && (
+          <article>
+            <h3 className="text-tertiary mt-0">Especificaciones</h3>
+
+            <ol className="list-none ps-0 flex flex-col">
+              {Object.entries(itemData.especificaciones).map(([key, value]) => (
+                <li key={key}>
+                  <span className="capitalize italic">
+                    {key.replace(/_/g, " ")}:{" "}
+                  </span>
+                  {value}
+                  {key === "fuerza_experimental" ? <TooltipFuerzaExp /> : null}
+                </li>
+              ))}
             </ol>
           </article>
         )}
@@ -126,24 +144,6 @@ export default function ItemView() {
                     {caract}
                   </li>
                 ))}
-            </ol>
-          </article>
-        )}
-
-        {itemData?.especificaciones && (
-          <article>
-            <h3 className="text-tertiary mt-0">Especificaciones</h3>
-
-            <ol className="list-none ps-0">
-              {Object.entries(itemData.especificaciones).map(([key, value]) => (
-                <li key={key}>
-                  <span className="capitalize italic">
-                    {key.replace(/_/g, " ")}:{" "}
-                  </span>
-                  {value}
-                  {key === "fuerza_experimental" ? <TooltipFuerzaExp /> : null}
-                </li>
-              ))}
             </ol>
           </article>
         )}

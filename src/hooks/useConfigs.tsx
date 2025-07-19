@@ -8,7 +8,7 @@ type TypeConfigs = {
   theme: string;
   font: string;
 };
-type LinkKey = keyof typeof FONTS_VALUES;
+type TypeFont = keyof typeof FONTS_VALUES;
 
 export function useConfigs() {
   const { setMode } = useColorScheme();
@@ -34,7 +34,7 @@ export function useConfigs() {
   };
 
   const handleFont = (configs_: TypeConfigs) => {
-    const fonts = FONTS_VALUES[configs_.font as LinkKey];
+    const fonts = FONTS_VALUES[configs_.font as TypeFont];
     Object.entries(fonts).forEach(([key, val]) => {
       document.documentElement.style.setProperty("--font-size-" + key, val);
     });

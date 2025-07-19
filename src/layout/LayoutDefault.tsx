@@ -11,7 +11,6 @@ import { useCart } from "../hooks/useCart.tsx";
 import Footer from "./Footer.tsx";
 import SuspenseCustom from "../components/SuspenseCustom.tsx";
 import BannerEncuesta from "./BannerEncuesta.tsx";
-import BannerPromotion from "./BannerPromotion.tsx";
 
 const NavbarCustom = lazy(() => import("./NavbarCustom.tsx"));
 const ModalComparativeMagnet = lazy(
@@ -74,7 +73,6 @@ export default function LayoutDefault() {
         </SuspenseCustom>
       </main>
 
-      <BannerPromotion />
       <BannerEncuesta
         form={LINKS_SITES["form_encuesta-20250109"]}
         googlemaps={LINKS_SITES.googlemaps}

@@ -99,7 +99,7 @@ export default function List({ downloading = false, following = false }) {
         );
 
       case "img":
-        const item_imgs = DB_IMGS[String(row.id) as keyof typeof DB_IMGS];
+        const item_imgs = row.id in DB_IMGS ? DB_IMGS[row.id] : DB_IMGS[0];
         const preview = item_imgs.preview;
         const thumbnails_name = item_imgs.imgs ? item_imgs.imgs[0] ?? "" : "";
         const SvgForma =
@@ -116,7 +116,7 @@ export default function List({ downloading = false, following = false }) {
             src={
               srcs.find(([path, _]) =>
                 path.includes(`/${row.id}/thumbnails/${thumbnails_name}`)
-              )?.[1] || ""
+              )?.[1] || undefined
             }
           />
         );

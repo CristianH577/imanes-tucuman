@@ -2447,7 +2447,6 @@ export const DB_ALL = [
         "15": 16200,
         "30": 15700,
         "80": 15200,
-        "150": 14700,
       },
       update: "18/6/25",
     },
@@ -3151,7 +3150,7 @@ export const DB_ALL = [
   },
   {
     id: 82,
-    label: "En tira 9x2mm",
+    label: "Tira 9x2mm",
     categorie: "imanes",
     subcategorie: "otros",
     price_data: {
@@ -3161,11 +3160,18 @@ export const DB_ALL = [
       },
       prices_qtts: {
         "1": 1800,
-        "5": 1500,
-        "10": 1300,
-        "50": 1100,
+        "5": 1600,
+        "10": 1450,
+        "25": 1300,
+        "50": 1120,
+        "100": 1020,
       },
       salesUnit: "m",
+    },
+
+    measures: {
+      largo: 9,
+      alto: 2,
     },
     especificaciones: {
       fuerza: "28g/cm aprox.",
@@ -3180,21 +3186,27 @@ export const DB_ALL = [
   },
   {
     id: 83,
-    label: "En tira 13x1,7mm",
+    label: "Tira 13x1,7mm",
     categorie: "imanes",
     subcategorie: "otros",
     price_data: {
       usePrice: "base",
       prices: {
-        base: 1900,
+        base: 2000,
       },
       prices_qtts: {
-        "1": 1900,
-        "5": 1600,
-        "10": 1400,
-        "50": 1200,
+        "1": 2000,
+        "5": 1800,
+        "10": 1600,
+        "25": 1400,
+        "50": 1300,
+        "100": 1200,
       },
       salesUnit: "m",
+    },
+    measures: {
+      largo: 13,
+      alto: 1.7,
     },
     especificaciones: {
       fuerza: "32g/cm aporx.",
@@ -3335,7 +3347,7 @@ export const DB_ALL = [
   },
   {
     id: 89,
-    label: "En plancha 31cmx0.3mm",
+    label: "Plancha 31x0.03cm",
     categorie: "imanes",
     subcategorie: "otros",
     price_data: {
@@ -3348,14 +3360,19 @@ export const DB_ALL = [
         "3": 6400,
         "5": 6000,
         "10": 5600,
-        "20": 4900,
+        "20": 5000,
       },
       salesUnit: "m",
+    },
+    measures: {
+      largo: 310,
+      alto: 0.3,
     },
     especificaciones: {
       fuerza: "20g/cm apox.",
     },
-    caracteristicas: ["flexible", "adhesivo"],
+    caracteristicas: ["flexible", "autoadhesivo"],
+    tags: ["lamina", "adhesivo"],
     description:
       "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
     links: {
@@ -3665,7 +3682,7 @@ export const DB_ALL = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 2700,
+        base: 2500,
       },
       update: "27/6/25",
     },
@@ -3673,9 +3690,64 @@ export const DB_ALL = [
     description:
       "Adhesivo de cianoacrilato.\n Pega en 60 segundos, pero su resistencia final se logra luego de 3 horas de secado.\n No adhiere sobre polietileno, polipropileno, teflón ni superficies siliconadas",
   },
+  {
+    id: 101,
+    label: "Plancha x20cm",
+    categorie: "imanes",
+    subcategorie: "otros",
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 1600,
+      },
+    },
+    measures: {
+      largo: 310,
+      alto: 0.3,
+      ancho: 200,
+    },
+    especificaciones: {
+      fuerza: "20g/cm apox.",
+    },
+    caracteristicas: ["flexible", "autoadhesivo"],
+    tags: ["lamina", "adhesivo"],
+    description:
+      "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
+  },
+  {
+    id: 102,
+    label: "Plancha x50cm",
+    categorie: "imanes",
+    subcategorie: "otros",
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 3800,
+      },
+    },
+    measures: {
+      largo: 310,
+      alto: 0.3,
+      ancho: 500,
+    },
+    especificaciones: {
+      fuerza: "20g/cm apox.",
+    },
+    caracteristicas: ["flexible", "autoadhesivo"],
+    tags: ["lamina", "adhesivo"],
+    description:
+      "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
+  },
 ];
 
 export const DB_IMGS: Record<string, TypeItemImgs> = {
+  "0": {
+    preview: {
+      type: "img",
+      src: undefined,
+    },
+    imgs: [],
+  },
   "1": {
     preview: {
       type: "svg",
@@ -4241,6 +4313,7 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       src: "preview.webp",
     },
     imgs: ["1.webp", "2.webp", "3.webp", "4.webp", "5.webp", "6.webp"],
+    full: ["1.webp"],
   },
   "81": {
     preview: {
@@ -4262,14 +4335,16 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       type: "img",
       src: "preview.webp",
     },
-    imgs: ["1.webp"],
+    imgs: ["1.webp", "2.webp"],
+    full: ["1.webp", "2.webp"],
   },
   "83": {
     preview: {
       type: "img",
       src: "preview.webp",
     },
-    imgs: ["83.webp"],
+    imgs: ["1.webp", "2.webp"],
+    full: ["1.webp", "2.webp"],
   },
   "84": {
     preview: {
@@ -4396,5 +4471,19 @@ export const DB_IMGS: Record<string, TypeItemImgs> = {
       src: "preview.webp",
     },
     imgs: ["eccole-3g (1).webp", "eccole-3g (2).webp"],
+  },
+  "101": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["89.webp"],
+  },
+  "102": {
+    preview: {
+      type: "img",
+      src: "preview.webp",
+    },
+    imgs: ["89.webp"],
   },
 };

@@ -4,7 +4,6 @@ import { title, title1 } from "../../libs/tvs";
 
 import { Button } from "@heroui/button";
 
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 
 import {
@@ -184,7 +183,6 @@ export default function Hero() {
             }}
           >
             Explorar
-            <ArrowDownwardIcon />
           </Button>
         </article>
       </div>

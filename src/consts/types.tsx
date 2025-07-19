@@ -78,9 +78,10 @@ export class ClassPriceData {
 export type TypeItemImgs = {
   preview: {
     type: "svg" | "img";
-    src: string;
+    src: string | undefined;
   };
   imgs?: string[];
+  full?: string[];
 };
 
 export class ClassDBItem {

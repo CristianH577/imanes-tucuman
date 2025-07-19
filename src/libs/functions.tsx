@@ -76,14 +76,18 @@ export const handlePriceData = (itemData: ClassDBItem, following = false) => {
 
   if (prices_qtts) {
     let price_qtt = 0;
+    const qtt = Number(itemData?.qtt);
+    const qtts = Object.keys(prices_qtts)
+      .map(Number)
+      .sort((a, b) => a - b);
 
-    for (const umin in prices_qtts) {
-      if (umin !== "1") {
-        if (Number(itemData?.qtt) >= Number(umin)) {
-          price_qtt = prices_qtts[umin] || 0;
-        } else {
-          break;
-        }
+    for (let i = 0; i < qtts.length; i++) {
+      const umin = qtts[i];
+
+      if (qtt >= umin) {
+        price_qtt = prices_qtts[umin] || 0;
+      } else {
+        break;
       }
     }
 

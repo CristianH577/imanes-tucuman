@@ -48,9 +48,10 @@ export default function ItemsView({
   const cart = context.cart.value;
 
   return (
-    <section className="w-full grid grid-cols-[repeat(auto-fit,_minmax(150px,_180px))] gap-4 md:gap-6 lg:gap-8 justify-center">
+    <section className="w-full grid grid-cols-[repeat(auto-fit,_minmax(150px,_180px))] gap-4 lg:gap-6 justify-center">
       {items.map((item: ClassDBItem) => {
-        const item_imgs = DB_IMGS[String(item.id) as keyof typeof DB_IMGS];
+        const id = String(item.id);
+        const item_imgs = id in DB_IMGS ? DB_IMGS[id] : DB_IMGS[0];
         const preview = item_imgs.preview;
 
         const SvgForma =
@@ -70,40 +71,43 @@ export default function ItemsView({
             <a
               href={`#buscar/${item.id}`}
               title={item.label}
-              className="h-full"
+              className="flex flex-col h-full"
             >
               <div className="h-[150px] shadow-small rounded-lg p-2 flex items-center justify-center">
                 {SvgForma ? (
-                  <SvgForma className="h-full w-full" />
+                  <SvgForma className="h-full w-full max-w-[150px]" />
                 ) : (
                   <ImageCustom
                     alt={`Imagen de ${item.label}`}
                     className="object-contain h-full"
-                    classes={{ wrapper: "h-full w-full" }}
+                    classes={{ wrapper: "h-full w-full max-w-[150px]" }}
                     src={
                       srcs.find(([path, _]) =>
                         path.includes(`/${item.id}/${preview.src}`)
-                      )?.[1] || ""
+                      )?.[1] || undefined
                     }
                   />
                 )}
               </div>
 
-              <div className="p-2">
-                <p className="text-second self-start text-neutral-400 capitalize line-clamp-1">
-                  {item.categorie} {item?.subcategorie || ""}
-                </p>
+              <div className="p-2 flex-1 flex flex-col justify-between">
+                <p>
+                  <span className="text-second self-start text-neutral-400 capitalize line-clamp-1">
+                    {item.categorie} {item?.subcategorie || ""}
+                  </span>
 
-                <b className="line-clamp-1 text-start">{item.label}</b>
-                {item?.noStock ? (
-                  <b className="text-danger">Sin Stock</b>
-                ) : null}
+                  <b className="line-clamp-2 text-start">{item.label}</b>
+                  {item?.noStock ? (
+                    <b className="text-danger">Sin Stock</b>
+                  ) : null}
+                </p>
 
                 <PriceLabel
                   itemData={item}
+                  className="self-end place-self-end justify-self-end end-0 content-end place-content-end items-end justify-items-end end"
                   classNames={{
                     price:
-                      "font-semibold text-tert text-custom2 dark:text-custom1",
+                      "font-semibold text-tert text-custom2-10 dark:text-custom1",
                   }}
                 />
               </div>

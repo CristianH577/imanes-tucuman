@@ -23,13 +23,6 @@ interface InterfaceTableItemPricesPros {
   itemData: ClassDBItem;
 }
 
-const cols = [
-  { id: "qtt", label: "Cantidad" },
-  { id: "price", label: "Precio" },
-  { id: "subtotal", label: "Subtotal" },
-  { id: "panel", label: "" },
-];
-
 export default function TableItemPrices({
   itemData,
 }: InterfaceTableItemPricesPros) {
@@ -38,11 +31,23 @@ export default function TableItemPrices({
   const inCart = itemData.id in cart;
   const qttCart = inCart ? cart[itemData.id].qtt : 0;
   const pricesQtts = itemData?.price_data?.prices_qtts;
-  const rows = !pricesQtts
-    ? []
-    : Object.entries(pricesQtts).map(([qtt, price]) => {
-        return { qtt: Number(qtt), price: Number(price) };
-      });
+  const salesUnit = itemData.price_data.salesUnit;
+  const rows = pricesQtts
+    ? Object.entries(pricesQtts)
+        .map(([qtt, price]) => {
+          return { qtt: Number(qtt), price: Number(price) };
+        })
+        .sort((a, b) => a.qtt - b.qtt)
+    : [];
+  const cols = [
+    { id: "qtt", label: "Cantidad" },
+    {
+      id: "price",
+      label: "Precio(x1" + (salesUnit ? salesUnit + ")" : "u)"),
+    },
+    { id: "subtotal", label: "Subtotal" },
+    { id: "panel", label: "" },
+  ];
 
   const [qttFix, setQttFix] = useState(0);
 
@@ -71,7 +76,7 @@ export default function TableItemPrices({
   const makeCellContent = (row = { qtt: 0, price: 0 }, col = "") => {
     switch (col) {
       case "qtt":
-        return row.qtt;
+        return row.qtt + (salesUnit || "");
       case "price":
         return toPriceFormat(row.price);
       case "subtotal":
@@ -182,10 +187,10 @@ export default function TableItemPrices({
           tdLabel
           className={`lg:max-w-full max-w-[90vw] overflow-x-auto table-dinamic !p-3 ${scrollStyle}`}
           classNames={{
-            row: "border-b border-neutral-500/50 hover:bg-violet-500/50",
+            row: "border-b border-neutral-500/50 hover:bg-violet-500/50 hover:font-semibold",
             td: "first:text-end text-center",
-            th: "!py-1",
-            table: "",
+            th: "py-2",
+            table: "border- border-spacing-y-2",
           }}
           // @ts-ignore
           makeCellContent={makeCellContent}

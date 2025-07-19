@@ -21,7 +21,7 @@ interface InterfaceTablePricesProps {
   setItemToComparate: (itemData: ClassDBItem) => void;
   handleAdd: (itemData: ClassDBItem) => void;
 }
-const rowsPerView = 10;
+const rowsPerView = 15;
 
 export default function TablePrices({
   setItemToComparate = (itemData: ClassDBItem) => {

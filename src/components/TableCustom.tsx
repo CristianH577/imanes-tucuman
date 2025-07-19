@@ -71,11 +71,12 @@ function TableCustom({
           ? row[rowColumnId]
           : row?.key || row?.id || i;
 
-      const className = `${selectionMode ? "cursor-pointer" : ""} ${
-        selectionMode && selectionMode === "single"
-          ? "hover:bg-default-100 data-[selected=true]:bg-default-200"
-          : ""
-      } ${classNames_.row}`;
+      const className =
+        (selectionMode ? "cursor-pointer" : "") +
+        (selectionMode && selectionMode === "single"
+          ? " hover:bg-default-100 data-[selected=true]:bg-default-200"
+          : "") +
+        (classNames_.row ? " " + classNames_.row : "");
 
       const dataRow = {
         "data-selected": selectedRows && selectedRows?.includes(id),
@@ -103,7 +104,7 @@ function TableCustom({
         const tdObj = {
           key: id + "_" + idCol,
           ...mergedData,
-          className: `py-2 px-3 ${classNames_.td}`,
+          className: "py-2 px-3" + (classNames_.td ? " " + classNames_.td : ""),
         };
         if (makeCell) td = makeCell(row, idCol);
         if (tdLabel) tdObj["data-label"] = col?.label || "";
@@ -119,20 +120,6 @@ function TableCustom({
             ? row[idCol]
             : null
         );
-
-        // return (
-        //   <td
-        //     key={id + "_" + idCol}
-        //     className={`py-2 px-3 capitalize first:rounded-l-lg last:rounded-r-lg ${classNames_.td}`}
-        //     // {...datas?.td}
-        //   >
-        //     {makeCellContent
-        //       ? makeCellContent(row, idCol)
-        //       : row[idCol]
-        //       ? row[idCol]
-        //       : null}
-        //   </td>
-        // );
       });
 
       return React.cloneElement(tr, {}, cells);
@@ -149,10 +136,23 @@ function TableCustom({
     >
       <table
         aria-label={ariaLabel ? ariaLabel : undefined}
-        className={"h-auto table-auto space-y-4 " + classNames_.table}
+        className={
+          "h-auto table-auto" +
+          (classNames_.table ? " " + classNames_.table : "")
+        }
       >
-        <thead className={"bg-content2 p-4 " + classNames_.thead}>
-          <tr data-slot="theadRow" className={"pb-4 " + classNames_.theadRow}>
+        <thead
+          className={
+            "bg-content2 p-4" +
+            (classNames_.thead ? " " + classNames_.thead : "")
+          }
+        >
+          <tr
+            data-slot="theadRow"
+            className={
+              "pb-4" + (classNames_.theadRow ? " " + classNames_.theadRow : "")
+            }
+          >
             {columns_.map((col, i) => {
               let key: number | string = i;
               let content: string | React.ReactElement = "";
@@ -172,8 +172,8 @@ function TableCustom({
                   key={key}
                   data-slot="th"
                   className={
-                    "p-3 align-middle bg-default-200 whitespace-nowrap font-semibold first:rounded-l-lg last:rounded-r-lg " +
-                    classNames_.th
+                    "p-3 align-middle bg-default-200 whitespace-nowrap font-semibold first:rounded-l-lg last:rounded-r-lg" +
+                    (classNames_.th ? " " + classNames_.th : "")
                   }
                 >
                   {content}
@@ -183,7 +183,7 @@ function TableCustom({
           </tr>
         </thead>
 
-        <tbody className={classNames_.tbody}>
+        <tbody className={classNames_.tbody ? classNames_.tbody : undefined}>
           {/* <tr colSpan={columns_.length} className="h-4"></tr> */}
 
           {isLoading ? (
