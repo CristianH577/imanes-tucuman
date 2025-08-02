@@ -1,0 +1,1 @@
+.pagination-custom li{color:#000;background-color:#f5f5f5;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pagination-custom li:hover{background-color:#d4d4d4}.pagination-custom li[data-active=true]{background-color:#d4d4d4;cursor:default}.pagination-custom li[data-disabled=true]{color:#b4b4b4;pointer-events:none}
