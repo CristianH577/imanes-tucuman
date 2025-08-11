@@ -3,13 +3,13 @@ import type { SVGProps } from "react";
 export const SVGRedondoPlano = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 103 29"
+    viewBox="0 0 103 33"
     fill="none"
     stroke="currentColor"
     strokeWidth={5}
     {...props}
   >
-    <g transform="matrix(1 0 0 .60972 -.5 -18.511)">
+    <g transform="matrix(1 0 0 .65 -.5 -18.511)">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

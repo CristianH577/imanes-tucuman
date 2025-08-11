@@ -132,7 +132,9 @@ export default function ItemView() {
                       {item_data.label ?? id}:{" "}
                     </span>
                     {value}
-                    {item_data.measure}
+                    {item_data.measure}{" "}
+                    {id === "fuerzaExp" && <TooltipFuerzaExp exp />}
+                    {id === "fuerza" && <TooltipFuerzaExp />}
                   </li>
                 );
               })}
@@ -151,7 +153,6 @@ export default function ItemView() {
                     {key.replace(/_/g, " ")}:{" "}
                   </span>
                   {value}
-                  {key === "fuerza_experimental" ? <TooltipFuerzaExp /> : null}
                 </li>
               ))}
             </ol>
