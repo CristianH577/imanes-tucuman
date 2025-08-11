@@ -1,39 +1,44 @@
 import { useEffect, useState } from "react";
 
-import { VERSION_CURRENT } from "../consts/siteConfig";
+import type { TypeCart } from "../consts/types";
 
-import type { ClassDBItem, TypeCartValue } from "../consts/types";
+// const inizializete = () => {
+//   const saved = localStorage.getItem("cart");
 
-const itemCartData_default = { id: 0, qtt: 0 };
+//   if (saved) return JSON.parse(saved);
+
+//   return {};
+// };
+const VERSION_CURRENT = "2.3.0";
+
+const inizializete = () => {
+  const version = localStorage.getItem("version");
+  const saved = localStorage.getItem("cart");
+
+  if (version === VERSION_CURRENT) {
+    if (saved) return JSON.parse(saved);
+  } else {
+    if (saved) localStorage.removeItem("cart");
+    localStorage.setItem("version", VERSION_CURRENT);
+  }
+
+  return {};
+};
 
 export function useCart() {
-  const [cart, setCart] = useState<TypeCartValue | {}>({});
+  const [cart, setCart] = useState<TypeCart>(inizializete());
 
-  const addToCart = (itemData: ClassDBItem) => {
-    const cart_ = { ...cart };
-    const item_ = { ...itemCartData_default, ...itemData };
-    const id = itemData.id;
+  const addToCart = (id: number, qtt: number) => {
+    const cart_ = structuredClone(cart);
 
-    if (item_.qtt) {
-      cart_[id] = item_;
+    if (qtt) {
+      cart_[id] = qtt;
     } else {
       if (id in cart_) delete cart_[id];
     }
 
     setCart(cart_);
   };
-
-  useEffect(() => {
-    const version = localStorage.getItem("version");
-    const saved = localStorage.getItem("cart");
-    if (version === VERSION_CURRENT) {
-      if (saved) setCart(JSON.parse(saved));
-    } else {
-      if (saved) localStorage.removeItem("cart");
-      setCart({});
-      localStorage.setItem("version", VERSION_CURRENT);
-    }
-  }, []);
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));

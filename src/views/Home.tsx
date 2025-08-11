@@ -14,13 +14,11 @@ const sections = [
     id: "opiniones",
     label: "Opiniones",
     content: <Opiniones />,
-    className: "",
   },
   {
     id: "formas",
     label: "Formas",
     content: <Formas />,
-    className: "",
   },
   {
     label: "variedades",

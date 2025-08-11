@@ -23,7 +23,8 @@ export default function InputSearch({
         placeholder="Buscar..."
         title="Buscar..."
         classNames={{
-          inputWrapper: "border-2 border-custom1-3 border-e-0 rounded-e-none",
+          inputWrapper:
+            "border-2 border-custom1-3 border-e-0 rounded-e-none bg-transparent",
         }}
         value={value}
         onValueChange={(e) => setValue(e)}

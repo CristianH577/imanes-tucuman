@@ -1,4 +1,4 @@
-import type { ClassDBItem } from "../consts/types";
+import type { ClassDBItem } from "../consts/classes";
 
 import { toPercentageFormat, toPriceFormat } from "../libs/functions";
 

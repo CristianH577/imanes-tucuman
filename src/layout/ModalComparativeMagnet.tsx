@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-import type {
-  ClassDBItem,
-  TypeMeasures,
-  TypeObjectGeneral,
-} from "../consts/types";
+import type { TypeIcon } from "../consts/types";
+import { OBJ_SHAPES } from "../consts/values";
+import { ClassMagnetGraphData, type ClassDBItem } from "../consts/classes";
 
 import { scrollStyle } from "../libs/tvs";
 
@@ -18,60 +16,26 @@ import RestartAltOutlinedIcon from "@mui/icons-material/RestartAltOutlined";
 import ArrowBackOutlinedIcon from "@mui/icons-material/ArrowBackOutlined";
 import CloseIcon from "@mui/icons-material/Close";
 
-import tapa_img from "../assets/imanes/tapa.webp";
-
-import plano from "../assets/formas/plano.webp";
-import boton from "../assets/formas/boton.webp";
-import cilindro from "../assets/formas/cilindro.webp";
-import arandela from "../assets/formas/arandela.webp";
-import cuadrado from "../assets/formas/cuadrado.webp";
-import plancha from "../assets/formas/plancha.webp";
-import ladrillo from "../assets/formas/ladrillo.webp";
-import cuadrado_fresado from "../assets/formas/cuadrado-fresado.webp";
-import esfera from "../assets/formas/esfera.webp";
-import de_arrastre from "../assets/formas/de_arrastre.webp";
+import tapa_img from "../assets/tapa.webp";
 
 interface InterfaceProps {
   magnetData: ClassDBItem | false;
   onClose: () => void;
 }
-class ClassItemGraphData {
-  id: string = "";
-  forma: string = "redondo";
-  label: string = "";
-  img_data?: TypeObjectGeneral;
-  alto: number = 0;
-  largo: number = 0;
-  ancho: number = 0;
-  radios: number[] = [0, 0, 0];
-}
+
 type TypeSvgData = {
   radios?: number[];
   sizes?: number[];
 };
 
-const imgs = {
-  plano: plano,
-  boton: boton,
-  cilindro: cilindro,
-  arandela: arandela,
-  cuadrado: cuadrado,
-  plancha: plancha,
-  ladrillo: ladrillo,
-  cuadrado_fresado: cuadrado_fresado,
-  esfera: esfera,
-  de_arrastre: de_arrastre,
-};
-
-const tapa: ClassItemGraphData = {
+const tapa: ClassMagnetGraphData = {
   id: "tapa",
   label: "30x13mm",
-  forma: "redondo",
+  forma: ["redondo"],
   largo: 30,
   alto: 13,
   ancho: 0,
   radios: [15],
-  img_data: { src: tapa_img, alt: "Tapa plástica común" },
 };
 
 const views = [
@@ -86,8 +50,8 @@ export default function ModalComparativeMagnet({
 }: InterfaceProps) {
   const constraintsRef = useRef(null);
 
-  const [magnet, setMagnet] = useState<ClassItemGraphData>(
-    new ClassItemGraphData()
+  const [magnet, setMagnet] = useState<ClassMagnetGraphData>(
+    new ClassMagnetGraphData()
   );
   const [count, setCount] = useState(0);
   const [openModal, setOpenModal] = useState(false);
@@ -98,146 +62,120 @@ export default function ModalComparativeMagnet({
   };
   const MakeMagnet = () => {
     if (magnetData && magnetData?.measures) {
-      const forma = magnetData?.especificaciones?.forma;
+      const forma = magnetData.forma;
       const measures = magnetData.measures;
 
       if (!forma) return undefined;
 
-      const magnet_ = new ClassItemGraphData();
+      // SVG
+      let SvgForma: false | TypeIcon = false;
+      const form_data = OBJ_SHAPES[forma[0] as keyof typeof OBJ_SHAPES];
+      if (form_data && form_data.icon) SvgForma = form_data.icon;
+
+      if (forma[1] && form_data.subs && forma[1] in form_data.subs) {
+        const sub_form_data = form_data.subs[forma[1]];
+        if (sub_form_data.icon) SvgForma = sub_form_data.icon;
+      }
+      // ----------------------------
+
+      const magnet_ = new ClassMagnetGraphData();
       magnet_.label = magnetData.label;
       magnet_.forma = forma;
+      magnet_.svg = SvgForma;
 
-      let img = "";
+      const alto = measures.alto || 0;
+      const largo = measures.largo || 0;
+      const ancho = measures.ancho || 0;
+      magnet_.alto = alto || 0;
 
-      const alto = measures.alto;
-      const largo = measures?.largo || 0;
-      const ancho = measures?.ancho || 0;
-      magnet_.alto = alto;
-
-      switch (forma) {
+      switch (forma[0]) {
         case "esfera":
           magnet_.radios = [largo, largo, largo];
-          img = "esfera";
           break;
         case "redondo":
-          const radio = largo / 2;
-          magnet_.radios = [radio];
-
-          if (magnetData?.subcategorie === "arrastre") {
-            img = "de_arrastre";
-          } else if (alto < radio) {
-            img = "plano";
-          } else if (alto >= radio * 1.4) {
-            img = "cilindro";
-          } else {
-            img = "boton";
-          }
-          break;
-        case "redondo fresado":
-          const radios = ["largo", "diametro superior", "diametro inferior"];
-          magnet_.radios = radios.reduce((prev: number[], val) => {
-            const num = measures[val as keyof TypeMeasures] || 0;
-            const r = num / 2;
-            prev.push(r);
-            return prev;
-          }, []);
-
-          img = "arandela";
-          break;
-        case "cuadrado":
-          magnet_.ancho = ancho;
-          magnet_.largo = largo;
-
-          if (ancho / 2 <= largo) {
-            img = "cuadrado";
-          } else {
-            if (alto <= 3) {
-              img = "plancha";
-            } else {
-              img = "ladrillo";
-            }
-          }
-          break;
-        case "cuadrado fresado":
-          magnet_.ancho = measures.ancho || 0;
-          magnet_.largo = measures.largo;
-          magnet_.alto = measures.alto;
-
-          magnet_.radios = ["diametro superior", "diametro inferior"].reduce(
-            (prev: number[], val) => {
-              const num = measures[val as keyof TypeMeasures] || 0;
+          if (forma[1] === "fresado") {
+            const radios = ["largo", "diametroSup", "diametroInf"];
+            magnet_.radios = radios.reduce((prev: number[], val) => {
+              const num = measures[val] || 0;
               const r = num / 2;
               prev.push(r);
               return prev;
-            },
-            []
-          );
-
-          img = "cuadrado-fresado";
+            }, []);
+          } else {
+            const radio = largo / 2;
+            magnet_.radios = [radio];
+          }
+          break;
+        case "cuadrado":
+          magnet_.largo = largo;
+          break;
+        case "rectangular":
+          magnet_.ancho = ancho;
+          magnet_.largo = largo;
+          if (forma[1] === "fresado") {
+            magnet_.radios = ["diametroSup", "diametroInf"].reduce(
+              (prev: number[], val) => {
+                const num = measures[val] || 0;
+                const r = num / 2;
+                prev.push(r);
+                return prev;
+              },
+              []
+            );
+          }
           break;
 
         default:
           break;
       }
 
-      if (img) img = imgs[img as keyof typeof imgs];
-      magnet_.img_data = { src: img, alt: "Referencia de forma del iman" };
-
       setMagnet(magnet_);
       setOpenModal(true);
     }
   };
-  const MakeSvgView = (view: string, item: ClassItemGraphData) => {
+
+  const MakeSvgView = (view: string, graphData: ClassMagnetGraphData) => {
     let fix_w = 0;
     let fix_h = 0;
     let content = [];
     let w = 0;
     let h = 0;
     let obj: TypeSvgData = {};
-    const radio = item.radios ? item.radios[0] : 0;
-    const radios = item.radios ? item.radios : [0, 0, 0];
-    const ancho = item?.ancho || 0;
+    const radio = graphData.radios ? graphData.radios[0] : 0;
+    const radios = graphData.radios ? graphData.radios : [0, 0, 0];
+    const ancho = graphData?.ancho || 0;
 
     switch (view) {
       case "sup":
-        switch (item.forma) {
+        switch (graphData.forma[0]) {
           case "esfera":
-          case "de_arrastre":
           case "redondo":
-            obj.radios = item.radios;
+            obj.radios = graphData.radios;
             break;
           case "cuadrado":
-            obj.sizes = [item?.largo, ancho];
+            obj.sizes = [graphData.largo, graphData.largo];
             break;
-          case "redondo fresado":
-            obj.radios = item.radios;
+          case "rectangular":
+            obj.sizes = [graphData.largo, graphData.ancho];
+            if (graphData.forma[1] === "fresado") obj.radios = graphData.radios;
             break;
-          case "cuadrado fresado":
-            obj.sizes = [item.largo, ancho];
-            obj.radios = item.radios;
-            break;
-
           default:
             break;
         }
         break;
       case "front":
-        switch (item?.forma) {
+        switch (graphData.forma[0]) {
           case "esfera":
-            obj.radios = item.radios;
+            obj.radios = graphData.radios;
             break;
-          case "de_arrastre":
           case "redondo":
-            obj.sizes = [radio * 2, item?.alto];
+            obj.sizes = [radio * 2, graphData?.alto];
             break;
           case "cuadrado":
-            obj.sizes = [item?.largo, item?.alto];
+            obj.sizes = [graphData.largo, graphData.largo];
             break;
-          case "redondo fresado":
-            obj.sizes = [radio * 2, item?.alto];
-            break;
-          case "cuadrado fresado":
-            obj.sizes = [item?.largo, item?.alto];
+          case "rectangular":
+            obj.sizes = [graphData.largo, graphData.alto];
             break;
 
           default:
@@ -245,22 +183,22 @@ export default function ModalComparativeMagnet({
         }
         break;
       case "lat":
-        switch (item?.forma) {
+        switch (graphData.forma[0]) {
           case "esfera":
-            obj.radios = item.radios;
+            obj.radios = graphData.radios;
             break;
-          case "de_arrastre":
           case "redondo":
-            obj.sizes = [radio * 2, item?.alto];
+            obj.sizes = [radio * 2, graphData.alto];
+            if (graphData.forma[1] === "fresado")
+              obj.sizes = [radio * 2, graphData.alto];
             break;
           case "cuadrado":
-            obj.sizes = [ancho, item?.alto];
+            obj.sizes = [graphData.largo, graphData.alto];
             break;
-          case "redondo fresado":
-            obj.sizes = [radio * 2, item?.alto];
-            break;
-          case "cuadrado fresado":
-            obj.sizes = [ancho, item?.alto];
+          case "rectangular":
+            obj.sizes = [graphData.ancho, graphData.alto];
+            if (graphData.forma[1] === "fresado")
+              obj.sizes = [ancho, graphData.alto];
             break;
 
           default:
@@ -298,17 +236,36 @@ export default function ModalComparativeMagnet({
         fix_h = 0.2;
         h = d;
       }
+      const len = obj.radios.length;
       obj.radios.forEach((item, i) => {
-        content.push(<circle key={"radio" + i} cx="50%" cy="50%" r={item} />);
+        content.push(
+          <circle
+            key={"radio" + i}
+            cx="50%"
+            cy="50%"
+            r={item}
+            fill={
+              graphData.forma[1] === "fresado" && len > 1 && i === len - 1
+                ? "background"
+                : i === len - 2
+                ? "orange"
+                : undefined
+            }
+          />
+        );
       });
     }
 
-    if (item?.forma === "redondo fresado" && ["front", "lat"].includes(view)) {
+    if (
+      graphData.forma[0] === "redondo" &&
+      graphData.forma[1] === "fresado" &&
+      ["front", "lat"].includes(view)
+    ) {
       content.push([
         <polygon
           key={`${view}_l`}
           points={`${radios[0] - radios[1]},0 ${radios[0] - radios[2]},${
-            item?.alto
+            graphData?.alto
           }`}
           fill="none"
           stroke="black"
@@ -319,7 +276,7 @@ export default function ModalComparativeMagnet({
         <polygon
           key={`${view}_r`}
           points={`${radios[0] + radios[1]},0 ${radios[0] + radios[2]},${
-            item?.alto
+            graphData?.alto
           }`}
           fill="none"
           stroke="black"
@@ -327,19 +284,24 @@ export default function ModalComparativeMagnet({
           strokeWidth={0.2}
         />,
       ]);
-    } else if (item?.forma === "cuadrado fresado") {
+    } else if (
+      graphData.forma[0] === "rectangular" &&
+      graphData.forma[1] === "fresado"
+    ) {
       let mitad = 0;
       if (view === "front") {
-        mitad = item?.largo / 2;
+        mitad = graphData?.largo / 2;
       } else if (view === "lat") {
-        mitad = Number(item.ancho) / 2;
+        mitad = graphData.ancho / 2;
       }
 
       if (mitad) {
         content.push([
           <polygon
             key={`${view}_l`}
-            points={`${mitad - radios[0]},0 ${mitad - radios[1]},${item?.alto}`}
+            points={`${mitad - radios[0]},0 ${mitad - radios[1]},${
+              graphData?.alto
+            }`}
             fill="none"
             stroke="black"
             strokeDasharray="1"
@@ -347,7 +309,9 @@ export default function ModalComparativeMagnet({
           />,
           <polygon
             key={`${view}_r`}
-            points={`${mitad + radios[0]},0 ${mitad + radios[1]},${item?.alto}`}
+            points={`${mitad + radios[0]},0 ${mitad + radios[1]},${
+              graphData?.alto
+            }`}
             fill="none"
             stroke="black"
             strokeDasharray="1"
@@ -363,9 +327,9 @@ export default function ModalComparativeMagnet({
         width={`${w}mm`}
         height={`${h}mm`}
         viewBox={`0 0 ${w + fix_w} ${h + fix_h}`}
-        stroke={radios.length > 1 ? "black" : "none"}
+        stroke={radios.length > 1 ? "black" : undefined}
         strokeWidth={0.2}
-        className={`${item?.id === "tapa" ? "fill-custom1-5" : "fill-custom1"}`}
+        className={graphData.id === "tapa" ? "fill-custom1-5" : "fill-custom1"}
       >
         {content}
       </svg>
@@ -380,7 +344,6 @@ export default function ModalComparativeMagnet({
     };
     window.addEventListener("resize", handleResetView);
     return () => window.removeEventListener("resize", handleResetView);
-    // eslint-disable-next-line
   }, []);
 
   useEffect(MakeMagnet, [magnetData]);
@@ -389,15 +352,11 @@ export default function ModalComparativeMagnet({
     <Modal
       open={openModal}
       onClose={handleClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
       className={"sm:p-4 overflow-auto " + scrollStyle}
     >
-      <div className="text-foreground max-w-3xl bg-content1 sm:border-3 sm:border-custom1-3 p-2 sm:p-4 sm:rounded-lg space-y-4 m-auto">
+      <div className="text-foreground max-w-3xl bg-content1 dark:sm:border-3 dark:sm:border-custom1-3 p-2 sm:p-4 sm:rounded-lg space-y-4 m-auto">
         <article className="flex justify-between">
-          <h1 id="modal-title" className="text-2xl font-bold">
-            Comparar tamaños
-          </h1>
+          <h1 className="text-2xl font-bold">Comparar tamaños</h1>
 
           <Button
             variant="light"
@@ -410,7 +369,7 @@ export default function ModalComparativeMagnet({
           </Button>
         </article>
 
-        <p id="modal-description" className="max-sm:text-center">
+        <p className="max-sm:text-center">
           La comparación es con una tapa plástica común de botella.
           <br />
           Asegúrese de que el circulo amarillo tenga 30mm de diámetro con una
@@ -424,16 +383,30 @@ export default function ModalComparativeMagnet({
         </p>
 
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[tapa, magnet].map((e, i) => (
-            <article key={i} className="flex flex-col items-center">
-              <p className="max-w-[250px] text-2xl font-semibold">{e.label}</p>
+          {[tapa, magnet].map((item) => (
+            <article key={item.id} className="flex flex-col items-center">
+              <p className="max-w-[250px] text-2xl font-semibold">
+                {item.label}
+              </p>
 
-              <div className="rounded-lg p-4 sm:h-full select-none flex items-center justify-center place-self-center drop-shadow-custom">
-                <ImageCustom
-                  src={e?.img_data?.src}
-                  width={150}
-                  alt={e?.img_data?.alt || ""}
-                />
+              <div className="p-2 sm:h-full flex items-center justify-center place-self-center ">
+                {item.id === "tapa" ? (
+                  <ImageCustom
+                    src={tapa_img}
+                    className="w-full max-w-[150px] drop-shadow-custom"
+                    alt="Tapa plástica común"
+                    width={150}
+                    height={100}
+                  />
+                ) : item.svg ? (
+                  <item.svg className="w-full h-[150px] max-w-[150px]" />
+                ) : (
+                  <ImageCustom
+                    className="w-full max-w-[100px]"
+                    width={100}
+                    height={100}
+                  />
+                )}
               </div>
             </article>
           ))}

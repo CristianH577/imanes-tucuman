@@ -1,23 +1,29 @@
 import { lazy, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, useOutletContext } from "react-router";
 
 import { DB_ALL } from "../consts/dbs";
-import { FILTERS_VALUES_DEFAULT } from "../consts/siteConfig";
+import { FILTERS_VALUES_DEFAULT } from "../consts/values";
 
 import type {
-  ClassDBItem,
   TypeFiltersValues,
   TypeObjectGeneral,
+  TypeOutletContext,
 } from "../consts/types";
+import type { ClassDBItem } from "../consts/classes";
 
-import { cartItemsComparator, getHrefSearch } from "../libs/functions";
+import {
+  cartItemsComparator,
+  getHrefSearch,
+  scrollToTop,
+  searchImgs,
+} from "../libs/functions";
 
 import { Button, ButtonGroup } from "@heroui/button";
-import { CircularProgress } from "@mui/material";
 
 import ItemsView from "./SearchView/ItemsView";
 import SuspenseCustom from "../components/SuspenseCustom";
 import InputSearch from "../components/InputSearch";
+import PaginationCustom from "../components/PaginationCustom";
 
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 
@@ -25,11 +31,12 @@ import { SVGBroom } from "../assets/svgs/svgsIcons";
 
 const DrawerFilters = lazy(() => import("./SearchView/DrawerFilters"));
 
-const itemsPerView = 15;
+const itemsPerView = 16;
 
 export default function SearchView() {
   const { search } = useLocation();
   const navigate = useNavigate();
+  const context: TypeOutletContext = useOutletContext();
 
   const [items, setItems] = useState<ClassDBItem[]>([]);
   const [filtersValues, setFiltersValues] = useState<TypeFiltersValues>(
@@ -40,47 +47,32 @@ export default function SearchView() {
   const [inputText, setInputText] = useState("");
   const [isOpenFiltersDrawer, setIsOpenFiltersDrawer] = useState(false);
 
-  const searhItems = () => {
+  const searhItems = async () => {
+    scrollToTop();
     setLoading(true);
-    let items_: ClassDBItem[] = structuredClone(DB_ALL);
 
-    items_ = items_.filter((item) => !item?.hidden);
+    let items_: ClassDBItem[] = [];
+    items_ = DB_ALL.filter((item) => !item?.hidden);
+    items_ = JSON.parse(JSON.stringify(items_));
 
-    if (filtersValues?.categorie) {
-      items_ = items_.filter((item) => {
-        const categorie = filtersValues.categorie;
-        if (categorie === "otros") {
-          return item.categorie === categorie || !item?.categorie;
-        } else {
-          return item.categorie === categorie;
-        }
+    if (filtersValues.categorie.length > 0) {
+      filtersValues.categorie.forEach((key, i) => {
+        items_ = items_.filter((item) => {
+          if (key.includes("other") && !item.categorie[i]) {
+            return true;
+          }
+          return item.categorie.includes(key);
+        });
       });
     }
 
-    if (filtersValues?.subcategorie) {
-      items_ = items_.filter((item) => {
-        return item.subcategorie === filtersValues.subcategorie;
+    if (filtersValues.forma.length > 0) {
+      filtersValues.forma.forEach((forma) => {
+        items_ = items_.filter((item) => {
+          return item.forma?.includes(forma);
+        });
       });
     }
-
-    ["forma"].forEach((filterKey) => {
-      const val = filtersValues?.[filterKey as keyof TypeFiltersValues];
-      if (val) {
-        const filter_value = String(val).toLowerCase().replace(/_/g, " ");
-        items_ = items_.filter(
-          (item) =>
-            item?.especificaciones &&
-            filterKey in item.especificaciones &&
-            String(
-              item.especificaciones[
-                filterKey as keyof typeof item.especificaciones
-              ]
-            )
-              .toLowerCase()
-              .includes(filter_value)
-        );
-      }
-    });
 
     if (filtersValues?.priceMin) {
       const min = Number(filtersValues?.priceMin);
@@ -119,8 +111,15 @@ export default function SearchView() {
       items_.sort(cartItemsComparator(col, order));
     }
 
+    const visibleItems_ = items_.slice(
+      itemsPerView * (filtersValues.page - 1),
+      itemsPerView * filtersValues.page
+    );
+    const databaseImgs_ = await searchImgs(visibleItems_, context.db.value);
+
+    context.db.set(databaseImgs_);
     setItems(items_);
-    setVisibleItems(items_.slice(0, itemsPerView * filtersValues.page));
+    setVisibleItems(visibleItems_);
     setLoading(false);
   };
 
@@ -132,14 +131,14 @@ export default function SearchView() {
 
   const handleClean = () => setInputText("");
 
-  const showMoreItems = () => {
+  const handleChangePage = (page: number) => {
     let href = getHrefSearch(filtersValues);
     if (href) {
       href += "&";
     } else {
       href += "?";
     }
-    href += "page=" + (Number(filtersValues.page) + 1);
+    href += "page=" + page;
     navigate(href);
   };
 
@@ -155,24 +154,36 @@ export default function SearchView() {
 
       Object.keys(paramsObj).forEach((key) => {
         if (filters_values_.hasOwnProperty(key)) {
-          // @ts-ignore
-          filters_values_[key] = paramsObj[key];
+          switch (key) {
+            case "page":
+              filters_values_[key] = Number(paramsObj[key]);
+              break;
+            case "forma":
+            case "categorie":
+              filters_values_[key] = paramsObj[key].split(",");
+              break;
+
+            default:
+              // @ts-ignore
+              filters_values_[key] = paramsObj[key];
+              break;
+          }
           filters_values_.apply = true;
         }
       });
-
-      const text = filters_values_?.text;
-      if (text) setInputText(text);
     }
 
+    setInputText(filters_values_?.text);
     setFiltersValues(filters_values_);
   }, [search]);
 
-  useEffect(searhItems, [filtersValues]);
+  useEffect(() => {
+    searhItems();
+  }, [filtersValues]);
 
   return (
     <>
-      <section className="flex flex-col items-center gap-2">
+      <section className="flex flex-col items-center gap-2 pt-8">
         <article className="flex flex-col gap-2 items-center xs:flex-row">
           <InputSearch
             value={inputText}
@@ -210,15 +221,47 @@ export default function SearchView() {
         </article>
       </section>
 
-      {items.length < 1 ? (
-        <b>Sin Resultados</b>
-      ) : loading ? (
-        <CircularProgress color="secondary" />
-      ) : (
-        <ItemsView
-          items={visibleItems}
-          showMoreItems={showMoreItems}
+      <ItemsView
+        items={visibleItems}
+        loading={loading}
+        databaseImgs={context.db.value}
+      />
+
+      {items.length > itemsPerView && (
+        <PaginationCustom
           totalItems={items.length}
+          currentPage={filtersValues.page}
+          itemsPerPage={itemsPerView}
+          setPage={handleChangePage}
+          showJumps
+          siblings={1}
+          className="mt-4"
+          classes={{
+            li: "bg-custom1-3 text-custom2 font-semibold data-[disabled=true]:text-neutral-500 data-[disabled=true]:bg-neutral-300/60 data-[active=true]:bg-custom2-10 data-[active=true]:text-custom1-3 hover:bg-custom2-10 hover:text-custom1-3",
+          }}
+          breakpoints={{
+            240: {
+              showElipsis: true,
+            },
+            320: {
+              showJumps: true,
+            },
+            400: {
+              siblings: 1,
+            },
+            500: {
+              siblings: 2,
+            },
+            600: {
+              siblings: 3,
+            },
+            700: {
+              siblings: 4,
+            },
+            800: {
+              siblings: 5,
+            },
+          }}
         />
       )}
 

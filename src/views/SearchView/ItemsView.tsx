@@ -1,32 +1,26 @@
 import { useOutletContext } from "react-router";
 import { motion } from "framer-motion";
 
-import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
+import type {
+  TypeDatabaseImg,
+  TypeIcon,
+  TypeOutletContext,
+} from "../../consts/types";
+import type { ClassDBItem } from "../../consts/classes";
 
-import { SVG_FORMA } from "../../consts/values";
-import { DB_IMGS } from "../../consts/dbs";
+import { OBJ_SHAPES } from "../../consts/values";
 
 import ImageCustom from "../../components/ImageCustom";
 import ButtonAddCart from "../../components/ButtonAddCart";
 import PriceLabel from "../../components/PriceLabel";
 
-import { SVGViewGridAdd } from "../../assets/svgs/svgsIcons";
-import { Divider } from "@mui/material";
+import { CircularProgress, Divider } from "@mui/material";
 
-type TypeItemsViewProps = {
+interface IntfProps {
   items: ClassDBItem[];
-  showMoreItems: () => void;
-  totalItems: number;
-};
-
-const images_all = import.meta.glob(
-  "../../assets/items/**/*.{png,jpg,jpeg,svg,webp}",
-  {
-    eager: true,
-    import: "default",
-  }
-);
-const srcs = Object.entries(images_all) as string[][];
+  loading?: boolean;
+  databaseImgs?: TypeDatabaseImg;
+}
 
 const variants_card = {
   hidden: { opacity: 0, scale: 0 },
@@ -41,23 +35,45 @@ const variants_card = {
 
 export default function ItemsView({
   items = [],
-  showMoreItems,
-  totalItems = 0,
-}: TypeItemsViewProps) {
+  loading = false,
+  databaseImgs = {},
+}: IntfProps) {
   const context: TypeOutletContext = useOutletContext();
   const cart = context.cart.value;
+
+  if (loading)
+    return (
+      <div className="flex justify-center">
+        <CircularProgress />
+      </div>
+    );
+  if (items.length < 1)
+    return (
+      <div className="flex justify-center">
+        <span className="font-semibold text-xl">Sin resultados</span>
+      </div>
+    );
 
   return (
     <section className="w-full grid grid-cols-[repeat(auto-fit,_minmax(150px,_180px))] gap-4 lg:gap-6 justify-center">
       {items.map((item: ClassDBItem) => {
-        const id = String(item.id);
-        const item_imgs = id in DB_IMGS ? DB_IMGS[id] : DB_IMGS[0];
-        const preview = item_imgs.preview;
+        const imgsData = databaseImgs[item.id];
+        let SvgForma: boolean | TypeIcon = false;
 
-        const SvgForma =
-          preview.type === "svg" && preview.src
-            ? SVG_FORMA?.[preview.src as keyof typeof SVG_FORMA]
-            : false;
+        if (imgsData.haveSvg && item.forma) {
+          const form_data =
+            OBJ_SHAPES[item.forma[0] as keyof typeof OBJ_SHAPES];
+          if (form_data && form_data.icon) SvgForma = form_data.icon;
+
+          if (
+            item.forma[1] &&
+            form_data.subs &&
+            item.forma[1] in form_data.subs
+          ) {
+            const sub_form_data = form_data.subs[item.forma[1]];
+            if (sub_form_data.icon) SvgForma = sub_form_data.icon;
+          }
+        }
 
         return (
           <motion.div
@@ -79,13 +95,9 @@ export default function ItemsView({
                 ) : (
                   <ImageCustom
                     alt={`Imagen de ${item.label}`}
-                    className="object-contain h-full"
-                    classes={{ wrapper: "h-full w-full max-w-[150px]" }}
-                    src={
-                      srcs.find(([path, _]) =>
-                        path.includes(`/${item.id}/${preview.src}`)
-                      )?.[1] || undefined
-                    }
+                    className="object-contain w-full h-full"
+                    classes={{ wrapper: "h-full max-w-[150px]" }}
+                    src={imgsData.preview}
                   />
                 )}
               </div>
@@ -93,7 +105,8 @@ export default function ItemsView({
               <div className="p-2 flex-1 flex flex-col justify-between">
                 <p>
                   <span className="text-second self-start text-neutral-400 capitalize line-clamp-1">
-                    {item.categorie} {item?.subcategorie || ""}
+                    {item.categorie[0]}{" "}
+                    {item.categorie[1] ? " > " + item.categorie[1] : ""}
                   </span>
 
                   <b className="line-clamp-2 text-start">{item.label}</b>
@@ -117,32 +130,16 @@ export default function ItemsView({
 
             <ButtonAddCart
               inCart={item.id in cart}
-              itemData={item}
-              handleAdd={context.cart.add}
+              handleAdd={() => {
+                let qtt = 1;
+                if (item.id in cart) qtt = 0;
+                context.cart.add(item.id, qtt);
+              }}
               className="self-center"
             />
           </motion.div>
         );
       })}
-
-      {items.length < totalItems && (
-        <motion.div
-          variants={variants_card}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          className="rounded-lg cursor-pointer shadow-md bg-warning h-fit w-fit self-center place-self-center"
-          onClick={showMoreItems}
-        >
-          <div className="shadow-md rounded-lg p-4 self-center h-[100px]">
-            <SVGViewGridAdd className="h-full w-full" />
-          </div>
-
-          <div className="flex- flex items-center justify-center p-3 dark:drop-shadow-[0_0_3px_black] text-tert">
-            <b>Cargar Mas</b>
-          </div>
-        </motion.div>
-      )}
     </section>
   );
 }

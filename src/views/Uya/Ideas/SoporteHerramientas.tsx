@@ -29,7 +29,7 @@ export default function SoporteHerramientas() {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center">
-        <p className="sm:col-span-2">
+        <p className="sm:col-span-2 max-w-96">
           Esto puede usarse tanto con utensilios de cocina como con herramientas
           de construcción, artículos de librería, piezas de juegos, etc.
         </p>

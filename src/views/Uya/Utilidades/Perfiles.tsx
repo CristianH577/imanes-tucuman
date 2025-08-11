@@ -8,7 +8,7 @@ export default function Perfiles() {
     <div className="grid sm:grid-cols-2 gap-4 items-center">
       <ImageCustom
         src={img_1}
-        className="object-cover h-full rounded-full"
+        className="object-cover w-full h-full rounded-full"
         classes={{
           wrapper:
             "w-[300px] h-[300px] place-self-center border-5 border-divider rounded-full shadow-md",
@@ -28,7 +28,7 @@ export default function Perfiles() {
 
       <ImageCustom
         src={img_2}
-        className="object-cover h-full object-left rounded-full"
+        className="object-cover w-full h-full object-left rounded-full"
         classes={{
           wrapper:
             "w-[300px] h-[300px] place-self-center border-5 border-divider rounded-full shadow-md",

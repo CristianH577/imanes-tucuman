@@ -1,9 +1,15 @@
 import type { SvgIconTypeMap } from "@mui/material";
 import type { OverridableComponent } from "@mui/material/OverridableComponent";
+import type { SVGProps } from "react";
+import type { ClassDBItem } from "./classes";
 
+// general ---------------------------------
 export type TypeObjectGeneral = { [key: string | number]: any | undefined };
 
-export type TypeIcon = OverridableComponent<SvgIconTypeMap>;
+export type TypeIconMui = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
+  muiName: string;
+};
+export type TypeIcon = TypeIconMui | React.FC<SVGProps<SVGSVGElement>>;
 
 export type TypeRoute = {
   id: string;
@@ -13,18 +19,24 @@ export type TypeRoute = {
   search?: string;
   title?: string;
 };
+// ---------------------------------
 
-export type TypeCartValue = {
-  [key: number]: ClassDBItem;
+export type TypeCart = {
+  [key: number]: number;
 };
+
 export type TypeOutletContext = {
   cart: {
-    value: TypeCartValue;
-    set: (itemData: ClassDBItem | {}) => {};
-    add: (itemData: ClassDBItem) => {};
+    value: TypeCart;
+    set: (cart: TypeCart | {}) => {};
+    add: (id: number, qtt: number) => {};
   };
   links: { [key: string]: string };
   setMagnetData: (itemData: ClassDBItem) => {};
+  db: {
+    value: TypeDatabaseImg;
+    set: (value: TypeDatabaseImg) => {};
+  };
 };
 
 export type TypeFiltersValues = {
@@ -32,9 +44,8 @@ export type TypeFiltersValues = {
   page: number;
   orderBy: string;
   text: string;
-  categorie: string;
-  subcategorie: string;
-  forma: string;
+  categorie: string[];
+  forma: string[];
   priceMin?: number;
   priceMax?: number;
 };
@@ -43,62 +54,49 @@ export type TypeFiltersInput = {
   id: string;
   label: string;
   format: string;
-  items?: {
-    id: string;
-    label: string;
-  }[];
-};
-
-export type TypeMeasures = {
-  largo: number;
-  alto: number;
-  ancho?: number;
-  peso?: number;
-  "diametro superior"?: number;
-  "diametro inferior"?: number;
+  valueArray?: boolean;
+  items?: TypeObjCategorie;
 };
 
 export type TypeSalesUnit = "u" | "m" | "kg" | string;
 
-export class ClassPriceData {
-  usePrice: string = "base";
-  prices: {
-    base: number;
-    [key: string]: number | undefined;
-  } = { base: 0 };
-  discountsPercentages?: {
-    [key: string]: number;
-  } = {};
-  prices_qtts?: {
-    [key: number]: number | undefined;
-  } = {};
-  update?: string = "";
-  salesUnit?: TypeSalesUnit;
-}
-export type TypeItemImgs = {
-  preview: {
-    type: "svg" | "img";
-    src: string | undefined;
+export type TypeObjShape = {
+  [key: string]: {
+    label?: string;
+    measureFormat?: string;
+    icon?: TypeIcon;
+    subs?: TypeObjShape;
   };
-  imgs?: string[];
-  full?: string[];
 };
 
-export class ClassDBItem {
-  hidden?: boolean = false;
-  noStock?: boolean;
-  id: number = 0;
-  label: string = "";
-  categorie: string = "";
-  subcategorie?: string;
-  especificaciones?: TypeObjectGeneral = {};
-  caracteristicas?: string[] = [];
-  description?: string;
-  price_data: ClassPriceData = new ClassPriceData();
-  qtt?: number;
-  measures?: TypeMeasures;
-  isComparable?: boolean;
-  fuerza_N?: TypeObjectGeneral;
-  links?: { [key: string]: string };
-  // imgs_data: ClassImgsData = new ClassImgsData();
-}
+export type TypeTableFormItem = {
+  label: string;
+  measureFormat: string;
+  form: string;
+  include?: string[];
+  exclude?: string[];
+  items?: ClassDBItem[];
+  icon: TypeIcon;
+};
+
+export type TypeObjCategorie = {
+  [key: string]: {
+    label?: string;
+    icon?: TypeIcon;
+    subs?: TypeObjCategorie;
+  };
+};
+
+export type TypeItemImgs = {
+  haveSvg?: boolean;
+  preview?: string;
+  imgs?: string[];
+  full?: string[];
+  thumbnails?: string[];
+};
+
+export type TypeDatabaseImg = {
+  [key: number]: TypeItemImgs;
+};
+
+export type TypeItemImgsArray = "imgs" | "full" | "thumbnails";

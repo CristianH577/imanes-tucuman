@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 import { motion } from "framer-motion";
 
-import type { ClassDBItem, TypeCartValue } from "../../consts/types";
+import type { TypeCart } from "../../consts/types";
+import type { ClassDBItem } from "../../consts/classes";
 
 import { scrollStyle } from "../../libs/tvs";
 import { toPriceFormat } from "../../libs/functions";
@@ -17,9 +18,9 @@ interface InterfaceTablePricesProps {
   tableAriaLabel: string;
   measureFormat: string;
   rows: ClassDBItem[];
-  cart: TypeCartValue;
+  cart: TypeCart;
   setItemToComparate: (itemData: ClassDBItem) => void;
-  handleAdd: (itemData: ClassDBItem) => void;
+  handleAdd: (id: number, qtt: number) => void;
 }
 const rowsPerView = 15;
 
@@ -31,9 +32,7 @@ export default function TablePrices({
   measureFormat = "",
   rows = [],
   cart,
-  handleAdd = (itemData: ClassDBItem) => {
-    itemData;
-  },
+  handleAdd,
 }: InterfaceTablePricesProps) {
   const ref = useRef(null);
   const isInView = useInView(ref);
@@ -120,6 +119,7 @@ export default function TablePrices({
                       isIconOnly
                       className="shadow-md"
                       title="Ver referencia de tamaños"
+                      isDisabled={!item.isComparable}
                       onPress={() => setItemToComparate(item)}
                     >
                       <CompareIcon className="h-7 w-fit" />
@@ -131,7 +131,7 @@ export default function TablePrices({
                   Object.entries(item.price_data.prices_qtts).map(
                     ([qtt, price]) => {
                       const inCart_qtt =
-                        inCart && cart[item.id].qtt === Number(qtt);
+                        inCart && cart[item.id] === Number(qtt);
                       return (
                         <td
                           key={`precio_x${qtt}`}
@@ -146,16 +146,12 @@ export default function TablePrices({
                             </p>
 
                             <ButtonAddCart
-                              //@ts-ignore
                               size="sm"
                               inCart={inCart_qtt}
-                              itemData={item}
                               handleAdd={() => {
                                 let qtt_ = 0;
                                 if (!inCart_qtt) qtt_ = Number(qtt);
-                                item.qtt = qtt_;
-
-                                handleAdd(item);
+                                handleAdd(item.id, qtt_);
                               }}
                             />
                           </div>
@@ -168,7 +164,7 @@ export default function TablePrices({
           })}
 
           <tr>
-            <td className="pt-4">
+            <td className="py-4">
               {totalVisibleRows < rows.length && (
                 <Button
                   ref={ref}

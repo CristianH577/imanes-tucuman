@@ -1,9 +1,24 @@
 import { SVGMancha } from "../assets/svgs/svgsLogo";
 
-export default function TitleCustom({ title = "", id = undefined }) {
+export default function TitleCustom({
+  title = "",
+  id = undefined,
+  className = "",
+  classes = { title: "" },
+}) {
   return (
-    <div className="flex items-center justify-center py-3 sm:py-6 relative w-fit max-xs:break-all">
-      <h2 className="text-2xl sm:text-5xl font-extrabold uppercase text-center px-10 z-10 text-white">
+    <div
+      className={
+        "flex items-center justify-center py-3 sm:py-6 relative w-fit max-xs:break-all" +
+        (className ? " " + className : "")
+      }
+    >
+      <h2
+        className={
+          "text-2xl sm:text-5xl font-extrabold uppercase text-center px-10 z-10 text-white" +
+          (classes.title ? " " + classes.title : "")
+        }
+      >
         {title}
       </h2>
 

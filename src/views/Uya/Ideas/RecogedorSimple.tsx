@@ -15,7 +15,7 @@ export default function RecogedorSimple() {
       <div className="flex flex-col items-center gap-6">
         <ImageCustom
           src={img_2}
-          className="object-contain drop-shadow-custom"
+          className="object-contain drop-shadow-custom w-full"
           height={300}
           alt="Recogedor comercial simple"
         />
@@ -31,7 +31,7 @@ export default function RecogedorSimple() {
 
         <ImageCustom
           src={img_1}
-          className="object-contain drop-shadow-custom"
+          className="object-contain drop-shadow-customv w-full"
           height={300}
           alt="Tubo de metal con un iman en la punta"
         />
@@ -42,7 +42,7 @@ export default function RecogedorSimple() {
       <div className="flex flex-col items-center gap-6">
         <ImageCustom
           src={img_3}
-          className="object-contain drop-shadow-custom"
+          className="object-contain drop-shadow-custom w-full"
           height={300}
           alt="Recogedor comercial flexible"
         />
@@ -58,7 +58,7 @@ export default function RecogedorSimple() {
 
         <ImageCustom
           src={img_4}
-          className="object-contain drop-shadow-custom"
+          className="object-contain drop-shadow-custom w-full"
           height={400}
           alt="Cuerda, iman y bolsa de tela"
         />

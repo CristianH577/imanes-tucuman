@@ -4,14 +4,11 @@ import { motion } from "framer-motion";
 
 import type { TypeFiltersInput, TypeFiltersValues } from "../../consts/types";
 
-import {
-  FILTERS_INPUTS,
-  FILTERS_VALUES_DEFAULT,
-} from "../../consts/siteConfig";
+import { FILTERS_INPUTS, FILTERS_VALUES_DEFAULT } from "../../consts/values";
 
 import { getHrefSearch } from "../../libs/functions";
 
-import { Select, SelectItem } from "@heroui/select";
+import { Select, SelectItem, SelectSection } from "@heroui/select";
 import { Input } from "@heroui/input";
 import { Button } from "@heroui/button";
 import {
@@ -61,11 +58,21 @@ export default function DrawerFilters({
   };
 
   const handleSelectFilterChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    e: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const filters_values_ = structuredClone(filtersValuesTemp);
-    const name = event.target.name;
-    const value = event.target.value;
+    const name = e.target.name;
+    let value: string | string[] = e.target.value;
+
+    const filter = FILTERS_INPUTS.find((fil) => fil.id === name);
+    if (filter?.valueArray) {
+      if (value) {
+        value = value.split(",");
+      } else {
+        value = [];
+      }
+    }
+
     // @ts-ignore
     filters_values_[name] = value;
     setFiltersValuesTemp(filters_values_);
@@ -86,26 +93,46 @@ export default function DrawerFilters({
     const id = `${input.format}-${input.id}`;
     switch (input.format) {
       case "select":
-        const items: any = (input.items || []).map((item) => (
-          <SelectItem key={item.id}>{item.label}</SelectItem>
-        ));
+        const val = filtersValuesTemp[input.id as keyof typeof input.items];
+        const selectedKeys = !input.valueArray
+          ? val
+          : (val as string[]).join(",");
+
+        const items: any =
+          input.items &&
+          Object.entries(input.items).map(([id, cat]) => (
+            <>
+              <SelectItem key={id}>{cat.label || id}</SelectItem>
+
+              {cat.subs && (
+                <SelectSection
+                  key={"section-" + id}
+                  showDivider
+                  title={cat.label || id}
+                >
+                  {Object.entries(cat.subs).map(([idSub, sub]) => (
+                    <SelectItem key={id + "," + idSub}>
+                      {sub.label || idSub}
+                    </SelectItem>
+                  ))}
+                </SelectSection>
+              )}
+            </>
+          ));
 
         return (
           <Select
             className="max-w-xs text-foreground"
             classNames={{
-              listbox: "text-foreground ",
+              listbox: "text-foreground capitalize",
               popoverContent: "border-3 border-custom1-3",
+              value: "capitalize",
             }}
             label={input.label}
             name={input.id}
-            selectedKeys={[
-              filtersValuesTemp[input.id as keyof typeof input.items],
-            ]}
+            selectedKeys={[selectedKeys]}
             onChange={handleSelectFilterChange}
           >
-            <SelectItem key="">Seleccione un valor</SelectItem>
-
             {items}
           </Select>
         );

@@ -11,7 +11,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import LocationPinIcon from "@mui/icons-material/LocationPin";
 import DescriptionIcon from "@mui/icons-material/Description";
 
-import imgOpinions from "../../assets/home/Opiniones/people-text-baloon.webp";
+import imgOpinions from "../../assets/home/people-text-baloon.webp";
 
 export default function Opiniones() {
   const context: TypeOutletContext = useOutletContext();

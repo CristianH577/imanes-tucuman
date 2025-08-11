@@ -13,14 +13,11 @@ import {
   SVGMagnetBlast,
 } from "../../assets/svgs/svgsIcons";
 
-const images_all = import.meta.glob(
-  "../../assets/home/Hero/**/*.{png,jpg,jpeg,svg,webp}",
-  {
-    eager: true,
-    import: "default",
-  }
-);
-const srcs = Object.entries(images_all) as string[][];
+import portada_360 from "../../assets/home/Hero/360.webp";
+import portada_640 from "../../assets/home/Hero/640.webp";
+import portada_768 from "../../assets/home/Hero/768.webp";
+import portada_1024 from "../../assets/home/Hero/1024.webp";
+import portada_1280 from "../../assets/home/Hero/1280.webp";
 
 const class_icons_main =
   "absolute w-12 xs:w-14 sm:w-20 lg:w-28 h-auto transition-all text-custom1/90";
@@ -39,37 +36,6 @@ const icons = [
     className={`bottom-0 left-2 sm:left-16 ${class_icons_main}`}
   />,
 ];
-
-const imgs = Array.from({ length: 5 }).map((_, i) => {
-  const sizes = [
-    {
-      w: 360,
-      src: "",
-    },
-    {
-      w: 640,
-      src: "",
-    },
-    {
-      w: 768,
-      src: "",
-    },
-    {
-      w: 1024,
-      src: "",
-    },
-    {
-      w: 1280,
-      src: "",
-    },
-  ];
-
-  sizes.forEach((size) => {
-    size.src =
-      srcs.find(([path, _]) => path.includes(`/${size.w}/${i + 1}`))?.[1] || "";
-  });
-  return sizes;
-});
 
 export default function Hero() {
   return (
@@ -103,53 +69,22 @@ export default function Hero() {
             }}
           />
 
-          {/* {imgs.map((sizes, i) => (
-            <motion.img
-              key={i}
-              loading="eager"
-              width={"100%"}
-              height={"100%"}
-              alt={`Iman de neodimio ${i + 1}`}
-              className={`hidden sm:block object-contain h-full absolute inset-0 mx-auto pb-2 sm:pb-4 drop-shadow-custom z-${
-                i * 10
-              }`}
-              src={sizes[0].src}
-              srcSet={`
-                  ${sizes[0].src} 360w,
-                  ${sizes[1].src} 640w,
-                  ${sizes[2].src} 768w,
-                  ${sizes[3].src} 1024w,
-                  ${sizes[4].src} 1280w,
+          <img
+            loading="eager"
+            fetchPriority="high"
+            width="100%"
+            height="100%"
+            alt="Varios tipos de imanes de neodimio"
+            className="object-contain h-full w-fit absolute drop-shadow-custom"
+            src={portada_360}
+            srcSet={`
+                  ${portada_360} 360w,
+                  ${portada_640} 640w,
+                  ${portada_768} 768w,
+                  ${portada_1024} 1024w,
+                  ${portada_1280} 1280w,
                 `}
-              whileInView={{ y: [0, (i + 1) * 6, 0] }}
-              transition={{
-                duration: i + 2,
-                repeat: Infinity,
-                repeatType: "loop",
-              }}
-            />
-          ))} */}
-
-          {imgs.map((sizes, i) => (
-            <img
-              key={i}
-              loading="eager"
-              width={"100%"}
-              height={"100%"}
-              alt={`Iman de neodimio ${i + 1}`}
-              // sm:hidden
-              className="object-contain h-full absolute inset-0 mx-auto pb-2 sm:pb-4 drop-shadow-custom"
-              src={sizes[0].src}
-              srcSet={`
-                  ${sizes[0].src} 360w,
-                  ${sizes[1].src} 640w,
-                  ${sizes[2].src} 768w,
-                  ${sizes[3].src} 1024w,
-                  ${sizes[4].src} 1280w,
-                `}
-              fetchPriority="high"
-            />
-          ))}
+          />
         </article>
 
         <article className="relative z-10 flex flex-col items-center justify-center gap-2 sm:gap-4 h-fit px-4 pb-8">

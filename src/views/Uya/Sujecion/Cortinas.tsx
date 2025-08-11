@@ -32,6 +32,7 @@ export default function Cortinas() {
                 key={i}
                 src={src}
                 alt={`Imagen de ejemplo ${i + 1}`}
+                className="w-full"
               />
             ))}
           </div>

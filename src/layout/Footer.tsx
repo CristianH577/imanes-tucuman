@@ -13,8 +13,9 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import RoomIcon from "@mui/icons-material/Room";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import EmailIcon from "@mui/icons-material/Email";
 
-import qr from "../assets/footer/wp.webp";
+import qr from "../assets/wp.webp";
 import {
   SVGArrowBigDownLine,
   SVGArrowBigUpLine,
@@ -22,15 +23,6 @@ import {
 
 function Footer({ whatsapp = "#", fotos = "#" }) {
   const info_items = [
-    {
-      icon: RoomIcon,
-      text: <>9 de julio 4900, S.M. de Tucumán, Tucumán</>,
-      subtext: (
-        <span className="font-size-secondary text-neutral-400">
-          No es local. Solo retiro.
-        </span>
-      ),
-    },
     {
       icon: CalendarTodayIcon,
       text: (
@@ -51,6 +43,19 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
           )
         </>
       ),
+    },
+    {
+      icon: RoomIcon,
+      text: <>9 de julio 4900, S.M. de Tucumán, Tucumán</>,
+      subtext: (
+        <span className="font-size-secondary text-neutral-400">
+          No es local. Solo retiro.
+        </span>
+      ),
+    },
+    {
+      icon: EmailIcon,
+      text: "info@imanestucuman.com.ar",
     },
   ];
 
@@ -105,21 +110,16 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
           initial={{ opacity: 0, scale: 0 }}
           whileInView={{ opacity: 1, scale: 1 }}
         >
-          <Button
-            as={"a"}
-            href={whatsapp}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Ir al chat de Whatsapp"
-            className="w- h-full shadow-md shadow-black hover:scale-105 border-3 border-neutral-500 rounded-xl from-custom1 to-custom1-6 p-0 bg-gradient-to-t"
-          >
-            <ImageCustom
-              src={qr}
-              alt="QR del link al chat de Whatsapp"
-              width={150}
-              height={150}
-            />
-          </Button>
+          <ImageCustom
+            src={qr}
+            alt="QR del link al chat de Whatsapp"
+            width={150}
+            height={150}
+            classes={{
+              wrapper:
+                "shadow-md shadow-black border-3 border-neutral-500 bg-gradient-to-t from-custom1 to-custom1-6",
+            }}
+          />
         </motion.div>
 
         <motion.div

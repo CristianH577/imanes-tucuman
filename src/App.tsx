@@ -14,7 +14,6 @@ const Home = lazy(() => import("./views/Home"));
 const SearchView = lazy(() => import("./views/SearchView"));
 const ItemView = lazy(() => import("./views/ItemView"));
 const Imanes = lazy(() => import("./views/Imanes"));
-const Caracteristicas = lazy(() => import("./views/Caracteristicas"));
 const CartView = lazy(() => import("./views/CartView"));
 const Faqs = lazy(() => import("./views/Faqs"));
 const UyA = lazy(() => import("./views/Uya.tsx"));
@@ -23,7 +22,6 @@ const routesComponent = {
   search_view: <SearchView />,
   view: <ItemView />,
   imanes: <Imanes />,
-  caracteristicas: <Caracteristicas />,
   cart: <CartView />,
   faqs: <Faqs />,
   uya: <UyA />,
@@ -56,8 +54,11 @@ function App() {
                 path={route.href}
                 element={
                   <ViewDefault
-                    // id={route.id}
-                    title={route?.title || route?.label || undefined}
+                    title={
+                      route.id !== "search_view"
+                        ? route?.title || route?.label || undefined
+                        : undefined
+                    }
                   >
                     {routesComponent[route.id as keyof typeof routesComponent]}
                   </ViewDefault>

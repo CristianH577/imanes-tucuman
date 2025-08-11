@@ -31,6 +31,7 @@ export default function UsarBorneraClip() {
         <div key={i + 1} className="flex flex-col justify-around max-w-xs">
           <ImageCustom
             src={item.src}
+            className="w-full"
             classNames={{ wrapper: "drop-shadow-custom" }}
             alt={`Imagen de instruccion ${i + 1}`}
             widht={300}

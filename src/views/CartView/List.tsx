@@ -2,35 +2,29 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
 import { motion } from "framer-motion";
 
-import { DB_IMGS } from "../../consts/dbs";
-import { SVG_FORMA } from "../../consts/values";
+import { DB_ALL } from "../../consts/dbs";
+import { OBJ_SHAPES } from "../../consts/values";
+import type { ClassDBItem } from "../../consts/classes";
 
-import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
+import type { TypeIcon, TypeOutletContext } from "../../consts/types";
 
 import { scrollStyle } from "../../libs/tvs";
 import {
   cartItemsComparator,
   handlePriceData,
+  searchImgs,
   toPercentageFormat,
   toPriceFormat,
 } from "../../libs/functions";
 
-import { Button, type PressEvent } from "@heroui/button";
+import { Button } from "@heroui/button";
 import { Input } from "@heroui/input";
+import { CircularProgress } from "@mui/material";
 
 import ImageCustom from "../../components/ImageCustom";
 import PriceLabel from "../../components/PriceLabel";
 
 import DeleteIcon from "@mui/icons-material/Delete";
-
-const images_all = import.meta.glob(
-  "../../assets/items/**/*.{png,jpg,jpeg,svg,webp}",
-  {
-    eager: true,
-    import: "default",
-  }
-);
-const srcs = Object.entries(images_all) as string[][];
 
 const cols = [
   {
@@ -50,6 +44,7 @@ const cols = [
     id: "qtt",
     label: "Cantidad",
     isNumeric: true,
+    disabledSort: true,
   },
   {
     id: "price",
@@ -76,11 +71,38 @@ export default function List({ downloading = false, following = false }) {
   const context: TypeOutletContext = useOutletContext();
   const cart = context.cart.value;
 
+  const [loading, setLoading] = useState(true);
+  const [items, setItems] = useState<ClassDBItem[]>([]);
   const [orderBy, setOrderBy] = useState<string>("price-asc");
-  const [items, setItems] = useState(Object.values(cart));
   const [totalVisibleItems, setTotalVisibleItems] = useState(itemsPerView);
   const [total, setTotal] = useState({ ...totalDefault });
   const visibleItems = items.slice(0, totalVisibleItems);
+
+  const searchItems = async () => {
+    setLoading(true);
+
+    let items_ = DB_ALL.filter((item) => item.id in cart);
+    items_ = JSON.parse(JSON.stringify(items_));
+
+    const databaseImgs_ = await searchImgs(
+      items_,
+      context.db.value,
+      "thumbnails"
+    );
+    context.db.set(databaseImgs_);
+
+    items_.map(
+      (item) =>
+        (item.price_data = handlePriceData(
+          item.price_data,
+          following && item.categorie[0] === "imanes",
+          cart[item.id]
+        ))
+    );
+
+    setItems(items_);
+    setLoading(false);
+  };
 
   const makeCell = (col: string, row: ClassDBItem) => {
     const val = row[col as keyof ClassDBItem];
@@ -99,33 +121,33 @@ export default function List({ downloading = false, following = false }) {
         );
 
       case "img":
-        const item_imgs = row.id in DB_IMGS ? DB_IMGS[row.id] : DB_IMGS[0];
-        const preview = item_imgs.preview;
-        const thumbnails_name = item_imgs.imgs ? item_imgs.imgs[0] ?? "" : "";
-        const SvgForma =
-          preview.type === "svg" && preview.src
-            ? SVG_FORMA?.[preview.src as keyof typeof SVG_FORMA]
-            : false;
+        const imgsData = context.db.value[row.id];
+        let SvgForma: boolean | TypeIcon = false;
 
+        if (imgsData.haveSvg && row.forma) {
+          const form_data = OBJ_SHAPES[row.forma[0] as keyof typeof OBJ_SHAPES];
+          if (form_data && form_data.icon) SvgForma = form_data.icon;
+
+          if (
+            row.forma[1] &&
+            form_data.subs &&
+            row.forma[1] in form_data.subs
+          ) {
+            const sub_form_data = form_data.subs[row.forma[1]];
+            if (sub_form_data.icon) SvgForma = sub_form_data.icon;
+          }
+        }
         return SvgForma ? (
           <SvgForma className="w-[50px] h-fit self-center" />
         ) : (
           <ImageCustom
             alt={`Imagen de ${row.label}`}
             className="object-contain w-[50px] min-w-[50px]"
-            src={
-              srcs.find(([path, _]) =>
-                path.includes(`/${row.id}/thumbnails/${thumbnails_name}`)
-              )?.[1] || undefined
-            }
+            src={imgsData.thumbnails && imgsData.thumbnails[0]}
           />
         );
       case "categorie":
-        return (
-          <span className="capitalize">
-            {val_str} {row?.subcategorie}
-          </span>
-        );
+        return <span className="capitalize">{row.categorie.join(" > ")}</span>;
       case "qtt":
         return (
           <div className="flex justify-end gap-2">
@@ -143,12 +165,9 @@ export default function List({ downloading = false, following = false }) {
               startContent="x"
               endContent={row?.price_data?.salesUnit || "u"}
               min={0}
-              defaultValue={String(row?.qtt) || ""}
-              // value={String(row?.qtt) || ""}
-              data-id={row.id}
-              // onChange={handleQtt}
-              onBlur={handleQttBlur}
-              onKeyDown={handleKeyDown}
+              defaultValue={String(cart[row.id]) || ""}
+              onBlur={(e) => handleQttBlur(e, row.id)}
+              onKeyDown={(e) => handleKeyDown(e, row.id)}
             />
 
             <Button
@@ -158,8 +177,7 @@ export default function List({ downloading = false, following = false }) {
               variant="ghost"
               className={`${downloading ? " hidden" : ""}`}
               title="Quitar del carrito"
-              data-id={row.id}
-              onPress={handleDelete}
+              onPress={() => handleDelete(row.id)}
             >
               <DeleteIcon className="h-5 w-fit" />
             </Button>
@@ -171,47 +189,40 @@ export default function List({ downloading = false, following = false }) {
       case "subtotal":
         const use = row.price_data.usePrice;
         const price = row.price_data.prices[use];
-        return toPriceFormat(Number(price) * Number(row.qtt));
+        return toPriceFormat(Number(price) * cart[row.id]);
 
       default:
         return val_str;
     }
   };
 
-  const handlePriceQtt = (target: HTMLInputElement) => {
-    const id = Number(target.dataset.id);
+  const handlePriceQtt = (target: HTMLInputElement, id: number) => {
     const qtt = Number(target.value);
 
-    const cart_ = structuredClone(cart);
-    const itemData = cart_[id];
-    itemData.qtt = qtt;
+    const itemData = items.find((item) => item.id === id);
 
-    itemData.price_data = handlePriceData(
-      itemData,
-      (following = itemData.categorie === "imanes" && following)
-    );
-
-    cart_[id] = itemData;
-
-    context.cart.set(cart_);
+    if (itemData) {
+      const cart_ = structuredClone(cart);
+      itemData.price_data = handlePriceData(
+        itemData.price_data,
+        following && itemData.categorie[0] === "imanes",
+        qtt
+      );
+      context.cart.set({ ...cart_, [id]: qtt });
+    }
   };
-  const handleQttBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    handlePriceQtt(e.target);
+  const handleQttBlur = (e: React.FocusEvent<HTMLInputElement>, id: number) => {
+    handlePriceQtt(e.target, id);
   };
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent, id: number) => {
     if (e.key === "Enter") {
       const target = e.target as HTMLInputElement;
-      handlePriceQtt(target);
+      handlePriceQtt(target, id);
     }
   };
 
-  const handleDelete = (e: PressEvent) => {
-    const target = e.target as HTMLElement;
-    const id = Number(target.dataset?.id);
-    const cart_ = { ...cart };
-    const itemData = cart_[id];
-    itemData.qtt = 0;
-    context.cart.add(itemData);
+  const handleDelete = (id: number) => {
+    context.cart.add(id, 0);
   };
   const getTotal = () => {
     if (items.length > 0) {
@@ -221,7 +232,7 @@ export default function List({ downloading = false, following = false }) {
         const use = item.price_data.usePrice;
         const price = item.price_data.prices[use];
         const base = item.price_data.prices.base;
-        const qtt = Number(item?.qtt);
+        const qtt = cart[item.id];
 
         total_.total += Number(price) * qtt;
         total_.base += base * qtt;
@@ -249,37 +260,31 @@ export default function List({ downloading = false, following = false }) {
   const sortItems = () => {
     if (orderBy) {
       const [col, order] = orderBy.split("-");
-      const items_ = Object.values(cart).sort(cartItemsComparator(col, order));
+      const items_ = items.sort(cartItemsComparator(col, order));
 
       setItems(items_);
     }
   };
 
   useEffect(() => {
-    Object.entries(cart).map(([_, item]) => {
-      item.price_data = handlePriceData(
-        item,
-        (following = item.categorie === "imanes" && following)
-      );
-      return item;
-    });
-    context.cart.set({ ...cart });
-  }, [following]);
-
-  useEffect(() => {
-    setItems(Object.values(cart));
+    searchItems();
   }, [cart]);
+
   useEffect(() => {
     getTotal();
   }, [items]);
 
-  useEffect(sortItems, [orderBy, cart]);
+  useEffect(sortItems, [orderBy]);
 
   useEffect(() => {
     if (downloading) setTotalVisibleItems(items.length);
   }, [downloading]);
 
-  if (cart && Object.keys(cart).length < 1) {
+  if (loading) {
+    return <CircularProgress className="place-self-center m-6" />;
+  }
+
+  if (Object.keys(cart).length < 1) {
     return (
       <b className="text-center text-xl p-4">Sin artículos para mostrar.</b>
     );
@@ -377,7 +382,7 @@ export default function List({ downloading = false, following = false }) {
         </table>
       </motion.section>
 
-      {Object.keys(cart).length > 0 && (
+      {items.length > 0 && (
         <section className="self-end font-semibold px-4 text-end">
           {total?.percentage > 0 && (
             <div>

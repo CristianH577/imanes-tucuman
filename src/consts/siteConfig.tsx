@@ -1,14 +1,9 @@
-import type { TypeFiltersValues } from "./types";
-
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
-import TagIcon from "@mui/icons-material/Tag";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
 import { SVGMagnet } from "../assets/svgs/svgsIcons";
-
-export const VERSION_CURRENT = "2.1.0"; // usada para controlar cambios de funcionamiento
 
 export const NAV_ITEMS = [
   { id: "", href: "", label: "Inicio", icon: HomeOutlinedIcon },
@@ -19,13 +14,7 @@ export const NAV_ITEMS = [
     icon: ContentPasteSearchOutlinedIcon,
     search: "?orderBy=price-asc",
   },
-  { id: "imanes", href: "imanes", label: "imanes", icon: SVGMagnet },
-  {
-    id: "caracteristicas",
-    href: "caracteristicas",
-    label: "Características",
-    icon: TagIcon,
-  },
+  { id: "imanes", href: "neodimio", label: "Neodimio", icon: SVGMagnet },
   {
     id: "uya",
     href: "uya",
@@ -90,70 +79,4 @@ export const FONTS_VALUES = {
     secondary: "large",
     tertiary: "xx-large",
   },
-};
-
-export const FILTERS_INPUTS = [
-  {
-    id: "orderBy",
-    label: "Ordenar por",
-    format: "select",
-    items: [
-      { id: "id-asc", label: "Mas antiguo" },
-      { id: "id-desc", label: "Mas reciente" },
-      { id: "label-desc", label: "Nombre ↑" },
-      { id: "label-asc", label: "Nombre ↓" },
-      { id: "price-desc", label: "Precio ↑" },
-      { id: "price-asc", label: "Precio ↓" },
-    ],
-  },
-  {
-    id: "categorie",
-    label: "Categoría",
-    format: "select",
-    items: [
-      { id: "electricidad", label: "Electricidad" },
-      { id: "imanes", label: "Imanes" },
-      { id: "otros", label: "Otros" },
-    ],
-  },
-  {
-    id: "subcategorie",
-    label: "Subcategoría",
-    format: "select",
-    items: [
-      { id: "arrastre", label: "De arrastre" },
-      { id: "ferrita", label: "Ferrita" },
-      { id: "neodimio", label: "Neodimio" },
-      { id: "otros", label: "Otros" },
-    ],
-  },
-  {
-    id: "forma",
-    label: "Forma",
-    format: "select",
-    items: [
-      { id: "cuadrado", label: "Cuadrado" },
-      { id: "cuadrado_fresado", label: "Cuadrado fresado" },
-      { id: "redondo", label: "Redondo" },
-      { id: "redondo_fresado", label: "Redondo fresado" },
-      { id: "esfera", label: "Esfera" },
-    ],
-  },
-  {
-    id: "price",
-    label: "Precio",
-    format: "number",
-  },
-];
-
-export const FILTERS_VALUES_DEFAULT: TypeFiltersValues = {
-  apply: false,
-  page: 1,
-  orderBy: "price-asc",
-  text: "",
-  categorie: "",
-  subcategorie: "",
-  forma: "",
-  priceMin: undefined,
-  priceMax: undefined,
 };

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
 
-import type { ClassDBItem, TypeOutletContext } from "../../consts/types";
+import type { TypeOutletContext } from "../../consts/types";
+import type { ClassDBItem } from "../../consts/classes";
 
 import { handlePriceData, toPriceFormat } from "../../libs/functions";
 
@@ -29,7 +30,7 @@ export default function TableItemPrices({
   const context: TypeOutletContext = useOutletContext();
   const cart = context.cart.value;
   const inCart = itemData.id in cart;
-  const qttCart = inCart ? cart[itemData.id].qtt : 0;
+  const qttCart = inCart ? cart[itemData.id] : 0;
   const pricesQtts = itemData?.price_data?.prices_qtts;
   const salesUnit = itemData.price_data.salesUnit;
   const rows = pricesQtts
@@ -53,9 +54,8 @@ export default function TableItemPrices({
 
   const handleChangeQttFix = (event: React.ChangeEvent<HTMLInputElement>) => {
     const qtt = Number(event.target.value);
-    itemData.qtt = qtt;
 
-    itemData.price_data = handlePriceData(itemData);
+    itemData.price_data = handlePriceData(itemData.price_data, false, qtt);
 
     setQttFix(qtt);
   };
@@ -68,9 +68,7 @@ export default function TableItemPrices({
       if (!inCart) qtt_ = 1;
     }
 
-    itemData.qtt = qtt_;
-
-    context?.cart?.add(itemData);
+    context.cart.add(itemData.id, qtt_);
   };
 
   const makeCellContent = (row = { qtt: 0, price: 0 }, col = "") => {
@@ -85,16 +83,13 @@ export default function TableItemPrices({
         const inCart_qtt = inCart && qttCart === row.qtt;
         return (
           <ButtonAddCart
-            // @ts-ignore
             size="sm"
             inCart={inCart_qtt}
-            itemData={itemData}
             handleAdd={() => {
               let qtt_ = 0;
               if (!inCart_qtt) qtt_ = row.qtt;
-              itemData.qtt = qtt_;
 
-              context.cart.add(itemData);
+              context.cart.add(itemData.id, qtt_);
             }}
           />
         );
@@ -125,7 +120,9 @@ export default function TableItemPrices({
               label="Cantidad"
               className="max-w-36"
               classNames={{
-                inputWrapper: "border-3 border-custom1-3",
+                inputWrapper:
+                  "border-3 " +
+                  (inCart ? "border-success" : "border-custom1-3"),
               }}
               endContent={itemData.price_data.salesUnit || undefined}
               value={qttFix ? String(qttFix) : ""}
@@ -133,8 +130,7 @@ export default function TableItemPrices({
             />
 
             <ButtonAddCart
-              inCart={inCart}
-              itemData={itemData}
+              inCart={inCart && qttFix === cart[itemData.id]}
               handleAdd={handleButtonInputCart}
             />
           </div>

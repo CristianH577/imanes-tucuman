@@ -89,8 +89,8 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
                       visible: { opacity: 1 },
                     }}
                     to={item.href + (item?.search || "")}
-                    className="text-[medium] capitalize text-custom2 dark:text-custom1"
-                    title={"Ir a " + item.label}
+                    className="text-[medium] capitalize text-custom2 dark:text-custom1 hover:text-secondary dark:hover:text-secondary-700"
+                    title={"Ir a " + (item.title || item.label)}
                   >
                     {item.label}
                   </MotionLinkRouter>

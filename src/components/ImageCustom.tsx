@@ -40,7 +40,7 @@ export default function ImageCustom({
         height={height}
         loading="lazy"
         alt={alt}
-        className={"w-full" + (className ? " " + className : "")}
+        className={className ? " " + className : ""}
         initial={{ opacity: 0 }}
         animate={isInView && load && { opacity: 1 }}
         onLoad={() => setLoad(true)}

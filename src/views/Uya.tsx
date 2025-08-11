@@ -251,7 +251,7 @@ export default function UyA() {
           key={tabSelected}
           role="tabpanel"
           layoutId="content-uya"
-          className="w-full text-center sm:flex flex-col items-center "
+          className="w-full text-center flex flex-col items-center "
           initial={{ x: "100%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "-100%", opacity: 0 }}

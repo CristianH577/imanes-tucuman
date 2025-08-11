@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useOutletContext } from "react-router";
 import { toPng } from "html-to-image";
 
-import { toPriceFormat } from "../libs/functions";
+import { handlePriceData, toPriceFormat } from "../libs/functions";
 
+import { DB_ALL } from "../consts/dbs";
 import type { TypeOutletContext } from "../consts/types";
 
 import { Button } from "@heroui/button";
@@ -36,12 +37,20 @@ export default function CartView() {
     }
 
     let total: number = 0;
-    const cart_ = Object.values(cart).filter((item) => Number(item.qtt) > 0);
-    cart_.forEach((item) => {
+    let items = DB_ALL.filter((item) => item.id in cart);
+    items = JSON.parse(JSON.stringify(items));
+
+    items.forEach((item) => {
       const array = [];
-      const use = item.price_data.usePrice;
-      const price = item.price_data.prices[use] || 0;
-      const subtotal = price * (item?.qtt || 0);
+      const qtt = cart[item.id] || 0;
+      const priceData = handlePriceData(
+        item.price_data,
+        entrega.following && item.categorie[0] === "imanes",
+        qtt
+      );
+      const use = priceData.usePrice;
+      const price = priceData.prices[use] || 0;
+      const subtotal = price * qtt;
       const label = item?.label;
 
       total += subtotal;
@@ -49,7 +58,7 @@ export default function CartView() {
       array.push(item.id + " -");
       array.push(label + " =>");
       array.push(toPriceFormat(price));
-      array.push(`x${item?.qtt}${item.price_data.salesUnit || "u"}`);
+      array.push(`x${qtt}${priceData.salesUnit || "u"}`);
       array.push(`= ${toPriceFormat(subtotal)}`);
       const list_text = array.join(" ");
 

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { TABLES_FORMS } from "../consts/values";
-import type { ClassDBItem, TypeOutletContext } from "../consts/types";
+import type { TypeOutletContext, TypeTableFormItem } from "../consts/types";
 
 import { scrollStyle } from "../libs/tvs";
 import { filterDbForms } from "../libs/functions";
@@ -13,38 +12,62 @@ import { Button } from "@mui/material";
 import TablePrices from "./Imanes/TablePrices";
 
 import {
-  SVGRedondoFresadoMeasures,
   SVGCuadradoMeasures,
+  SVGRectangularFresadoMeasures,
+  SVGRectangularMeasures,
+  SVGRedondoFresadoMeasures,
   SVGRedondoMeasures,
-  SVGCuadradoFresadoMeasures,
 } from "../assets/svgs/svgsFormas";
 
-type TypeTableFormItem = {
-  id: string;
-  label: string;
-  measureFormat: string;
-  items?: ClassDBItem[];
-};
-
-const svgs = {
-  redondo: SVGRedondoMeasures,
-  cuadrado: SVGCuadradoMeasures,
-  "redondo fresado": SVGRedondoFresadoMeasures,
-  "cuadrado fresado": SVGCuadradoFresadoMeasures,
-};
+const TABLES_FORMS: TypeTableFormItem[] = [
+  {
+    label: "redondos",
+    measureFormat: "DxH",
+    form: "redondo",
+    exclude: ["fresado", "arrastre"],
+    icon: SVGRedondoMeasures,
+  },
+  {
+    icon: SVGRedondoFresadoMeasures,
+    label: "redondos fresados",
+    measureFormat: "DxH Ds-Di",
+    form: "redondo",
+    include: ["fresado"],
+  },
+  {
+    icon: SVGRectangularMeasures,
+    label: "rectangulares",
+    measureFormat: "LxAxH",
+    form: "rectangular",
+    exclude: ["fresado"],
+  },
+  {
+    icon: SVGRectangularFresadoMeasures,
+    label: "rectangulares fresados",
+    measureFormat: "LxAxH Ds-Di",
+    form: "rectangular",
+    include: ["fresado"],
+  },
+  {
+    icon: SVGCuadradoMeasures,
+    label: "cuadrados",
+    measureFormat: "LxLxH",
+    form: "cuadrado",
+  },
+];
 
 export default function Imanes() {
   const context: TypeOutletContext = useOutletContext();
 
   const [tabSelected, setTabSelected] = useState(0);
-  const [tables, setTables] = useState<TypeTableFormItem[] | []>([]);
+  const [tables, setTables] = useState<TypeTableFormItem[]>([]);
 
-  const Svg = svgs[TABLES_FORMS[tabSelected].id as keyof typeof svgs];
+  const Svg = TABLES_FORMS[tabSelected].icon;
 
   useEffect(() => {
     const tables_: TypeTableFormItem[] = [...TABLES_FORMS];
 
-    tables_.map((table) => (table.items = filterDbForms(table.id)));
+    tables_.map((table) => (table.items = filterDbForms(table)));
 
     setTables(tables_);
   }, []);
@@ -111,7 +134,7 @@ export default function Imanes() {
           key={tabSelected}
           role="tabpanel"
           layoutId="content-imanes"
-          className="w-full text-center sm:flex flex-col items-center "
+          className="w-full text-center sm:flex flex-col items-center gap-4"
           initial={{ x: "100%", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           exit={{ x: "-100%", opacity: 0 }}

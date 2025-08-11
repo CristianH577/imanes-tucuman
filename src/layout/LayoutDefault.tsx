@@ -3,7 +3,8 @@ import { Outlet, useLocation } from "react-router";
 
 import { LINKS_SITES } from "../consts/siteConfig.tsx";
 
-import type { ClassDBItem, TypeObjectGeneral } from "../consts/types.tsx";
+import type { TypeDatabaseImg, TypeObjectGeneral } from "../consts/types.tsx";
+import type { ClassDBItem } from "../consts/classes.tsx";
 
 import { scrollToTop } from "../libs/functions.tsx";
 import { useCart } from "../hooks/useCart.tsx";
@@ -21,6 +22,7 @@ export default function LayoutDefault() {
   const { search, pathname } = useLocation();
   const cart = useCart();
   const [magnetData, setMagnetData] = useState<ClassDBItem | false>(false);
+  const [databaseImgs, setDatabaseImgs] = useState<TypeDatabaseImg>({});
 
   useEffect(scrollToTop, [pathname]);
 
@@ -43,23 +45,14 @@ export default function LayoutDefault() {
   return (
     <div
       id="app"
-      className="text-foreground dark:bg-content2 dark:text-white font-[menulis] flex flex-col justify-between min-h-screen h-[100dvh] overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
+      className="text-foreground dark:bg-content2 dark:text-white font-[menulis] flex flex-col justify-between min-h-screen h-[100dvh] max-xs:break-all overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
     >
-      <SuspenseCustom classFall="sticky h-20 bg-black/50 inset-0 z-50">
+      <SuspenseCustom classFall="sticky min-h-[64px] bg-black/50 inset-0 z-50">
         <NavbarCustom
           cartLength={Object.keys(cart.value).length}
           links={LINKS_SITES}
         />
       </SuspenseCustom>
-
-      {magnetData && (
-        <SuspenseCustom classFall="absolute h-screen bg-black/50 inset-0 z-50">
-          <ModalComparativeMagnet
-            magnetData={magnetData}
-            onClose={() => setMagnetData(false)}
-          />
-        </SuspenseCustom>
-      )}
 
       <main className="pb-12 px-2 sm:px-10 lg:px-12">
         <SuspenseCustom classFall="h-screen">
@@ -68,6 +61,7 @@ export default function LayoutDefault() {
               cart: cart,
               links: LINKS_SITES,
               setMagnetData: setMagnetData,
+              db: { value: databaseImgs, set: setDatabaseImgs },
             }}
           />
         </SuspenseCustom>
@@ -79,6 +73,15 @@ export default function LayoutDefault() {
       />
 
       <Footer whatsapp={LINKS_SITES.whatsapp} fotos={LINKS_SITES.fotos} />
+
+      {magnetData && (
+        <SuspenseCustom classFall="absolute h-screen bg-black/50 inset-0 z-50">
+          <ModalComparativeMagnet
+            magnetData={magnetData}
+            onClose={() => setMagnetData(false)}
+          />
+        </SuspenseCustom>
+      )}
     </div>
   );
 }

@@ -99,9 +99,19 @@ export default function AguasDuras() {
       ),
       img: (
         <span className="grid grid-cols-1 justify-items-center gap-4 max-w-xs xs:grid-cols-2 xs:items-center drop-shadow-custom">
-          <ImageCustom alt="Filtro largo" src={img_3} height={300} />
+          <ImageCustom
+            alt="Filtro largo"
+            className="w-full"
+            src={img_3}
+            height={300}
+          />
 
-          <ImageCustom alt="Filtro boya" src={img_4} height={300} />
+          <ImageCustom
+            alt="Filtro boya"
+            className="w-full"
+            src={img_4}
+            height={300}
+          />
         </span>
       ),
     },

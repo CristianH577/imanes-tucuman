@@ -1,5 +1,12 @@
+import type { ClassDBItem, ClassPriceData } from "../consts/classes";
 import { DB_ALL } from "../consts/dbs";
-import type { ClassDBItem, TypeFiltersValues } from "../consts/types";
+import type {
+  TypeDatabaseImg,
+  TypeFiltersValues,
+  TypeItemImgs,
+  TypeItemImgsArray,
+  TypeTableFormItem,
+} from "../consts/types";
 
 export const scrollToTop = () => {
   const app = document.querySelector("#app");
@@ -42,11 +49,8 @@ export function cartItemsComparator(col: string, order: string) {
     let bool = 0;
     if (type === "number") {
       if (col === "price") {
-        // const use_a = a?.price_data?.usePrice;
-        // const use_b = b?.price_data?.usePrice;
-
-        val_a = a?.price_data?.prices.base || "";
-        val_b = b?.price_data?.prices.base || "";
+        val_a = a.price_data.prices.base || "";
+        val_b = b.price_data.prices.base || "";
       }
       bool = Number(val_a) - Number(val_b);
     } else {
@@ -58,25 +62,27 @@ export function cartItemsComparator(col: string, order: string) {
   };
 }
 
-export const handlePriceData = (itemData: ClassDBItem, following = false) => {
-  const price_data = itemData?.price_data;
-  const prices_qtts = price_data?.prices_qtts;
-  const price_following = price_data.prices?.following;
+export const handlePriceData = (
+  priceData: ClassPriceData,
+  following = false,
+  qtt = 1
+) => {
+  const prices_qtts = priceData?.prices_qtts;
+  const price_following = priceData.prices?.following;
 
   if (following && !price_following) {
     let discount = 0.1;
-    const price = itemData.price_data.prices.base;
+    const price = priceData.prices.base;
     if (price > 12000) discount = 0.05;
-    itemData.price_data.prices.following = price * (1 - discount);
-    if (!itemData.price_data.discountsPercentages) {
-      itemData.price_data.discountsPercentages = {};
+    priceData.prices.following = price * (1 - discount);
+    if (!priceData.discountsPercentages) {
+      priceData.discountsPercentages = {};
     }
-    itemData.price_data.discountsPercentages.following = discount;
+    priceData.discountsPercentages.following = discount;
   }
 
   if (prices_qtts) {
     let price_qtt = 0;
-    const qtt = Number(itemData?.qtt);
     const qtts = Object.keys(prices_qtts)
       .map(Number)
       .sort((a, b) => a - b);
@@ -91,35 +97,45 @@ export const handlePriceData = (itemData: ClassDBItem, following = false) => {
       }
     }
 
-    const base = price_data.prices.base;
-    price_data.prices.qtt = price_qtt;
+    const base = priceData.prices.base;
+    priceData.prices.qtt = price_qtt;
 
-    if (!price_data.discountsPercentages) {
-      price_data.discountsPercentages = {};
+    if (!priceData.discountsPercentages) {
+      priceData.discountsPercentages = {};
     }
-    price_data.discountsPercentages.qtt = (base - price_qtt) / base;
+    priceData.discountsPercentages.qtt = (base - price_qtt) / base;
   }
 
   let use = "base";
-  const prices = price_data.prices;
+  const prices = priceData.prices;
   for (const key in prices) {
     if (key === "following" && !following) {
     } else {
       if (prices[key] && prices[key] < (prices[use] || 0)) use = key;
     }
   }
-  price_data.usePrice = use;
+  priceData.usePrice = use;
 
-  return price_data;
+  return priceData;
 };
 
-export const filterDbForms = (form = "redondo") => {
-  const items: ClassDBItem[] = DB_ALL.filter(
-    (item) =>
-      item.categorie === "imanes" &&
-      item.subcategorie === "neodimio" &&
-      item.especificaciones?.forma === form
-  );
+export const filterDbForms = (table: TypeTableFormItem) => {
+  const items: ClassDBItem[] = DB_ALL.filter((item) => {
+    let flag =
+      item.categorie[0] === "imanes" && item.categorie[1] === "neodimio";
+
+    if (flag && item.forma) {
+      flag = item.forma[0] === table.form;
+      if (table.exclude) {
+        flag = flag && !table.exclude.includes(item.forma[1]);
+      }
+      if (table.include) {
+        flag = flag && table.include.includes(item.forma[1]);
+      }
+    }
+
+    return flag;
+  });
 
   items.sort((a, b) => {
     return (
@@ -138,7 +154,11 @@ export const getHrefSearch = (filtersValues: TypeFiltersValues) => {
   for (const key in filtersValues) {
     if (!["apply", "page"].includes(key)) {
       const val = filtersValues[key as keyof TypeFiltersValues];
-      if (val) add.push([key, val]);
+      if (Array.isArray(val)) {
+        if (val.length) add.push([key, val]);
+      } else {
+        if (val) add.push([key, val]);
+      }
     }
   }
 
@@ -150,4 +170,71 @@ export const getHrefSearch = (filtersValues: TypeFiltersValues) => {
   }
 
   return href;
+};
+
+export const searchImgs = async (
+  items: ClassDBItem[] = [],
+  databaseImgsCurrent: TypeDatabaseImg = {},
+  toFind: TypeItemImgsArray | "preview" | "all" = "preview"
+) => {
+  const images_all = import.meta.glob(
+    "../assets/items/**/*.{png,jpg,jpeg,svg,webp}",
+    {
+      eager: true,
+      import: "default",
+    }
+  );
+  const srcs = Object.entries(images_all) as string[][];
+
+  const databaseImgs_: TypeDatabaseImg = {};
+
+  items.forEach((item) => {
+    let imgData: TypeItemImgs = {};
+
+    const current = databaseImgs_[item.id];
+    if (current) imgData = current;
+
+    if (!imgData.haveSvg) {
+      if (
+        item.categorie[0] === "imanes" &&
+        ["neodimio", "ferrita", "arrastre"].includes(item.categorie[1])
+      )
+        imgData.haveSvg = true;
+    }
+
+    if (["preview", "all"].includes(toFind)) {
+      if (!imgData.preview) {
+        const src_find = srcs.find(([path, _]) =>
+          path.includes(`/${item.id}/preview`)
+        );
+        if (src_find?.length) imgData.preview = src_find[1];
+      }
+    }
+
+    if (toFind !== "preview") {
+      let getImgs: TypeItemImgsArray[] = [];
+
+      if (toFind === "all") {
+        getImgs = ["imgs", "thumbnails", "full"];
+      } else {
+        getImgs = [toFind];
+      }
+
+      getImgs.forEach((cat) => {
+        if (!imgData[cat as keyof TypeItemImgs]) {
+          const cat_ = cat === "imgs" ? "320" : cat;
+          const imgs = srcs.filter(([path, _]) =>
+            path.includes(`/${item.id}/${cat_}`)
+          );
+          if (imgs.length)
+            // @ts-ignore
+            imgData[cat as keyof TypeItemImgs] = imgs.map((src) => src[1]);
+        }
+      });
+    }
+
+    databaseImgs_[item.id] = imgData;
+  });
+
+  return { ...databaseImgsCurrent, ...databaseImgs_ };
 };

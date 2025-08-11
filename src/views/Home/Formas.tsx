@@ -19,56 +19,56 @@ const items = [
   {
     id: "plano",
     label: "Redondo Plano",
-    hrefAdd: "&forma=redondo",
+    hrefAdd: "&forma=redondo,plano",
     src: plano,
   },
   {
     id: "boton",
     label: "Redondo Botón",
-    hrefAdd: "&forma=redondo",
+    hrefAdd: "&forma=redondo,boton",
     src: boton,
   },
   {
     id: "cilindro",
     label: "Redondo Cilindro",
-    hrefAdd: "&forma=redondo",
+    hrefAdd: "&forma=redondo,cilindro",
     src: cilindro,
   },
   {
     id: "arandela",
     label: "Redondo Fresado",
-    hrefAdd: "&forma=redondo%fresado",
+    hrefAdd: "&forma=redondo,fresado",
     src: arandela,
   },
   {
     id: "cuadrado",
-    label: "Cuadrado",
-    hrefAdd: "&forma=cuadrado",
+    label: "Cuadrado Plano",
+    hrefAdd: "&forma=cuadrado,plano",
     src: cuadrado,
   },
   {
-    id: "plancha",
-    label: "Cuadrado Plancha",
-    hrefAdd: "&forma=cuadrado",
+    id: "rectangular",
+    label: "Rectangular plano",
+    hrefAdd: "&forma=rectangular,plano",
     src: plancha,
   },
   {
-    id: "ladrillo",
-    label: "Cuadrado Bloque",
-    hrefAdd: "&forma=cuadrado",
+    id: "rectangular_bloque",
+    label: "Rectangular Bloque",
+    hrefAdd: "&forma=rectangular,bloque",
     src: ladrillo,
   },
   {
     id: "cuadrado_fresado",
-    label: "Cuadrado Fresado",
-    hrefAdd: "&forma=cuadrado%fresado",
+    label: "Rectangular Fresado",
+    hrefAdd: "&forma=rectangular,fresado",
     src: cuadrado_fresado,
   },
   { id: "esfera", label: "Esfera", hrefAdd: "&forma=esfera", src: esfera },
   {
     id: "de_arrastre",
     label: "De Arrastre /Pesca",
-    hrefAdd: "",
+    hrefAdd: "&forma=redondo,arrastre",
     src: de_arrastre,
   },
 ];
@@ -109,11 +109,7 @@ export default function Formas() {
                 scale: 1,
               },
             }}
-            href={
-              "#buscar?categorie=imanes&subcategorie=" +
-              (item.id === "de_arrastre" ? "arrastre" : "neodimio") +
-              item.hrefAdd
-            }
+            href={"#buscar?categorie=imanes,neodimio" + item.hrefAdd}
             className="bg-neutral-500/20 rounded-lg p-4 sm:p-8 max-w-[400px] xs:min-h-[150px] max-h-[400px] flex items-center justify-center relative select-none group/item"
           >
             <ImageCustom

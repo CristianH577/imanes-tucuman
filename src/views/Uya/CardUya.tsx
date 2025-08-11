@@ -33,7 +33,9 @@ export default function CardUya({
       <ImageCustom
         src={src}
         alt={alt ? alt : id ? `Imagen de ejemplo ${id}` : ""}
-        className={"rounded-md" + (classes?.img ? ` ${classes.img}` : "")}
+        className={
+          "rounded-md w-full" + (classes?.img ? ` ${classes.img}` : "")
+        }
         classes={{
           wrapper: classes?.imgWrapper ? classes.imgWrapper : "",
         }}

@@ -30,7 +30,7 @@ const items = [
   {
     id: "de_arrastre",
     src: de_arrastre,
-    href: "categorie=imanes&subcategorie=arrastre",
+    href: "categorie=imanes,neodimio&forma=redondo,arrastre",
     title: "Imán de Arrastre",
     text: "O imán de pesca. Tiene un cáncamo cerrado que permite su sujeción y posterior tracción",
     icon: PhishingIcon,
@@ -38,7 +38,7 @@ const items = [
   {
     id: "ceramico",
     src: ceramico,
-    href: "categorie=imanes&subcategorie=ferrita",
+    href: "categorie=imanes,ferrita",
     title: "Imán de ferrita",
     text: "Tienen alta resistencia a la temperatura y corrosión, esto le permiten ser usados en exteriores y hornos",
     icon: SVGMagnet,
@@ -46,7 +46,7 @@ const items = [
   {
     id: "tira_flexible",
     src: tira_flexible,
-    href: "categorie=imanes&subcategorie=otros&text=tira",
+    href: "categorie=imanes,flexibles&text=tira",
     title: "Imán en tira",
     text: "Usado frecuentemente para hacer mosquiteros y manualidades",
     icon: SVGRibbon,
@@ -54,7 +54,7 @@ const items = [
   {
     id: "plancha",
     src: plancha,
-    href: "categorie=imanes&subcategorie=otros&text=plancha",
+    href: "categorie=imanes,flexibles&text=lamina",
     title: "Imán en plancha",
     text: "Puede pegarse para hacer souvenirs, calendarios, imanes publicitarios, etc",
     icon: SVGWallpaper,

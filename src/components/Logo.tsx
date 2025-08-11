@@ -4,7 +4,7 @@ import {
   SVGTextoTucuman,
 } from "../assets/svgs/svgsLogo";
 
-function Logo({
+export default function Logo({
   id = "",
   classNames = { svgA: "" },
   className = "",
@@ -44,5 +44,3 @@ function Logo({
     </a>
   );
 }
-
-export default Logo;

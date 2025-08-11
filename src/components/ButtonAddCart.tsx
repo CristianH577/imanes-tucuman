@@ -1,5 +1,3 @@
-import type { ClassDBItem } from "../consts/types";
-
 import { Button } from "@heroui/button";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -7,34 +5,29 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 
 type TypeButtonAddCart = {
-  itemData: ClassDBItem;
   inCart: boolean;
-  handleAdd: (data: ClassDBItem) => void;
+  handleAdd?: () => void;
   className?: string;
+  size?: "sm" | "md" | "lg";
 };
 
 export default function ButtonAddCart({
-  itemData,
   inCart = false,
   handleAdd,
   className = "",
+  size = "md",
   ...props
 }: TypeButtonAddCart) {
-  if (inCart) {
-    itemData.qtt = 0;
-  } else {
-    if (!itemData?.qtt) itemData.qtt = 1;
-  }
-
   return (
     <Button
       isIconOnly
+      size={size}
       color={inCart ? "success" : "secondary"}
       title={inCart ? "Quitar del carrito" : "Agregar al carrito"}
       className={`group shadow-md ${inCart ? "hover:bg-danger" : ""}${
         className ? " " + className : ""
       }`}
-      onPress={() => handleAdd(itemData)}
+      onPress={handleAdd && handleAdd}
       {...props}
     >
       {inCart ? (

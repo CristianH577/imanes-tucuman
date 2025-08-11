@@ -113,7 +113,7 @@ export default function MenuMovilDrawer({
                         component="a"
                         className="text-custom2 dark:text-custom1 capitalize py-2 hover:shadow-md dark:hover:bg-neutral-500/20"
                         href={`#${item.href}${item?.search || ""}`}
-                        title={"Ir a " + item.label}
+                        title={"Ir a " + (item.title || item.label)}
                         onClick={onClose}
                       >
                         {item?.icon && (

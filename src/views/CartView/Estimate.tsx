@@ -1,5 +1,5 @@
 import { Select, SelectItem } from "@heroui/select";
-import { Checkbox, Divider, FormControl, FormLabel } from "@mui/material";
+import { Divider } from "@mui/material";
 
 import Logo from "../../components/Logo";
 import List from "./List";
@@ -74,7 +74,7 @@ export default function Estimate({
       <Logo id="presupuesto_logo" className="max-w-44 my-2" />
 
       <section className="flex flex-col items-center gap-2">
-        <FormControl className="flex-row items-center ">
+        {/* <FormControl className="flex-row items-center ">
           <Checkbox
             checked={entrega.following}
             color="warning"
@@ -83,7 +83,7 @@ export default function Estimate({
             }
           />
           <FormLabel className="font-semibold">Sigo las redes</FormLabel>
-        </FormControl>
+        </FormControl> */}
 
         <Select
           name="shipping"
