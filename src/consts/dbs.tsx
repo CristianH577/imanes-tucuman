@@ -17,7 +17,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 85,
         "1000": 80,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 2,
@@ -55,7 +55,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 95,
         "1000": 90,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 2,
@@ -93,7 +93,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 80,
         "1000": 75,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 3,
@@ -131,7 +131,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 85,
         "1000": 80,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 3,
@@ -169,7 +169,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 90,
         "1000": 85,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 4,
@@ -207,7 +207,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 95,
         "1000": 90,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 4,
@@ -235,17 +235,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 130,
+        base: 135,
       },
       prices_qtts: {
-        "1": 130,
-        "25": 125,
-        "50": 110,
-        "100": 95,
-        "500": 90,
-        "1000": 85,
+        "1": 135,
+        "25": 130,
+        "50": 115,
+        "100": 100,
+        "500": 95,
+        "1000": 90,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 5,
@@ -283,7 +283,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 100,
         "1000": 90,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 5,
@@ -321,7 +321,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 140,
         "1000": 130,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 5,
@@ -360,7 +360,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 175,
         "1000": 165,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 5,
@@ -387,17 +387,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 230,
+        base: 235,
       },
       prices_qtts: {
-        "1": 230,
-        "25": 215,
-        "50": 190,
-        "100": 165,
-        "500": 155,
-        "1000": 145,
+        "1": 235,
+        "25": 225,
+        "50": 200,
+        "100": 170,
+        "500": 160,
+        "1000": 150,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 6,
@@ -435,7 +435,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 125,
         "1000": 115,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 7,
@@ -473,7 +473,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 375,
         "1000": 350,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 7,
@@ -515,7 +515,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 245,
         "1000": 230,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 8,
@@ -543,17 +543,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 475,
+        base: 490,
       },
       prices_qtts: {
-        "1": 475,
-        "25": 445,
-        "50": 395,
-        "100": 345,
-        "500": 325,
-        "1000": 305,
+        "1": 490,
+        "25": 465,
+        "50": 410,
+        "100": 355,
+        "500": 335,
+        "1000": 315,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 8,
@@ -591,7 +591,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 360,
         "1000": 340,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 8,
@@ -629,7 +629,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 220,
         "1000": 210,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 9,
@@ -667,7 +667,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 255,
         "1000": 240,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 9,
@@ -705,7 +705,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 335,
         "1000": 315,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -734,17 +734,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 520,
+        base: 550,
       },
       prices_qtts: {
-        "1": 520,
-        "25": 490,
-        "50": 435,
-        "100": 375,
-        "500": 355,
-        "1000": 335,
+        "1": 550,
+        "25": 520,
+        "50": 455,
+        "100": 395,
+        "500": 375,
+        "1000": 350,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -782,7 +782,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 475,
         "1000": 450,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -820,7 +820,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 590,
         "1000": 560,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -858,7 +858,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 840,
         "500": 790,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -895,7 +895,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 1650,
         "200": 1550,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -933,7 +933,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 590,
         "1000": 550,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 11,
@@ -971,7 +971,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 650,
         "1000": 610,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 11,
@@ -1009,7 +1009,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 590,
         "1000": 550,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 12,
@@ -1047,7 +1047,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 700,
         "1000": 650,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 12,
@@ -1085,7 +1085,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 495,
         "1000": 465,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 15,
@@ -1094,6 +1094,7 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 2.6,
     },
     isComparable: true,
+    caracteristicas: ["N35"],
     fuerza_N: {
       "35": {
         fuerza: "2-3.5",
@@ -1123,7 +1124,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 610,
         "1000": 570,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 15,
@@ -1162,7 +1163,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 980,
         "500": 920,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 15,
@@ -1200,7 +1201,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 870,
         "500": 810,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 20,
@@ -1237,7 +1238,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 1900,
         "200": 1800,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 20,
@@ -1275,7 +1276,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 1250,
         "1000": 1180,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 25,
@@ -1284,6 +1285,7 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 1.8,
     },
     isComparable: true,
+    caracteristicas: ["N35"],
     fuerza_N: {
       "35": {
         fuerza: "4-7",
@@ -1304,17 +1306,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 2050,
+        base: 2150,
       },
       prices_qtts: {
-        "1": 2050,
-        "25": 1900,
-        "50": 1750,
-        "100": 1550,
-        "250": 1470,
-        "500": 1380,
+        "1": 2150,
+        "20": 2050,
+        "40": 1850,
+        "80": 1650,
+        "200": 1550,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 25,
@@ -1352,7 +1353,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 1200,
         "500": 1130,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 25,
@@ -1389,7 +1390,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 2400,
         "200": 2250,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 25,
@@ -1426,7 +1427,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 1900,
         "200": 1800,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 30,
@@ -1463,7 +1464,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 4350,
         "200": 4150,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 30,
@@ -1499,7 +1500,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 4500,
         "200": 4350,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 35,
@@ -1535,7 +1536,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 4850,
         "200": 4700,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 35,
@@ -1571,7 +1572,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 4950,
         "200": 4750,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 37,
@@ -1607,7 +1608,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 7350,
         "120": 7050,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 38,
@@ -1644,7 +1645,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 5400,
         "120": 5200,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 40,
@@ -1680,7 +1681,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 5800,
         "120": 5550,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 54,
@@ -1718,7 +1719,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 260,
         "1000": 245,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -1756,7 +1757,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 350,
         "1000": 325,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -1795,7 +1796,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 280,
         "1000": 265,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -1834,7 +1835,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 410,
         "1000": 385,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 14.5,
@@ -1874,7 +1875,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 990,
         "500": 930,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 15,
@@ -1912,7 +1913,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 2450,
         "200": 2300,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 20,
@@ -1951,7 +1952,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 860,
         "500": 800,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 25,
@@ -1990,7 +1991,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 1480,
         "500": 1390,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 28,
@@ -2029,7 +2030,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 2950,
         "200": 2800,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 30,
@@ -2066,7 +2067,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 4200,
         "200": 4000,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 30,
@@ -2104,7 +2105,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 3700,
         "200": 3500,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 40,
@@ -2142,7 +2143,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 6400,
         "120": 6150,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 40,
@@ -2179,7 +2180,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 14600,
         "120": 14100,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 40,
@@ -2216,7 +2217,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 3050,
         "200": 2850,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 50,
@@ -2254,7 +2255,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 15700,
         "120": 15200,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 50,
@@ -2292,7 +2293,7 @@ export const DB_ALL: ClassDBItem[] = [
         "50": 17200,
         "120": 16700,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 50,
@@ -2330,7 +2331,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 310,
         "1000": 295,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 8,
@@ -2375,7 +2376,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 485,
         "1000": 455,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 12,
@@ -2420,7 +2421,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 680,
         "1000": 640,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 15,
@@ -2465,7 +2466,7 @@ export const DB_ALL: ClassDBItem[] = [
         "250": 1310,
         "500": 1230,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 20,
@@ -2509,7 +2510,7 @@ export const DB_ALL: ClassDBItem[] = [
         "80": 2950,
         "200": 2800,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 20,
@@ -2568,9 +2569,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 14200,
+        base: 12250,
       },
-      update: "30/7/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 25,
@@ -2590,9 +2591,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 20000,
+        base: 16500,
       },
-      update: "30/7/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 32,
@@ -2612,9 +2613,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 22000,
+        base: 20000,
       },
-      update: "30/7/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 36,
@@ -2634,9 +2635,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 26000,
+        base: 22000,
       },
-      update: "30/7/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 42,
@@ -2650,6 +2651,7 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
   },
   {
+    hidden: true,
     noStock: true,
     id: 72,
     label: "48mm",
@@ -2657,9 +2659,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 35000,
+        base: 26000,
       },
-      update: "30/7/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 48,
@@ -2679,9 +2681,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 42000,
+        base: 34000,
       },
-      update: "30/7/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 75,
@@ -3062,6 +3064,7 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "ferrita"],
   },
   {
+    noStock: true,
     id: 88,
     label: "25x14x5mm",
     price_data: {
@@ -3188,7 +3191,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 360,
         "1000": 340,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 9.56,
@@ -3271,7 +3274,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 95,
         "1000": 90,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 7,
@@ -3280,6 +3283,7 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.3,
     },
     isComparable: true,
+    caracteristicas: ["N35"],
     fuerza_N: {
       "35": {
         fuerza: "0.55-0.6",
@@ -3309,7 +3313,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 105,
         "1000": 100,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 9,
@@ -3318,6 +3322,7 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.6,
     },
     isComparable: true,
+    caracteristicas: ["N35"],
     fuerza_N: {
       "35": {
         fuerza: "1-1.2",
@@ -3347,7 +3352,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 190,
         "1000": 180,
       },
-      update: "18/6/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 6,
@@ -3511,17 +3516,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 165,
+        base: 170,
       },
       prices_qtts: {
-        "1": 165,
-        "25": 155,
+        "1": 170,
+        "25": 160,
         "50": 140,
-        "100": 130,
-        "500": 120,
-        "1000": 113,
+        "100": 120,
+        "500": 115,
+        "1000": 110,
       },
-      update: "8/8/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 6,
@@ -3541,12 +3546,13 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1900,
-        "25": 1760,
+        "25": 1800,
         "50": 1600,
-        "100": 1430,
-        "500": 1350,
+        "100": 1460,
+        "250": 1370,
+        "500": 1290,
       },
-      update: "8/8/25",
+      update: "12/8/25",
     },
     measures: {
       largo: 10,
@@ -3611,7 +3617,7 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 13000,
+        base: 14000,
       },
     },
     measures: {
