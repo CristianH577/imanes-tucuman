@@ -26,9 +26,8 @@ export default function PriceLabel({
         >
           {itemData.price_data?.discountsPercentages?.[usePrice] && (
             <b className="text-red-700">
-              -{" "}
               {toPercentageFormat(
-                itemData.price_data.discountsPercentages[usePrice]
+                itemData.price_data.discountsPercentages[usePrice] * -1
               )}
             </b>
           )}{" "}

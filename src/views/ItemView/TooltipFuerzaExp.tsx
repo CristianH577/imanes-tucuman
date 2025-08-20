@@ -8,7 +8,7 @@ export default function TooltipFuerzaExp({ exp }: { exp?: boolean }) {
   const [open, setOpen] = useState(false);
 
   const title = exp
-    ? "La fuerza experimental esta medida mediante la adhesión magnética de un peso al imán que a su vez esta adherido a una placa de metal de casi 10mm en un sentido vertical."
+    ? "Medida adhiriendo el imán magnéticamente a una placa metálica fija y a su vez otra placa con un peso, en sentido vertical y con placas de ~10mm de grosor."
     : "Es es bajo buenas condiciones. Más info. en FAQs.";
 
   return (

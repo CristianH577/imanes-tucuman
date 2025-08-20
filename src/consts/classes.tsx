@@ -15,7 +15,7 @@ export class ClassPriceData {
   } = {};
   update?: string = "";
   salesUnit?: TypeSalesUnit;
-  priceUpdate?: string;
+  salesDecimal?: number[];
 }
 
 export class ClassDBItem {

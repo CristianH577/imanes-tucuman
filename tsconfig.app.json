@@ -23,5 +23,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "z/Caracteristicas"]
+  "include": ["src"],
+  "exclude": ["z"]
 }

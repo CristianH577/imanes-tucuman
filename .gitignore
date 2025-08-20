@@ -30,6 +30,7 @@ src/components/Component.tsx
 src/assets/uya/neocube-v20.mp4
 src/assets/uya/como-usar-empalme-clip.mp4
 src/layout/NavbarCustom/SearchDrawer.tsx
+src/assets/items/default
 
 back/*
 z/*

@@ -54,10 +54,21 @@ export default function TableItemPrices({
 
   const handleChangeQttFix = (event: React.ChangeEvent<HTMLInputElement>) => {
     const qtt = Number(event.target.value);
-
     itemData.price_data = handlePriceData(itemData.price_data, false, qtt);
-
     setQttFix(qtt);
+  };
+  const handleBlurQttFix = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let qtt = Number(event.target.value);
+    if (
+      qtt > 0 &&
+      qtt < 1 &&
+      itemData.price_data.salesDecimal &&
+      !itemData.price_data.salesDecimal.includes(qtt)
+    ) {
+      qtt = 1;
+      itemData.price_data = handlePriceData(itemData.price_data, false, qtt);
+      setQttFix(qtt);
+    }
   };
 
   const handleButtonInputCart = () => {
@@ -106,17 +117,11 @@ export default function TableItemPrices({
           {itemData?.noStock && (
             <b className="text-danger text-tert">Sin Stock</b>
           )}
-
-          <PriceLabel
-            itemData={itemData}
-            classNames={{
-              price: "text-custom2 dark:text-custom1 font-semibold text-4xl",
-            }}
-          />
-
           <div className="flex flex-wrap gap-3 items-end xs:flex-row xs:items-center">
             <Input
               type="number"
+              min={0}
+              isInvalid={false}
               label="Cantidad"
               className="max-w-36"
               classNames={{
@@ -127,6 +132,7 @@ export default function TableItemPrices({
               endContent={itemData.price_data.salesUnit || undefined}
               value={qttFix ? String(qttFix) : ""}
               onChange={handleChangeQttFix}
+              onBlur={handleBlurQttFix}
             />
 
             <ButtonAddCart
@@ -134,6 +140,13 @@ export default function TableItemPrices({
               handleAdd={handleButtonInputCart}
             />
           </div>
+
+          <PriceLabel
+            itemData={itemData}
+            classNames={{
+              price: "text-custom2 dark:text-custom1 font-semibold text-4xl",
+            }}
+          />
 
           <a
             href="#faqs"

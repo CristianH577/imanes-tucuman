@@ -114,6 +114,9 @@ export const handlePriceData = (
       if (prices[key] && prices[key] < (prices[use] || 0)) use = key;
     }
   }
+  if (qtt < 1 && use === "base" && prices.qtt && prices.qtt > prices.base) {
+    use = "qtt";
+  }
   priceData.usePrice = use;
 
   return priceData;

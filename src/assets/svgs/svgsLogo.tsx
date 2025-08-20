@@ -1,4 +1,4 @@
-import type { TypeObjectGeneral } from "../../consts/types";
+import type { SVGProps } from "react";
 
 export const SVGMancha = ({
   id = "",
@@ -464,7 +464,7 @@ export const SVGTextoImanes = ({
   </svg>
 );
 
-export const SVGTextoTucuman = (props: TypeObjectGeneral) => (
+export const SVGTextoTucuman = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={420}

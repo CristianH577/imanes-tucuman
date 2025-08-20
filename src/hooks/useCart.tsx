@@ -9,7 +9,7 @@ import type { TypeCart } from "../consts/types";
 
 //   return {};
 // };
-const VERSION_CURRENT = "2.3.0";
+const VERSION_CURRENT = "2.3.12";
 
 const inizializete = () => {
   const version = localStorage.getItem("version");

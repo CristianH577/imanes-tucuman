@@ -53,7 +53,10 @@ export default function MenuConfigs() {
         title="Configuraciones"
         onClick={handleClick}
       >
-        <SettingsIcon fontSize="inherit" />
+        <SettingsIcon
+          fontSize="inherit"
+          className="text-neutral-500 dark:text-neutral-300"
+        />
       </IconButton>
 
       <Menu

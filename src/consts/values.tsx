@@ -10,6 +10,7 @@ import {
   SVGRectangularPlano,
   SVGEsfera,
   SVGCuadradoCubico,
+  SvgCuadradoBloque,
 } from "../assets/svgs/svgsFormas";
 import type {
   TypeFiltersValues,
@@ -38,6 +39,7 @@ export const OBJ_SHAPES: TypeObjShape = {
     subs: {
       plano: { icon: SVGCuadradoPlano },
       cubico: { label: "cúbico", icon: SVGCuadradoCubico },
+      bloque: { icon: SvgCuadradoBloque },
     },
   },
   rectangular: {

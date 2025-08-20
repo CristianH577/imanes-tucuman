@@ -6,7 +6,7 @@ import { DB_ALL } from "../../consts/dbs";
 import { OBJ_SHAPES } from "../../consts/values";
 import type { ClassDBItem } from "../../consts/classes";
 
-import type { TypeIcon, TypeOutletContext } from "../../consts/types";
+import type { TypeCart, TypeIcon, TypeOutletContext } from "../../consts/types";
 
 import { scrollStyle } from "../../libs/tvs";
 import {
@@ -77,6 +77,7 @@ export default function List({ downloading = false, following = false }) {
   const [totalVisibleItems, setTotalVisibleItems] = useState(itemsPerView);
   const [total, setTotal] = useState({ ...totalDefault });
   const visibleItems = items.slice(0, totalVisibleItems);
+  const [cartAux, setCartAux] = useState<TypeCart>(structuredClone(cart));
 
   const searchItems = async () => {
     setLoading(true);
@@ -149,12 +150,14 @@ export default function List({ downloading = false, following = false }) {
       case "categorie":
         return <span className="capitalize">{row.categorie.join(" > ")}</span>;
       case "qtt":
+        const qtt = cartAux[row.id];
         return (
           <div className="flex justify-end gap-2">
             <Input
               name={String(row.id)}
               aria-label="Cantidad"
               type="number"
+              isInvalid={false}
               size="sm"
               className="min-w-24 max-w-32"
               classNames={{
@@ -165,7 +168,8 @@ export default function List({ downloading = false, following = false }) {
               startContent="x"
               endContent={row?.price_data?.salesUnit || "u"}
               min={0}
-              defaultValue={String(cart[row.id]) || ""}
+              value={qtt ? String(qtt) : ""}
+              onChange={(e) => handleQttChange(e, row.id)}
               onBlur={(e) => handleQttBlur(e, row.id)}
               onKeyDown={(e) => handleKeyDown(e, row.id)}
             />
@@ -197,12 +201,12 @@ export default function List({ downloading = false, following = false }) {
   };
 
   const handlePriceQtt = (target: HTMLInputElement, id: number) => {
-    const qtt = Number(target.value);
-
     const itemData = items.find((item) => item.id === id);
 
     if (itemData) {
+      const qtt = Number(target.value);
       const cart_ = structuredClone(cart);
+
       itemData.price_data = handlePriceData(
         itemData.price_data,
         following && itemData.categorie[0] === "imanes",
@@ -210,6 +214,26 @@ export default function List({ downloading = false, following = false }) {
       );
       context.cart.set({ ...cart_, [id]: qtt });
     }
+  };
+
+  const handleQttChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    id: number
+  ) => {
+    const itemData = items.find((item) => item.id === id);
+    let qtt = Number(e.target.value);
+
+    if (
+      itemData &&
+      qtt > 0 &&
+      qtt < 1 &&
+      itemData.price_data.salesDecimal &&
+      !itemData.price_data.salesDecimal.includes(qtt)
+    ) {
+      qtt = 1;
+    }
+
+    setCartAux({ ...cart, [id]: qtt });
   };
   const handleQttBlur = (e: React.FocusEvent<HTMLInputElement>, id: number) => {
     handlePriceQtt(e.target, id);

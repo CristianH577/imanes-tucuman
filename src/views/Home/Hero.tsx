@@ -72,10 +72,10 @@ export default function Hero() {
           <img
             loading="eager"
             fetchPriority="high"
-            width="100%"
-            height="100%"
+            width={1024}
+            height={758}
             alt="Varios tipos de imanes de neodimio"
-            className="object-contain h-full w-fit absolute drop-shadow-custom"
+            className="object-contain w-full h-full absolute drop-shadow-custom"
             src={portada_360}
             srcSet={`
                   ${portada_360} 360w,
