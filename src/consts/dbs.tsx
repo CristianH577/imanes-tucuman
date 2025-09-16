@@ -19,7 +19,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 85,
         "1000": 80,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 2,
@@ -28,6 +28,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.14,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N40",
+    },
   },
   {
     id: 2,
@@ -75,7 +78,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 80,
         "1000": 75,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 3,
@@ -84,6 +87,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.1,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N38",
+    },
   },
   {
     id: 4,
@@ -112,6 +118,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.19,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N40",
+    },
   },
   {
     id: 5,
@@ -125,13 +134,13 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 130,
-        "25": 120,
+        "25": 125,
         "50": 110,
         "100": 95,
         "500": 90,
         "1000": 85,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 4,
@@ -168,6 +177,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.4,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N40",
+    },
   },
   {
     id: 7,
@@ -187,7 +199,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 95,
         "1000": 90,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 5,
@@ -196,6 +208,12 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.4,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N38",
+    },
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2990934691",
+    },
   },
   {
     id: 8,
@@ -215,7 +233,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 100,
         "1000": 95,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 5,
@@ -224,6 +242,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.6,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N38",
+    },
   },
   {
     id: 9,
@@ -272,7 +293,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 180,
         "1000": 170,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 5,
@@ -289,17 +310,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 235,
+        base: 245,
       },
       prices_qtts: {
-        "1": 235,
-        "25": 225,
-        "50": 200,
-        "100": 170,
-        "500": 160,
-        "1000": 150,
+        "1": 245,
+        "25": 230,
+        "50": 205,
+        "100": 180,
+        "500": 170,
+        "1000": 160,
       },
-      update: "12/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 6,
@@ -336,6 +357,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.45,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2990936401",
+    },
   },
   {
     id: 13,
@@ -345,17 +369,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 510,
+        base: 560,
       },
       prices_qtts: {
-        "1": 510,
-        "25": 480,
-        "50": 425,
-        "100": 370,
-        "500": 350,
-        "1000": 325,
+        "1": 560,
+        "25": 530,
+        "50": 470,
+        "100": 410,
+        "250": 385,
+        "500": 360,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 7,
@@ -364,10 +388,6 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 1.2,
     },
     isComparable: true,
-    links: {
-      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU3009555105?pdp_filters=seller_id%3A177470483&highlight=false&headerTopBrand=false#polycard_client=search-nordic&searchVariation=MLAU3009555105&wid=MLA1476345237&position=6&search_layout=grid&type=product&tracking_id=cb434426-5d8a-4700-a496-d2c2b9c3b70f&sid=search",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo/up/MLAU3009555105?pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU3014771058&picker=true&quantity=1",
-    },
   },
   {
     id: 14,
@@ -377,23 +397,26 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 360,
+        base: 385,
       },
       prices_qtts: {
-        "1": 360,
-        "25": 340,
-        "50": 300,
-        "100": 260,
-        "500": 245,
-        "1000": 230,
+        "1": 385,
+        "25": 360,
+        "50": 320,
+        "100": 280,
+        "500": 260,
+        "1000": 245,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 8,
       alto: 3,
       peso: 1.3,
-      fuerzaExp: 0.16,
+      fuerzaExp: 1.6,
+    },
+    especificaciones: {
+      denominación: "N42",
     },
     isComparable: true,
   },
@@ -405,17 +428,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 490,
+        base: 510,
       },
       prices_qtts: {
-        "1": 490,
-        "25": 465,
-        "50": 410,
-        "100": 355,
-        "500": 335,
-        "1000": 315,
+        "1": 510,
+        "25": 480,
+        "50": 425,
+        "100": 370,
+        "500": 345,
+        "1000": 325,
       },
-      update: "12/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 8,
@@ -424,6 +447,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 1.7,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N42",
+    },
   },
   {
     id: 16,
@@ -471,7 +497,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 220,
         "1000": 210,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 9,
@@ -480,6 +506,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.72,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N46",
+    },
   },
   {
     id: 18,
@@ -507,7 +536,13 @@ export const DB_ALL: ClassDBItem[] = [
       peso: 1.25,
       fuerzaExp: 1.2,
     },
+    especificaciones: {
+      denominación: "N42",
+    },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2996280676",
+    },
   },
   {
     id: 19,
@@ -527,7 +562,7 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 340,
         "1000": 320,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 10,
@@ -536,6 +571,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 1.13,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N40",
+    },
   },
   {
     id: 20,
@@ -552,8 +590,8 @@ export const DB_ALL: ClassDBItem[] = [
         "25": 570,
         "50": 500,
         "100": 435,
-        "500": 410,
-        "1000": 385,
+        "250": 410,
+        "500": 385,
       },
       update: "20/8/2025",
     },
@@ -564,6 +602,12 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 1.7,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N42",
+    },
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2991085903",
+    },
   },
   {
     id: 21,
@@ -573,17 +617,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 700,
+        base: 800,
       },
       prices_qtts: {
-        "1": 700,
-        "25": 660,
-        "50": 580,
-        "100": 510,
-        "500": 475,
-        "1000": 450,
+        "1": 800,
+        "25": 750,
+        "50": 670,
+        "100": 580,
+        "250": 540,
+        "500": 510,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 10,
@@ -608,8 +652,8 @@ export const DB_ALL: ClassDBItem[] = [
         "25": 850,
         "50": 750,
         "100": 650,
-        "500": 610,
-        "1000": 570,
+        "250": 610,
+        "500": 570,
       },
       update: "20/8/2025",
     },
@@ -622,6 +666,7 @@ export const DB_ALL: ClassDBItem[] = [
     isComparable: true,
   },
   {
+    noStock: true,
     id: 23,
     label: "10x10mm",
     categorie: ["imanes", "neodimio"],
@@ -633,11 +678,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1230,
-        "25": 1170,
-        "50": 1030,
-        "100": 890,
-        "250": 840,
-        "500": 790,
+        "20": 1170,
+        "40": 1030,
+        "80": 890,
+        "200": 840,
       },
       update: "21/4/2025",
     },
@@ -661,10 +705,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 2150,
-        "20": 2050,
-        "40": 1850,
-        "80": 1650,
-        "200": 1550,
+        "10": 2050,
+        "25": 1850,
+        "50": 1650,
+        "120": 1550,
       },
       update: "21/4/2025",
     },
@@ -691,8 +735,8 @@ export const DB_ALL: ClassDBItem[] = [
         "25": 810,
         "50": 720,
         "100": 620,
-        "500": 590,
-        "1000": 550,
+        "250": 590,
+        "500": 550,
       },
       update: "21/4/2025",
     },
@@ -716,11 +760,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 970,
-        "25": 920,
-        "50": 810,
-        "100": 710,
-        "500": 670,
-        "1000": 630,
+        "20": 920,
+        "40": 810,
+        "80": 710,
+        "200": 670,
       },
       update: "20/8/2025",
     },
@@ -747,8 +790,8 @@ export const DB_ALL: ClassDBItem[] = [
         "25": 810,
         "50": 720,
         "100": 620,
-        "500": 590,
-        "1000": 550,
+        "250": 590,
+        "500": 550,
       },
       update: "21/4/2025",
     },
@@ -768,17 +811,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 1020,
+        base: 1070,
       },
       prices_qtts: {
-        "1": 1020,
-        "25": 960,
-        "50": 850,
-        "100": 740,
-        "500": 700,
-        "1000": 650,
+        "1": 1070,
+        "20": 1010,
+        "40": 900,
+        "80": 780,
+        "200": 730,
       },
-      update: "21/4/2025",
+      update: "28/8/2025",
     },
     measures: {
       largo: 12,
@@ -787,6 +829,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 3.6,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2996280680",
+    },
   },
   {
     id: 29,
@@ -825,17 +870,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 900,
+        base: 910,
       },
       prices_qtts: {
-        "1": 900,
-        "25": 850,
-        "50": 750,
-        "100": 650,
-        "500": 610,
-        "1000": 570,
+        "1": 910,
+        "20": 860,
+        "40": 760,
+        "80": 660,
+        "200": 620,
       },
-      update: "1/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 15,
@@ -844,9 +888,14 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 3.5,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N40",
+    },
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2991085905",
+    },
   },
   {
-    noStock: true,
     id: 31,
     label: "15x5mm",
     categorie: ["imanes", "neodimio"],
@@ -854,17 +903,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 1430,
+        base: 1600,
       },
       prices_qtts: {
-        "1": 1430,
+        "1": 1600,
+        "10": 1500,
         "25": 1350,
-        "50": 1200,
-        "100": 1040,
-        "250": 980,
-        "500": 920,
+        "50": 1170,
+        "120": 1100,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 15,
@@ -873,6 +921,12 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 5.7,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N52",
+    },
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU3009553563",
+    },
   },
   {
     id: 32,
@@ -886,11 +940,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1270,
-        "25": 1200,
-        "50": 1060,
-        "100": 920,
-        "250": 870,
-        "500": 810,
+        "20": 1200,
+        "40": 1060,
+        "80": 920,
+        "200": 870,
       },
       update: "13/3/2025",
     },
@@ -901,6 +954,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 4.7,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2991086403",
+    },
   },
   {
     id: 33,
@@ -914,10 +970,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 2500,
-        "20": 2350,
-        "40": 2150,
-        "80": 1900,
-        "200": 1800,
+        "10": 2350,
+        "25": 2150,
+        "50": 1900,
+        "120": 1800,
       },
       update: "21/4/2025",
     },
@@ -928,8 +984,12 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 7,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU3014771058",
+    },
   },
   {
+    hidden: true,
     id: 34,
     label: "25x2mm N35",
     categorie: ["imanes", "neodimio"],
@@ -959,7 +1019,6 @@ export const DB_ALL: ClassDBItem[] = [
     caracteristicas: ["N35"],
   },
   {
-    noStock: true,
     id: 35,
     label: "25x2mm",
     categorie: ["imanes", "neodimio"],
@@ -971,10 +1030,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 2200,
-        "20": 2100,
-        "40": 1900,
-        "80": 1700,
-        "200": 1600,
+        "10": 2100,
+        "25": 1900,
+        "50": 1700,
+        "120": 1600,
       },
       update: "20/8/2025",
     },
@@ -985,6 +1044,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 4.6,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo/up/MLAU2991085901",
+    },
   },
   {
     id: 36,
@@ -998,11 +1060,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1750,
-        "25": 1650,
-        "50": 1470,
-        "100": 1270,
-        "250": 1200,
-        "500": 1130,
+        "10": 1650,
+        "25": 1470,
+        "50": 1270,
+        "120": 1200,
       },
       update: "17/5/2025",
     },
@@ -1022,16 +1083,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 3000,
+        base: 3050,
       },
       prices_qtts: {
-        "1": 3000,
-        "20": 2800,
-        "40": 2600,
-        "80": 2400,
-        "200": 2250,
+        "1": 3050,
+        "10": 2900,
+        "25": 2700,
+        "50": 2450,
+        "120": 2300,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 25,
@@ -1047,16 +1108,20 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
         base: 2500,
+        discount: 2000,
+      },
+      discountsPercentages: {
+        discount: 0.2,
       },
       prices_qtts: {
         "1": 2500,
-        "20": 2350,
-        "40": 2150,
-        "80": 1900,
-        "200": 1800,
+        "10": 2350,
+        "25": 2150,
+        "50": 1900,
+        "120": 1800,
       },
       update: "21/4/2025",
     },
@@ -1080,10 +1145,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 4850,
-        "20": 4650,
-        "40": 4500,
-        "80": 4350,
-        "200": 4150,
+        "10": 4650,
+        "25": 4500,
+        "50": 4350,
+        "120": 4150,
       },
       update: "17/1/2025",
     },
@@ -1100,16 +1165,20 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
         base: 5050,
+        discount: 4500,
+      },
+      discountsPercentages: {
+        discount: 0.11,
       },
       prices_qtts: {
         "1": 5050,
-        "20": 4850,
-        "40": 4700,
-        "80": 4500,
-        "200": 4350,
+        "10": 4850,
+        "25": 4700,
+        "50": 4500,
+        "120": 4350,
       },
       update: "17/1/2025",
     },
@@ -1121,6 +1190,7 @@ export const DB_ALL: ClassDBItem[] = [
     isComparable: true,
   },
   {
+    noStock: true,
     id: 41,
     label: "35x5mm",
     categorie: ["imanes", "neodimio"],
@@ -1132,10 +1202,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 5450,
-        "20": 5250,
-        "40": 5050,
-        "80": 4850,
-        "200": 4700,
+        "10": 5250,
+        "25": 5050,
+        "50": 4850,
+        "120": 4700,
       },
       update: "21/4/2025",
     },
@@ -1152,18 +1222,22 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
-        base: 5500,
+        base: 5900,
+        discount: 4800,
+      },
+      discountsPercentages: {
+        discount: 0.13,
       },
       prices_qtts: {
-        "1": 5500,
-        "20": 5300,
-        "40": 5100,
-        "80": 4950,
-        "200": 4750,
+        "1": 5900,
+        "5": 5700,
+        "15": 5450,
+        "30": 5250,
+        "80": 5000,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 37,
@@ -1178,25 +1252,33 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
         base: 9050,
+        discount: 8000,
+      },
+      discountsPercentages: {
+        discount: 0.12,
       },
       prices_qtts: {
         "1": 9050,
-        "10": 8750,
-        "25": 8400,
-        "50": 8050,
-        "120": 7700,
+        "5": 8750,
+        "15": 8400,
+        "30": 8050,
+        "80": 7700,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 38,
       alto: 8,
       peso: 65,
+      fuerzaExp: 18,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N45",
+    },
   },
   {
     noStock: true,
@@ -1211,10 +1293,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 6100,
-        "10": 5900,
-        "25": 5650,
-        "50": 5400,
-        "120": 5200,
+        "5": 5900,
+        "15": 5650,
+        "30": 5400,
+        "80": 5200,
       },
       update: "21/4/2025",
     },
@@ -1224,6 +1306,9 @@ export const DB_ALL: ClassDBItem[] = [
       peso: 46.5,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N48",
+    },
   },
   {
     id: 45,
@@ -1237,10 +1322,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 6550,
-        "10": 6300,
-        "25": 6050,
-        "50": 5800,
-        "120": 5550,
+        "5": 6300,
+        "15": 6050,
+        "30": 5800,
+        "80": 5550,
       },
       update: "21/4/2025",
     },
@@ -1280,6 +1365,7 @@ export const DB_ALL: ClassDBItem[] = [
     isComparable: true,
   },
   {
+    noStock: true,
     id: 47,
     label: "10x8x3mm",
     categorie: ["imanes", "neodimio"],
@@ -1352,10 +1438,10 @@ export const DB_ALL: ClassDBItem[] = [
         "25": 570,
         "50": 500,
         "100": 435,
-        "500": 410,
-        "1000": 385,
+        "250": 410,
+        "500": 385,
       },
-      update: "17/1/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 14.5,
@@ -1365,6 +1451,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 2,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado/up/MLAU2996494804",
+    },
   },
   {
     noStock: true,
@@ -1379,11 +1468,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1450,
-        "25": 1370,
-        "50": 1210,
-        "100": 1050,
-        "250": 990,
-        "500": 930,
+        "10": 1370,
+        "25": 1210,
+        "50": 1050,
+        "120": 990,
       },
       update: "25/3/2025",
     },
@@ -1397,6 +1485,7 @@ export const DB_ALL: ClassDBItem[] = [
     isComparable: true,
   },
   {
+    noStock: true,
     id: 51,
     label: "20x10x10mm",
     categorie: ["imanes", "neodimio"],
@@ -1408,10 +1497,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 3050,
-        "20": 2900,
-        "40": 2700,
-        "80": 2450,
-        "200": 2300,
+        "10": 2900,
+        "25": 2700,
+        "50": 2450,
+        "120": 2300,
       },
       update: "17/1/2025",
     },
@@ -1436,11 +1525,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1250,
-        "25": 1180,
-        "50": 1050,
-        "100": 910,
-        "250": 860,
-        "500": 800,
+        "20": 1180,
+        "40": 1050,
+        "80": 910,
+        "200": 860,
       },
       update: "21/4/2025",
     },
@@ -1461,17 +1549,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 2050,
+        base: 2500,
       },
       prices_qtts: {
-        "1": 2050,
-        "25": 1950,
-        "50": 1750,
-        "100": 1550,
-        "250": 1480,
-        "500": 1390,
+        "1": 2500,
+        "10": 2350,
+        "25": 2150,
+        "50": 1900,
+        "120": 1800,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 28,
@@ -1495,10 +1582,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 3700,
-        "20": 3500,
-        "40": 3250,
-        "80": 2950,
-        "200": 2800,
+        "10": 3500,
+        "25": 3250,
+        "50": 2950,
+        "120": 2800,
       },
       update: "17/1/2025",
     },
@@ -1522,10 +1609,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 4650,
-        "20": 4500,
-        "40": 4350,
-        "80": 4200,
-        "200": 4000,
+        "10": 4500,
+        "25": 4350,
+        "50": 4200,
+        "120": 4000,
       },
       update: "17/1/2025",
     },
@@ -1537,6 +1624,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 8,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado/up/MLAU2991310517",
+    },
   },
   {
     id: 56,
@@ -1550,10 +1640,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 4350,
-        "20": 4100,
-        "40": 3950,
-        "80": 3700,
-        "200": 3500,
+        "10": 4100,
+        "25": 3950,
+        "50": 3700,
+        "120": 3500,
       },
       update: "17/1/2025",
     },
@@ -1565,6 +1655,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 5.9,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado/up/MLAU3014646394",
+    },
   },
   {
     id: 57,
@@ -1574,16 +1667,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 7250,
+        base: 8950,
       },
       prices_qtts: {
-        "1": 7250,
-        "10": 7000,
-        "25": 6700,
-        "50": 6400,
-        "120": 6150,
+        "1": 8950,
+        "5": 8600,
+        "15": 8250,
+        "30": 7900,
+        "80": 7600,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 40,
@@ -1599,16 +1692,20 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
         base: 16100,
+        discount: 14500,
+      },
+      discountsPercentages: {
+        discount: 0.1,
       },
       prices_qtts: {
         "1": 16100,
-        "10": 15600,
-        "25": 15100,
-        "50": 14600,
-        "120": 14100,
+        "5": 15600,
+        "15": 15100,
+        "30": 14600,
+        "80": 14100,
       },
       update: "21/4/2025",
     },
@@ -1619,6 +1716,9 @@ export const DB_ALL: ClassDBItem[] = [
       peso: 84,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado/up/MLAU3014645500",
+    },
   },
   {
     id: 59,
@@ -1632,10 +1732,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 3800,
-        "20": 3550,
-        "40": 3350,
-        "80": 3050,
-        "200": 2850,
+        "10": 3550,
+        "25": 3350,
+        "50": 3050,
+        "120": 2850,
       },
       update: "21/4/2025",
     },
@@ -1647,6 +1747,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 3.9,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado/up/MLAU2991312469",
+    },
   },
   {
     id: 60,
@@ -1654,16 +1757,20 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
         base: 17200,
+        discount: 15500,
+      },
+      discountsPercentages: {
+        discount: 0.1,
       },
       prices_qtts: {
         "1": 17200,
-        "10": 16700,
-        "25": 16200,
-        "50": 15700,
-        "120": 15200,
+        "5": 16700,
+        "15": 16200,
+        "30": 15700,
+        "80": 15200,
       },
       update: "21/4/2025",
     },
@@ -1674,6 +1781,9 @@ export const DB_ALL: ClassDBItem[] = [
       peso: 75,
     },
     isComparable: true,
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado/up/MLAU3013557579",
+    },
   },
   {
     noStock: true,
@@ -1688,10 +1798,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 18700,
-        "10": 18200,
-        "25": 17700,
-        "50": 17200,
-        "120": 16700,
+        "5": 18200,
+        "15": 17700,
+        "30": 17200,
+        "80": 16700,
       },
       update: "17/1/2025",
     },
@@ -1733,8 +1843,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     links: {
-      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070?pdp_filters=item_id%3AMLA1474422881#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1474422881",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070?highlight=false&pdp_filters=seller_id%3A177470483&headerTopBrand=false#polycard_client=search-nordic-mshops&position=5&search_layout=grid&type=item&tracking_id=f774d24c-dea5-4340-b673-b98bd2375e27&wid=MLA1474422881&sid=search",
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070",
+      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070",
     },
     tags: ["arandela"],
   },
@@ -1753,8 +1863,8 @@ export const DB_ALL: ClassDBItem[] = [
         "25": 670,
         "50": 590,
         "100": 510,
-        "500": 485,
-        "1000": 455,
+        "250": 485,
+        "500": 455,
       },
       update: "17/1/2025",
     },
@@ -1768,8 +1878,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     links: {
-      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417?pdp_filters=item_id%3AMLA1474422963&attributes=CUSTOM%3A12x3%206a3.5mm#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1474422963",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417?product_trigger_id=MLA34178531&pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU2995880070&highlight=false&headerTopBrand=false&quantity=1",
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417",
+      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417",
     },
     tags: ["arandela"],
   },
@@ -1785,11 +1895,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1000,
-        "25": 950,
-        "50": 840,
-        "100": 730,
-        "500": 680,
-        "1000": 640,
+        "20": 950,
+        "40": 840,
+        "80": 730,
+        "200": 680,
       },
       update: "21/4/2025",
     },
@@ -1803,8 +1912,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     links: {
-      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094?pdp_filters=item_id%3AMLA1474487295&attributes=CUSTOM%3A15x3%207a3.5#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1474487295",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094?pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU2995880070&product_trigger_id=MLA34178531&highlight=false&headerTopBrand=false&quantity=1",
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094",
+      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094",
     },
     tags: ["arandela"],
   },
@@ -1820,11 +1929,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1800,
-        "25": 1700,
-        "50": 1550,
-        "100": 1390,
-        "250": 1310,
-        "500": 1230,
+        "10": 1700,
+        "25": 1550,
+        "50": 1390,
+        "120": 1310,
       },
       update: "21/4/2025",
     },
@@ -1838,8 +1946,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     links: {
-      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711?pdp_filters=item_id%3AMLA2006655184&attributes=CUSTOM%3A20x4%2011a4.5#origin%3Dshare%26sid%3Dshare%26wid%3DMLA2006655184",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711?pdp_filters=seller_id%3A177470483%7Cseller_id%3A177470483&applied_product_filters=MLAU2995880070&product_trigger_id=MLA34178531&highlight=false&headerTopBrand=false&quantity=1",
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711",
+      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711",
     },
     tags: ["arandela"],
   },
@@ -1849,16 +1957,20 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "fresado"],
     price_data: {
-      usePrice: "base",
+      usePrice: "discount",
       prices: {
         base: 3700,
+        discount: 3000,
+      },
+      discountsPercentages: {
+        discount: 0.2,
       },
       prices_qtts: {
         "1": 3700,
-        "20": 3500,
-        "40": 3250,
-        "80": 2950,
-        "200": 2800,
+        "10": 3500,
+        "25": 3250,
+        "50": 2950,
+        "120": 2800,
       },
       update: "17/1/2025",
     },
@@ -1873,8 +1985,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     links: {
-      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado-fresado/up/MLAU2991651617?pdp_filters=item_id%3AMLA2006886336#origin%3Dshare%26sid%3Dshare%26wid%3DMLA2006886336",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-cuadrado-fresado/up/MLAU2991651617?highlight=false&pdp_filters=seller_id%3A177470483&headerTopBrand=false#polycard_client=search-nordic-mshops&position=2&search_layout=grid&type=item&tracking_id=f774d24c-dea5-4340-b673-b98bd2375e27&wid=MLA2006886336&sid=search",
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-cuadrado-fresado/up/MLAU2991651617",
+      MS: "https://imanestucuman.mercadoshops.com.ar/iman-neodimio-cuadrado-fresado/up/MLAU2991651617",
     },
   },
   {
@@ -1902,6 +2014,7 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["pesca"],
   },
   {
+    noStock: true,
     id: 68,
     label: "25mm",
     categorie: ["imanes", "neodimio"],
@@ -1946,6 +2059,7 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["pesca"],
   },
   {
+    noStock: true,
     id: 70,
     label: "36mm",
     categorie: ["imanes", "neodimio"],
@@ -1983,15 +2097,13 @@ export const DB_ALL: ClassDBItem[] = [
       largo: 42,
       alto: 7.5,
       altoTotal: 38,
-      fuerza: 39,
+      fuerza: 40,
       peso: 118,
     },
     isComparable: true,
     tags: ["pesca"],
   },
   {
-    hidden: true,
-    noStock: true,
     id: 72,
     label: "48mm",
     categorie: ["imanes", "neodimio"],
@@ -1999,15 +2111,15 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 26000,
+        base: 25000,
       },
-      update: "12/8/25",
+      update: "5/9/25",
     },
     measures: {
       largo: 48,
       alto: 11.5,
-      altoTotal: 46,
-      fuerza: 64,
+      altoTotal: 49,
+      fuerza: 88,
       peso: 249,
     },
     isComparable: true,
@@ -2034,6 +2146,9 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     tags: ["pesca"],
+    links: {
+      ML: "https://www.mercadolibre.com.ar/iman-neodimio-pescaarrastre/up/MLAU3011716256",
+    },
   },
   {
     hidden: true,
@@ -2087,7 +2202,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877354416-borneraterminalconectorempalme-clip-2-vias-x3u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877354416-borneraterminalconectorempalme-clip-2-vias-x3u-_JM?searchVariation=181314142862&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314142862&position=5&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877354416-borneraterminalconectorempalme-clip-2-vias-x3u-_JM?searchVariation=181314142862",
     },
   },
   {
@@ -2116,7 +2231,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877316430-borneraterminalconectorempalme-clip-3-vias-x3u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877316430-borneraterminalconectorempalme-clip-3-vias-x3u-_JM?searchVariation=181314187502&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314187502&position=7&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877316430-borneraterminalconectorempalme-clip-3-vias-x3u-_JM?searchVariation=181314187502",
     },
   },
   {
@@ -2144,7 +2259,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877351970-borneraterminalconectorempalme-clip-2-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877351970-borneraterminalconectorempalme-clip-2-cables-x5u-_JM?searchVariation=181314138382&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314138382&position=2&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877351970-borneraterminalconectorempalme-clip-2-cables-x5u-_JM?searchVariation=181314138382",
     },
   },
   {
@@ -2171,7 +2286,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877326576-borneraterminalconectorempalme-clip-3-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877326576-borneraterminalconectorempalme-clip-3-cables-x5u-_JM?searchVariation=184148246937&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=184148246937&position=4&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877326576-borneraterminalconectorempalme-clip-3-cables-x5u-_JM?searchVariation=184148246937",
     },
   },
   {
@@ -2198,7 +2313,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877327498-borneraterminalconectorempalme-clip-5-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877327498-borneraterminalconectorempalme-clip-5-cables-x5u-_JM?searchVariation=184148250357&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=184148250357&position=6&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877327498-borneraterminalconectorempalme-clip-5-cables-x5u-_JM?searchVariation=184148250357",
     },
   },
   {
@@ -2226,7 +2341,7 @@ export const DB_ALL: ClassDBItem[] = [
     description: "Deriva un cable de 1.5-2.5 a uno de 1-1.5",
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877283648-empalme-rapido-exterior-1a2-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877283648-empalme-rapido-exterior-1a2-cables-x5u-_JM?utm_source=mercadoshops&utm_medium=referral&utm_campaign=twitter_share",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877283648-empalme-rapido-exterior-1a2-cables-x5u-_JM?utm_source=mercadoshops",
     },
   },
   {
@@ -2242,6 +2357,7 @@ export const DB_ALL: ClassDBItem[] = [
         "1": 750,
         "10": 700,
         "20": 600,
+        "50": 575,
       },
     },
     especificaciones: {
@@ -2253,9 +2369,11 @@ export const DB_ALL: ClassDBItem[] = [
       materiales: "Policarbonato",
       modelo: "Helacon Plus",
     },
+    description:
+      "Con solo quitar el recubrimiento de la punta puede empalmar 3 cables eléctricos en segundos con su traba de tipo clip. Posee punto de testeo. No reutilizable.",
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1877317474-empalme-rapido-3-cables-x5u-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877317474-empalme-rapido-3-cables-x5u-_JM?searchVariation=181314194258&highlight=false&headerTopBrand=false#polycard_client=search-nordic-mshops&searchVariation=181314194258&position=3&search_layout=stack&type=item&tracking_id=a8b0d717-5644-4417-9259-673db246f796",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1877317474-empalme-rapido-3-cables-x5u-_JM?searchVariation=181314194258",
     },
   },
   {
@@ -2282,11 +2400,14 @@ export const DB_ALL: ClassDBItem[] = [
       largo: 9,
       alto: 2,
     },
+    especificaciones: {
+      fuerza: "30g/cm",
+    },
     description:
       "Imantado de una cara. Usado frecuentemente para hacer mosquiteros y manualidades",
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1985406268-iman-tira-flexible-9x2mm-x10m-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1985406268-iman-tira-flexible-9x2mm-x10m-_JM#item_id=MLA1985406268&component=collection_grid&page_from=home&custom_categories=false",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1985406268-iman-tira-flexible-9x2mm-x10m-_JM#item_id=MLA1985406268",
     },
   },
   {
@@ -2313,11 +2434,14 @@ export const DB_ALL: ClassDBItem[] = [
       largo: 13,
       alto: 1.7,
     },
+    especificaciones: {
+      fuerza: "32g/cm",
+    },
     description:
       "Imantado de una cara. Usado frecuentemente para hacer mosquiteros y manualidades",
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1985431476-iman-tira-flexible-13x17mm-x10m-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1985431476-iman-tira-flexible-13x17mm-x10m-_JM#item_id=MLA1985431476&component=collection_grid&page_from=home&custom_categories=false",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1985431476-iman-tira-flexible-13x17mm-x10m-_JM#item_id=MLA1985431476",
     },
   },
   {
@@ -2327,21 +2451,20 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 12500,
+        base: 12000,
       },
-      update: "8/8/25",
+      update: "5/9/25",
     },
     description:
       "Juego de 20 piedras ovaladas de hematita magnetizadas y pulidas de 35mm de largo y 13mm de diámetro central + cuerda de polipropileno",
     links: {
-      ML: "https://www.mercadolibre.com.ar/juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379?pdp_filters=item_id%3AMLA1941241742#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1941241742",
-      MS: "https://imanestucuman.mercadoshops.com.ar/juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379?pdp_filters=category%3AMLA1161%7Cseller_id%3A177470483%7Citem_id%3AMLA1941241742#item_id=MLA1941241742&component=collection_grid&page_from=home&custom_categories=false",
+      ML: "https://www.mercadolibre.com.ar/juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379",
+      MS: "https://imanestucuman.mercadoshops.com.ar/juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379",
     },
     tags: ["juguetes", "antiestres"],
   },
   {
     hidden: true,
-    noStock: true,
     id: 85,
     label: "Neocube",
     categorie: ["imanes", "otrosImanes"],
@@ -2358,6 +2481,7 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["juguetes"],
   },
   {
+    noStock: true,
     id: 86,
     label: "Neocube Dorado",
     categorie: ["imanes", "otrosImanes"],
@@ -2378,7 +2502,6 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["juguetes"],
   },
   {
-    noStock: true,
     id: 87,
     label: "60x8x6mm",
     categorie: ["imanes", "ferrita"],
@@ -2386,18 +2509,16 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 4000,
+        base: 4600,
       },
-      prices_qtts: {
-        "1": 4000,
-        "3": 3600,
-        "5": 3300,
-      },
+      update: "29/8/2025",
     },
     measures: {
       largo: 60,
       ancho: 8,
       alto: 6,
+      peso: 14.75,
+      gauss: 4000,
     },
     isComparable: true,
     description:
@@ -2405,7 +2526,7 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["ceramico"],
   },
   {
-    noStock: true,
+    hidden: true,
     id: 88,
     label: "25x14x5mm",
     categorie: ["imanes", "ferrita"],
@@ -2436,23 +2557,27 @@ export const DB_ALL: ClassDBItem[] = [
       prices_qtts: {
         "1": 6400,
         "5": 6000,
-        "0.2": 7500,
-        "0.5": 7000,
+        "0.2": 7400,
+        "0.5": 6900,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "18/8/25",
+      update: "15/9/2025",
     },
     measures: {
       largo: 310,
       alto: 0.3,
     },
+    especificaciones: {
+      fuerza: "20g/cm",
+      peso: "416g/m",
+    },
     caracteristicas: ["autoadhesiva"],
     description:
       "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
     links: {
-      ML: "https://www.mercadolibre.com.ar/iman-plancha-flexible-adhesivo-31cmx03mmx1mm/up/MLAU3114462818?pdp_filters=item_id%3AMLA1487776775#origin%3Dshare%26sid%3Dshare%26wid%3DMLA1487776775",
-      MS: "https://imanestucuman.mercadoshops.com.ar/iman-plancha-flexible-adhesivo-31cmx03mmx1mm/up/MLAU3114462818?pdp_filters=category%3AMLA378161%7Cseller_id%3A177470483%7Citem_id%3AMLA1487776775#item_id=MLA1487776775&component=collection_grid&page_from=home&custom_categories=false",
+      ML: "https://www.mercadolibre.com.ar/iman-plancha-flexible-adhesivo-31cmx03mmx1mm/up/MLAU3114462818",
+      MS: "https://imanestucuman.mercadoshops.com.ar/iman-plancha-flexible-adhesivo-31cmx03mmx1mm/up/MLAU3114462818",
     },
     tags: ["plancha", "papel", "adhesivo"],
   },
@@ -2463,7 +2588,7 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 23000,
+        base: 25000,
       },
       salesUnit: "kg",
       update: "1/8/25",
@@ -2499,8 +2624,8 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "discount",
       prices: {
-        base: 23000,
-        discount: 22000,
+        base: 25000,
+        discount: 23000,
       },
       discountsPercentages: {
         discount: 0.04,
@@ -2549,29 +2674,35 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     id: 94,
-    label: "Piedras magnéticas",
+    label: "Piedras magnéticas ovaladas",
     categorie: ["imanes", "otrosImanes"],
     price_data: {
       usePrice: "base",
       prices: {
-        base: 850,
+        base: 800,
       },
       prices_qtts: {
-        "1": 850,
-        "10": 750,
-        "20": 625,
+        "1": 800,
+        "10": 700,
+        "20": 600,
+        "50": 500,
       },
-      update: "1/8/25",
+      update: "5/9/25",
+    },
+    measures: {
+      largo: 35,
+      alto: 14,
     },
     description:
-      "Piedras ovaladas de hematita magnetizadas y pulidas de 35mm de largo y 13mm de diámetro central. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
+      "De hematita, magnetizadas y pulidas de 35mm de largo y 14mm de diámetro central. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
     links: {
       ML: "https://articulo.mercadolibre.com.ar/MLA-1989274886-pack-imanes-ovalados-x20-_JM#origin%3Dshare%26sid%3Dshare",
-      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1989274886-pack-imanes-ovalados-x20-_JM#item_id=MLA1989274886&component=collection_grid&page_from=home&custom_categories=false",
+      MS: "https://imanestucuman.mercadoshops.com.ar/MLA-1989274886-pack-imanes-ovalados-x20-_JM#item_id=MLA1989274886",
     },
     tags: ["juguetes", "antiestres"],
   },
   {
+    noStock: true,
     id: 95,
     label: "16x3mm",
     categorie: ["imanes", "ferrita"],
@@ -2667,17 +2798,17 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 280,
+        base: 300,
       },
       prices_qtts: {
-        "1": 280,
-        "25": 265,
-        "50": 235,
-        "100": 205,
-        "500": 190,
-        "1000": 180,
+        "1": 300,
+        "25": 285,
+        "50": 250,
+        "100": 215,
+        "500": 205,
+        "1000": 190,
       },
-      update: "21/4/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 6,
@@ -2726,50 +2857,6 @@ export const DB_ALL: ClassDBItem[] = [
     caracteristicas: ["Sin olor", "No inflamable"],
     description:
       "Adhesivo de cianoacrilato.\n Pega en 60 segundos, pero su resistencia final se logra luego de 3 horas de secado.\n No adhiere sobre polietileno, polipropileno, teflón ni superficies siliconadas",
-  },
-  {
-    hidden: true,
-    id: 101,
-    label: "Lámina 03/31A x20cm",
-    categorie: ["imanes", "flexibles"],
-    price_data: {
-      usePrice: "base",
-      prices: {
-        base: 1600,
-      },
-      update: "1/7/25",
-    },
-    measures: {
-      largo: 310,
-      alto: 0.3,
-      ancho: 200,
-    },
-    caracteristicas: ["autoadhesiva"],
-    description:
-      "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
-    tags: ["plancha", "papel", "adhesivo"],
-  },
-  {
-    hidden: true,
-    id: 102,
-    label: "Lámina 03/31A x50cm",
-    categorie: ["imanes", "flexibles"],
-    price_data: {
-      usePrice: "base",
-      prices: {
-        base: 3500,
-      },
-      update: "1/7/25",
-    },
-    measures: {
-      largo: 310,
-      alto: 0.3,
-      ancho: 500,
-    },
-    caracteristicas: ["autoadhesiva"],
-    description:
-      "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
-    tags: ["plancha", "papel", "adhesivo"],
   },
   {
     id: 103,
@@ -2841,7 +2928,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     description:
       "Con sus 4 modos de iluminación es idea para diversas actividades, desde camping y exploración hasta reparaciones en el hogar y cortes de luz. Tiene resistencia al agua y al polvo; y un imán que permite fijarlo en superficies metálicas",
-    tags: ["auto"],
+    tags: ["auto", "herramienta", "herramientas"],
   },
   {
     id: 106,
@@ -2861,13 +2948,18 @@ export const DB_ALL: ClassDBItem[] = [
         "500": 120,
         "1000": 110,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 6,
       alto: 2,
+      peso: 0.42,
+      fuerzaExp: 0.83,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N40",
+    },
   },
   {
     id: 107,
@@ -2881,13 +2973,12 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 2050,
-        "25": 1950,
-        "50": 1750,
-        "100": 1550,
-        "250": 1480,
-        "500": 1390,
+        "10": 1950,
+        "25": 1750,
+        "50": 1550,
+        "120": 1480,
       },
-      update: "20/8/2025",
+      update: "8/9/2025",
     },
     measures: {
       largo: 10,
@@ -2944,9 +3035,17 @@ export const DB_ALL: ClassDBItem[] = [
     },
     description:
       "Cuenta con un imán que facilita colocarla en una posición cómoda. No incluye pilas",
-    tags: ["auto", "magnetica", "iman", "camping"],
+    tags: [
+      "auto",
+      "magnetica",
+      "iman",
+      "camping",
+      "herramienta",
+      "herramientas",
+    ],
   },
   {
+    noStock: true,
     id: 110,
     label: "Magnetismo",
     categorie: ["imanes", "otrosImanes"],
@@ -3008,21 +3107,26 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 4800,
+        base: 5900,
       },
       prices_qtts: {
-        "1": 4800,
-        "5": 4200,
-        "0.2": 5600,
-        "0.5": 5300,
+        "1": 5900,
+        "5": 5500,
+        "0.2": 6800,
+        "0.5": 6300,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "18/8/25",
+      update: "15/9/2025",
     },
     measures: {
       largo: 310,
       alto: 0.3,
+    },
+    caracteristicas: ["virgen"],
+    especificaciones: {
+      fuerza: "20g/cm",
+      peso: "363g/m",
     },
     description:
       "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
@@ -3035,50 +3139,60 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 8000,
+        base: 9300,
       },
       prices_qtts: {
-        "1": 8000,
-        "5": 6500,
-        "0.2": 9000,
-        "0.5": 8500,
+        "1": 9300,
+        "5": 8700,
+        "0.2": 10700,
+        "0.5": 10000,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "18/8/25",
+      update: "15/9/2025",
     },
     measures: {
       largo: 610,
       alto: 0.3,
+    },
+    caracteristicas: ["virgen"],
+    especificaciones: {
+      fuerza: "40g/cm",
+      peso: "729g/m",
     },
     description:
       "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
     tags: ["plancha", "papel"],
   },
   {
+    noStock: true,
     id: 115,
-    label: "Lámina 03/61A",
+    label: "Lámina 03/62A",
     categorie: ["imanes", "flexibles"],
     price_data: {
       usePrice: "base",
       prices: {
-        base: 12000,
+        base: 12200,
       },
       prices_qtts: {
-        "1": 12000,
-        "5": 10000,
-        "0.2": 13700,
-        "0.5": 12900,
+        "1": 12200,
+        "5": 11500,
+        "0.2": 14100,
+        "0.5": 13200,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "18/8/25",
+      update: "15/9/2025",
     },
     measures: {
-      largo: 610,
+      largo: 620,
       alto: 0.3,
     },
     caracteristicas: ["autoadhesiva"],
+    especificaciones: {
+      fuerza: "40g/cm",
+      peso: "832g/m",
+    },
     description:
       "Usada generalmente en souvenirs, manualidades, calendarios, imanes publicitarios, etc",
     tags: ["plancha", "papel", "adhesivo"],
@@ -3095,11 +3209,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1360,
-        "25": 1290,
-        "50": 1140,
-        "100": 990,
-        "250": 930,
-        "500": 870,
+        "20": 1290,
+        "40": 1140,
+        "80": 990,
+        "200": 930,
       },
       update: "12/8/2025",
     },
@@ -3119,26 +3232,28 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 1600,
+        base: 1550,
       },
       prices_qtts: {
-        "1": 1600,
-        "25": 1500,
-        "50": 1350,
-        "100": 1170,
-        "250": 1100,
-        "500": 1030,
+        "1": 1550,
+        "10": 1460,
+        "25": 1290,
+        "50": 1120,
+        "120": 1050,
       },
-      update: "20/8/2025",
+      update: "28/8/2025",
     },
     measures: {
       largo: 20,
       ancho: 10,
       alto: 3,
       peso: 4.5,
-      fuerzaExp: 4.35,
+      fuerzaExp: 4.5,
     },
     isComparable: true,
+    especificaciones: {
+      denominación: "N45",
+    },
   },
   {
     id: 118,
@@ -3152,11 +3267,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       prices_qtts: {
         "1": 1450,
-        "25": 1370,
-        "50": 1210,
-        "100": 1050,
-        "250": 990,
-        "500": 930,
+        "10": 1370,
+        "25": 1210,
+        "50": 1050,
+        "120": 990,
       },
       update: "20/8/2025",
     },
@@ -3176,9 +3290,9 @@ export const DB_ALL: ClassDBItem[] = [
     price_data: {
       usePrice: "base",
       prices: {
-        base: 28000,
+        base: 26000,
       },
-      update: "20/8/2025",
+      update: "13/9/2025",
     },
     especificaciones: {
       color: "negro",
@@ -3188,5 +3302,425 @@ export const DB_ALL: ClassDBItem[] = [
     description:
       "Incluye: estuche, 3 tubos de tinta, 1 clip, 13 tubos magnéticos, 2 esferas pequeñas, 8 esferas medianas, 2 esferas grandes, 2 tapas para bolígrafo, 1 tubo con punta para bolígrafo, 2 puntas para pantalla táctil. Los imanes son de neodimio",
     tags: ["juguetes", "antiestres"],
+  },
+  {
+    id: 120,
+    label: "Piedras magnéticas esféricas",
+    categorie: ["imanes", "otrosImanes"],
+    forma: ["esfera"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 800,
+      },
+      prices_qtts: {
+        "1": 800,
+        "10": 700,
+        "20": 600,
+        "50": 500,
+      },
+      update: "27/8/25",
+    },
+    measures: {
+      diametro: 17,
+    },
+    description:
+      "De hematita, magnetizadas y pulidas de 17mm de diámetro. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
+    tags: ["juguetes", "antiestres"],
+  },
+  {
+    id: 121,
+    label: "Outlet: Piedras magnéticas",
+    categorie: ["imanes", "otrosImanes"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 500,
+      },
+      update: "27/8/25",
+    },
+    description:
+      "De hematita, magnetizadas y pulidas. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés. Esferas de 17mm y ovalados de 35x14mm",
+    tags: ["juguetes", "antiestres"],
+  },
+  {
+    id: 122,
+    label: "12x3mm",
+    categorie: ["imanes", "ferrita"],
+    forma: ["redondo", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 90,
+      },
+      prices_qtts: {
+        "1": 90,
+        "25": 80,
+        "50": 70,
+        "100": 60,
+      },
+      update: "29/8/25",
+    },
+    measures: {
+      largo: 12,
+      alto: 3,
+      peso: 1.63,
+      fuerzaExp: 0.34,
+    },
+    isComparable: true,
+    description:
+      "Usados frecuentemente en manualidades, artesanias, heladeras, etc",
+    tags: ["ceramico"],
+  },
+  {
+    id: 123,
+    label: "14x3mm",
+    categorie: ["imanes", "ferrita"],
+    forma: ["redondo", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 100,
+      },
+      prices_qtts: {
+        "1": 100,
+        "25": 90,
+        "50": 80,
+        "100": 65,
+      },
+      update: "29/8/25",
+    },
+    measures: {
+      largo: 14,
+      alto: 3,
+      peso: 2,
+      fuerzaExp: 0.37,
+    },
+    isComparable: true,
+    description:
+      "Usados frecuentemente en manualidades, artesanias, heladeras, etc",
+    tags: ["ceramico"],
+  },
+  {
+    id: 124,
+    label: "20x3mm",
+    categorie: ["imanes", "ferrita"],
+    forma: ["redondo", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 165,
+      },
+      prices_qtts: {
+        "1": 165,
+        "25": 145,
+        "50": 125,
+        "100": 105,
+      },
+      update: "29/8/25",
+    },
+    measures: {
+      largo: 20,
+      alto: 3,
+      fuerzaExp: 0.54,
+    },
+    isComparable: true,
+    description:
+      "Usados frecuentemente en manualidades, artesanias, heladeras, etc",
+    tags: ["ceramico"],
+  },
+  {
+    id: 125,
+    label: "Bolsa Ecommerce 15x20cm",
+    categorie: ["otros"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 70,
+      },
+      prices_qtts: {
+        "1": 70,
+        "25": 55,
+        "50": 45,
+      },
+      update: "29/8/25",
+    },
+    measures: {
+      ancho: 15,
+      alto: 25,
+    },
+    caracteristicas: ["Con adhesivo"],
+    especificaciones: {
+      color: "negro",
+      grosor: "60 micrones",
+    },
+    description: "Solapa de 5cm",
+    tags: ["sobre", "bolsas", "empaque", "empaques"],
+  },
+  {
+    id: 126,
+    label: "Bolsa Ecommerce 20x30cm",
+    categorie: ["otros"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 90,
+      },
+      prices_qtts: {
+        "1": 90,
+        "25": 70,
+        "50": 60,
+      },
+      update: "29/8/25",
+    },
+    measures: {
+      ancho: 20,
+      alto: 35,
+    },
+    caracteristicas: ["Con adhesivo"],
+    especificaciones: {
+      color: "negro",
+      grosor: "60 micrones",
+    },
+    description: "Solapa de 5cm",
+    tags: ["sobre", "bolsas", "empaque", "empaques"],
+  },
+  {
+    id: 127,
+    label: "Caja Cartón 12.5x11.4x5cm",
+    categorie: ["otros"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 240,
+      },
+      prices_qtts: {
+        "1": 240,
+        "10": 200,
+      },
+      update: "29/8/25",
+    },
+    measures: {
+      largo: 12.5,
+      ancho: 11.4,
+      alto: 5,
+      grosor: 4,
+    },
+    caracteristicas: ["Desarmada"],
+    especificaciones: {
+      material: "cartón corrugado",
+      "Medida interna": "11.9x10.9x4.9cm",
+    },
+    tags: ["ecommerce", "packaging", "cajas", "empaque", "empaques"],
+  },
+  {
+    id: 128,
+    label: "15x3mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["redondo", "boton"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 1070,
+      },
+      prices_qtts: {
+        "1": 1070,
+        "20": 1010,
+        "40": 900,
+        "80": 780,
+        "200": 730,
+      },
+      update: "21/4/2025",
+    },
+    measures: {
+      largo: 15,
+      alto: 3,
+      peso: 4,
+      fuerzaExp: 4.3,
+    },
+    isComparable: true,
+  },
+  {
+    id: 129,
+    label: "18x3mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["redondo", "boton"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 1650,
+      },
+      prices_qtts: {
+        "1": 1650,
+        "10": 1550,
+        "25": 1390,
+        "50": 1210,
+        "120": 1140,
+      },
+      update: "28/8/2025",
+    },
+    measures: {
+      largo: 18,
+      alto: 3,
+      peso: 6,
+      fuerzaExp: 6.3,
+    },
+    isComparable: true,
+  },
+  {
+    id: 130,
+    label: "20x10x2mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["rectangular", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 1550,
+      },
+      prices_qtts: {
+        "1": 1550,
+        "10": 1460,
+        "25": 1290,
+        "50": 1120,
+        "120": 1050,
+      },
+      update: "8/9/2025",
+    },
+    measures: {
+      largo: 20,
+      ancho: 10,
+      alto: 2,
+      peso: 2.1,
+      fuerzaExp: 3.8,
+    },
+    isComparable: true,
+    especificaciones: {
+      denominación: "N45",
+    },
+  },
+  {
+    id: 131,
+    label: "7x7x3mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["cuadrado", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 600,
+      },
+      prices_qtts: {
+        "1": 600,
+        "25": 570,
+        "50": 500,
+        "100": 435,
+        "250": 410,
+        "500": 385,
+      },
+      update: "28/8/2025",
+    },
+    measures: {
+      largo: 7,
+      ancho: 7,
+      alto: 3,
+      peso: 1.14,
+    },
+    isComparable: true,
+  },
+  {
+    id: 132,
+    label: "8x8x3mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["cuadrado", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 600,
+      },
+      prices_qtts: {
+        "1": 600,
+        "25": 570,
+        "50": 500,
+        "100": 435,
+        "250": 410,
+        "500": 385,
+      },
+      update: "28/8/2025",
+    },
+    measures: {
+      largo: 8,
+      ancho: 8,
+      alto: 3,
+      peso: 1.43,
+      fuerzaExp: 0.9,
+    },
+    isComparable: true,
+  },
+  {
+    id: 133,
+    label: "3x1.5mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["redondo", "plano"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 130,
+      },
+      update: "8/9/2025",
+      prices_qtts: {
+        "1": 130,
+        "25": 120,
+        "50": 110,
+        "100": 95,
+        "500": 90,
+        "1000": 85,
+      },
+    },
+    measures: {
+      largo: 3,
+      alto: 1.5,
+    },
+    isComparable: true,
+    especificaciones: {
+      denominación: "N38",
+    },
+  },
+  {
+    id: 134,
+    label: "Imán Telescópico Extensible",
+    categorie: ["imanes", "otros"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 8000,
+      },
+      update: "13/9/2025",
+    },
+    measures: {
+      largo: 170,
+      diametro: 15,
+      peso: 300,
+    },
+    especificaciones: {
+      marca: "Salkor",
+      modelo: "ITH1600",
+      "largo extendido": "61.5cm",
+      fuerza: "1.5kg",
+    },
+    tags: ["lapiz", "pesca", "tuercas", "herramienta", "herramientas"],
+  },
+  {
+    id: 135,
+    label: "Set barras de neodimio y esferas",
+    categorie: ["imanes", "otrosImanes"],
+    price_data: {
+      usePrice: "base",
+      prices: {
+        base: 16000,
+      },
+      update: "13/9/2025",
+    },
+    description:
+      "Juego de 25 imanes de neodimio de 5x20mm y 30 esferas de acero de 8mm de diámetro.",
+    tags: ["juguetes"],
   },
 ];

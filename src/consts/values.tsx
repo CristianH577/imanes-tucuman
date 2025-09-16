@@ -98,6 +98,18 @@ export const OBJ_MEASURES: {
     label: "diámetro inferior",
     measure: "mm",
   },
+  diametro: {
+    label: "diámetro",
+    measure: "mm",
+  },
+  grosor: {
+    label: "Grosor",
+    measure: "mm",
+  },
+  gauss: {
+    label: "Gauss",
+    measure: "",
+  },
 };
 
 export const OBJ_CATEGORIES: TypeObjCategorie = {

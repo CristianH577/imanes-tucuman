@@ -241,3 +241,10 @@ export const searchImgs = async (
 
   return { ...databaseImgsCurrent, ...databaseImgs_ };
 };
+
+export const toPlainText = (text: string) => {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+};

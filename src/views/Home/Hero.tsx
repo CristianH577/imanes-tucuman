@@ -49,7 +49,7 @@ export default function Hero() {
       initial="hidden"
       animate="visible"
       transition={{ duration: 1 }}
-      className="w-screen relative right-2 sm:right-10 lg:right-12 overflow-hidden shadow-md shadow-black/50 min-[2000px]:h-[1200px] pt-2 bg-radial from-custom2-10 to-custom2"
+      className="w-screen relative right-2 sm:right-10 lg:right-12 overflow-hidden shadow-md shadow-black/50 min-[2400px]:h-[1200px] pt-2 bg-radial from-custom2-10 to-custom2"
       style={{
         height: "calc(100vh - 4rem)",
       }}

@@ -32,6 +32,7 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
     let href = "buscar?orderBy=price-asc";
     if (inputText) href += "&text=" + inputText;
     navigate(href);
+    setInputText("");
   };
 
   return (
@@ -58,6 +59,7 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
             classNames={{
               svgA: "h-full w-auto max-h-[36px]",
             }}
+            // @ts-ignore
             onClick={() => setIsMenuOpen(false)}
           />
         </section>

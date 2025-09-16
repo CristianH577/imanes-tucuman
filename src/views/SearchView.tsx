@@ -16,6 +16,7 @@ import {
   getHrefSearch,
   scrollToTop,
   searchImgs,
+  toPlainText,
 } from "../libs/functions";
 
 import { Button, ButtonGroup } from "@heroui/button";
@@ -92,18 +93,13 @@ export default function SearchView() {
     }
 
     if (filtersValues?.text) {
-      const text_ = filtersValues.text
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
+      const text_ = toPlainText(filtersValues.text);
 
-      items_ = items_.filter((item) =>
-        JSON.stringify(item)
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .includes(text_.toLowerCase())
-      );
+      items_ = items_.filter((item) => {
+        const item_text = toPlainText(JSON.stringify(item));
+        const bool = item_text.includes(text_);
+        if (bool) return item;
+      });
     }
 
     if (filtersValues?.orderBy) {

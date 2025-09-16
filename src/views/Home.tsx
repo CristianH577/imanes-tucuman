@@ -30,7 +30,7 @@ const sections = [
 export default function Home() {
   return (
     <>
-      <SuspenseCustom classFall="w-screen h-[150vh]">
+      <SuspenseCustom classFall="w-screen h-[150dvh]">
         <Hero />
       </SuspenseCustom>
 
@@ -43,7 +43,6 @@ export default function Home() {
           }`}
         >
           <TitleCustom title={section?.label} />
-
           {section.content}
         </div>
       ))}

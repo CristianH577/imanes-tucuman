@@ -65,11 +65,11 @@ export default function ImagesSection({
     return (
       <section className="flex justify-center p-2 gap-2 sm:p-4">
         {SvgForma ? (
-          <SvgForma className="h-[300px] max-w-[300px]" />
+          <SvgForma className="h-[320px] max-w-[320px] w-full" />
         ) : (
           <ImageCustom
-            className="drop-shadow-md drop-shadow-black h-[300px] max-w-[300px]"
-            width={300}
+            className="drop-shadow-md drop-shadow-black h-[320px] max-w-[320px]"
+            width={320}
           />
         )}
       </section>
@@ -77,7 +77,13 @@ export default function ImagesSection({
   }
 
   return (
-    <section className="ImageSection flex flex-col items-center justify-center p-2 gap-2 sm:p-4 relative">
+    <motion.section
+      variants={{
+        hidden: { opacity: 0, x: 200 },
+        visible: { opacity: 1, x: 0 },
+      }}
+      className="flex flex-col"
+    >
       {showSlider && imgsData.thumbnails && (
         <Swiper
           slidesPerView="auto"
@@ -111,7 +117,7 @@ export default function ImagesSection({
       )}
 
       <motion.article
-        className="relative w-full flex items-center"
+        className="relative flex items-center border dark:border-neutral-500 rounded-md px-2 sm:px-4 shadow-md flex-1"
         variants={{
           hidden: { opacity: 0, scale: 0 },
           visible: { opacity: 1, scale: 1 },
@@ -124,7 +130,7 @@ export default function ImagesSection({
             color="primary"
             isIconOnly
             title="Agrandar"
-            className="absolute top-0 right-0 z-20"
+            className="absolute top-4 right-4 z-20"
             onPress={() => setOpenFullImgs(true)}
           >
             <FullscreenIcon className="h-9 w-fit" />
@@ -132,7 +138,7 @@ export default function ImagesSection({
         )}
 
         <Swiper
-          className="w-full h-[350px] flex items-center py-4 px-2 xs:px-4 select-none "
+          className="w-full h-[350px] flex items-center py-4 px-2 xs:px-4 select-none"
           slidesPerView={1}
           spaceBetween={100}
           modules={[Navigation, Thumbs]}
@@ -153,9 +159,9 @@ export default function ImagesSection({
               <ImageCustom
                 src={img}
                 alt="Imagen seleccionada"
-                className="object-contain drop-shadow-md drop-shadow-black w-full h-full max-h-[300px] max-w-[300px]"
+                className="object-contain drop-shadow-md drop-shadow-black w-full h-full max-h-[320px] max-w-[320px]"
                 classes={{ wrapper: "h-full place-self-center" }}
-                width={300}
+                width={320}
               />
             </SwiperSlide>
           ))}
@@ -185,7 +191,7 @@ export default function ImagesSection({
           size="lg"
           color="warning"
           className={
-            "absolute z-10 right-0 opacity-0 sm:opacity-100" +
+            "absolute z-10 right-4 opacity-0 sm:opacity-100" +
             (!showSlider ? " hidden" : "")
           }
           title="Mostrar imagen siguiente"
@@ -217,7 +223,7 @@ export default function ImagesSection({
               className="h-full"
               slidesPerView={1}
               spaceBetween={100}
-              modules={[Navigation, Thumbs]}
+              modules={[Navigation]}
               navigation
               loop={imgsData.full && imgsData.full.length > 1}
             >
@@ -245,6 +251,6 @@ export default function ImagesSection({
           </motion.div>
         </Modal>
       )}
-    </section>
+    </motion.section>
   );
 }

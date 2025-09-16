@@ -10,14 +10,14 @@ type TypePriceLabel = {
 
 export default function PriceLabel({
   itemData,
-  className = "",
+  className,
   classNames = { discountWrapper: "", price: "" },
 }: TypePriceLabel) {
   const usePrice = itemData.price_data.usePrice;
   const price = itemData.price_data.prices[usePrice];
 
   return (
-    <div className={`text-end${className ? ` ${className}` : ""}`}>
+    <div className={className}>
       {usePrice !== "base" && (
         <div
           className={`whitespace-nowrap${
@@ -36,6 +36,7 @@ export default function PriceLabel({
           </span>
         </div>
       )}
+
       <p className={classNames?.price || undefined}>
         {toPriceFormat(price)}
         {itemData.price_data.salesUnit

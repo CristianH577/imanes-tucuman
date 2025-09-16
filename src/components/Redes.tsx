@@ -12,7 +12,7 @@ import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import DescriptionIcon from "@mui/icons-material/Description";
 
-import { SVGMercadoLibre, SVGSSignalMessenger } from "../assets/svgs/svgsIcons";
+import { SVGMercadoLibre } from "../assets/svgs/svgsIcons";
 
 type LinkKey = keyof typeof LINKS_SITES;
 
@@ -43,11 +43,11 @@ const redes = [
     // className="text-[#0088cc]"
     label: "Telegram",
   },
-  {
-    id: "signal",
-    icon: SVGSSignalMessenger,
-    label: "Signal",
-  },
+  // {
+  //   id: "signal",
+  //   icon: SVGSSignalMessenger,
+  //   label: "Signal",
+  // },
   {
     id: "catalogo",
     icon: PictureAsPdfIcon,

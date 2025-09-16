@@ -1,7 +1,10 @@
 import { isValidElement, useState } from "react";
 import { useOutletContext } from "react-router";
 
+import listJson from "../assets/jsons/faqs.json";
 import type { TypeOutletContext } from "../consts/types";
+
+import { toPlainText } from "../libs/functions";
 
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
@@ -10,24 +13,18 @@ import Envios from "./Faqs/Envios";
 import InputSearch from "../components/InputSearch";
 import LinkCustom from "../components/LinkCustom";
 
-import EmergencyIcon from "@mui/icons-material/Emergency";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-function Faqs() {
+type TypeListFaqs = {
+  title: string;
+  content: string | React.ReactNode;
+  tags?: string[];
+};
+
+export default function Faqs() {
   const context: TypeOutletContext = useOutletContext();
 
-  const list = [
-    {
-      title: "Cuales son las condiciones de venta?",
-      content: (
-        <p>
-          Los productos pueden traer defectos de fabrica, revíselos al comprar.
-          <br />
-          Las fuerzas y medidas mostradas son aproximadas y pueden variar
-          ligeramente.
-        </p>
-      ),
-    },
+  const list: TypeListFaqs[] = [
     {
       title: "Como recibo mi producto?",
       content: (
@@ -63,20 +60,6 @@ function Faqs() {
       ],
     },
     {
-      title: "Los productos tienen garantia?",
-      content: (
-        <>
-          Los productos no son reembolsables pero tienen 1 semana de garantía
-          para cambios siempre y cuando no hayan sido usados y estén en
-          condiciones. Esto no aplica para el iman en tira y plancha que deben
-          ser cortados.
-          <br />
-          Los productos pueden traer algún pequeño defecto de forma de fabrica,
-          recuerde revisar o avisar si esto es un problema.
-        </>
-      ),
-    },
-    {
       title: "Pedidos grandes",
       content: (
         <article>
@@ -88,11 +71,6 @@ function Faqs() {
           </ul>
         </article>
       ),
-    },
-    {
-      title: "Cual es la diferencia entre los imanes de ferrita y neodimio?",
-      content:
-        "Principalmente se diferencian en que los de neodimio son mucho mas potentes y mas caros pero los de ferrita son mas resistentes a la corrosion y temperatura.",
     },
     {
       title: "Como se consigue la mayor fuerza de atracción del imán?",
@@ -110,41 +88,7 @@ function Faqs() {
           ))}
         </ol>
       ),
-    },
-    {
-      title: "Se pueden cortar o perforar los imanes de neodimio?",
-      content:
-        "No es recomendable hacerlo ya que son frágiles y su corte puede generar polvo inflamable y reducir o perder su magnetismo ademas de quitar la capa de recubrimiento que los protege.",
-    },
-    {
-      title: "Para que se recubren los imanes de neodimio?",
-      content:
-        "Para protegerlos de la corrosión y la oxidación, mejorando su durabilidad y prolongando su vida útil. El recubrimiento también puede mejorar la estética del imán y facilitar su adherencia a otros materiales.",
-    },
-    {
-      title: "Que significa la letra 'N'?",
-      content:
-        "Es el grado o clasificación del imán, suele estar entre 35 y 52; indica la medida de energía máxima que puede almacenar el material con que se fabrico, es decir, indica la resistencia máxima a la que puede magnetizarse el material. Entre más alto es el grado, más fuerte es el iman.",
-    },
-    {
-      title: "Que temperatura resisten los imanes de neodimio?",
-      content:
-        "En general, en calidad N, pueden resistir una temperatura máxima de 80°C, despues de esta empiezan a perder la magnetización. Existen otras calidades que resisten más temperatura: M, H, SH, etc.",
-    },
-    {
-      title: "Pierden su magnetismo los imanes de neodimio?",
-      content: (
-        <>
-          Sí, pueden perder su magnetismo, aunque de manera muy lenta en
-          condiciones normales. La pérdida de magnetismo es más pronunciada
-          cuando son expuestos a altas temperaturas o campos magnéticos fuertes.
-          <br />
-          Un imán de neodimio permanente estándar, mantenido en condiciones de
-          almacenamiento adecuadas y no sujeto a otros factores externos,
-          perderá en promedio menos del 5% de su magnetización en un lapso de un
-          siglo entero.
-        </>
-      ),
+      tags: ["potencia", "arrastre"],
     },
     {
       title: "Con que se pueden pegar los imanes de neodimio?",
@@ -220,36 +164,26 @@ function Faqs() {
         </ol>
       ),
     },
-    {
-      title: "Que es el principio de imputación de Menger?",
-      content: (
-        <p>
-          Este establece que los precios de los factores productivos se
-          determinan por su contribución al valor final de un bien, o sea, el
-          que sube los precios sin razon se va tener que meter lo que vende en
-          el{" "}
-          <span className="inline-block align-middle">
-            <EmergencyIcon />
-          </span>
-          .
-        </p>
-      ),
-    },
+
+    ...listJson,
   ];
 
   const [items, setItems] = useState(list);
   const [inputText, setInputText] = useState("");
 
   const handleSearch = () => {
-    const items_ = list.filter((item) => {
-      const text_content = extractText(item.content).toLowerCase();
-      const text_search = inputText.toLowerCase();
+    const text_search = toPlainText(inputText);
 
-      return (
-        item.title.includes(text_search) ||
-        text_content.includes(text_search) ||
-        item?.tags?.some((texto) => texto.includes(text_search))
-      );
+    const items_ = list.filter((item) => {
+      const title_bool = toPlainText(item.title).includes(text_search);
+      if (title_bool) return true;
+
+      const tags = item?.tags?.some((tag) => tag.includes(text_search));
+      if (tags) return true;
+
+      const content_text = extractText(item.content);
+      const content_bool = toPlainText(content_text).includes(text_search);
+      return content_bool;
     });
 
     setItems(items_);
@@ -318,7 +252,7 @@ function Faqs() {
                 {item.title}
               </AccordionSummary>
 
-              <AccordionDetails className="prose dark:prose-invert data-[open=true]:border-y-4 border-custom2 dark:border-custom1">
+              <AccordionDetails className="prose dark:prose-invert data-[open=true]:border-y-4 border-custom2 dark:border-custom1 whitespace-pre-line">
                 {item.content}
               </AccordionDetails>
             </Accordion>
@@ -328,5 +262,3 @@ function Faqs() {
     </>
   );
 }
-
-export default Faqs;

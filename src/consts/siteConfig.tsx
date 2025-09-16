@@ -46,7 +46,7 @@ export const LINKS_SITES = {
   mercadoshops: "https://imanestucuman.mercadoshops.com.ar/",
   web: "https://www.imanestucuman.com.ar/",
   telegram: "https://t.me/imanestucuman",
-  signal: "https://signal.me/#p/+543813156907",
+  // signal: "https://signal.me/#p/+543813156907",
   "form_encuesta-20250109": "https://forms.gle/Qo8PUYAkysYGuTPK8",
   googlemaps_indicaciones:
     "https://www.google.com.ar/maps/dir/Av.+Gral.+Roca+%26+Pcia+de+Jujuy,+T4000+San+Miguel+de+Tucum%C3%A1n,+Tucum%C3%A1n/Imanes+Tucum%C3%A1n,+9+de+Julio,+San+Miguel+de+Tucum%C3%A1n,+Provincia+de+Tucum%C3%A1n/@-26.8639462,-65.2214478,14.26z/data=!4m14!4m13!1m5!1m1!1s0x94225c0b2e16d2d5:0x2df6ddf6da9766ac!2m2!1d-65.2140368!2d-26.8420076!1m5!1m1!1s0x94225b001419003b:0x46095acd3879452e!2m2!1d-65.2246979!2d-26.8894679!3e0?entry=ttu&g_ep=EgoyMDI1MDMwNC4wIKXMDSoASAFQAw%3D%3D",

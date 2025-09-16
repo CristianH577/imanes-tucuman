@@ -11,7 +11,7 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ElectricalServicesIcon from "@mui/icons-material/ElectricalServices";
 
 import {
-  SVGBallPyramid,
+  // SVGBallPyramid,
   SVGMagnet,
   SVGRibbon,
   SVGVibratingBall,
@@ -23,7 +23,7 @@ import ceramico from "../../assets/home/AdvertisementsOwn/iman-ceramico-60.webp"
 import tira_flexible from "../../assets/home/AdvertisementsOwn/tira_flexible-13.webp";
 import plancha from "../../assets/home/AdvertisementsOwn/plancha-31.webp";
 import kluster from "../../assets/home/AdvertisementsOwn/kluster.webp";
-import neocube from "../../assets/home/AdvertisementsOwn/neocube-dorado.webp";
+// import neocube from "../../assets/home/AdvertisementsOwn/neocube-dorado.webp";
 import electricidad from "../../assets/home/AdvertisementsOwn/electricidad.webp";
 
 const items = [
@@ -40,7 +40,7 @@ const items = [
     src: ceramico,
     href: "categorie=imanes,ferrita",
     title: "Imán de ferrita",
-    text: "Tienen alta resistencia a la temperatura y corrosión, esto le permiten ser usados en exteriores y hornos",
+    text: "No suelen ser tan potentes pero si económicos. Tienen alta resistencia a la temperatura y corrosión",
     icon: SVGMagnet,
   },
   {
@@ -55,26 +55,26 @@ const items = [
     id: "plancha",
     src: plancha,
     href: "categorie=imanes,flexibles&text=lamina",
-    title: "Imán en plancha",
+    title: "Lámina de imán",
     text: "Puede pegarse para hacer souvenirs, calendarios, imanes publicitarios, etc",
     icon: SVGWallpaper,
   },
   {
-    id: "kluster",
+    id: "juguetes",
     src: kluster,
-    href: "text=kluster",
-    title: "kluster",
-    text: "Juego de 20 piedras ovaladas de hematita magnetizadas y pulidas",
+    href: "text=juguetes",
+    title: "Juguetes",
+    text: "Entre los diversos usos de los imanes esta el de usarse para jugar a construir o evitar que se junten",
     icon: SVGVibratingBall,
   },
-  {
-    id: "neocube",
-    src: neocube,
-    href: "text=neocube%dorado",
-    title: "neocube",
-    text: "216 imanes esféricos de 5mm de diámetro",
-    icon: SVGBallPyramid,
-  },
+  // {
+  //   id: "neocube",
+  //   src: neocube,
+  //   href: "text=neocube%dorado",
+  //   title: "neocube",
+  //   text: "216 imanes esféricos de 5mm de diámetro",
+  //   icon: SVGBallPyramid,
+  // },
   {
     id: "electricidad",
     src: electricidad,

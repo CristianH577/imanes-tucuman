@@ -86,7 +86,7 @@ function Envios({
       content: (
         <p>
           Deberá efectuar el pago del envío por transferencia antes de
-          realizarlo, el resto lo paga en la entrega.
+          realizarlo, el resto lo paga en la entrega. (5/9/25)
         </p>
       ),
     },
@@ -104,20 +104,30 @@ function Envios({
     },
     {
       icon: LocalShippingOutlinedIcon,
-      title: "Encomienda",
+      title: "Encomienda (5/9/25)",
       content: (
         <div>
           <ol className="list-disc">
             <li>A cotizar por empresa, destino, tamaño y peso.</li>
             <li>+$3500 Envío prioritario(opcional).</li>
             <li>
-              Correo Argentino(Contrareembolso): Paga el pedido en sucursal al
-              retirarlo, tiene un recargo del 20% al total. El envio cuesta
-              aprox. +$15000 y debe transferirse antes.
+              Correo Argentino(Contrareembolso):
+              <br />
+              Paga el pedido en sucursal al retirarlo, tiene un recargo del 20%
+              al total.
+              <br />
+              El envio cuesta aprox. +$15000 y debe transferirse antes.
             </li>
             <li>
-              Andreani: Paga el pedido por transferencia y el envio se paga por
-              un cupon de pago de la empresa. Puede cotizar en la{" "}
+              Andreani:
+              <br />
+              Paga el pedido por transferencia y el envio se puede pagar con un
+              cupon de pago de la empresa.
+              <br />
+              Costo aprox. de envio: $7000 a sucursal, $10.000 - $14.000 a
+              domicilio.
+              <br />
+              Puede cotizar en su sitio:{" "}
               <LinkCustom
                 href="https://www.andreani.com/?tab=cotizar-envio"
                 title="web de Andreani"

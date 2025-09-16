@@ -141,7 +141,7 @@ export default function DrawerFilters({
           <div>
             <p>{input.label}</p>
 
-            <div className="xs:flex gap-1">
+            <div className="flex flex-col xs:flex-row gap-1">
               {["Min", "Max"].map((key) => {
                 const value =
                   filtersValuesTemp[

@@ -4,20 +4,33 @@ import {
   SVGTextoTucuman,
 } from "../assets/svgs/svgsLogo";
 
+interface IntProps {
+  id?: string;
+  title?: string;
+  classNames?: {
+    svgA?: string;
+    mancha?: string;
+  };
+  className?: string;
+  href?: string;
+}
+
 export default function Logo({
-  id = "",
-  classNames = { svgA: "" },
-  className = "",
-  href = "",
+  id,
+  classNames,
+  className,
+  href,
+  title,
   ...props
-}) {
+}: IntProps) {
   return (
     <a
-      id={id || undefined}
+      id={id}
       href={href || undefined}
       className={`font-['calvera'] relative select-none flex items-center justify-center self-center drop-shadow-custom${
         className ? " " + className : ""
       }`}
+      title={title}
       {...props}
     >
       <SVGTextoImanes
@@ -26,13 +39,15 @@ export default function Logo({
         from="rgba(255, 222, 0, 1)" //from-custom1
         to="rgba(255, 153, 0, 1)" //to-custom1-6
         className={`w-full h-full${
-          classNames.svgA ? " " + classNames.svgA : ""
+          classNames?.svgA ? " " + classNames.svgA : ""
         }`}
       />
 
       <SVGMancha
         id={`${id || "logo"}_midle`}
-        className="absolute h-4/5 w-[60%]"
+        className={`absolute h-4/5 w-[60%]${
+          classNames?.mancha ? " " + classNames.mancha : ""
+        }`}
         from="rgba(230, 125, 0, .6)" //from-custom1--8/60
         to="rgba(204, 111, 0, .6)" //to-custom1--9/60
       />
