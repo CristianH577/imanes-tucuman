@@ -35,7 +35,7 @@ export const LINKS_SITES = {
   whatsapp: "https://api.whatsapp.com/send?phone=543813156907",
   googlemaps:
     "https://www.google.com.ar/maps/place/Imanes+Tucum%C3%A1n/@-26.8887704,-65.2256411,17.54z/data=!4m6!3m5!1s0x94225b001419003b:0x46095acd3879452e!8m2!3d-26.8894591!4d-65.2246928!16s%2Fg%2F11wb1cdws9?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D",
-  facebook: "https://www.facebook.com/profile.php?id=61560974355591",
+  facebook: "https://www.facebook.com/imanestucuman",
   instagram: "https://www.instagram.com/imanestucuman/",
   x: "https://x.com/imanestucuman",
   tiendanube: "https://imanestucuman.mitiendanube.com/",
@@ -45,7 +45,7 @@ export const LINKS_SITES = {
     "https://drive.google.com/drive/folders/1C2T_BZKXTpU-GPEH9PLk1QRGViV85Iz_?usp=drive_link",
   mercadoshops: "https://imanestucuman.mercadoshops.com.ar/",
   web: "https://www.imanestucuman.com.ar/",
-  telegram: "https://t.me/imanestucuman",
+  // telegram: "https://t.me/imanestucuman",
   // signal: "https://signal.me/#p/+543813156907",
   "form_encuesta-20250109": "https://forms.gle/Qo8PUYAkysYGuTPK8",
   googlemaps_indicaciones:

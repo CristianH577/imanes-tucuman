@@ -115,10 +115,10 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
             component="a"
             href="#buscar"
             title="Buscar"
-            className="sm:hidden mx-1"
+            className="sm:hidden"
           >
             <ContentPasteSearchOutlinedIcon
-              className="text-custom2 dark:text-custom1"
+              className="text-custom2 dark:text-custom1 h-9 w-fit"
               data-active={cartLength > 0}
             />
           </IconButton>

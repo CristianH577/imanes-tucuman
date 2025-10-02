@@ -111,11 +111,14 @@ export default function Hero() {
             color="warning"
             size="lg"
             className="font-bold"
-            title="Ver sección de formas"
-            onPress={() => {
-              const section = document.querySelector("#formas");
-              if (section) section.scrollIntoView();
-            }}
+            // title="Ver sección de formas"
+            // onPress={() => {
+            //   const section = document.querySelector("#formas");
+            //   if (section) section.scrollIntoView();
+            // }}
+            title="Ir a búsqueda"
+            href="#buscar?orderBy=price-asc"
+            as="a"
           >
             Explorar
           </Button>

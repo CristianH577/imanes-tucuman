@@ -7,7 +7,7 @@ import { Tooltip } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TelegramIcon from "@mui/icons-material/Telegram";
+// import TelegramIcon from "@mui/icons-material/Telegram";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import DescriptionIcon from "@mui/icons-material/Description";
@@ -37,12 +37,12 @@ const redes = [
     icon: PinDropIcon,
     label: "Ubicación",
   },
-  {
-    id: "telegram",
-    icon: TelegramIcon,
-    // className="text-[#0088cc]"
-    label: "Telegram",
-  },
+  // {
+  //   id: "telegram",
+  //   icon: TelegramIcon,
+  //   // className="text-[#0088cc]"
+  //   label: "Telegram",
+  // },
   // {
   //   id: "signal",
   //   icon: SVGSSignalMessenger,
