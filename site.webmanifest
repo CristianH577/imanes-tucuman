@@ -2,26 +2,26 @@
   "name": "Imanes Tucuman",
   "short_name": "ImanesTuc",
   "description": "Emprendimiento comercial de imanes de neodimio y otros articulos.",
-  "start_url": "./",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
   "orientation": "portrait",
   "lang": "es-AR",
-  "scope": "./",
+  "scope": "/",
   "icons": [
     {
-      "src": "./favicon.ico",
+      "src": "/favicon.ico",
       "sizes": "64x64 32x32 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "./icon-96.png",
+      "src": "/icon-96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "./apple_touch-180.png",
+      "src": "/apple_touch-180.png",
       "sizes": "180x180",
       "type": "image/png",
       "purpose": "maskable"
