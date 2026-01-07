@@ -30,7 +30,7 @@ export const OBJ_SHAPES: TypeObjShape = {
         measureFormat: "DxH Ds-Di",
         icon: SVGRedondoFresado,
       },
-      arrastre: { label: "redondo", icon: SVGArrastre },
+      arrastre: { label: "De arrastre", icon: SVGArrastre },
     },
   },
   cuadrado: {
@@ -173,6 +173,16 @@ export const FILTERS_INPUTS = [
     label: "Precio",
     format: "number",
   },
+  {
+    id: "stock",
+    label: "Con stock",
+    format: "check",
+  },
+  {
+    id: "discount",
+    label: "Con descuento",
+    format: "check",
+  },
 ];
 
 export const FILTERS_VALUES_DEFAULT: TypeFiltersValues = {
@@ -184,4 +194,6 @@ export const FILTERS_VALUES_DEFAULT: TypeFiltersValues = {
   forma: [],
   priceMin: undefined,
   priceMax: undefined,
+  stock: false,
+  discount: false,
 };

@@ -31,7 +31,7 @@ export default function ArticlesList({ list }: Props) {
 
   return (
     <Accordion
-      className="w-full max-w-sm border-3 border-custom1-2 bg-content1 text-foreground shadow-none rounded-lg"
+      className="w-full max-w-sm border-2 border-custom1-2 bg-content1 text-foreground shadow-none rounded-lg"
       title="Ver artículos"
     >
       <AccordionSummary

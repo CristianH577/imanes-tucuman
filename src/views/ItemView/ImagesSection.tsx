@@ -5,15 +5,7 @@ import { OBJ_SHAPES } from "../../consts/values";
 import type { TypeIcon, TypeItemImgs } from "../../consts/types";
 import { scrollStyle } from "../../libs/tvs";
 
-import { Button } from "@heroui/button";
-import { CircularProgress, Modal } from "@mui/material";
-
-import ImageCustom from "../../components/ImageCustom";
-
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import FullscreenIcon from "@mui/icons-material/Fullscreen";
-import FullscreenExitIcon from "@mui/icons-material/FullscreenExit";
+import { CircularProgress, Button } from "@mui/material";
 
 import type { Swiper as TypeSwiper } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,6 +14,13 @@ import { Navigation, Thumbs } from "swiper/modules";
 import "swiper/css";
 // @ts-ignore
 import "swiper/css/navigation";
+
+import ImageCustom from "../../components/ImageCustom";
+import ModalFullImg from "./ModalFullImg";
+import ButtonSlider from "./ButtonSlider";
+
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import FullscreenIcon from "@mui/icons-material/Fullscreen";
 
 interface TypeImagesSectionProps {
   loading?: boolean;
@@ -63,7 +62,7 @@ export default function ImagesSection({
 
   if (!imgsData.imgs) {
     return (
-      <section className="flex justify-center p-2 gap-2 sm:p-4">
+      <section className="flex justify-center p-2 gap-2 sm:p-4 border dark:border-neutral-500 rounded-md shadow-md flex-1">
         {SvgForma ? (
           <SvgForma className="h-[320px] max-w-[320px] w-full" />
         ) : (
@@ -96,14 +95,14 @@ export default function ImagesSection({
           onSwiper={setThumbsSwiper}
         >
           {SvgForma && (
-            <SwiperSlide className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-content4 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1 p-1">
+            <SwiperSlide className="cursor-pointer rounded-md hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-divider/15 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1 p-1">
               <SvgForma className="w-full h-full" />
             </SwiperSlide>
           )}
           {imgsData.thumbnails.map((img, i) => (
             <SwiperSlide
               key={i}
-              className="cursor-pointer rounded-medium hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-content4 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1"
+              className="cursor-pointer rounded-md hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-divider/15 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1"
             >
               <ImageCustom
                 src={img}
@@ -127,11 +126,13 @@ export default function ImagesSection({
       >
         {imgsData.full?.length && (
           <Button
+            variant="contained"
+            size="small"
             color="primary"
-            isIconOnly
             title="Agrandar"
             className="absolute top-4 right-4 z-20"
-            onPress={() => setOpenFullImgs(true)}
+            onClick={() => setOpenFullImgs(true)}
+            sx={{ minWidth: 0, px: 1, borderRadius: 2 }}
           >
             <FullscreenIcon className="h-9 w-fit" />
           </Button>
@@ -167,90 +168,24 @@ export default function ImagesSection({
           ))}
         </Swiper>
 
-        <Button
-          ref={prevRef}
-          isIconOnly
-          variant="ghost"
-          radius="full"
-          size="lg"
-          color="warning"
-          className={
-            "absolute z-10 opacity-0 sm:opacity-100" +
-            (!showSlider ? " hidden" : "")
-          }
-          title="Mostrar imagen anterior"
-        >
-          <KeyboardArrowLeftIcon className="h-12 w-fit" />
-        </Button>
-
-        <Button
-          ref={nextRef}
-          isIconOnly
-          variant="ghost"
-          radius="full"
-          size="lg"
-          color="warning"
-          className={
-            "absolute z-10 right-4 opacity-0 sm:opacity-100" +
-            (!showSlider ? " hidden" : "")
-          }
-          title="Mostrar imagen siguiente"
-        >
-          <KeyboardArrowRightIcon className="h-12 w-fit" />
-        </Button>
+        {showSlider && (
+          <>
+            <ButtonSlider ref={prevRef} />
+            <ButtonSlider
+              ref={nextRef}
+              Icon={KeyboardArrowRightIcon}
+              className="right-4"
+              title="Mostrar imagen siguiente"
+            />
+          </>
+        )}
       </motion.article>
 
-      {openFullImgs && (
-        <Modal
-          open={openFullImgs}
-          onClose={() => setOpenFullImgs(false)}
-          classes={{
-            backdrop: "bg-background/90",
-          }}
-        >
-          <motion.div className="h-full p-2 sm:p-4">
-            <Button
-              color="primary"
-              isIconOnly
-              title="Cerrar"
-              className="absolute top-4 right-4 z-10"
-              onPress={() => setOpenFullImgs(false)}
-            >
-              <FullscreenExitIcon className="h-9 w-fit" />
-            </Button>
-
-            <Swiper
-              className="h-full"
-              slidesPerView={1}
-              spaceBetween={100}
-              modules={[Navigation]}
-              navigation
-              loop={imgsData.full && imgsData.full.length > 1}
-            >
-              {imgsData.full &&
-                imgsData.full.map((img, i) => (
-                  <SwiperSlide
-                    key={i}
-                    className="h-full overflow-y-auto flex items-center p-2 sm:p-4"
-                  >
-                    <ImageCustom
-                      src={img}
-                      alt={"Imagen completa " + (i + 1)}
-                      className="w-full max-w-max cursor-pointer"
-                      classes={{ wrapper: "m-auto" }}
-                      style={{
-                        filter:
-                          "drop-shadow(0 0 4px hsl(var(--heroui-foreground)))",
-                      }}
-                      title="Cerrar"
-                      onClick={() => setOpenFullImgs(false)}
-                    />
-                  </SwiperSlide>
-                ))}
-            </Swiper>
-          </motion.div>
-        </Modal>
-      )}
+      <ModalFullImg
+        open={openFullImgs}
+        setOpen={setOpenFullImgs}
+        imgsData={imgsData}
+      />
     </motion.section>
   );
 }

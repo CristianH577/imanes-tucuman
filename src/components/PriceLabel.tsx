@@ -13,35 +13,33 @@ export default function PriceLabel({
   className,
   classNames = { discountWrapper: "", price: "" },
 }: TypePriceLabel) {
-  const usePrice = itemData.price_data.usePrice;
-  const price = itemData.price_data.prices[usePrice];
+  const usePrice = itemData.priceData.usePrice;
+  const price = itemData.priceData.prices[usePrice];
 
   return (
-    <div className={className}>
+    <div className={"text-end" + (className ? " " + className : "")}>
       {usePrice !== "base" && (
         <div
           className={`whitespace-nowrap${
             classNames?.discountWrapper ? ` ${classNames?.discountWrapper}` : ""
           }`}
         >
-          {itemData.price_data?.discountsPercentages?.[usePrice] && (
+          {itemData.priceData?.discountsPercentages?.[usePrice] && (
             <b className="text-red-700">
               {toPercentageFormat(
-                itemData.price_data.discountsPercentages[usePrice] * -1
+                itemData.priceData.discountsPercentages[usePrice] * -1
               )}
             </b>
           )}{" "}
           <span className="text-neutral-400 line-through">
-            {toPriceFormat(itemData.price_data.prices.base)}
+            {toPriceFormat(itemData.priceData.prices.base)}
           </span>
         </div>
       )}
 
       <p className={classNames?.price || undefined}>
         {toPriceFormat(price)}
-        {itemData.price_data.salesUnit
-          ? "/" + itemData.price_data.salesUnit
-          : ""}
+        {itemData.priceData.salesUnit ? "/" + itemData.priceData.salesUnit : ""}
       </p>
     </div>
   );

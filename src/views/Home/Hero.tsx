@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { title, title1 } from "../../libs/tvs";
 
-import { Button } from "@heroui/button";
+import { Button } from "@mui/material";
 
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
 
@@ -106,19 +106,18 @@ export default function Hero() {
           </div>
 
           <Button
-            radius="full"
-            variant="ghost"
             color="warning"
-            size="lg"
-            className="font-bold"
-            // title="Ver sección de formas"
-            // onPress={() => {
-            //   const section = document.querySelector("#formas");
-            //   if (section) section.scrollIntoView();
-            // }}
+            variant="outlined"
+            size="large"
             title="Ir a búsqueda"
             href="#buscar?orderBy=price-asc"
-            as="a"
+            component="a"
+            sx={{
+              textTransform: "none",
+              borderRadius: 3,
+              fontFamily: "unset",
+              fontWeight: "bold",
+            }}
           >
             Explorar
           </Button>

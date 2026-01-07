@@ -20,14 +20,32 @@
   --font-size-primary: medium;
   --font-size-secondary: small;
   --font-size-tertiary: large;
+
+  --color-customSwitch: 32 35 85;
+
+  --color-heroui-content1: #ffffff;
+  --color-heroui-content2: #f4f4f5;
+  --color-heroui-content3: #e4e4e7;
+  --color-heroui-content4: #d4d4d8;
+  --color-heroui-divider: 17 17 17;
+  --color-heroui-danger: #f31260;
+  --color-heroui-success: 23 201 100;
+
+  --color-heroui-secondary: 120 40 200;
+  --color-heroui-secondary-700: 72 24 120;
 }
 
 .dark {
-  --color-content1: #18181b;
-  --color-content2: #27272a;
+  --color-customSwitch: 255 139 0;
 
-  --color-secondary: #9353d3;
-  --color-secondary-500: #7828c8;
+  --color-heroui-content1: #18181b;
+  --color-heroui-content2: #27272a;
+  --color-heroui-content3: #3f3f46;
+  --color-heroui-content4: #52525b;
+  --color-heroui-divider: 255 255 255;
+
+  --color-heroui-secondary: 147 83 211;
+  --color-heroui-secondary-700: 201 169 233;
 }
 
 html {

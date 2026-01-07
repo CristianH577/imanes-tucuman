@@ -83,8 +83,10 @@ export default function Imanes() {
           Seleccione la forma que le interese y revise las medidas y precios. En
           la tabla podrá ver que varia el precio por unidad según la cantidad.
           <br />
-          Las medidas con <span className="bg-divider px-1">fondo gris</span> es
-          por falta de stock.
+          Las medidas con <span className="bg-divider/15 px-1">
+            fondo gris
+          </span>{" "}
+          es por falta de stock.
           <br />
           Consulte por medidas no listadas.
         </p>

@@ -19,7 +19,7 @@ export default function Puertas() {
           <ImageCustom
             key={i + 1}
             src={src}
-            className="object-cover w-[300px] h-[300px] rounded-lg border-5 border-divider shadow-md"
+            className="object-cover w-[300px] h-[300px] rounded-lg border-5 border-divider/15 shadow-md"
             alt={`Imagen de ejemplo ${i + 1}`}
             height={300}
             widht={300}

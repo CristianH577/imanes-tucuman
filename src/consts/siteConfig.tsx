@@ -2,19 +2,34 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ContentPasteSearchOutlinedIcon from "@mui/icons-material/ContentPasteSearchOutlined";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 import { SVGMagnet } from "../assets/svgs/svgsIcons";
 
 export const NAV_ITEMS = [
-  { id: "", href: "", label: "Inicio", icon: HomeOutlinedIcon },
+  { id: "home", href: "", label: "Inicio", icon: HomeOutlinedIcon },
   {
     id: "search_view",
     href: "buscar",
-    label: "Buscar",
+    label: "Busqueda",
+    title: "Resultados",
     icon: ContentPasteSearchOutlinedIcon,
     search: "?orderBy=price-asc",
   },
-  { id: "imanes", href: "neodimio", label: "Neodimio", icon: SVGMagnet },
+  {
+    id: "imanes",
+    href: "neodimio",
+    label: "Neodimio",
+    title: "Neodimio",
+    icon: SVGMagnet,
+  },
+  {
+    id: "cart",
+    href: "cart",
+    label: "Carrito",
+    title: "Carrito",
+    icon: ShoppingCartOutlinedIcon,
+  },
   {
     id: "uya",
     href: "uya",
@@ -28,6 +43,17 @@ export const NAV_ITEMS = [
     label: "FAQs",
     title: "Preguntas Frecuentes",
     icon: HelpOutlineIcon,
+  },
+  {
+    id: "viewItem",
+    href: "/buscar/:id",
+    label: "",
+  },
+  {
+    id: "admin",
+    href: "admin",
+    label: "Admin",
+    title: "Admin",
   },
 ];
 

@@ -5,8 +5,10 @@ import type {
   TypeFiltersValues,
   TypeItemImgs,
   TypeItemImgsArray,
+  TypeObjectGeneral,
   TypeTableFormItem,
 } from "../consts/types";
+import { toPng } from "html-to-image";
 
 export const scrollToTop = () => {
   const app = document.querySelector("#app");
@@ -49,8 +51,10 @@ export function cartItemsComparator(col: string, order: string) {
     let bool = 0;
     if (type === "number") {
       if (col === "price") {
-        val_a = a.price_data.prices.base || "";
-        val_b = b.price_data.prices.base || "";
+        const usePrice_a = a.priceData.usePrice;
+        const usePrice_b = b.priceData.usePrice;
+        val_a = a.priceData.prices[usePrice_a] || "";
+        val_b = b.priceData.prices[usePrice_b] || "";
       }
       bool = Number(val_a) - Number(val_b);
     } else {
@@ -67,23 +71,24 @@ export const handlePriceData = (
   following = false,
   qtt = 1
 ) => {
-  const prices_qtts = priceData?.prices_qtts;
+  const pricesQtts = priceData?.pricesQtts;
   const price_following = priceData.prices?.following;
+
+  if (!priceData.discountsPercentages) {
+    priceData.discountsPercentages = {};
+  }
 
   if (following && !price_following) {
     let discount = 0.1;
     const price = priceData.prices.base;
     if (price > 12000) discount = 0.05;
     priceData.prices.following = price * (1 - discount);
-    if (!priceData.discountsPercentages) {
-      priceData.discountsPercentages = {};
-    }
     priceData.discountsPercentages.following = discount;
   }
 
-  if (prices_qtts) {
+  if (pricesQtts) {
     let price_qtt = 0;
-    const qtts = Object.keys(prices_qtts)
+    const qtts = Object.keys(pricesQtts)
       .map(Number)
       .sort((a, b) => a - b);
 
@@ -91,7 +96,7 @@ export const handlePriceData = (
       const umin = qtts[i];
 
       if (qtt >= umin) {
-        price_qtt = prices_qtts[umin] || 0;
+        price_qtt = pricesQtts[umin] || 0;
       } else {
         break;
       }
@@ -100,11 +105,16 @@ export const handlePriceData = (
     const base = priceData.prices.base;
     priceData.prices.qtt = price_qtt;
 
-    if (!priceData.discountsPercentages) {
-      priceData.discountsPercentages = {};
-    }
     priceData.discountsPercentages.qtt = (base - price_qtt) / base;
   }
+
+  // if (priceData.prices.discount && !priceData.discountsPercentages.discount) {
+  //   const percentageDiscount =
+  //     (priceData.prices.discount - priceData.prices.base) /
+  //     priceData.prices.base;
+
+  //   priceData.discountsPercentages.discount = percentageDiscount;
+  // }
 
   let use = "base";
   const prices = priceData.prices;
@@ -125,7 +135,9 @@ export const handlePriceData = (
 export const filterDbForms = (table: TypeTableFormItem) => {
   const items: ClassDBItem[] = DB_ALL.filter((item) => {
     let flag =
-      item.categorie[0] === "imanes" && item.categorie[1] === "neodimio";
+      !item.hidden &&
+      item.categorie[0] === "imanes" &&
+      item.categorie[1] === "neodimio";
 
     if (flag && item.forma) {
       flag = item.forma[0] === table.form;
@@ -247,4 +259,66 @@ export const toPlainText = (text: string) => {
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
+};
+
+export const capitalizeText = (text: string): string =>
+  text.charAt(0).toUpperCase() + text.slice(1);
+
+export const getCurrentDate = () => {
+  const fechaActual = new Date();
+
+  const año = fechaActual.getFullYear();
+  const mes = String(fechaActual.getMonth() + 1).padStart(2, "0");
+  const dia = String(fechaActual.getDate()).padStart(2, "0");
+
+  const horas = String(fechaActual.getHours()).padStart(2, "0");
+  const minutos = String(fechaActual.getMinutes()).padStart(2, "0");
+
+  return `${año}/${mes}/${dia}-${horas}:${minutos}`;
+};
+
+export const downloadContentToImg = async (
+  id: string,
+  withDate = false,
+  setLoading?: (bool: boolean) => void,
+  label?: string
+) => {
+  setLoading && setLoading(true);
+  setTimeout(() => {
+    const ref = document.querySelector("#" + id);
+    const bg = document.body.classList.contains("dark") ? "black" : "white";
+    if (ref) {
+      const date = getCurrentDate();
+
+      const configs = {
+        backgroundColor: bg,
+        pixelRatio: 2,
+      };
+
+      setTimeout(async () => {
+        try {
+          // @ts-ignore
+          const dataUrl = await toPng(ref, configs);
+          const link = document.createElement("a");
+          link.href = dataUrl;
+          link.download = (label || id) + (withDate ? "-" + date : "") + ".png";
+          link.click();
+        } catch (error) {
+          console.error("Error al generar la imagen:", error);
+          alert("Error al generar la imagen.");
+        }
+        setLoading && setLoading(false);
+      }, 200);
+    }
+  }, 500);
+};
+
+export const searchParamsToObj = (urlSearch: string) => {
+  const params = new URLSearchParams(urlSearch);
+  const params_obj: TypeObjectGeneral = {};
+  Array.from(params.entries()).map(
+    ([k, v]) => (params_obj[k] = v.replace(/%/g, " "))
+  );
+
+  return params_obj;
 };

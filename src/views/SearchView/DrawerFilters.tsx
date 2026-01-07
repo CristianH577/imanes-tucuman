@@ -8,21 +8,26 @@ import { FILTERS_INPUTS, FILTERS_VALUES_DEFAULT } from "../../consts/values";
 
 import { getHrefSearch } from "../../libs/functions";
 
-import { Select, SelectItem, SelectSection } from "@heroui/select";
-import { Input } from "@heroui/input";
-import { Button } from "@heroui/button";
 import {
+  Divider,
+  Button,
+  IconButton,
+  ButtonGroup,
   Drawer,
-  DrawerBody,
-  DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
-} from "@heroui/drawer";
+  FormControl,
+  InputLabel,
+  FilledInput,
+  Select,
+  MenuItem,
+  type SelectChangeEvent,
+  Checkbox,
+  FormControlLabel,
+} from "@mui/material";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CloseIcon from "@mui/icons-material/Close";
 
 import { SVGBroom } from "../../assets/svgs/svgsIcons";
-import { Divider } from "@mui/material";
 
 type TypeDrawerFilters = {
   isOpen: boolean;
@@ -57,9 +62,7 @@ export default function DrawerFilters({
     setFiltersValuesTemp(filters_values_);
   };
 
-  const handleSelectFilterChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleSelectFilterChange = (e: SelectChangeEvent) => {
     const filters_values_ = structuredClone(filtersValuesTemp);
     const name = e.target.name;
     let value: string | string[] = e.target.value;
@@ -75,6 +78,17 @@ export default function DrawerFilters({
 
     // @ts-ignore
     filters_values_[name] = value;
+    setFiltersValuesTemp(filters_values_);
+  };
+
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const filters_values_ = structuredClone(filtersValuesTemp);
+    const checked = e.target.checked;
+    const name = e.target.name;
+
+    // @ts-ignore
+    filters_values_[name] = checked;
+
     setFiltersValuesTemp(filters_values_);
   };
 
@@ -98,43 +112,68 @@ export default function DrawerFilters({
           ? val
           : (val as string[]).join(",");
 
-        const items: any =
-          input.items &&
-          Object.entries(input.items).map(([id, cat]) => (
-            <>
-              <SelectItem key={id}>{cat.label || id}</SelectItem>
+        const items: any[] = [];
 
-              {cat.subs && (
-                <SelectSection
-                  key={"section-" + id}
-                  showDivider
-                  title={cat.label || id}
-                >
-                  {Object.entries(cat.subs).map(([idSub, sub]) => (
-                    <SelectItem key={id + "," + idSub}>
-                      {sub.label || idSub}
-                    </SelectItem>
-                  ))}
-                </SelectSection>
-              )}
-            </>
-          ));
+        input.items &&
+          Object.entries(input.items).forEach(([id, cat]) => {
+            items.push(
+              <MenuItem
+                key={id}
+                value={id}
+                className="font-[menulis] font-semibold capitalize"
+              >
+                {cat.label || id}
+              </MenuItem>
+            );
+            if (cat.subs) {
+              Object.entries(cat.subs).forEach(([idSub, sub]) => {
+                items.push(
+                  <MenuItem
+                    key={id + "," + idSub}
+                    value={id + "," + idSub}
+                    className="font-[menulis] capitalize ps-6"
+                  >
+                    {sub.label || idSub}
+                  </MenuItem>
+                );
+              });
+            }
+          });
 
         return (
-          <Select
-            className="max-w-xs text-foreground"
-            classNames={{
-              listbox: "text-foreground capitalize",
-              popoverContent: "border-3 border-custom1-3",
-              value: "capitalize",
-            }}
-            label={input.label}
-            name={input.id}
-            selectedKeys={[selectedKeys]}
-            onChange={handleSelectFilterChange}
-          >
-            {items}
-          </Select>
+          <FormControl fullWidth className="max-w-xs">
+            <InputLabel htmlFor={id}>{input.label}</InputLabel>
+            <Select
+              label={input.label}
+              name={input.id}
+              variant="outlined"
+              color="warning"
+              className="font-[menulis] capitalize"
+              slotProps={{
+                notchedOutline: {
+                  className: "rounded-lg",
+                },
+              }}
+              inputProps={{
+                id: id,
+              }}
+              MenuProps={{
+                slotProps: {
+                  paper: {
+                    className: "rounded-lg mt-1 bg-background",
+                  },
+                },
+              }}
+              value={selectedKeys}
+              onChange={handleSelectFilterChange}
+            >
+              <MenuItem className="italic font-[menulis] text-neutral-500 dark:text-neutral-300">
+                Seleccione
+              </MenuItem>
+
+              {items}
+            </Select>
+          </FormControl>
         );
       case "number":
         return (
@@ -148,34 +187,65 @@ export default function DrawerFilters({
                     (input.id + key) as keyof TypeFiltersValues
                   ];
                 return (
-                  <Input
+                  <FormControl
                     key={key}
-                    type="number"
-                    size="sm"
-                    className="capitalize"
-                    id={`input-${input.id + key}`}
-                    label={key}
-                    name={`${input.id + key}`}
-                    value={value ? String(value) : ""}
-                    onChange={handleFilterChange}
-                  />
+                    variant="filled"
+                    color="warning"
+                    size="small"
+                  >
+                    <InputLabel htmlFor={`input-${input.id + key}`}>
+                      {key}
+                    </InputLabel>
+
+                    <FilledInput
+                      id={`input-${input.id + key}`}
+                      type="number"
+                      name={`${input.id + key}`}
+                      inputProps={{
+                        min: 0,
+                      }}
+                      value={value ? String(value) : ""}
+                      onChange={handleFilterChange}
+                    />
+                  </FormControl>
                 );
               })}
             </div>
           </div>
         );
 
+      case "check":
+        return (
+          <FormControlLabel
+            control={
+              <Checkbox
+                color="warning"
+                name={input.id}
+                checked={
+                  filtersValuesTemp[
+                    input.id as keyof TypeFiltersValues
+                  ] as boolean
+                }
+                onChange={handleCheck}
+              />
+            }
+            label={input.label}
+          />
+        );
+
       default:
         return (
-          <Input
-            id={id}
-            label={input.label}
-            name={input.id}
-            value={String(
-              filtersValuesTemp[input.id as keyof TypeFiltersValues]
-            )}
-            onChange={handleFilterChange}
-          />
+          <FormControl variant="filled">
+            <InputLabel htmlFor={id}>{input.label}</InputLabel>
+            <FilledInput
+              id={id}
+              name={input.id}
+              value={String(
+                filtersValuesTemp[input.id as keyof TypeFiltersValues]
+              )}
+              onChange={handleFilterChange}
+            />
+          </FormControl>
         );
     }
   };
@@ -188,17 +258,33 @@ export default function DrawerFilters({
 
   return (
     <Drawer
-      isOpen={isOpen}
+      open={isOpen}
       onClose={onClose}
-      onOpenChange={() => setIsOpen(true)}
-      className="max-w-[250px] text-foreground"
+      anchor="right"
+      disableScrollLock
+      sx={{
+        "& .MuiPaper-root": {
+          maxWidth: "250px",
+        },
+      }}
     >
-      <DrawerContent>
-        <DrawerHeader className="pb-0">Filtros</DrawerHeader>
+      <section>
+        <article className="p-2 flex items-center justify-between">
+          <h1 className="font-semibold">Filtros</h1>
 
-        <DrawerBody className="px-2 overflow-x-hidden">
-          <Divider className="bg-neutral-500/50" />
+          <IconButton
+            size="small"
+            className="text-neutral-500 dark:text-neutral-400"
+            title="Cerrar"
+            onClick={onClose}
+          >
+            <CloseIcon />
+          </IconButton>
+        </article>
 
+        <Divider className="bg-neutral-500/50" variant="middle" />
+
+        <article className="px-2 overflow-x-hidden">
           <motion.ol
             variants={{
               hidden: {},
@@ -229,40 +315,42 @@ export default function DrawerFilters({
               </motion.li>
             ))}
           </motion.ol>
+        </article>
 
-          <Divider className="bg-neutral-500/50" />
-        </DrawerBody>
+        <Divider className="bg-neutral-500/50" variant="middle" />
 
-        <DrawerFooter className="px-2 py-4 flex flex-wrap gap-2 justify-center">
-          <Button
-            isIconOnly
-            variant="light"
-            onPress={onClose}
-            title="Cerrar lista de filtros"
-          >
+        <article className="px-2 py-4 flex flex-wrap gap-2 justify-center">
+          <IconButton onClick={onClose} title="Cerrar lista de filtros">
             <ArrowBackIcon className="h-6 w-fit" />
-          </Button>
+          </IconButton>
 
-          <Button
-            isIconOnly
-            title="Limpiar filtros"
-            as={"a"}
-            href="#buscar?orderBy=price-asc"
-            onPress={handleClean}
-          >
-            <SVGBroom className="h-6 w-fit" />
-          </Button>
+          <ButtonGroup variant="contained">
+            <Button
+              color="inherit"
+              title="Limpiar filtros"
+              component={"a"}
+              href="#buscar?orderBy=price-asc"
+              onClick={handleClean}
+              sx={{ minWidth: 0, px: 1 }}
+            >
+              <SVGBroom className="h-6 w-fit" />
+            </Button>
 
-          <Button
-            color="primary"
-            onPress={handleApply}
-            title="Aplicar filtros"
-            className="font-semibold"
-          >
-            Aplicar
-          </Button>
-        </DrawerFooter>
-      </DrawerContent>
+            <Button
+              color="secondary"
+              onClick={handleApply}
+              title="Aplicar filtros"
+              sx={{
+                textTransform: "none",
+                fontFamily: "unset",
+                fontWeight: "bold",
+              }}
+            >
+              Aplicar
+            </Button>
+          </ButtonGroup>
+        </article>
+      </section>
     </Drawer>
   );
 }

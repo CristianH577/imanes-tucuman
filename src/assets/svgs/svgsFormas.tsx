@@ -544,7 +544,7 @@ export const SVGRectangularMeasures = (props: SVGProps<SVGSVGElement>) => (
       }}
       transform="rotate(180 0 0)"
     />
-    <g stroke="currentColor">
+    <g>
       <text x={61} y={34}>
         H
       </text>
@@ -576,7 +576,7 @@ export const SVGRectangularFresadoMeasures = (
       transform="rotate(180 0 0)"
     />
 
-    <g stroke="currentColor">
+    <g>
       <text x={61} y={34}>
         H
       </text>

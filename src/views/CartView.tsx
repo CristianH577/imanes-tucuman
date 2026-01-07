@@ -7,13 +7,12 @@ import { handlePriceData, toPriceFormat } from "../libs/functions";
 import { DB_ALL } from "../consts/dbs";
 import type { TypeOutletContext } from "../consts/types";
 
-import { Button } from "@heroui/button";
-import { CircularProgress, Tooltip } from "@mui/material";
+import { CircularProgress, Tooltip, Button } from "@mui/material";
 
 import Estimate from "./CartView/Estimate";
 
-import SendIcon from "@mui/icons-material/Send";
 import SimCardDownloadOutlinedIcon from "@mui/icons-material/SimCardDownloadOutlined";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 import { SVGBroom } from "../assets/svgs/svgsIcons";
 
@@ -37,14 +36,16 @@ export default function CartView() {
     }
 
     let total: number = 0;
-    let items = DB_ALL.filter((item) => item.id in cart);
+    let items = DB_ALL.sort((a, b) => a.label.localeCompare(b.label)).filter(
+      (item) => item.id in cart
+    );
     items = JSON.parse(JSON.stringify(items));
 
     items.forEach((item) => {
       const array = [];
       const qtt = cart[item.id] || 0;
       const priceData = handlePriceData(
-        item.price_data,
+        item.priceData,
         entrega.following && item.categorie[0] === "imanes",
         qtt
       );
@@ -77,7 +78,7 @@ export default function CartView() {
     // console.log(decodeURIComponent(encoded_message));
   };
 
-  const getDate = () => {
+  const getCurrentDate = () => {
     const fechaActual = new Date();
 
     const año = fechaActual.getFullYear();
@@ -94,7 +95,7 @@ export default function CartView() {
     const ref = document.querySelector("#presupuesto");
     const bg = document.body.classList.contains("dark") ? "black" : "white";
     if (ref) {
-      const date = getDate();
+      const date = getCurrentDate();
       setDownloading(true);
 
       const configs = {
@@ -120,35 +121,30 @@ export default function CartView() {
 
   const buttonConsole = [
     {
-      label: "Limpiar lista",
+      label: "Limpiar",
+      title: "Limpiar lista",
       icon: SVGBroom,
-      color: "default",
+      color: "primary",
       onPress: () => context.cart.set({}),
     },
     {
-      label: "Descargar como imagen",
+      label: "Descargar",
+      title: "Descargar como imagen",
       icon: SimCardDownloadOutlinedIcon,
       color: "secondary",
       onPress: downloadEstimate,
     },
     {
-      label: "Continuar por WhatsApp",
-      icon: SendIcon,
-      color: "primary",
+      label: "Continuar",
+      title: "Continuar por WhatsApp",
+      icon: WhatsAppIcon,
+      color: "success",
       onPress: handleSend,
     },
   ];
 
   return (
     <>
-      <section className="text-center">
-        Cuanto termine de revisar la lista envié el pedido y será redirigido a
-        whatsapp para continuar.
-        <br />
-        Los pedidos de 500 o más unidades pueden conllevar una seña y/o costo de
-        envío y tiempo de espera.
-      </section>
-
       <section className={`overflow-hidden max-xs:px-2 `}>
         <Estimate
           downloading={downloading}
@@ -163,30 +159,46 @@ export default function CartView() {
         )}
       </section>
 
-      <section className="flex gap-2 items-center max-xs:px-2 max-xs:flex-wrap">
+      <section className="flex gap-2 max-xs:px-2 flex-wrap justify-center">
         {buttonConsole.map((button, i) => (
-          <Tooltip key={i} title={button.label} arrow>
+          <Tooltip key={i} title={button.title} arrow>
             <span>
               <Button
                 // @ts-ignore
                 color={button.color}
-                isIconOnly
-                className="p-2 max-xs:w-full"
-                isDisabled={Object.keys(cart)?.length < 1 || downloading}
-                onPress={button?.onPress || null}
+                variant="contained"
+                disabled={Object.keys(cart)?.length < 1 || downloading}
+                onClick={button?.onPress || null}
+                startIcon={<button.icon className="min-w-5 h-full" />}
+                sx={{
+                  textTransform: "none",
+                  borderRadius: 3,
+                  fontFamily: "unset",
+                  fontWeight: "bold",
+                }}
               >
-                {button?.icon ? <button.icon className="h-full w-fit" /> : null}
+                {button.label}
               </Button>
             </span>
           </Tooltip>
         ))}
       </section>
 
-      <p className="font-size-secondary text-neutral-400 sm:hidden">
-        Si esta usando un dispositivo móvil y quiere descargar el pedido en una
-        imagen es recomendable estar conectado a una red wifi dado que la imagen
-        generada tendrá un peso considerable.
-      </p>
+      <section className="text-center">
+        <p>
+          Los pedidos de 500 o más unidades pueden conllevar una seña y/o costo
+          de envío y tiempo de espera.
+          <br />
+          Cuanto termine de revisar la lista envié el pedido y será redirigido a
+          whatsapp para continuar.
+        </p>
+        <p className="font-size-secondary text-neutral-400 sm:hidden">
+          <br />
+          Si esta usando un dispositivo móvil y quiere descargar el pedido en
+          una imagen es recomendable estar conectado a una red wifi dado que la
+          imagen generada tendrá un peso considerable.
+        </p>
+      </section>
     </>
   );
 }

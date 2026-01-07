@@ -1,12 +1,12 @@
 import { useRef } from "react";
 import { useInView, motion } from "framer-motion";
 
-import TitleCustom from "./TitleCustom";
+import TitleCustom from "../components/TitleCustom";
 
 export default function ViewDefault({
   children = <></>,
   disabledInView = false,
-  // id = "",
+  id = "",
   className = "",
   title = "",
 }) {
@@ -18,11 +18,11 @@ export default function ViewDefault({
 
   return (
     <motion.div
-      // id={id || undefined}
+      id={id || undefined}
       ref={ref}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className={`w-full min-h-screen max-w-[1200px] flex flex-col items-center gap-6 place-self-center pt-${
+      initial={{ opacity: 0, minHeight: "80dvh" }}
+      animate={{ opacity: 1, minHeight: "none" }}
+      className={`w-full max-w-[1200px] h-full flex flex-col items-center gap-6 place-self-center py-6 ${
         className ? " " + className : ""
       }`}
     >

@@ -83,7 +83,7 @@ export default function MapUbication() {
       <MapContainer
         center={[-26.887, -65.2247]}
         zoom={16}
-        className="w-full max-w-96 h-96 place-self-center rounded-lg"
+        className="w-full max-w-[600px] h-[400px] place-self-center rounded-lg"
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

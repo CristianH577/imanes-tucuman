@@ -48,6 +48,13 @@ function Envios({
             ).
           </li>
           <li>
+            Se recomienda no tomar derecho la 9 de julio, tomar la Av. Jujuy
+            hasta la calle Gobernador L. Barbieri o Gaspar Bernardo Lasalle,
+            entrar hasta la 9 de julio y seguir por esta. Tambien se puede tomar
+            la autopista hasta la ultima bajada antes de los cruces y bajar por
+            esta al barrio.{" "}
+          </li>
+          <li>
             Indicaciones sugeridas de{" "}
             <LinkCustom
               href={links?.googlemaps_indicaciones}
@@ -153,7 +160,7 @@ function Envios({
         {lista_envios.map((item, i) => (
           <li key={i}>
             <div className="flex items-center gap-2 text-tert">
-              <item.icon className="h-6 w-fit" />
+              <item.icon className="w-7 h-fit" />
               <b>{item?.title}</b>
             </div>
 

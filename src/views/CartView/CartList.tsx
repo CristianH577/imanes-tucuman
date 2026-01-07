@@ -17,9 +17,7 @@ import {
   toPriceFormat,
 } from "../../libs/functions";
 
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
-import { CircularProgress } from "@mui/material";
+import { Button, CircularProgress, Input } from "@mui/material";
 
 import ImageCustom from "../../components/ImageCustom";
 import PriceLabel from "../../components/PriceLabel";
@@ -32,10 +30,10 @@ const cols = [
     label: "",
     disabledSort: true,
   },
-  {
-    id: "categorie",
-    label: "Categoria",
-  },
+  // {
+  //   id: "categorie",
+  //   label: "Categoria",
+  // },
   {
     id: "label",
     label: "Nombre",
@@ -67,7 +65,7 @@ const totalDefault = {
 
 const itemsPerView = 10;
 
-export default function List({ downloading = false, following = false }) {
+export default function CartList({ downloading = false, following = false }) {
   const context: TypeOutletContext = useOutletContext();
   const cart = context.cart.value;
 
@@ -94,8 +92,8 @@ export default function List({ downloading = false, following = false }) {
 
     items_.map(
       (item) =>
-        (item.price_data = handlePriceData(
-          item.price_data,
+        (item.priceData = handlePriceData(
+          item.priceData,
           following && item.categorie[0] === "imanes",
           cart[item.id]
         ))
@@ -112,13 +110,18 @@ export default function List({ downloading = false, following = false }) {
     switch (col) {
       case "label":
         return (
-          <a
-            href={"#buscar/" + row.id}
-            title="Ver producto"
-            className="max-xs:whitespace-normal hover:underline"
-          >
-            {row.label}
-          </a>
+          <div>
+            <a
+              href={"#buscar/" + row.id}
+              title="Ver producto"
+              className="max-xs:whitespace-normal hover:underline"
+            >
+              {row.label}
+            </a>
+            <p className="capitalize text-second text-neutral-500 dark:text-neutral-300">
+              {row.categorie.join(" > ")}
+            </p>
+          </div>
         );
 
       case "img":
@@ -139,11 +142,11 @@ export default function List({ downloading = false, following = false }) {
           }
         }
         return SvgForma ? (
-          <SvgForma className="w-[50px] h-fit self-center" />
+          <SvgForma className="w-[50px] h-fit max-h-[50px] self-center" />
         ) : (
           <ImageCustom
             alt={`Imagen de ${row.label}`}
-            className="object-contain w-[50px] min-w-[50px]"
+            className="object-contain w-[50px] min-w-[50px] max-h-[50px]"
             src={imgsData.thumbnails && imgsData.thumbnails[0]}
           />
         );
@@ -157,17 +160,23 @@ export default function List({ downloading = false, following = false }) {
               name={String(row.id)}
               aria-label="Cantidad"
               type="number"
-              isInvalid={false}
-              size="sm"
-              className="min-w-24 max-w-32"
-              classNames={{
-                inputWrapper:
-                  "border-b-2 border-custom1 bg-transparent rounded-none",
-                input: "text-prima",
+              size="small"
+              color="warning"
+              className="w-24 text-prima"
+              startAdornment="x"
+              endAdornment={
+                <span className="px-1">{row?.priceData?.salesUnit || "U"}</span>
+              }
+              inputProps={{
+                min: 0,
+                "aria-label": "cantidad",
               }}
-              startContent="x"
-              endContent={row?.price_data?.salesUnit || "u"}
-              min={0}
+              classes={{
+                underline: "!border-custom1",
+              }}
+              sx={{
+                "&::before": { borderColor: "rgb(var(--color-customSwitch))" },
+              }}
               value={qtt ? String(qtt) : ""}
               onChange={(e) => handleQttChange(e, row.id)}
               onBlur={(e) => handleQttBlur(e, row.id)}
@@ -175,13 +184,15 @@ export default function List({ downloading = false, following = false }) {
             />
 
             <Button
-              isIconOnly
-              size="sm"
-              color="danger"
-              variant="ghost"
-              className={`${downloading ? " hidden" : ""}`}
+              size="small"
+              color="error"
+              variant="outlined"
+              className={`hover:bg-[--variant-containedBg] hover:text-white${
+                downloading ? " hidden" : ""
+              }`}
               title="Quitar del carrito"
-              onPress={() => handleDelete(row.id)}
+              onClick={() => handleDelete(row.id)}
+              sx={{ minWidth: 0, px: 0.5 }}
             >
               <DeleteIcon className="h-5 w-fit" />
             </Button>
@@ -191,8 +202,8 @@ export default function List({ downloading = false, following = false }) {
       case "price":
         return <PriceLabel itemData={row} />;
       case "subtotal":
-        const use = row.price_data.usePrice;
-        const price = row.price_data.prices[use];
+        const use = row.priceData.usePrice;
+        const price = row.priceData.prices[use];
         return toPriceFormat(Number(price) * cart[row.id]);
 
       default:
@@ -207,8 +218,8 @@ export default function List({ downloading = false, following = false }) {
       const qtt = Number(target.value);
       const cart_ = structuredClone(cart);
 
-      itemData.price_data = handlePriceData(
-        itemData.price_data,
+      itemData.priceData = handlePriceData(
+        itemData.priceData,
         following && itemData.categorie[0] === "imanes",
         qtt
       );
@@ -217,7 +228,7 @@ export default function List({ downloading = false, following = false }) {
   };
 
   const handleQttChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     id: number
   ) => {
     const itemData = items.find((item) => item.id === id);
@@ -227,16 +238,20 @@ export default function List({ downloading = false, following = false }) {
       itemData &&
       qtt > 0 &&
       qtt < 1 &&
-      itemData.price_data.salesDecimal &&
-      !itemData.price_data.salesDecimal.includes(qtt)
+      itemData.priceData.salesDecimal &&
+      !itemData.priceData.salesDecimal.includes(qtt)
     ) {
       qtt = 1;
     }
 
     setCartAux({ ...cart, [id]: qtt });
   };
-  const handleQttBlur = (e: React.FocusEvent<HTMLInputElement>, id: number) => {
-    handlePriceQtt(e.target, id);
+  const handleQttBlur = (
+    e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+    id: number
+  ) => {
+    const target = e.target as HTMLInputElement;
+    handlePriceQtt(target, id);
   };
   const handleKeyDown = (e: React.KeyboardEvent, id: number) => {
     if (e.key === "Enter") {
@@ -253,9 +268,9 @@ export default function List({ downloading = false, following = false }) {
       let total_ = structuredClone(totalDefault);
 
       items.forEach((item) => {
-        const use = item.price_data.usePrice;
-        const price = item.price_data.prices[use];
-        const base = item.price_data.prices.base;
+        const use = item.priceData.usePrice;
+        const price = item.priceData.prices[use];
+        const base = item.priceData.prices.base;
         const qtt = cart[item.id];
 
         total_.total += Number(price) * qtt;
@@ -316,8 +331,8 @@ export default function List({ downloading = false, following = false }) {
 
   return (
     <>
-      <span className="text-neutral-400 self-center">
-        Total: {items.length}
+      <span className="text-neutral-400 text-start ps-2 font-semibold self-center">
+        Total de artículos: {items.length}
       </span>
 
       <motion.section
@@ -332,15 +347,15 @@ export default function List({ downloading = false, following = false }) {
         }}
         initial="hidden"
         animate="visible"
-        className={`w-full px-4 ${scrollStyle}`}
+        className={`w-full sm:px-4 ${scrollStyle}`}
         style={{
           overflowX: downloading ? "visible" : "auto",
           maxWidth: downloading ? "none" : "90vw",
           paddingBottom: downloading ? "0" : "0.5rem",
         }}
       >
-        <table className="w-full sm:min-w-[750px]">
-          <thead className="border-b-3">
+        <table className="w-full sm:min-w-[640px]">
+          <thead className="border-b-4">
             <tr>
               {cols.map((col) => (
                 <th
@@ -374,12 +389,12 @@ export default function List({ downloading = false, following = false }) {
                     x: 0,
                   },
                 }}
-                className="even:text-custom2-10 dark:even:text-custom1 group hover:bg-secondary/30"
+                className="even:text-custom2-10 dark:even:text-custom1 group hover:bg-secondary/20"
               >
                 {cols.map((col) => (
                   <td
                     key={col.id + "-" + row.id}
-                    className="p-2 group-hover:font-semibold whitespace-nowrap"
+                    className="px-3 py-2 sm:px-1 group-hover:font-semibold whitespace-nowrap"
                     style={{ textAlign: col?.isNumeric ? "end" : "start" }}
                   >
                     {makeCell(col.id, row)}
@@ -392,9 +407,16 @@ export default function List({ downloading = false, following = false }) {
               <td>
                 {totalVisibleItems < items.length && (
                   <Button
-                    className="bg-custom1-2 text-custom2 font-bold hover:scale-105"
+                    variant="contained"
+                    className="bg-custom1-2 text-custom2 hover:scale-105"
                     title="Mostrar mas"
-                    onPress={() => showMore()}
+                    onClick={() => showMore()}
+                    sx={{
+                      textTransform: "none",
+                      borderRadius: 3,
+                      fontFamily: "unset",
+                      fontWeight: "bold",
+                    }}
                   >
                     Siguientes
                   </Button>
@@ -407,7 +429,7 @@ export default function List({ downloading = false, following = false }) {
       </motion.section>
 
       {items.length > 0 && (
-        <section className="self-end font-semibold px-4 text-end">
+        <section className="self-end font-semibold px-4 text-end border-2 border-customSwitch/80 rounded-md p-2">
           {total?.percentage > 0 && (
             <div>
               <b className="text-danger">
@@ -419,7 +441,7 @@ export default function List({ downloading = false, following = false }) {
             </div>
           )}
 
-          <span className="text-custom1">
+          <span className="text-customSwitch">
             Total {toPriceFormat(total?.total)}
           </span>
         </section>

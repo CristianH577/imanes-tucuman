@@ -6,7 +6,7 @@ export default function LinkToFont({
   title = "Ir a la fuente",
 }) {
   return (
-    <p className="text-default-500 border-t border-divider pt-1 w-2/3 place-self-center">
+    <p className="text-default-500 border-t border-divider/15 pt-1 w-2/3 place-self-center">
       Fuente:{" "}
       <a
         href={href}

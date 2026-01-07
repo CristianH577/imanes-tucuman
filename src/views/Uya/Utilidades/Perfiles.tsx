@@ -11,7 +11,7 @@ export default function Perfiles() {
         className="object-cover w-full h-full rounded-full"
         classes={{
           wrapper:
-            "w-[300px] h-[300px] place-self-center border-5 border-divider rounded-full shadow-md",
+            "w-[300px] h-[300px] place-self-center border-5 border-divider/15 rounded-full shadow-md",
         }}
         alt="Pared de perfiles de aluminio sin tapar"
         height={300}
@@ -31,7 +31,7 @@ export default function Perfiles() {
         className="object-cover w-full h-full object-left rounded-full"
         classes={{
           wrapper:
-            "w-[300px] h-[300px] place-self-center border-5 border-divider rounded-full shadow-md",
+            "w-[300px] h-[300px] place-self-center border-5 border-divider/15 rounded-full shadow-md",
         }}
         alt="Dedo señalando un iman sobre pared de drywall"
         height={300}

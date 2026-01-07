@@ -4,5 +4,5 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  "exclude": ["z"]
+  "exclude": ["z", "dev-only", "imanes-tuc-api"]
 }

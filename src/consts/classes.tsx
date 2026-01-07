@@ -10,7 +10,7 @@ export class ClassPriceData {
   discountsPercentages?: {
     [key: string]: number;
   } = {};
-  prices_qtts?: {
+  pricesQtts?: {
     [key: number]: number | undefined;
   } = {};
   update?: string = "";
@@ -28,10 +28,9 @@ export class ClassDBItem {
   especificaciones?: TypeObjectGeneral = {};
   caracteristicas?: string[] = [];
   description?: string;
-  price_data: ClassPriceData = new ClassPriceData();
+  priceData: ClassPriceData = new ClassPriceData();
   measures?: { [k in keyof typeof OBJ_MEASURES]?: number };
   isComparable?: boolean;
-  fuerza_N?: TypeObjectGeneral;
   links?: { [key: string]: string };
   tags?: string[];
   qtt?: number;
@@ -46,4 +45,20 @@ export class ClassMagnetGraphData {
   ancho: number = 0;
   radios: number[] = [0, 0, 0];
   svg?: false | TypeIcon;
+}
+
+export class ClassDBItem2 {
+  stock?: boolean;
+  id_item: number = 0;
+  label: string = "";
+  categorie: string[] = [];
+  forma?: string[] = [];
+  especificaciones?: { [key: string]: number | string };
+  caracteristicas?: string[] = [];
+  description?: string;
+  priceData: ClassPriceData = new ClassPriceData();
+  measures?: { [k in keyof typeof OBJ_MEASURES]?: number };
+  isComparable?: boolean;
+  links?: { [key: string]: string };
+  tags?: string[];
 }

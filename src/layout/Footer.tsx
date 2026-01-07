@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { scrollToBottom, scrollToTop } from "../libs/functions";
 
-import { Button, ButtonGroup } from "@heroui/button";
-import { Divider } from "@mui/material";
+import { Button, ButtonGroup, Divider } from "@mui/material";
 
 import Logo from "../components/Logo";
 import Redes from "../components/Redes";
@@ -69,26 +68,24 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
   return (
     <footer
       id="footer"
-      className="bg-gradient-to-b from-custom2-4 to-custom2 text-white w-full flex flex-col items-center px-2 py-4 gap-4 shadow-inner shadow-black/50 pt-16 sm:pt-12 max-sm:pb-14"
+      className="bg-gradient-to-b from-custom2-4 to-custom2 text-white flex flex-col items-center px-2 py-4 gap-4 shadow-inner shadow-black/50 pt-16 sm:pt-12 max-sm:pb-14"
     >
-      <ButtonGroup className="fixed bottom-2 right-6 z-20">
-        <Button
-          isIconOnly
-          title="Ir abajo"
-          color="warning"
-          variant="ghost"
-          onPress={scrollToBottom}
-        >
+      <ButtonGroup
+        className="fixed bottom-2 right-6 z-20"
+        color="warning"
+        variant="contained"
+        size="small"
+        sx={{
+          "& .MuiButton-root": {
+            px: 0.5,
+          },
+        }}
+      >
+        <Button title="Ir abajo" onClick={scrollToBottom}>
           <SVGArrowBigDownLine className="h-6 w-fit" />
         </Button>
 
-        <Button
-          isIconOnly
-          title="Ir arriba"
-          color="warning"
-          variant="ghost"
-          onPress={scrollToTop}
-        >
+        <Button title="Ir arriba" onClick={scrollToTop}>
           <SVGArrowBigUpLine className="h-6 w-fit" />
         </Button>
       </ButtonGroup>
@@ -117,7 +114,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
             height={150}
             classes={{
               wrapper:
-                "shadow-md shadow-black border-3 border-neutral-500 bg-gradient-to-t from-custom1 to-custom1-6",
+                "shadow-md shadow-black border-4 border-neutral-500 bg-gradient-to-t from-custom1 to-custom1-6",
             }}
           />
         </motion.div>

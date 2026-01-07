@@ -261,7 +261,7 @@ export default function Revestimientos() {
         rows={items}
         className={`max-w-[90vw] place-self-center overflow-x-auto table-dinamic ${scrollStyle}`}
         classNames={{
-          row: "border-y border-divider",
+          row: "border-y border-divider/15",
         }}
         tdLabel
         makeCellContent={makeCellContent}

@@ -1,4 +1,4 @@
-import { Button } from "@heroui/button";
+import { Button } from "@mui/material";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -8,26 +8,30 @@ type TypeButtonAddCart = {
   inCart: boolean;
   handleAdd?: () => void;
   className?: string;
-  size?: "sm" | "md" | "lg";
 };
 
 export default function ButtonAddCart({
   inCart = false,
   handleAdd,
   className = "",
-  size = "md",
   ...props
 }: TypeButtonAddCart) {
   return (
     <Button
-      isIconOnly
-      size={size}
+      variant="outlined"
+      size="small"
       color={inCart ? "success" : "secondary"}
       title={inCart ? "Quitar del carrito" : "Agregar al carrito"}
-      className={`group shadow-md ${inCart ? "hover:bg-danger" : ""}${
-        className ? " " + className : ""
-      }`}
-      onPress={handleAdd && handleAdd}
+      className={`group shadow-md ${
+        inCart
+          ? "hover:text-white hover:border-danger hover:bg-danger"
+          : "hover:bg-[--variant-containedBg] hover:text-white"
+      }${className ? " " + className : ""}`}
+      onClick={handleAdd && handleAdd}
+      sx={{
+        minWidth: 0,
+        borderRadius: "0.5rem",
+      }}
       {...props}
     >
       {inCart ? (

@@ -48,6 +48,8 @@ export type TypeFiltersValues = {
   forma: string[];
   priceMin?: number;
   priceMax?: number;
+  stock: boolean;
+  discount: boolean;
 };
 
 export type TypeFiltersInput = {
@@ -100,3 +102,10 @@ export type TypeDatabaseImg = {
 };
 
 export type TypeItemImgsArray = "imgs" | "full" | "thumbnails";
+
+// api ---------------------------------
+export type TypeAlert = {
+  title: string;
+  detail: string;
+  variant?: string;
+};

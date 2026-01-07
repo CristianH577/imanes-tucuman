@@ -1,10 +1,10 @@
-import { isValidElement, useState } from "react";
-import { useOutletContext } from "react-router";
+import { isValidElement, useEffect, useState } from "react";
+import { useLocation, useOutletContext } from "react-router";
 
 import listJson from "../assets/jsons/faqs.json";
 import type { TypeOutletContext } from "../consts/types";
 
-import { toPlainText } from "../libs/functions";
+import { searchParamsToObj, toPlainText } from "../libs/functions";
 
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
@@ -23,6 +23,7 @@ type TypeListFaqs = {
 
 export default function Faqs() {
   const context: TypeOutletContext = useOutletContext();
+  const { search } = useLocation();
 
   const list: TypeListFaqs[] = [
     {
@@ -44,6 +45,8 @@ export default function Faqs() {
         "entrega",
         "uber",
         "envio",
+        "ubicacion",
+        "llegar",
       ],
     },
     {
@@ -166,23 +169,27 @@ export default function Faqs() {
     },
 
     ...listJson,
-  ];
+  ].sort((a, b) => a.title.localeCompare(b.title));
 
   const [items, setItems] = useState(list);
   const [inputText, setInputText] = useState("");
 
-  const handleSearch = () => {
-    const text_search = toPlainText(inputText);
+  const handleSearch = (text?: string) => {
+    const text_search = text || inputText || "";
+    const text_search_formated = toPlainText(text_search);
 
     const items_ = list.filter((item) => {
-      const title_bool = toPlainText(item.title).includes(text_search);
+      const title_bool = toPlainText(item.title).includes(text_search_formated);
       if (title_bool) return true;
 
-      const tags = item?.tags?.some((tag) => tag.includes(text_search));
+      const tags = item?.tags?.some((tag) =>
+        tag.includes(text_search_formated)
+      );
       if (tags) return true;
 
       const content_text = extractText(item.content);
-      const content_bool = toPlainText(content_text).includes(text_search);
+      const content_bool =
+        toPlainText(content_text).includes(text_search_formated);
       return content_bool;
     });
 
@@ -207,6 +214,17 @@ export default function Faqs() {
     return "";
   };
 
+  useEffect(() => {
+    if (search) {
+      const params = searchParamsToObj(search);
+
+      if (params.search) {
+        setInputText(params.search);
+        handleSearch(params.search);
+      }
+    }
+  }, [search]);
+
   return (
     <>
       <section className="max-w-[80%] text-center space-y-2">
@@ -230,7 +248,7 @@ export default function Faqs() {
       <InputSearch
         value={inputText}
         setValue={setInputText}
-        handleSearch={handleSearch}
+        handleSearch={() => handleSearch()}
       />
 
       {items.length < 1 ? (

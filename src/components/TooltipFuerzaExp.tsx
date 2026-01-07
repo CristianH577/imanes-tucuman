@@ -21,8 +21,7 @@ export default function TooltipFuerzaExp({ exp }: { exp?: boolean }) {
         color="inherit"
         size="small"
         onClick={() => setOpen(!open)}
-        href="#faqs"
-        className="!h-6"
+        href="#faqs?search=fuerza%experimental"
       >
         <HelpIcon />
       </IconButton>

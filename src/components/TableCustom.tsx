@@ -27,10 +27,12 @@ interface InterfaceTableCustomProps {
   ) => string | React.ReactElement;
   selectionMode?: string;
   selectedRows?: string[];
+  captionContent?: React.ReactElement;
+  tfootContent?: React.ReactElement;
 }
 
 function TableCustom({
-  id,
+  id = undefined,
   className,
   classNames,
   columns,
@@ -47,15 +49,19 @@ function TableCustom({
   onSelectedRows,
   selectionMode,
   selectedRows,
+  tfootContent,
+  captionContent,
 }: InterfaceTableCustomProps) {
   const classNames_ = {
     table: "",
+    caption: "",
     thead: "",
     theadRow: "",
     th: "",
     tbody: "",
     row: "",
     td: "",
+    tfoot: "",
     ...classNames,
   };
   const columns_ = columns?.length ? columns : [];
@@ -66,7 +72,7 @@ function TableCustom({
 
   const rows_ = () => {
     return rows?.map((row, i) => {
-      var id =
+      let id_row =
         rowColumnId && row.hasOwnProperty(rowColumnId)
           ? row[rowColumnId]
           : row?.key || row?.id || i;
@@ -79,11 +85,11 @@ function TableCustom({
         (classNames_.row ? " " + classNames_.row : "");
 
       const dataRow = {
-        "data-selected": selectedRows && selectedRows?.includes(id),
-        "data-id": id,
+        "data-selected": selectedRows && selectedRows?.includes(id_row),
+        "data-id": id_row,
       };
 
-      var tr = <tr onClick={() => handleSelectedRow(id)}></tr>;
+      var tr = <tr onClick={() => handleSelectedRow(id_row)}></tr>;
       if (makeRow) tr = makeRow(row);
 
       const existingData = tr?.props || {};
@@ -92,7 +98,7 @@ function TableCustom({
       const mergedClassName = `${existingClassName} ${className}`.trim();
 
       tr = React.cloneElement(tr, {
-        key: id,
+        key: id_row,
         ...mergedData,
         className: mergedClassName || null,
       });
@@ -102,7 +108,7 @@ function TableCustom({
 
         var td = <td></td>;
         const tdObj = {
-          key: id + "_" + idCol,
+          key: id_row + "_" + idCol,
           ...mergedData,
           className: "py-2 px-3" + (classNames_.td ? " " + classNames_.td : ""),
         };
@@ -128,19 +134,29 @@ function TableCustom({
 
   return (
     <div
-      id={id || ""}
+      id={id}
       data-slot="container"
-      className={`p-4 bg-content1 rounded-large overflow-auto${
+      className={`bg-content1 rounded-lg overflow-auto${
         className ? " " + className : ""
       }`}
     >
       <table
         aria-label={ariaLabel ? ariaLabel : undefined}
         className={
-          "h-auto table-auto" +
+          "h-auto table-auto w-full" +
           (classNames_.table ? " " + classNames_.table : "")
         }
       >
+        {captionContent && (
+          <caption
+            className={
+              "p-2" + classNames_.caption ? " " + classNames_.caption : ""
+            }
+          >
+            {captionContent}
+          </caption>
+        )}
+
         <thead
           className={
             "bg-content2 p-4" +
@@ -184,8 +200,6 @@ function TableCustom({
         </thead>
 
         <tbody className={classNames_.tbody ? classNames_.tbody : undefined}>
-          {/* <tr colSpan={columns_.length} className="h-4"></tr> */}
-
           {isLoading ? (
             <tr>
               <td colSpan={columns_.length} className="text-center p-4">
@@ -205,6 +219,14 @@ function TableCustom({
             rows_()
           )}
         </tbody>
+
+        {tfootContent && (
+          <tfoot className={classNames_.tfoot ? classNames_.tfoot : undefined}>
+            <tr>
+              <th colSpan={columns_.length}>{tfootContent}</th>
+            </tr>
+          </tfoot>
+        )}
       </table>
     </div>
   );

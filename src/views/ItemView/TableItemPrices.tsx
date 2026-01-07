@@ -5,23 +5,26 @@ import { motion } from "framer-motion";
 import type { TypeOutletContext } from "../../consts/types";
 import type { ClassDBItem } from "../../consts/classes";
 
-import { handlePriceData, toPriceFormat } from "../../libs/functions";
+import {
+  capitalizeText,
+  downloadContentToImg,
+  getCurrentDate,
+  handlePriceData,
+  toPriceFormat,
+} from "../../libs/functions";
 
 import { scrollStyle } from "../../libs/tvs";
 
-import { Button } from "@heroui/button";
-import { Input } from "@heroui/input";
-import { Divider } from "@mui/material";
+import { Divider, Button, OutlinedInput } from "@mui/material";
 
 import ButtonAddCart from "../../components/ButtonAddCart";
 import PriceLabel from "../../components/PriceLabel";
 import TableCustom from "../../components/TableCustom";
+import StoreOnlineButtons from "../../components/StoreOnlineButtons";
 
-import ML from "../../assets/layout/ml.webp";
-import MS from "../../assets/layout/ms.webp";
-
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import CompareIcon from "@mui/icons-material/Compare";
+import SimCardDownloadOutlinedIcon from "@mui/icons-material/SimCardDownloadOutlined";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
 interface IntfProps {
   itemData: ClassDBItem;
@@ -32,8 +35,9 @@ export default function TableItemPrices({ itemData }: IntfProps) {
   const cart = context.cart.value;
   const inCart = itemData.id in cart;
   const qttCart = inCart ? cart[itemData.id] : 0;
-  const pricesQtts = itemData?.price_data?.prices_qtts;
-  const salesUnit = itemData.price_data.salesUnit;
+  const pricesQtts = itemData?.priceData?.pricesQtts;
+  const salesUnit = itemData.priceData.salesUnit;
+  const categories = itemData.categorie.map((cat) => capitalizeText(cat));
   const rows = pricesQtts
     ? Object.entries(pricesQtts)
         .map(([qtt, price]) => {
@@ -52,22 +56,23 @@ export default function TableItemPrices({ itemData }: IntfProps) {
   ];
 
   const [qttFix, setQttFix] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handleChangeQttFix = (event: React.ChangeEvent<HTMLInputElement>) => {
     const qtt = Number(event.target.value);
-    itemData.price_data = handlePriceData(itemData.price_data, false, qtt);
+    itemData.priceData = handlePriceData(itemData.priceData, false, qtt);
     setQttFix(qtt);
   };
-  const handleBlurQttFix = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBlurQttFix = (event: any) => {
     let qtt = Number(event.target.value);
     if (
       qtt > 0 &&
       qtt < 1 &&
-      itemData.price_data.salesDecimal &&
-      !itemData.price_data.salesDecimal.includes(qtt)
+      itemData.priceData.salesDecimal &&
+      !itemData.priceData.salesDecimal.includes(qtt)
     ) {
       qtt = 1;
-      itemData.price_data = handlePriceData(itemData.price_data, false, qtt);
+      itemData.priceData = handlePriceData(itemData.priceData, false, qtt);
       setQttFix(qtt);
     }
   };
@@ -83,6 +88,38 @@ export default function TableItemPrices({ itemData }: IntfProps) {
     context.cart.add(itemData.id, qtt_);
   };
 
+  const handleCopyPrices = async () => {
+    const prices = itemData.priceData.pricesQtts;
+
+    if (prices) {
+      let text = "➤" + categories.join(" > ") + "\n";
+
+      text += "➤" + itemData.label + "\n";
+      text += "➤Precios:\n";
+
+      Object.entries(prices).forEach(([key, val]) => {
+        text += toPriceFormat(val) + "\t";
+        text += "x" + key + (itemData.priceData.salesUnit || "u") + "\t";
+        text += "=" + toPriceFormat(Number(key) * Number(val)) + "\n";
+      });
+
+      text += "➤Fecha: " + getCurrentDate();
+
+      try {
+        await navigator.clipboard.writeText(text);
+        alert("Texto copiado!");
+      } catch (err) {
+        console.error("Error al copiar:", err);
+        alert("Error al copiar");
+      }
+    }
+  };
+
+  const handleDownloadImg = () => {
+    const label = "lista_de_precios-" + itemData.label;
+    downloadContentToImg("lista_de_precios", true, setLoading, label);
+  };
+
   const makeCellContent = (row = { qtt: 0, price: 0 }, col = "") => {
     switch (col) {
       case "qtt":
@@ -95,7 +132,6 @@ export default function TableItemPrices({ itemData }: IntfProps) {
         const inCart_qtt = inCart && qttCart === row.qtt;
         return (
           <ButtonAddCart
-            size="sm"
             inCart={inCart_qtt}
             handleAdd={() => {
               let qtt_ = 0;
@@ -119,24 +155,32 @@ export default function TableItemPrices({ itemData }: IntfProps) {
       }}
       className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-1"
     >
-      <article className="col-span-full order-1">
-        <div className="flex gap-2">
+      <article className={"col-span-full" + (pricesQtts ? " order-1" : "")}>
+        <div className="flex gap-2 pb-2">
           {itemData.isComparable && (
             <Button
               color="secondary"
-              isIconOnly
+              variant="contained"
               title="Mostrar referencia de tamaño"
-              onPress={() => context.setMagnetData(itemData)}
+              onClick={() => context.setMagnetData(itemData)}
+              sx={{ minWidth: 0, px: 1, borderRadius: 2 }}
             >
               <CompareIcon className="h-7 w-fit" />
             </Button>
           )}
-          <h1 className="text-4xl font-bold pb-2">{itemData?.label}</h1>
+          <h1 className="text-4xl font-bold">{itemData?.label}</h1>
         </div>
         <Divider />
       </article>
 
-      <article className="flex flex-col items-end gap-2 sm:gap-4 order-2 md:order-3 lg:order-1 lg:items-">
+      <article
+        className={
+          "flex flex-col items-end gap-2 " +
+          (pricesQtts
+            ? "sm:gap-4 order-2 md:order-3 lg:order-1"
+            : "col-span-full")
+        }
+      >
         {itemData?.noStock && (
           <b className="text-danger text-tert">Sin Stock</b>
         )}
@@ -150,18 +194,28 @@ export default function TableItemPrices({ itemData }: IntfProps) {
           />
 
           <div className="flex flex-wrap gap-3 items-end xs:flex-row xs:items-center">
-            <Input
+            <OutlinedInput
+              id="input-qtt"
               type="number"
-              min={0}
-              isInvalid={false}
-              label="Cantidad"
+              placeholder="Cantidad"
+              color="success"
               className="max-w-36"
-              classNames={{
-                inputWrapper:
-                  "border-3 " +
-                  (inCart ? "border-success" : "border-custom1-3"),
+              endAdornment={
+                itemData.priceData.salesUnit ? (
+                  <span className="px-1 text-neutral-400">
+                    {itemData.priceData.salesUnit}
+                  </span>
+                ) : undefined
+              }
+              inputProps={{
+                min: 0,
+                "aria-label": "cantidad",
               }}
-              endContent={itemData.price_data.salesUnit || undefined}
+              classes={{
+                notchedOutline:
+                  "rounded-lg border-2 " +
+                  (inCart ? "border-success" : "border-custom1"),
+              }}
               value={qttFix ? String(qttFix) : ""}
               onChange={handleChangeQttFix}
               onBlur={handleBlurQttFix}
@@ -189,54 +243,79 @@ export default function TableItemPrices({ itemData }: IntfProps) {
             </span>
           </p>
 
-          {itemData?.links && (
-            <div className="flex flex-wrap gap-2 justify-end">
-              {itemData.links?.ML && (
-                <Button
-                  as={"a"}
-                  className="bg-[#fee701] font-bold text-blue-900 shadow-md"
-                  href={itemData.links.ML}
-                  title="Ir a Mercado Libre"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={ML} /> MercadoLibre <OpenInNewIcon />
-                </Button>
-              )}
-
-              {itemData.links?.MS && (
-                <Button
-                  as={"a"}
-                  className="bg-[#e82d88] font-bold text-white shadow-md"
-                  href={itemData.links.MS}
-                  title="Ir a Mercado Shops"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src={MS} /> MercadoShops <OpenInNewIcon />
-                </Button>
-              )}
-            </div>
+          {itemData.links && (
+            <StoreOnlineButtons links={itemData.links} complete />
           )}
         </div>
       </article>
 
       {pricesQtts && (
-        <TableCustom
-          aria-label="Tabla de precios"
-          columns={cols}
-          rows={rows}
-          tdLabel
-          className={`place-self-end order-3 md:order-2 w-full lg:max-w-full max-w-[90vw] overflow-x-auto table-dinamic bg-custom1/20 sm:p-0 sm:dark:bg-custom2-10/20 ${scrollStyle}`}
-          classNames={{
-            row: "border-b border-neutral-500/50 hover:bg-violet-500/50 hover:font-semibold",
-            td: "first:text-end text-center",
-            th: "py-2 !bg-custom1 text-custom2 dark:bg-custom2-10 dark:text-custom1",
-            table: "border-spacing-y-2 w-full",
-          }}
-          // @ts-ignore
-          makeCellContent={makeCellContent}
-        />
+        <article className={"space-y-4 order-3 md:order-2 overflow-hidden"}>
+          <TableCustom
+            aria-label="Tabla de precios"
+            id="lista_de_precios"
+            columns={cols}
+            rows={rows}
+            tdLabel
+            className={
+              "place-self-end table-dinamic shadow-small " +
+              scrollStyle +
+              (loading
+                ? ""
+                : " w-full max-w-[90vw] lg:max-w-full overflow-x-auto")
+            }
+            classNames={{
+              table: "w-full",
+              row: "hover:bg-violet-500/50 hover:font-semibold bg-custom1/50 odd:bg-custom1-5/50 dark:bg-custom2-10/40 dark:odd:bg-custom2-10/20 dark:hover:bg-violet-500/50",
+              td: "first:text-end text-center",
+              th: "py-2 !bg-custom1 text-custom2 dark:bg-custom2-10 dark:text-custom1 last:rounded-br-none first:rounded-bl-none",
+              tfoot:
+                "bg-custom1 text-custom2 dark:bg-custom2-10 dark:text-custom1",
+            }}
+            // @ts-ignore
+            makeCellContent={makeCellContent}
+            tfootContent={
+              loading ? (
+                <p className="p-2">
+                  {itemData.label}
+                  <br />
+                  {categories.join(" > ")}
+                </p>
+              ) : undefined
+            }
+          />
+
+          <div className="flex flex-wrap justify-end gap-4">
+            <Button
+              variant="contained"
+              color="secondary"
+              title="Descargar lista como imagen"
+              onClick={handleDownloadImg}
+              sx={{
+                textTransform: "none",
+                borderRadius: 3,
+                fontFamily: "unset",
+                fontWeight: "bold",
+              }}
+            >
+              <SimCardDownloadOutlinedIcon /> Descargar
+            </Button>
+            <Button
+              variant="contained"
+              color="primary"
+              title="Copiar lista como texto"
+              onClick={handleCopyPrices}
+              sx={{
+                textTransform: "none",
+                borderRadius: 3,
+                fontFamily: "unset",
+                fontWeight: "bold",
+              }}
+            >
+              <ContentCopyIcon /> Copiar
+            </Button>
+          </div>
+        </article>
       )}
     </motion.section>
   );

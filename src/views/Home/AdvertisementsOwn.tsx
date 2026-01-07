@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 import { title } from "../../libs/tvs";
 
-import { Button } from "@heroui/button";
+import { Button } from "@mui/material";
 
 import ImageCustom from "../../components/ImageCustom";
 
@@ -11,7 +11,6 @@ import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ElectricalServicesIcon from "@mui/icons-material/ElectricalServices";
 
 import {
-  // SVGBallPyramid,
   SVGMagnet,
   SVGRibbon,
   SVGVibratingBall,
@@ -23,7 +22,6 @@ import ceramico from "../../assets/home/AdvertisementsOwn/iman-ceramico-60.webp"
 import tira_flexible from "../../assets/home/AdvertisementsOwn/tira_flexible-13.webp";
 import plancha from "../../assets/home/AdvertisementsOwn/plancha-31.webp";
 import kluster from "../../assets/home/AdvertisementsOwn/kluster.webp";
-// import neocube from "../../assets/home/AdvertisementsOwn/neocube-dorado.webp";
 import electricidad from "../../assets/home/AdvertisementsOwn/electricidad.webp";
 
 const items = [
@@ -31,7 +29,7 @@ const items = [
     id: "de_arrastre",
     src: de_arrastre,
     href: "categorie=imanes,neodimio&forma=redondo,arrastre",
-    title: "Imán de Arrastre",
+    title: "Imánes de Arrastre",
     text: "O imán de pesca. Tiene un cáncamo cerrado que permite su sujeción y posterior tracción",
     icon: PhishingIcon,
   },
@@ -39,7 +37,7 @@ const items = [
     id: "ceramico",
     src: ceramico,
     href: "categorie=imanes,ferrita",
-    title: "Imán de ferrita",
+    title: "Imanes de ferrita",
     text: "No suelen ser tan potentes pero si económicos. Tienen alta resistencia a la temperatura y corrosión",
     icon: SVGMagnet,
   },
@@ -47,7 +45,7 @@ const items = [
     id: "tira_flexible",
     src: tira_flexible,
     href: "categorie=imanes,flexibles&text=tira",
-    title: "Imán en tira",
+    title: "Imanes en tira",
     text: "Usado frecuentemente para hacer mosquiteros y manualidades",
     icon: SVGRibbon,
   },
@@ -55,7 +53,7 @@ const items = [
     id: "plancha",
     src: plancha,
     href: "categorie=imanes,flexibles&text=lamina",
-    title: "Lámina de imán",
+    title: "Láminas de imán",
     text: "Puede pegarse para hacer souvenirs, calendarios, imanes publicitarios, etc",
     icon: SVGWallpaper,
   },
@@ -157,13 +155,20 @@ export function AdvertisementsOwn() {
               <p className="font-semibold max-sm:text-center">{item.text}.</p>
 
               <Button
-                as={"a"}
+                component={"a"}
                 href={`#buscar?${item?.href}`}
-                className="bg-gradient-to-tr hover:to-50% hover:bg-custom1-2 from-custom2 to-custom2-10 -skew-x-12 font-bold px-4 text-custom1 dark:text-black dark:from-custom1 dark:to-custom1-5 shadow-md"
+                className="bg-gradient-to-tr hover:to-50% hover:bg-custom1-2 from-custom2 to-custom2-10 -skew-x-12 px-4 text-custom1 dark:text-black dark:from-custom1 dark:to-custom1-5 shadow-md"
                 title={"Ver " + item.title}
+                endIcon={
+                  <ArrowCircleRightIcon className="h-6 w-fit skew-x-12" />
+                }
+                sx={{
+                  textTransform: "none",
+                  borderRadius: 3,
+                  fontFamily: "unset",
+                }}
               >
-                <span className="skew-x-12">Ver mas</span>
-                <ArrowCircleRightIcon className="h-10 w-fit skew-x-12" />
+                <b className="skew-x-12">Ver mas</b>
               </Button>
             </div>
           </motion.article>

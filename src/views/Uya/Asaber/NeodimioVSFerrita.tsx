@@ -105,7 +105,7 @@ export default function NeodimioVSFerrita() {
           th: "text-center",
           td: "max-sm:flex-col",
           theadRow: "rounded-lg shadow-md",
-          row: "border-b border-divider",
+          row: "border-b border-divider/15",
         }}
         makeCell={makeCell}
         makeCellContent={makeCellContent}

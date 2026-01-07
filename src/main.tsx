@@ -4,7 +4,6 @@ import App from "./App.tsx";
 import { HashRouter } from "react-router";
 
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { HeroUIProvider } from "@heroui/system";
 
 const theme = createTheme({
   colorSchemes: {
@@ -15,9 +14,7 @@ const theme = createTheme({
 createRoot(document.getElementById("root")!).render(
   <HashRouter>
     <ThemeProvider theme={theme}>
-      <HeroUIProvider>
-        <App />
-      </HeroUIProvider>
+      <App />
     </ThemeProvider>
   </HashRouter>
 );

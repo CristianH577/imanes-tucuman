@@ -7,8 +7,7 @@ import { ClassMagnetGraphData, type ClassDBItem } from "../consts/classes";
 
 import { scrollStyle } from "../libs/tvs";
 
-import { Button } from "@heroui/button";
-import { Modal } from "@mui/material";
+import { Modal, IconButton } from "@mui/material";
 
 import ImageCustom from "../components/ImageCustom";
 
@@ -352,21 +351,15 @@ export default function ModalComparativeMagnet({
     <Modal
       open={openModal}
       onClose={handleClose}
-      className={"sm:p-4 overflow-auto " + scrollStyle}
+      className={"sm:p-4 overflow-auto dark:text-white " + scrollStyle}
     >
-      <div className="text-foreground max-w-3xl bg-content1 dark:sm:border-3 dark:sm:border-custom1-3 p-2 sm:p-4 sm:rounded-lg space-y-4 m-auto">
+      <div className="text-foreground max-w-3xl bg-content1 dark:sm:border-2 dark:sm:border-custom1-3 p-2 sm:p-4 sm:rounded-lg space-y-4 m-auto">
         <article className="flex justify-between">
           <h1 className="text-2xl font-bold">Comparar tamaños</h1>
 
-          <Button
-            variant="light"
-            onPress={onClose}
-            isIconOnly
-            title="Cerrar vista"
-            size="sm"
-          >
-            <CloseIcon className="text-3xl" />
-          </Button>
+          <IconButton onClick={onClose} title="Cerrar vista" size="small">
+            <CloseIcon className="text-2xl" />
+          </IconButton>
         </article>
 
         <p className="max-sm:text-center">
@@ -418,17 +411,16 @@ export default function ModalComparativeMagnet({
           <section
             ref={constraintsRef}
             key={count}
-            className={`flex flex-col items-center gap-6 sm:flex-row text-center pt-2 pb-6 px-4 rounded-lg relative overflow-y-hidden overflow-x-auto shadow-medium border-3 border-neutral-400 ${scrollStyle}`}
+            className={`flex flex-col items-center gap-6 sm:flex-row text-center pt-2 pb-6 px-4 rounded-lg relative overflow-y-hidden overflow-x-auto shadow-medium border-2 border-neutral-400 ${scrollStyle}`}
           >
-            <Button
-              variant="light"
-              onPress={handleResetView}
-              isIconOnly
+            <IconButton
+              onClick={handleResetView}
               className="text-xl absolute top-2 left-2"
               title="Acomodar vista"
+              size="small"
             >
               <RestartAltOutlinedIcon />
-            </Button>
+            </IconButton>
 
             {views.map((view) => (
               <article key={view.id} className="flex flex-col gap-4 w-full">
@@ -466,16 +458,9 @@ export default function ModalComparativeMagnet({
           Puede arrastrar los iconos para sobreponerlos.
         </p>
 
-        <div className="place-self-end">
-          <Button
-            variant="light"
-            onPress={onClose}
-            isIconOnly
-            title="Cerrar vista"
-          >
-            <ArrowBackOutlinedIcon className="text-3xl" />
-          </Button>
-        </div>
+        <IconButton onClick={onClose} title="Cerrar vista" size="small">
+          <ArrowBackOutlinedIcon className="text-3xl" />
+        </IconButton>
       </div>
     </Modal>
   );

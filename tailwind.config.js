@@ -1,6 +1,3 @@
-const { heroui } = require("@heroui/theme");
-const plugin = require("tailwindcss/plugin");
-
 const COLORS_CUSTOM = {
   custom1: {
     DEFAULT: "#FF8B00",
@@ -30,6 +27,24 @@ const COLORS_CUSTOM = {
     9: "rgba(61, 67, 162, 1)",
     10: "rgba(64, 70, 170, 1)",
   },
+  customSwitch: {
+    DEFAULT: "rgb(var(--color-customSwitch) / <alpha-value>)",
+  },
+  content1: "var(--color-heroui-content1)",
+  content2: "var(--color-heroui-content2)",
+  content3: "var(--color-heroui-content3)",
+  content4: "var(--color-heroui-content4)",
+  danger: "var(--color-heroui-danger)",
+  success: {
+    DEFAULT: "rgb(var(--color-heroui-success) / <alpha-value>)",
+  },
+  secondary: {
+    DEFAULT: "rgb(var(--color-heroui-secondary) / <alpha-value>)",
+    700: "rgb(var(--color-heroui-secondary-700) / <alpha-value>)",
+  },
+  divider: {
+    DEFAULT: "rgb(var(--color-heroui-divider) / <alpha-value>)",
+  },
 };
 
 /** @type {import('tailwindcss').Config} */
@@ -38,7 +53,7 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
     "./z/**/*.{js,jsx,ts,tsx}",
     "./index.html",
-    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./dev-only/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
     extend: {
@@ -54,7 +69,7 @@ module.exports = {
         tert: "var(--font-size-tertiary)",
       },
       colors: { ...COLORS_CUSTOM },
-      typography: (theme) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
             fontSize: "var(--font-size-primary)",
@@ -67,10 +82,6 @@ module.exports = {
   darkMode: "class",
   important: true,
   plugins: [
-    heroui(),
-    plugin(function ({ addVariant }) {
-      addVariant("navidad", ".navidad &");
-    }),
     require("tailwind-scrollbar")({
       nocompatible: true,
       preferredStrategy: "pseudoelements",

@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, type ReactElement } from "react";
 
 import { NAV_ITEMS } from "./consts/siteConfig";
 
@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router";
 
 import LayoutDefault from "./layout/LayoutDefault";
 import NotFound from "./layout/NotFound";
-import ViewDefault from "./components/ViewDefault.tsx";
+import ViewDefault from "./layout/ViewDefault.tsx";
 
 const Home = lazy(() => import("./views/Home"));
 const SearchView = lazy(() => import("./views/SearchView"));
@@ -18,27 +18,19 @@ const CartView = lazy(() => import("./views/CartView"));
 const Faqs = lazy(() => import("./views/Faqs"));
 const UyA = lazy(() => import("./views/Uya.tsx"));
 
-const routesComponent = {
+const routesComponent: Record<string, ReactElement | null> = {
   search_view: <SearchView />,
-  view: <ItemView />,
+  viewItem: <ItemView />,
   imanes: <Imanes />,
   cart: <CartView />,
   faqs: <Faqs />,
   uya: <UyA />,
 };
 
-const views = [
-  {
-    id: "cart",
-    href: "cart",
-    label: "Carrito",
-  },
-  {
-    id: "view",
-    href: "/buscar/:id",
-    label: "",
-  },
-];
+const Admin = import.meta.env.DEV
+  ? lazy(() => import("../dev-only/views/Admin.tsx"))
+  : () => null;
+if (Admin) routesComponent.admin = <Admin />;
 
 function App() {
   return (
@@ -46,25 +38,23 @@ function App() {
       <Route path="" element={<LayoutDefault />}>
         <Route index element={<Home />} />
 
-        {[...NAV_ITEMS, ...views].map((route: TypeRoute) => {
+        {NAV_ITEMS.map((route: TypeRoute) => {
           if (route.id in routesComponent) {
-            return (
-              <Route
-                key={route.id}
-                path={route.href}
-                element={
-                  <ViewDefault
-                    title={
-                      route.id !== "search_view"
-                        ? route?.title || route?.label || undefined
-                        : undefined
-                    }
-                  >
-                    {routesComponent[route.id as keyof typeof routesComponent]}
-                  </ViewDefault>
-                }
-              />
-            );
+            const component = routesComponent[route.id];
+
+            if (component) {
+              return (
+                <Route
+                  key={route.id}
+                  path={route.href}
+                  element={
+                    <ViewDefault title={route?.title || undefined}>
+                      {component}
+                    </ViewDefault>
+                  }
+                />
+              );
+            }
           }
 
           return null;

@@ -1,8 +1,8 @@
-import { Select, SelectItem } from "@heroui/select";
-import { Divider } from "@mui/material";
+import { Divider, FormControl, InputLabel, MenuItem } from "@mui/material";
+import { Select } from "@mui/material";
 
 import Logo from "../../components/Logo";
-import List from "./List";
+import CartList from "./CartList";
 
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import PaymentsIcon from "@mui/icons-material/Payments";
@@ -66,60 +66,76 @@ export default function Estimate({
   entrega = { value: "retiro", label: "", following: false },
   setEntrega,
 }: InterfaceEstimateProps) {
+  const condition =
+    conditions_items?.[entrega.value as keyof typeof conditions_items];
+
   return (
     <div
       id="presupuesto"
-      className={`flex flex-col gap-2 ${downloading ? "w-fit py-4" : ""}`}
+      className={`flex flex-col gap-4 ${downloading ? "w-fit p-4" : ""}`}
     >
       <Logo id="presupuesto_logo" className="max-w-44 my-2" />
 
-      <section className="flex flex-col items-center gap-2">
-        {/* <FormControl className="flex-row items-center ">
-          <Checkbox
-            checked={entrega.following}
-            color="warning"
-            onChange={(e) =>
-              setEntrega({ ...entrega, following: e.target.checked })
-            }
-          />
-          <FormLabel className="font-semibold">Sigo las redes</FormLabel>
-        </FormControl> */}
-
+      <FormControl className="w-full max-w-xs self-center">
+        <InputLabel id="shipping-select-label">Entrega</InputLabel>
         <Select
-          name="shipping"
-          size="sm"
+          labelId="shipping-select-label"
+          id="shipping-select"
           label="Entrega"
-          className="max-w-xs dark:text-white"
-          classNames={{
-            listbox: "dark:text-white",
-            trigger: "border-2 border-custom1",
-            popoverContent: "border-2 border-custom1",
-            description: "text-neutral-400 !text-second",
+          variant="outlined"
+          color="warning"
+          className="font-[menulis] bg-content1"
+          slotProps={{
+            notchedOutline: {
+              className: "border-2 border-customSwitch/80 rounded-lg",
+            },
           }}
-          selectedKeys={[entrega.value]}
-          onSelectionChange={(e) => {
-            const val = e.currentKey || "retiro";
+          MenuProps={{
+            slotProps: {
+              paper: {
+                className:
+                  "border-2 border-customSwitch/80 rounded-lg mt-1 bg-background",
+              },
+            },
+          }}
+          value={entrega.value}
+          onChange={(e) => {
+            const val = e.target.value ? String(e.target.value) : "retiro";
             const entrega_: TypeEntrega = { ...entrega };
             entrega_.value = val;
-            entrega_.label =
-              conditions_items?.[val as keyof typeof conditions_items]?.label;
+            entrega_.label = condition?.label;
 
             setEntrega(entrega_);
           }}
-          description={
-            conditions_items?.[entrega.value as keyof typeof conditions_items]
-              ?.description_select
-          }
         >
+          <MenuItem className="italic font-[menulis] text-neutral-500 dark:text-neutral-300">
+            Seleccione
+          </MenuItem>
+
           {Object.entries(conditions_items).map(([key, obj]) => (
-            <SelectItem key={key} description={obj?.description_item}>
-              {obj?.label}
-            </SelectItem>
+            <MenuItem
+              key={key}
+              value={key}
+              className="flex flex-col items-start max-w-xs font-[menulis] "
+            >
+              <b>{obj?.label}</b>
+              {obj?.description_item && (
+                <p className="text-xs whitespace-normal text-neutral-500 dark:text-neutral-300">
+                  {obj?.description_item}
+                </p>
+              )}
+            </MenuItem>
           ))}
         </Select>
-      </section>
 
-      <List downloading={downloading} following={entrega.following} />
+        {condition?.description_select && (
+          <p className="text-xs text-neutral-500 dark:text-neutral-300 mt-1">
+            {condition?.description_select}
+          </p>
+        )}
+      </FormControl>
+
+      <CartList downloading={downloading} following={entrega.following} />
 
       <section className="flex flex-col items-center gap-2 text-neutral-400 text-center">
         <div className="w-full flex flex-wrap items-center justify-center gap-3">

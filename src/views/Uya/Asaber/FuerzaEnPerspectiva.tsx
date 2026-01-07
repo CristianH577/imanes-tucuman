@@ -12,7 +12,7 @@ export default function FuerzaEnPerspectiva() {
         className="object-contain m-0 p-4"
         classes={{
           wrapper:
-            "bg-white max-w-[400px] sm:float-left sm:me-4 max-sm:justify-self-center border-3 border-divider rounded-lg",
+            "bg-white max-w-[400px] sm:float-left sm:me-4 max-sm:justify-self-center border-2 border-divider/15 rounded-lg",
         }}
       />
 

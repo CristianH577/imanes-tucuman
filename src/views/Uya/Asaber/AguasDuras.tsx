@@ -54,7 +54,7 @@ export default function AguasDuras() {
               key={agua.key}
               className="w-fit flex flex-col items-center gap-2"
             >
-              <p className="px-2 border-b border-divider w-fit capitalize italic">
+              <p className="px-2 border-b border-divider/15 w-fit capitalize italic">
                 {agua.key}
               </p>
 
@@ -122,7 +122,7 @@ export default function AguasDuras() {
       {items.map((item, i) => (
         <li
           key={i}
-          className={`flex flex-col items-center gap-4 border-divider py-4 sm:gap-8 ${
+          className={`flex flex-col items-center gap-4 border-divider/15 py-4 sm:gap-8 ${
             i % 2 === 0
               ? "sm:text-start sm:flex-row"
               : "sm:text-end sm:flex-row-reverse"

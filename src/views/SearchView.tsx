@@ -4,11 +4,7 @@ import { useLocation, useNavigate, useOutletContext } from "react-router";
 import { DB_ALL } from "../consts/dbs";
 import { FILTERS_VALUES_DEFAULT } from "../consts/values";
 
-import type {
-  TypeFiltersValues,
-  TypeObjectGeneral,
-  TypeOutletContext,
-} from "../consts/types";
+import type { TypeFiltersValues, TypeOutletContext } from "../consts/types";
 import type { ClassDBItem } from "../consts/classes";
 
 import {
@@ -16,10 +12,11 @@ import {
   getHrefSearch,
   scrollToTop,
   searchImgs,
+  searchParamsToObj,
   toPlainText,
 } from "../libs/functions";
 
-import { Button, ButtonGroup } from "@heroui/button";
+import { Button, ButtonGroup } from "@mui/material";
 
 import ItemsView from "./SearchView/ItemsView";
 import SuspenseCustom from "../components/SuspenseCustom";
@@ -78,16 +75,16 @@ export default function SearchView() {
     if (filtersValues?.priceMin) {
       const min = Number(filtersValues?.priceMin);
       items_ = items_.filter((item) => {
-        const usePrice = item.price_data.usePrice;
-        const price = item.price_data.prices[usePrice];
+        const usePrice = item.priceData.usePrice;
+        const price = item.priceData.prices[usePrice];
         return Number(price) >= min;
       });
     }
     if (filtersValues?.priceMax) {
       const max = Number(filtersValues?.priceMax);
       items_ = items_.filter((item) => {
-        const usePrice = item.price_data.usePrice;
-        const price = item.price_data.prices[usePrice];
+        const usePrice = item.priceData.usePrice;
+        const price = item.priceData.prices[usePrice];
         return Number(price) <= max;
       });
     }
@@ -100,6 +97,13 @@ export default function SearchView() {
         const bool = item_text.includes(text_);
         if (bool) return item;
       });
+    }
+
+    if (filtersValues?.stock) {
+      items_ = items_.filter((item) => !item?.noStock);
+    }
+    if (filtersValues?.discount) {
+      items_ = items_.filter((item) => item?.priceData.prices?.discount);
     }
 
     if (filtersValues?.orderBy) {
@@ -142,26 +146,26 @@ export default function SearchView() {
     const filters_values_ = structuredClone(FILTERS_VALUES_DEFAULT);
 
     if (search) {
-      const params = new URLSearchParams(search);
-      const paramsObj: TypeObjectGeneral = {};
-      Array.from(params.entries()).map(
-        ([k, v]) => (paramsObj[k] = v.replace(/%/g, " "))
-      );
+      const params = searchParamsToObj(search);
 
-      Object.keys(paramsObj).forEach((key) => {
+      Object.keys(params).forEach((key) => {
         if (filters_values_.hasOwnProperty(key)) {
           switch (key) {
             case "page":
-              filters_values_[key] = Number(paramsObj[key]);
+              filters_values_[key] = Number(params[key]);
               break;
             case "forma":
             case "categorie":
-              filters_values_[key] = paramsObj[key].split(",");
+              filters_values_[key] = params[key].split(",");
+              break;
+            case "stock":
+            case "discount":
+              filters_values_[key] = Boolean(params[key]);
               break;
 
             default:
               // @ts-ignore
-              filters_values_[key] = paramsObj[key];
+              filters_values_[key] = params[key];
               break;
           }
           filters_values_.apply = true;
@@ -179,41 +183,62 @@ export default function SearchView() {
 
   return (
     <>
-      <section className="flex flex-col items-center gap-2 pt-8">
-        <article className="flex flex-col gap-2 items-center xs:flex-row">
+      <section className="flex flex-col items-center gap-2">
+        <article className="flex flex-col gap-2 items-center">
           <InputSearch
             value={inputText}
+            className="sm:hidden"
             setValue={setInputText}
             handleSearch={handleSearch}
-            onClear={() => navigate("?orderBy=price-asc")}
           />
 
-          <ButtonGroup>
+          <ButtonGroup
+            variant="contained"
+            sx={{
+              "& .MuiButton-root": {
+                textTransform: "none",
+                fontFamily: "unset",
+                fontWeight: "bold",
+              },
+            }}
+          >
             <Button
-              isIconOnly
-              as={"a"}
+              component={"a"}
               title="Limpiar filtros"
+              color="inherit"
               href="#buscar?orderBy=price-asc"
-              onPress={handleClean}
+              className="font-bold"
+              startIcon={<SVGBroom className="h-6 w-fit" />}
+              onClick={handleClean}
             >
-              <SVGBroom className="h-6 w-fit" />
+              Limpiar
             </Button>
 
             <Button
-              isIconOnly
-              color={filtersValues?.apply ? "warning" : "default"}
+              color={filtersValues?.apply ? "warning" : "inherit"}
               title="Abrir lista de filtros"
-              onPress={() => setIsOpenFiltersDrawer(true)}
+              className="font-bold"
+              startIcon={<FilterAltIcon className="h-6 w-fit" />}
+              onClick={() => setIsOpenFiltersDrawer(true)}
             >
-              <FilterAltIcon className="h-6 w-fit" />
+              Filtros
             </Button>
           </ButtonGroup>
         </article>
 
-        <article className="text-center text-neutral-400">
-          <span>Total: {items.length}</span>
-          <br />
-          <span className="text-second">Los precios pueden variar.</span>
+        <article className="text-center text-neutral-400 font-semibold">
+          {filtersValues.text && (
+            <p className="max-sm:hidden">Buscando: "{filtersValues.text}"</p>
+          )}
+          <p>
+            Total: {items.length}
+            <br />
+            <span className="text-second">
+              Presione en las tarjetas para ver el articulo.
+              <br />
+              Los precios pueden variar.
+            </span>
+          </p>
         </article>
       </section>
 

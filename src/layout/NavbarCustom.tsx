@@ -20,6 +20,8 @@ import InputSearch from "../components/InputSearch";
 
 const MenuMovilDrawer = lazy(() => import("./NavbarCustom/MenuMovilDrawer"));
 
+const listNavItems = ["imanes", "uya", "faqs"];
+
 const MotionLinkRouter = motion.create(Link);
 
 function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
@@ -78,11 +80,12 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
           whileInView="visible"
           className="hidden md:flex gap-4 font-semibold"
         >
-          {NAV_ITEMS.map(
-            (item) =>
-              !["search_view", ""].includes(item.id) && (
+          {listNavItems.map((id) => {
+            const li = NAV_ITEMS.find((item) => item.id === id);
+            if (li)
+              return (
                 <li
-                  key={item.id}
+                  key={li.id}
                   className="hover:scale-105 transition-transform"
                 >
                   <MotionLinkRouter
@@ -90,15 +93,15 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
                       hidden: { opacity: 0 },
                       visible: { opacity: 1 },
                     }}
-                    to={item.href + (item?.search || "")}
+                    to={li.href + (li?.search || "")}
                     className="text-[medium] capitalize text-custom2 dark:text-custom1 hover:text-secondary dark:hover:text-secondary-700"
-                    title={"Ir a " + (item.title || item.label)}
+                    title={"Ir a " + (li.title || li.label)}
                   >
-                    {item.label}
+                    {li.label}
                   </MotionLinkRouter>
                 </li>
-              )
-          )}
+              );
+          })}
         </motion.ul>
 
         <section className="flex items-center gap-1">
@@ -124,7 +127,7 @@ function NavbarCustom({ cartLength = 0, links = { whatsapp: "#" } }) {
           </IconButton>
 
           <InputSearch
-            className="hidden sm:flex mx-1"
+            className="max-sm:hidden mx-1"
             value={inputText}
             setValue={setInputText}
             handleSearch={handleSearch}

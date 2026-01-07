@@ -15,6 +15,7 @@ import ButtonAddCart from "../../components/ButtonAddCart";
 import PriceLabel from "../../components/PriceLabel";
 
 import { CircularProgress, Divider } from "@mui/material";
+import StoreOnlineButtons from "../../components/StoreOnlineButtons";
 
 interface IntfProps {
   items: ClassDBItem[];
@@ -76,7 +77,7 @@ export default function ItemsView({
         }
 
         return (
-          <motion.div
+          <motion.article
             key={item.id}
             variants={variants_card}
             initial="hidden"
@@ -117,7 +118,7 @@ export default function ItemsView({
 
                 <PriceLabel
                   itemData={item}
-                  className="self-end place-self-end justify-self-end end-0 content-end place-content-end items-end justify-items-end end"
+                  className="self-end"
                   classNames={{
                     price:
                       "font-semibold text-tert text-custom2-10 dark:text-custom1",
@@ -128,16 +129,20 @@ export default function ItemsView({
 
             <Divider variant="middle" className="mb-2 bg-neutral-500/50" />
 
-            <ButtonAddCart
-              inCart={item.id in cart}
-              handleAdd={() => {
-                let qtt = 1;
-                if (item.id in cart) qtt = 0;
-                context.cart.add(item.id, qtt);
-              }}
-              className="self-center"
-            />
-          </motion.div>
+            <div className="flex flex-wrap gap-2 justify-center">
+              {item.links && <StoreOnlineButtons links={item.links} />}
+
+              <ButtonAddCart
+                inCart={item.id in cart}
+                handleAdd={() => {
+                  let qtt = 1;
+                  if (item.id in cart) qtt = 0;
+                  context.cart.add(item.id, qtt);
+                }}
+                className="self-center"
+              />
+            </div>
+          </motion.article>
         );
       })}
     </section>
