@@ -116,7 +116,7 @@ export default function ImagesSection({
       )}
 
       <motion.article
-        className="relative flex items-center border dark:border-neutral-500 rounded-md px-2 sm:px-4 shadow-md flex-1"
+        className="relative flex items-center border dark:border-neutral-500 rounded-md px-2 sm:px-4 shadow-md flex-1  bg-content1"
         variants={{
           hidden: { opacity: 0, scale: 0 },
           visible: { opacity: 1, scale: 1 },

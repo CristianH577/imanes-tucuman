@@ -1,4 +1,4 @@
-import { lazy, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useOutletContext } from "react-router";
 
 import { DB_ALL } from "../consts/dbs";
@@ -16,20 +16,19 @@ import {
   toPlainText,
 } from "../libs/functions";
 
-import { Button, ButtonGroup } from "@mui/material";
+import { Button, ButtonGroup, Divider } from "@mui/material";
 
 import ItemsView from "./SearchView/ItemsView";
-import SuspenseCustom from "../components/SuspenseCustom";
 import InputSearch from "../components/InputSearch";
 import PaginationCustom from "../components/PaginationCustom";
 
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
+import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
+import ErrorBoundary from "../components/ErrorBoundary";
+import DrawerFilters from "./SearchView/DrawerFilters";
+import Filters from "./SearchView/Filters";
 
-import { SVGBroom } from "../assets/svgs/svgsIcons";
-
-const DrawerFilters = lazy(() => import("./SearchView/DrawerFilters"));
-
-const itemsPerView = 16;
+const itemsPerView = 15;
 
 export default function SearchView() {
   const { search } = useLocation();
@@ -142,6 +141,13 @@ export default function SearchView() {
     navigate(href);
   };
 
+  // const loadMoreItems = () => {
+  //   setFiltersValues({
+  //     ...filtersValues,
+  //     page: filtersValues.page + 1,
+  //   });
+  // };
+
   useEffect(() => {
     const filters_values_ = structuredClone(FILTERS_VALUES_DEFAULT);
 
@@ -182,119 +188,128 @@ export default function SearchView() {
   }, [filtersValues]);
 
   return (
-    <>
-      <section className="flex flex-col items-center gap-2">
-        <article className="flex flex-col gap-2 items-center">
-          <InputSearch
-            value={inputText}
-            className="sm:hidden"
-            setValue={setInputText}
-            handleSearch={handleSearch}
-          />
+    <section className="w-full flex gap-2">
+      <article className="hidden md:flex max-w-[280px]">
+        <ErrorBoundary>
+          <Filters filtersValues={filtersValues} />
+        </ErrorBoundary>
+        <Divider orientation="vertical" />
+      </article>
 
-          <ButtonGroup
-            variant="contained"
-            sx={{
-              "& .MuiButton-root": {
-                textTransform: "none",
-                fontFamily: "unset",
-                fontWeight: "bold",
-              },
-            }}
-          >
-            <Button
-              component={"a"}
-              title="Limpiar filtros"
-              color="inherit"
-              href="#buscar?orderBy=price-asc"
-              className="font-bold"
-              startIcon={<SVGBroom className="h-6 w-fit" />}
-              onClick={handleClean}
+      <article className="w-full space-y-4">
+        <section className="flex flex-col items-center gap-2">
+          <article className="flex flex-col gap-2 items-center">
+            <InputSearch
+              value={inputText}
+              className="md:hidden"
+              setValue={setInputText}
+              handleSearch={handleSearch}
+            />
+
+            <ButtonGroup
+              className="md:hidden"
+              variant="contained"
+              sx={{
+                "& .MuiButton-root": {
+                  textTransform: "none",
+                  fontFamily: "unset",
+                  fontWeight: "bold",
+                },
+              }}
             >
-              Limpiar
-            </Button>
+              <Button
+                component={"a"}
+                title="Quitar filtros"
+                color="inherit"
+                href="#buscar?orderBy=price-asc"
+                startIcon={<FilterAltOffIcon />}
+                onClick={handleClean}
+              >
+                Quitar
+              </Button>
 
-            <Button
-              color={filtersValues?.apply ? "warning" : "inherit"}
-              title="Abrir lista de filtros"
-              className="font-bold"
-              startIcon={<FilterAltIcon className="h-6 w-fit" />}
-              onClick={() => setIsOpenFiltersDrawer(true)}
-            >
-              Filtros
-            </Button>
-          </ButtonGroup>
-        </article>
+              <Button
+                color={filtersValues?.apply ? "warning" : "inherit"}
+                title="Abrir lista de filtros"
+                startIcon={<FilterAltIcon className="h-6 w-fit" />}
+                onClick={() => setIsOpenFiltersDrawer(true)}
+              >
+                Filtros
+              </Button>
+            </ButtonGroup>
+          </article>
 
-        <article className="text-center text-neutral-400 font-semibold">
-          {filtersValues.text && (
-            <p className="max-sm:hidden">Buscando: "{filtersValues.text}"</p>
-          )}
-          <p>
-            Total: {items.length}
-            <br />
-            <span className="text-second">
+          <article className="text-center font-semibold">
+            {filtersValues.text && (
+              <p className="max-md:hidden">Buscando: "{filtersValues.text}"</p>
+            )}
+            <p>Total: {items.length}</p>
+            <p className="text-second text-neutral-500 dark:text-neutral-400">
               Presione en las tarjetas para ver el articulo.
               <br />
               Los precios pueden variar.
-            </span>
-          </p>
-        </article>
-      </section>
+            </p>
+          </article>
+        </section>
 
-      <ItemsView
-        items={visibleItems}
-        loading={loading}
-        databaseImgs={context.db.value}
-      />
-
-      {items.length > itemsPerView && (
-        <PaginationCustom
-          totalItems={items.length}
-          currentPage={filtersValues.page}
-          itemsPerPage={itemsPerView}
-          setPage={handleChangePage}
-          showJumps
-          siblings={1}
-          className="mt-4"
-          classes={{
-            li: "bg-custom1-3 text-custom2 font-semibold data-[disabled=true]:text-neutral-500 data-[disabled=true]:bg-neutral-300/60 data-[active=true]:bg-custom2-10 data-[active=true]:text-custom1-3 hover:bg-custom2-10 hover:text-custom1-3",
-          }}
-          breakpoints={{
-            240: {
-              showElipsis: true,
-            },
-            320: {
-              showJumps: true,
-            },
-            400: {
-              siblings: 1,
-            },
-            500: {
-              siblings: 2,
-            },
-            600: {
-              siblings: 3,
-            },
-            700: {
-              siblings: 4,
-            },
-            800: {
-              siblings: 5,
-            },
-          }}
-        />
-      )}
-
-      {isOpenFiltersDrawer && (
-        <SuspenseCustom classFall="absolute w-screen min-h-screen top-0 bg-black/50 z-30">
-          <DrawerFilters
-            isOpen={isOpenFiltersDrawer}
-            setIsOpen={setIsOpenFiltersDrawer}
-            filtersValues={filtersValues}
+        <ErrorBoundary>
+          <ItemsView
+            items={visibleItems}
+            loading={loading}
+            databaseImgs={context.db.value}
           />
-        </SuspenseCustom>
-      )}
-    </>
+        </ErrorBoundary>
+
+        {items.length > itemsPerView && (
+          <PaginationCustom
+            totalItems={items.length}
+            currentPage={filtersValues.page}
+            itemsPerPage={itemsPerView}
+            setPage={handleChangePage}
+            showJumps
+            siblings={1}
+            className="mt-4"
+            classes={{
+              li: "bg-custom1-3 text-custom2 font-semibold data-[disabled=true]:text-neutral-500 data-[disabled=true]:bg-neutral-300/60 data-[active=true]:bg-custom2-10 data-[active=true]:text-custom1-3 hover:bg-custom2-10 hover:text-custom1-3",
+            }}
+            breakpoints={{
+              240: {
+                showElipsis: true,
+              },
+              320: {
+                showJumps: true,
+              },
+              400: {
+                siblings: 1,
+              },
+              500: {
+                siblings: 2,
+              },
+              600: {
+                siblings: 3,
+              },
+              700: {
+                siblings: 4,
+              },
+              800: {
+                siblings: 5,
+              },
+            }}
+          />
+        )}
+      </article>
+
+      <ErrorBoundary>
+        <DrawerFilters
+          isOpen={isOpenFiltersDrawer}
+          setIsOpen={setIsOpenFiltersDrawer}
+        >
+          <Filters
+            filtersValues={filtersValues}
+            onApply={() => setIsOpenFiltersDrawer(false)}
+          />
+        </DrawerFilters>
+      </ErrorBoundary>
+    </section>
   );
 }

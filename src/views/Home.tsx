@@ -26,6 +26,7 @@ const sections = [
     className: "2xl:max-w-[1500px]",
   },
 ];
+
 export default function Home() {
   return (
     <>

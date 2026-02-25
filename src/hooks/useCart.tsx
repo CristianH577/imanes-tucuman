@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import type { TypeCart } from "../consts/types";
 
-const VERSION_CURRENT = "2.3.92";
+const VERSION_CURRENT = "2.4.05";
 
 const inizializete = () => {
   const version = localStorage.getItem("version");

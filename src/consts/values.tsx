@@ -90,6 +90,10 @@ export const OBJ_MEASURES: {
     label: "fuerza levante",
     measure: "kg",
   },
+  fuerzaArrastre: {
+    label: "fuerza arrastre",
+    measure: "kg",
+  },
   diametroSup: {
     label: "diámetro superior",
     measure: "mm",

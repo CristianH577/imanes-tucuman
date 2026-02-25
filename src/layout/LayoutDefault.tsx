@@ -43,7 +43,7 @@ export default function LayoutDefault() {
   return (
     <div
       id="app"
-      className="text-black dark:bg-content2 dark:text-white font-[menulis] grid grid-rows-[auto_1fr_auto_auto] grid-cols-1 h-[100dvh] max-xs:break-all overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
+      className="text-black bg-content2 dark:text-white font-[menulis] grid grid-rows-[auto_1fr_auto_auto] grid-cols-1 h-[100dvh] max-xs:break-all overflow-x-hidden overflow-y-auto scroll-smooth sm:scrollbar scrollbar-thumb-custom1 scrollbar-track-custom2-10 scrollbar-w-3 scrollbar-h-3 hover:scrollbar-thumb-custom1-6"
     >
       <SuspenseCustom classFall="sticky min-h-[64px] bg-black/50 inset-0 z-50">
         <NavbarCustom

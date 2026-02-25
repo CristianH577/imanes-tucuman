@@ -48,13 +48,13 @@ export default function AguasDuras() {
       title: "Que son?",
       text: "Las aguas duras contienen gran cantidad de minerales, particularmente de sales de magnesio(Mg) y calcio(Ca). Puede corroborarse esto al mezclarla con jabón y ver como produce menos espuma de lo normal",
       img: (
-        <span className="flex flex-col xs:flex-row gap-4 drop-shadow-custom">
+        <div className="flex flex-col xs:flex-row gap-4">
           {aguas.map((agua) => (
             <div
               key={agua.key}
-              className="w-fit flex flex-col items-center gap-2"
+              className="w-fit flex flex-col items-center gap-2 drop-shadow-custom"
             >
-              <p className="px-2 border-b border-divider/15 w-fit capitalize italic">
+              <p className="px-2 border-b border-divider/15 w-fit capitalize italic font-bold">
                 {agua.key}
               </p>
 
@@ -70,7 +70,7 @@ export default function AguasDuras() {
               </div>
             </div>
           ))}
-        </span>
+        </div>
       ),
     },
     {

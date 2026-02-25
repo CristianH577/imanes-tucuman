@@ -27,7 +27,7 @@ export default function Logo({
     <a
       id={id}
       href={href || undefined}
-      className={`font-['calvera'] relative select-none flex items-center justify-center self-center drop-shadow-custom${
+      className={`font-['calvera'] relative select-none flex items-center justify-center self-center drop-shadow-custom overflow-hidden${
         className ? " " + className : ""
       }`}
       title={title}
@@ -54,7 +54,7 @@ export default function Logo({
 
       <SVGTextoTucuman
         id={`${id || "logo"}_front`}
-        className="absolute h-3/5 w-1/2 tracking-[0.4em] z-10 overflow-visible"
+        className="absolute h-3/5 w-1/2 tracking-[0.4em] z-10"
       />
     </a>
   );

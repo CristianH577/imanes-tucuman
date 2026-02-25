@@ -21,11 +21,11 @@ export default function InputSearch({
       title="Buscar..."
       size="small"
       className={
-        "p-0 rounded-lg bg-yellow-300 text-custom2" +
-        (className ? " " + className : "")
+        "p-0 rounded-lg bg-content1" + (className ? " " + className : "")
       }
       classes={{
-        notchedOutline: "border-2 border-custom1-3 rounded-lg",
+        notchedOutline:
+          "border-2 border-custom1--9 dark:border-custom1-2 rounded-lg",
       }}
       endAdornment={
         <Button

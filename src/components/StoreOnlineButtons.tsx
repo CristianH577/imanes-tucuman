@@ -1,5 +1,4 @@
 import ML from "../assets/layout/ml.webp";
-import MS from "../assets/layout/ms.webp";
 
 import { Button } from "@mui/material";
 
@@ -17,7 +16,7 @@ export default function StoreOnlineButtons({ links, complete }: IntfProps) {
         <Button
           component={"a"}
           variant="outlined"
-          className="hover:bg-[#fee701] text-blue-900 dark:text-[#fee701] dark:hover:text-blue-900 shadow-sm space-x-0.5 border-blue-900/50 dark:border-[#fee701]/50"
+          className="hover:bg-[#fee701] text-blue-900 dark:text-[#fee701] dark:hover:text-blue-900 shadow-sm space-x-0.5 border-blue-900/50 dark:border-[#fee701]/50 bg-content1"
           href={
             links.both
               ? "https://www.mercadolibre.com.ar/" + links.both
@@ -46,11 +45,11 @@ export default function StoreOnlineButtons({ links, complete }: IntfProps) {
         </Button>
       )}
 
-      {(links.both || links?.MS) && (
+      {/* {(links.both || links?.MS) && (
         <Button
           component={"a"}
           variant="outlined"
-          className="hover:bg-[#e82d88] text-[#e82d88] hover:text-white shadow-sm space-x-0.5 border-[#e82d88]/50"
+          className="hover:bg-[#e82d88] text-[#e82d88] hover:text-white shadow-sm space-x-0.5 border-[#e82d88]/50 bg-content1"
           href={
             links.both
               ? "https://imanestucuman.mercadoshops.com.ar/" + links.both
@@ -76,7 +75,7 @@ export default function StoreOnlineButtons({ links, complete }: IntfProps) {
             ""
           )}
         </Button>
-      )}
+      )} */}
     </div>
   );
 }

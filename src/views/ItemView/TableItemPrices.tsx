@@ -199,7 +199,7 @@ export default function TableItemPrices({ itemData }: IntfProps) {
               type="number"
               placeholder="Cantidad"
               color="success"
-              className="max-w-36"
+              className="max-w-36 bg-content1"
               endAdornment={
                 itemData.priceData.salesUnit ? (
                   <span className="px-1 text-neutral-400">

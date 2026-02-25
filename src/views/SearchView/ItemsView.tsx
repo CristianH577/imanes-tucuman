@@ -103,9 +103,9 @@ export default function ItemsView({
                 )}
               </div>
 
-              <div className="p-2 flex-1 flex flex-col justify-between">
+              <div className="text-second p-2 flex-1 flex flex-col justify-between">
                 <p>
-                  <span className="text-second self-start text-neutral-400 capitalize line-clamp-1">
+                  <span className="self-start text-neutral-400 capitalize line-clamp-1">
                     {item.categorie[0]}{" "}
                     {item.categorie[1] ? " > " + item.categorie[1] : ""}
                   </span>

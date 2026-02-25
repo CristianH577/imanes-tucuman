@@ -129,7 +129,7 @@ export default function Estimate({
         </Select>
 
         {condition?.description_select && (
-          <p className="text-xs text-neutral-500 dark:text-neutral-300 mt-1">
+          <p className="text-xs text-neutral-600 dark:text-neutral-300 mt-1">
             {condition?.description_select}
           </p>
         )}
@@ -137,7 +137,7 @@ export default function Estimate({
 
       <CartList downloading={downloading} following={entrega.following} />
 
-      <section className="flex flex-col items-center gap-2 text-neutral-400 text-center">
+      <section className="flex flex-col items-center gap-2 text-neutral-500 text-center">
         <div className="w-full flex flex-wrap items-center justify-center gap-3">
           <PaymentsIcon className="h-6 w-fit" />
           <AccountBalanceIcon className="h-6 w-fit" />

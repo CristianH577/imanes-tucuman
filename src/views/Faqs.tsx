@@ -1,7 +1,7 @@
 import { isValidElement, useEffect, useState } from "react";
 import { useLocation, useOutletContext } from "react-router";
 
-import listJson from "../assets/jsons/faqs.json";
+import { listFaqs } from "../consts/faqs";
 import type { TypeOutletContext } from "../consts/types";
 
 import { searchParamsToObj, toPlainText } from "../libs/functions";
@@ -168,7 +168,7 @@ export default function Faqs() {
       ),
     },
 
-    ...listJson,
+    ...listFaqs,
   ].sort((a, b) => a.title.localeCompare(b.title));
 
   const [items, setItems] = useState(list);
@@ -233,7 +233,7 @@ export default function Faqs() {
           por las{" "}
           <span
             title="Ir a redes"
-            className="font-bold text-custom1--9 dark:text-custom1 hover:underline cursor-pointer"
+            className="font-bold text-custom1 hover:underline cursor-pointer"
             onClick={() => {
               const e = document.querySelector("#footer");
               if (e) e.scrollIntoView();
@@ -258,8 +258,7 @@ export default function Faqs() {
           {items.map((item, idx) => (
             <Accordion
               key={idx}
-              className="w-full bg-content1 text-foreground dark:shadow-none hover:bg-custom1/20 dark:hover:bg-custom2-10/50 transition-colors"
-              classes={{ expanded: "bg-custom1/10 dark:bg-custom2-10/20" }}
+              className="w-full bg-content1 dark:bg-content2 text-foreground dark:shadow-none hover:bg-custom1/20 dark:hover:bg-custom2-10/50"
             >
               <AccordionSummary
                 id={"panel-header " + idx}

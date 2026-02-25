@@ -40,11 +40,7 @@ export default function SoporteFrascos() {
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
         {items.map((item, i) => (
-          <CardUya
-            key={i + 1}
-            src={item.src}
-            text={`${i + 1}. ${item.text}.`}
-          />
+          <CardUya key={i + 1} src={item.src} text={`${i + 1}. ${item.text}`} />
         ))}
       </div>
 

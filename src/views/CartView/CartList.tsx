@@ -355,7 +355,7 @@ export default function CartList({ downloading = false, following = false }) {
         }}
       >
         <table className="w-full sm:min-w-[640px]">
-          <thead className="border-b-4">
+          <thead className="border-b-4 border-neutral-300">
             <tr>
               {cols.map((col) => (
                 <th

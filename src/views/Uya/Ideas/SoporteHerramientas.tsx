@@ -35,11 +35,7 @@ export default function SoporteHerramientas() {
         </p>
 
         {items.map((item, i) => (
-          <CardUya
-            key={i + 1}
-            src={item.src}
-            text={`${i + 1}. ${item.text}.`}
-          />
+          <CardUya key={i + 1} src={item.src} text={`${i + 1}. ${item.text}`} />
         ))}
       </div>
 

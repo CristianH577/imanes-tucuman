@@ -192,7 +192,7 @@ export default function CartView() {
           Cuanto termine de revisar la lista envié el pedido y será redirigido a
           whatsapp para continuar.
         </p>
-        <p className="font-size-secondary text-neutral-400 sm:hidden">
+        <p className="font-size-secondary text-neutral-500 dark:text-neutral-300 sm:hidden">
           <br />
           Si esta usando un dispositivo móvil y quiere descargar el pedido en
           una imagen es recomendable estar conectado a una red wifi dado que la

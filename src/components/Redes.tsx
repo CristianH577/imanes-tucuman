@@ -5,14 +5,10 @@ import { LINKS_SITES } from "../consts/siteConfig";
 import { Tooltip } from "@mui/material";
 
 import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";
-// import TelegramIcon from "@mui/icons-material/Telegram";
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf";
 import PinDropIcon from "@mui/icons-material/PinDrop";
 import DescriptionIcon from "@mui/icons-material/Description";
-
-import { SVGMercadoLibre } from "../assets/svgs/svgsIcons";
 
 type LinkKey = keyof typeof LINKS_SITES;
 
@@ -27,11 +23,11 @@ const redes = [
     icon: InstagramIcon,
     label: "Instagram",
   },
-  {
-    id: "x",
-    icon: XIcon,
-    label: "X",
-  },
+  // {
+  //   id: "x",
+  //   icon: XIcon,
+  //   label: "X",
+  // },
   {
     id: "googlemaps",
     icon: PinDropIcon,
@@ -53,14 +49,14 @@ const redes = [
     icon: PictureAsPdfIcon,
     label: "Catalogo",
   },
-  {
-    id: "mercadoshops",
-    icon: SVGMercadoLibre,
-    label: "Tienda Online",
-    classNames: {
-      icon: "h-full w-fit",
-    },
-  },
+  // {
+  //   id: "mercadoshops",
+  //   icon: SVGMercadoLibre,
+  //   label: "Tienda Online",
+  //   classNames: {
+  //     icon: "h-full w-fit",
+  //   },
+  // },
   {
     id: "form_encuesta-20250109",
     icon: DescriptionIcon,

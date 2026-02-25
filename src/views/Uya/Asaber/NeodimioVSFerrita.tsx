@@ -104,7 +104,7 @@ export default function NeodimioVSFerrita() {
         classNames={{
           th: "text-center",
           td: "max-sm:flex-col",
-          theadRow: "rounded-lg shadow-md",
+          theadRow: "rounded-lg shadow-md bg-content1",
           row: "border-b border-divider/15",
         }}
         makeCell={makeCell}
