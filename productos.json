@@ -1,7 +1,10 @@
 [
   {
+    "id": 0,
     "nombre": "test",
     "precio": 999,
+    "stock": 1,
+    "existencias": true,
     "descripcion": "esto es una prueba",
     "imagen": ""
   }
