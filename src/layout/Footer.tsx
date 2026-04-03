@@ -13,6 +13,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import RoomIcon from "@mui/icons-material/Room";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import EmailIcon from "@mui/icons-material/Email";
+import GavelIcon from "@mui/icons-material/Gavel";
 
 import qr from "../assets/wp.webp";
 import {
@@ -24,7 +25,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
   const info_items = [
     {
       icon: CalendarTodayIcon,
-      text: (
+      content: (
         <>
           Lunes a Sábados (
           <LinkCustom
@@ -45,7 +46,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
     },
     {
       icon: RoomIcon,
-      text: <>9 de julio 4900, S.M. de Tucumán, Tucumán</>,
+      content: <>9 de julio 4900, S.M. de Tucumán, Tucumán</>,
       subtext: (
         <span className="font-size-secondary text-neutral-400">
           No es local. Solo retiro.
@@ -54,7 +55,20 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
     },
     {
       icon: EmailIcon,
-      text: "info@imanestucuman.com.ar",
+      content: "info@imanestucuman.com.ar",
+    },
+    {
+      icon: GavelIcon,
+      content: (
+        <LinkCustom
+          href="#faqs"
+          title="Ver bases y condiciones"
+          className=""
+          target="_self"
+        >
+          Bases y Condiciones
+        </LinkCustom>
+      ),
     },
   ];
 
@@ -145,7 +159,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
             >
               <p className="inline-block">
                 {item?.icon && <item.icon className="h-5 w-fit me-1" />}
-                {item.text}
+                {item.content}
               </p>
               {item?.subtext && <p>{item.subtext}</p>}
             </motion.div>

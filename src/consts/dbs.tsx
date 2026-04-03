@@ -9,14 +9,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 126,
+        base: 124,
       },
       pricesQtts: {
-        "1": 126,
-        "50": 120,
+        "1": 124,
+        "50": 118,
         "100": 110,
-        "500": 92,
-        "1000": 82,
+        "500": 100,
+        "1000": 90,
       },
       update: "30/9/2025",
     },
@@ -42,14 +42,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 160,
+        base: 158,
       },
       pricesQtts: {
-        "1": 160,
-        "50": 152,
-        "100": 138,
-        "500": 116,
-        "1000": 104,
+        "1": 158,
+        "50": 150,
+        "100": 140,
+        "500": 128,
+        "1000": 114,
       },
       update: "21/4/2025",
     },
@@ -69,14 +69,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 130,
+        base: 128,
       },
       pricesQtts: {
-        "1": 130,
-        "50": 124,
-        "100": 112,
-        "500": 94,
-        "1000": 84,
+        "1": 128,
+        "50": 122,
+        "100": 114,
+        "500": 104,
+        "1000": 92,
       },
       update: "30/9/2025",
     },
@@ -99,14 +99,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 138,
+        base: 136,
       },
       pricesQtts: {
-        "1": 138,
-        "50": 130,
-        "100": 118,
-        "500": 100,
-        "1000": 88,
+        "1": 136,
+        "50": 128,
+        "100": 120,
+        "500": 110,
+        "1000": 98,
       },
       update: "30/9/2025",
     },
@@ -129,14 +129,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 134,
+        base: 132,
       },
       pricesQtts: {
-        "1": 134,
-        "50": 126,
-        "100": 116,
-        "500": 98,
-        "1000": 86,
+        "1": 132,
+        "50": 124,
+        "100": 118,
+        "500": 106,
+        "1000": 96,
       },
       update: "10/2/2026",
     },
@@ -156,14 +156,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 142,
+        base: 140,
       },
       pricesQtts: {
-        "1": 142,
-        "50": 136,
-        "100": 124,
-        "500": 104,
-        "1000": 92,
+        "1": 140,
+        "50": 132,
+        "100": 126,
+        "500": 114,
+        "1000": 102,
       },
       update: "10/2/2026",
     },
@@ -189,14 +189,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 146,
+        base: 144,
       },
       pricesQtts: {
-        "1": 146,
-        "50": 138,
-        "100": 126,
-        "500": 106,
-        "1000": 94,
+        "1": 144,
+        "50": 136,
+        "100": 128,
+        "500": 116,
+        "1000": 104,
       },
       update: "10/2/2026",
     },
@@ -222,14 +222,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 164,
+        base: 162,
       },
       pricesQtts: {
-        "1": 164,
-        "50": 156,
-        "100": 142,
-        "500": 120,
-        "1000": 106,
+        "1": 162,
+        "50": 154,
+        "100": 144,
+        "500": 130,
+        "1000": 118,
       },
       update: "10/2/2026",
     },
@@ -255,14 +255,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 270,
+        base: 268,
       },
       pricesQtts: {
-        "1": 270,
-        "50": 256,
-        "100": 234,
-        "500": 196,
-        "1000": 174,
+        "1": 268,
+        "50": 254,
+        "100": 240,
+        "500": 216,
+        "1000": 194,
       },
       update: "10/2/2026",
     },
@@ -282,14 +282,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 290,
+        base: 288,
       },
       pricesQtts: {
-        "1": 290,
-        "50": 274,
-        "100": 250,
-        "500": 210,
-        "1000": 186,
+        "1": 288,
+        "50": 272,
+        "100": 256,
+        "500": 232,
+        "1000": 208,
       },
       update: "10/2/2026",
     },
@@ -309,14 +309,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 270,
+        base: 268,
       },
       pricesQtts: {
-        "1": 270,
-        "50": 256,
-        "100": 234,
-        "500": 196,
-        "1000": 174,
+        "1": 268,
+        "50": 254,
+        "100": 240,
+        "500": 216,
+        "1000": 194,
       },
       update: "10/2/2026",
     },
@@ -339,16 +339,16 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 192,
+        base: 178,
       },
       pricesQtts: {
-        "1": 192,
-        "50": 182,
-        "100": 166,
-        "500": 140,
-        "1000": 124,
+        "1": 178,
+        "50": 168,
+        "100": 158,
+        "500": 144,
+        "1000": 130,
       },
-      update: "10/2/2026",
+      update: "18/3/2026",
     },
     measures: {
       largo: 7,
@@ -373,10 +373,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 580,
-        "50": 550,
-        "100": 500,
-        "250": 420,
-        "500": 375,
+        "50": 545,
+        "100": 515,
+        "250": 465,
+        "500": 420,
       },
       update: "10/2/2026",
     },
@@ -396,14 +396,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 410,
+        base: 405,
       },
       pricesQtts: {
-        "1": 410,
-        "50": 385,
-        "100": 350,
-        "500": 296,
-        "1000": 262,
+        "1": 405,
+        "50": 380,
+        "100": 360,
+        "500": 325,
+        "1000": 292,
       },
       update: "10/2/2026",
     },
@@ -433,10 +433,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 570,
-        "50": 540,
-        "100": 495,
-        "250": 415,
-        "500": 365,
+        "50": 535,
+        "100": 505,
+        "250": 460,
+        "500": 410,
       },
       update: "10/2/2026",
     },
@@ -459,14 +459,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 610,
+        base: 600,
       },
       pricesQtts: {
-        "1": 610,
+        "1": 600,
         "50": 570,
-        "100": 520,
-        "250": 440,
-        "500": 390,
+        "100": 535,
+        "250": 485,
+        "500": 435,
       },
       update: "21/4/2025",
     },
@@ -486,16 +486,16 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 345,
+        base: 224,
       },
       pricesQtts: {
-        "1": 345,
-        "50": 325,
-        "100": 296,
-        "500": 248,
-        "1000": 220,
+        "1": 224,
+        "50": 212,
+        "100": 200,
+        "500": 180,
+        "1000": 162,
       },
-      update: "10/2/2026",
+      update: "18/3/2026",
     },
     measures: {
       largo: 9,
@@ -505,7 +505,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     especificaciones: {
-      denominacion: "N46",
+      denominacion: "N45",
     },
   },
   {
@@ -516,14 +516,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 410,
+        base: 405,
       },
       pricesQtts: {
-        "1": 410,
-        "50": 385,
-        "100": 350,
-        "500": 296,
-        "1000": 262,
+        "1": 405,
+        "50": 380,
+        "100": 360,
+        "500": 325,
+        "1000": 292,
       },
       update: "10/2/2026",
     },
@@ -553,10 +553,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 570,
-        "50": 540,
-        "100": 495,
-        "250": 415,
-        "500": 365,
+        "50": 535,
+        "100": 505,
+        "250": 460,
+        "500": 410,
       },
       update: "10/2/2026",
     },
@@ -584,9 +584,9 @@ export const DB_ALL: ClassDBItem[] = [
       pricesQtts: {
         "1": 720,
         "50": 680,
-        "100": 620,
-        "250": 520,
-        "500": 465,
+        "100": 640,
+        "250": 580,
+        "500": 520,
       },
       update: "23/1/2026",
     },
@@ -612,14 +612,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 820,
+        base: 810,
       },
       pricesQtts: {
-        "1": 820,
-        "50": 770,
-        "100": 700,
-        "250": 590,
-        "500": 520,
+        "1": 810,
+        "50": 765,
+        "100": 720,
+        "250": 655,
+        "500": 585,
       },
       update: "23/1/2026",
     },
@@ -639,14 +639,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 960,
+        base: 955,
       },
       pricesQtts: {
-        "1": 960,
-        "20": 910,
-        "40": 830,
-        "80": 700,
-        "200": 620,
+        "1": 955,
+        "20": 905,
+        "40": 850,
+        "80": 770,
+        "200": 690,
       },
       update: "23/1/2026",
     },
@@ -666,14 +666,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1650,
+        base: 1660,
       },
       pricesQtts: {
-        "1": 1650,
-        "10": 1550,
-        "25": 1440,
-        "50": 1210,
-        "120": 1070,
+        "1": 1660,
+        "10": 1570,
+        "25": 1480,
+        "50": 1340,
+        "100": 1200,
       },
       update: "10/2/2026",
     },
@@ -693,14 +693,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2450,
+        base: 2460,
       },
       pricesQtts: {
-        "1": 2450,
-        "10": 2350,
-        "25": 2100,
-        "50": 1900,
-        "120": 1700,
+        "1": 2460,
+        "10": 2300,
+        "25": 2160,
+        "50": 2020,
+        "100": 1880,
       },
       update: "21/4/2025",
     },
@@ -718,20 +718,16 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 900,
-        discount: 820,
+        base: 895,
       },
       pricesQtts: {
-        "1": 900,
-        "50": 850,
-        "100": 770,
-        "250": 650,
-        "500": 570,
-      },
-      discountsPercentages: {
-        discount: 0.17,
+        "1": 895,
+        "50": 845,
+        "100": 795,
+        "250": 720,
+        "500": 645,
       },
       update: "23/1/2026",
     },
@@ -749,20 +745,16 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 970,
-        discount: 860,
+        base: 965,
       },
       pricesQtts: {
-        "1": 970,
-        "20": 920,
-        "40": 840,
-        "80": 710,
-        "200": 630,
-      },
-      discountsPercentages: {
-        discount: 0.1,
+        "1": 965,
+        "20": 910,
+        "40": 860,
+        "80": 780,
+        "200": 700,
       },
       update: "10/2/2026",
     },
@@ -780,20 +772,16 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 980,
-        discount: 800,
+        base: 975,
       },
       pricesQtts: {
-        "1": 980,
-        "20": 930,
-        "40": 850,
-        "80": 710,
-        "200": 630,
-      },
-      discountsPercentages: {
-        discount: 0.16,
+        "1": 975,
+        "20": 920,
+        "40": 865,
+        "80": 785,
+        "200": 705,
       },
       update: "10/2/2026",
     },
@@ -816,14 +804,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1180,
+        base: 1170,
       },
       pricesQtts: {
-        "1": 1180,
-        "20": 1120,
-        "40": 1020,
-        "80": 860,
-        "200": 760,
+        "1": 1170,
+        "20": 1110,
+        "40": 1040,
+        "80": 945,
+        "200": 850,
       },
       update: "10/2/2026",
     },
@@ -839,6 +827,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
   },
   {
+    hidden: true,
+    noStock: true,
     id: 29,
     label: "15x2mm N35",
     categorie: ["imanes", "neodimio"],
@@ -846,16 +836,16 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 730,
+        base: 795,
       },
       pricesQtts: {
-        "1": 730,
-        "50": 690,
-        "100": 630,
-        "250": 530,
-        "500": 465,
+        "1": 795,
+        "50": 750,
+        "100": 705,
+        "250": 640,
+        "500": 575,
       },
-      update: "21/4",
+      update: "18/3/2026",
     },
     measures: {
       largo: 15,
@@ -864,7 +854,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 2.6,
     },
     isComparable: true,
-    caracteristicas: ["N35"],
+    especificaciones: {
+      denominacion: "N35",
+    },
   },
   {
     id: 30,
@@ -874,14 +866,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1000,
+        base: 995,
       },
       pricesQtts: {
-        "1": 1000,
-        "20": 950,
-        "40": 860,
-        "80": 730,
-        "200": 640,
+        "1": 995,
+        "20": 940,
+        "40": 885,
+        "80": 800,
+        "200": 720,
       },
       update: "10/2/2026",
     },
@@ -912,9 +904,9 @@ export const DB_ALL: ClassDBItem[] = [
       pricesQtts: {
         "1": 1750,
         "10": 1650,
-        "25": 1500,
-        "50": 1270,
-        "120": 1130,
+        "25": 1560,
+        "50": 1410,
+        "100": 1270,
       },
       update: "10/2/2026",
     },
@@ -940,14 +932,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1460,
+        base: 1450,
       },
       pricesQtts: {
-        "1": 1460,
-        "10": 1380,
-        "25": 1260,
-        "50": 1060,
-        "120": 940,
+        "1": 1450,
+        "10": 1370,
+        "25": 1290,
+        "50": 1170,
+        "100": 1050,
       },
       update: "13/3/2025",
     },
@@ -970,14 +962,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 3050,
+        base: 3060,
       },
       pricesQtts: {
-        "1": 3050,
-        "10": 2900,
-        "25": 2600,
-        "50": 2350,
-        "120": 2100,
+        "1": 3060,
+        "10": 2880,
+        "25": 2700,
+        "50": 2520,
+        "100": 2340,
       },
       update: "23/1/2026",
     },
@@ -1001,14 +993,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1750,
+        base: 1710,
       },
       pricesQtts: {
-        "1": 1750,
-        "10": 1650,
-        "25": 1480,
-        "50": 1330,
-        "120": 1180,
+        "1": 1710,
+        "10": 1610,
+        "25": 1460,
+        "50": 1310,
+        "120": 1160,
       },
       update: "21/4",
     },
@@ -1019,7 +1011,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 1.8,
     },
     isComparable: true,
-    caracteristicas: ["N35"],
+    especificaciones: {
+      denominacion: "N35",
+    },
   },
   {
     id: 35,
@@ -1029,14 +1023,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2400,
+        base: 2360,
       },
       pricesQtts: {
-        "1": 2400,
-        "10": 2250,
-        "25": 2050,
-        "50": 1850,
-        "120": 1600,
+        "1": 2360,
+        "10": 2240,
+        "25": 2100,
+        "50": 1950,
+        "100": 1810,
       },
       update: "22/9/2025",
     },
@@ -1060,14 +1054,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2900,
+        base: 2880,
       },
       pricesQtts: {
-        "1": 2900,
-        "10": 2750,
-        "25": 2500,
-        "50": 2200,
-        "120": 1950,
+        "1": 2880,
+        "10": 2720,
+        "25": 2540,
+        "50": 2380,
+        "100": 2200,
       },
       update: "23/1/2026",
     },
@@ -1087,14 +1081,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 3450,
+        base: 3680,
       },
       pricesQtts: {
-        "1": 3450,
-        "10": 3350,
-        "25": 3200,
-        "50": 3100,
-        "120": 2750,
+        "1": 3680,
+        "5": 3500,
+        "15": 3320,
+        "30": 3080,
       },
       update: "10/2/2026",
     },
@@ -1118,14 +1111,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2850,
+        base: 2840,
       },
       pricesQtts: {
-        "1": 2850,
-        "10": 2700,
-        "25": 2450,
-        "50": 2200,
-        "120": 1950,
+        "1": 2840,
+        "10": 2680,
+        "25": 2500,
+        "50": 2340,
+        "100": 2180,
       },
       update: "21/4/2025",
     },
@@ -1149,14 +1142,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 5550,
+        base: 5925,
       },
       pricesQtts: {
-        "1": 5550,
-        "10": 5350,
-        "25": 5150,
-        "50": 4950,
-        "120": 4400,
+        "1": 5925,
+        "5": 5600,
+        "15": 5325,
+        "30": 4925,
       },
       update: "17/1/2025",
     },
@@ -1176,14 +1168,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 5400,
+        base: 5750,
       },
       pricesQtts: {
-        "1": 5400,
-        "5": 5200,
-        "15": 5000,
-        "30": 4800,
-        "80": 4450,
+        "1": 5750,
+        "5": 5550,
+        "15": 5350,
+        "30": 5150,
       },
       update: "17/1/2025",
     },
@@ -1203,14 +1194,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 5850,
+        base: 6225,
       },
       pricesQtts: {
-        "1": 5850,
-        "5": 5600,
-        "15": 5400,
-        "30": 5150,
-        "80": 4800,
+        "1": 6225,
+        "5": 6000,
+        "15": 5775,
+        "30": 5575,
       },
       update: "21/4/2025",
     },
@@ -1227,20 +1217,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 6050,
-        discount: 5500,
+        base: 6475,
       },
       pricesQtts: {
-        "1": 6050,
-        "5": 5800,
-        "15": 5600,
-        "30": 5350,
-        "80": 5000,
-      },
-      discountsPercentages: {
-        discount: 0.1,
+        "1": 6475,
+        "5": 6225,
+        "15": 6000,
+        "30": 5775,
       },
       update: "30/9/2025",
     },
@@ -1260,20 +1245,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 9050,
-        discount: 8500,
+        base: 9700,
       },
       pricesQtts: {
-        "1": 9050,
-        "5": 8750,
-        "15": 8400,
-        "30": 8050,
-        "80": 7500,
-      },
-      discountsPercentages: {
-        discount: 0.06,
+        "1": 9700,
+        "5": 9350,
+        "15": 9000,
+        "30": 8650,
       },
       update: "30/9/2025",
     },
@@ -1300,14 +1280,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 9450,
+        base: 10100,
       },
       pricesQtts: {
-        "1": 9450,
-        "5": 9100,
-        "15": 8750,
-        "30": 8400,
-        "80": 7800,
+        "1": 10100,
+        "5": 9750,
+        "15": 9400,
+        "30": 9050,
       },
       update: "10/2/2026",
     },
@@ -1329,14 +1308,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 7550,
+        base: 8050,
       },
       pricesQtts: {
-        "1": 7550,
-        "5": 7250,
-        "15": 7000,
-        "30": 6700,
-        "80": 6250,
+        "1": 8050,
+        "5": 7775,
+        "15": 7500,
+        "30": 7200,
       },
       update: "21/4/2025",
     },
@@ -1356,14 +1334,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 385,
+        base: 380,
       },
       pricesQtts: {
-        "1": 385,
+        "1": 380,
         "50": 360,
-        "100": 330,
-        "500": 278,
-        "1000": 246,
+        "100": 335,
+        "500": 305,
+        "1000": 274,
       },
     },
     measures: {
@@ -1383,14 +1361,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 510,
+        base: 505,
       },
       pricesQtts: {
-        "1": 510,
-        "50": 480,
-        "100": 440,
-        "500": 370,
-        "1000": 325,
+        "1": 505,
+        "50": 475,
+        "100": 450,
+        "500": 405,
+        "1000": 365,
       },
       update: "13/3/2025",
     },
@@ -1411,14 +1389,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 600,
+        base: 595,
       },
       pricesQtts: {
-        "1": 600,
-        "50": 570,
-        "100": 520,
-        "250": 435,
-        "500": 385,
+        "1": 595,
+        "50": 565,
+        "100": 530,
+        "250": 480,
+        "500": 430,
       },
       update: "30/9/2025",
     },
@@ -1439,14 +1417,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 620,
+        base: 610,
       },
       pricesQtts: {
-        "1": 620,
+        "1": 610,
         "50": 580,
-        "100": 530,
-        "250": 445,
-        "500": 395,
+        "100": 545,
+        "250": 495,
+        "500": 440,
       },
       update: "8/9/2025",
     },
@@ -1467,14 +1445,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1800,
+        base: 1790,
       },
       pricesQtts: {
-        "1": 1800,
-        "10": 1700,
-        "25": 1550,
-        "50": 1300,
-        "120": 1150,
+        "1": 1790,
+        "10": 1690,
+        "25": 1590,
+        "50": 1440,
+        "100": 1290,
       },
       update: "30/9/2025",
     },
@@ -1499,14 +1477,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 3550,
+        base: 3500,
       },
       pricesQtts: {
-        "1": 3550,
-        "10": 3300,
-        "25": 3100,
-        "50": 2750,
-        "120": 2450,
+        "1": 3500,
+        "10": 3280,
+        "25": 3060,
+        "50": 2860,
+        "100": 2640,
       },
       update: "17/1/2025",
     },
@@ -1525,20 +1503,16 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 1650,
-        discount: 1150,
+        base: 1620,
       },
       pricesQtts: {
-        "1": 1650,
-        "10": 1550,
-        "25": 1400,
-        "50": 1180,
-        "120": 1040,
-      },
-      discountsPercentages: {
-        discount: 0.2,
+        "1": 1620,
+        "10": 1530,
+        "25": 1440,
+        "50": 1310,
+        "100": 1170,
       },
       update: "4/11/2025",
     },
@@ -1559,14 +1533,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2750,
+        base: 2720,
       },
       pricesQtts: {
-        "1": 2750,
-        "10": 2550,
-        "25": 2350,
-        "50": 2100,
-        "120": 1850,
+        "1": 2720,
+        "10": 2560,
+        "25": 2400,
+        "50": 2240,
+        "100": 2080,
       },
       update: "10/2/2026",
     },
@@ -1595,10 +1569,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 3700,
-        "10": 3500,
-        "25": 3250,
-        "50": 2900,
-        "120": 2550,
+        "10": 3460,
+        "25": 3240,
+        "50": 3000,
+        "100": 2780,
       },
       update: "17/1/2025",
     },
@@ -1616,20 +1590,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 5350,
-        discount: 4800,
+        base: 5700,
       },
       pricesQtts: {
-        "1": 5350,
-        "10": 5150,
-        "25": 5000,
-        "50": 4800,
-        "120": 4200,
-      },
-      discountsPercentages: {
-        discount: 0.1,
+        "1": 5700,
+        "5": 5400,
+        "15": 5150,
+        "30": 4775,
       },
       update: "17/1/2025",
     },
@@ -1650,14 +1619,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 3950,
+        base: 4225,
       },
       pricesQtts: {
-        "1": 3950,
-        "10": 3800,
-        "25": 3700,
-        "50": 3550,
-        "120": 3100,
+        "1": 4225,
+        "5": 4000,
+        "15": 3800,
+        "30": 3520,
       },
       update: "10/2/2026",
     },
@@ -1676,20 +1644,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 8950,
-        discount: 8000,
+        base: 9550,
       },
       pricesQtts: {
-        "1": 8950,
-        "5": 8600,
-        "15": 8250,
-        "30": 7900,
-        "80": 7400,
-      },
-      discountsPercentages: {
-        discount: 0.11,
+        "1": 9550,
+        "5": 9200,
+        "15": 8850,
+        "30": 8550,
       },
       update: "8/9/2025",
     },
@@ -1710,19 +1673,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 18000,
-        discount: 17000,
+        base: 17900,
       },
       pricesQtts: {
-        "1": 18000,
-        "5": 17650,
-        "15": 17300,
-        "30": 15800,
-      },
-      discountsPercentages: {
-        discount: 0.06,
+        "1": 17900,
+        "5": 17500,
+        "15": 17150,
+        "30": 16400,
       },
       update: "21/4/2025",
     },
@@ -1743,20 +1702,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 3800,
-        discount: 3200,
+        base: 4075,
       },
       pricesQtts: {
-        "1": 3800,
-        "10": 3700,
-        "25": 3550,
-        "50": 3400,
-        "120": 3000,
-      },
-      discountsPercentages: {
-        discount: 0.22,
+        "1": 4075,
+        "5": 3860,
+        "15": 3660,
+        "30": 3400,
       },
       update: "21/4/2025",
     },
@@ -1775,19 +1729,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "plano"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 17000,
-        discount: 16000,
+        base: 16850,
       },
       pricesQtts: {
-        "1": 17000,
-        "5": 16650,
-        "15": 16300,
-        "30": 14900,
-      },
-      discountsPercentages: {
-        discount: 0.06,
+        "1": 16850,
+        "5": 16500,
+        "15": 16150,
+        "30": 15450,
       },
       update: "12/12/2025",
     },
@@ -1811,13 +1761,13 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 18200,
+        base: 18100,
       },
       pricesQtts: {
-        "1": 18200,
-        "5": 17450,
-        "15": 16700,
-        "30": 15950,
+        "1": 18100,
+        "5": 17700,
+        "15": 17350,
+        "30": 16600,
       },
       update: "17/1/2025",
     },
@@ -1835,20 +1785,16 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "fresado"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
         base: 520,
-        discount: 400,
       },
       pricesQtts: {
         "1": 520,
-        "50": 495,
-        "100": 450,
-        "500": 380,
-        "1000": 335,
-      },
-      discountsPercentages: {
-        discount: 0.23,
+        "50": 490,
+        "100": 460,
+        "500": 420,
+        "1000": 375,
       },
       update: "17/1/2025",
     },
@@ -1878,10 +1824,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 810,
-        "50": 770,
-        "100": 700,
-        "250": 590,
-        "500": 520,
+        "50": 765,
+        "100": 720,
+        "250": 655,
+        "500": 585,
       },
       update: "17/1/2025",
     },
@@ -1900,7 +1846,6 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["arandela"],
   },
   {
-    noStock: true,
     id: 64,
     label: "15x3mm 7a3.5mm",
     categorie: ["imanes", "neodimio"],
@@ -1913,9 +1858,9 @@ export const DB_ALL: ClassDBItem[] = [
       pricesQtts: {
         "1": 1430,
         "20": 1350,
-        "40": 1230,
-        "80": 1040,
-        "200": 920,
+        "40": 1270,
+        "80": 1150,
+        "200": 1030,
       },
       update: "10/2/2026",
     },
@@ -1941,14 +1886,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2550,
+        base: 2540,
       },
       pricesQtts: {
-        "1": 2550,
+        "1": 2540,
         "10": 2400,
-        "25": 2200,
-        "50": 1950,
-        "120": 1750,
+        "25": 2240,
+        "50": 2100,
+        "100": 1940,
       },
       update: "10/2/2026",
     },
@@ -1972,20 +1917,15 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["rectangular", "fresado"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 4050,
-        discount: 3500,
+        base: 4325,
       },
       pricesQtts: {
-        "1": 4050,
-        "10": 3900,
-        "25": 3750,
-        "50": 3650,
-        "120": 3200,
-      },
-      discountsPercentages: {
-        discount: 0.2,
+        "1": 4325,
+        "5": 4100,
+        "15": 3900,
+        "30": 3600,
       },
       update: "17/1/2025",
     },
@@ -2404,6 +2344,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     especificaciones: {
       fuerza: "30g/cm",
+      peso: "62g/m",
     },
     description:
       "Imantado de una cara. Usado frecuentemente para hacer mosquiteros y manualidades",
@@ -2418,17 +2359,17 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2000,
+        base: 2100,
       },
       pricesQtts: {
-        "1": 2000,
-        "5": 1800,
-        "10": 1600,
-        "25": 1450,
-        "50": 1350,
-        "100": 1200,
+        "1": 2100,
+        "5": 2000,
+        "10": 1800,
+        "25": 1550,
+        "50": 1450,
+        "100": 1350,
       },
-      update: "30/1/26",
+      update: "12/3/26",
       salesUnit: "m",
     },
     measures: {
@@ -2437,6 +2378,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     especificaciones: {
       fuerza: "32g/cm",
+      peso: "82g/m",
     },
     description:
       "Imantado de una cara. Recuerde que si va a unir iman con iman solicite lado A y B para que ajusten bien. Usado frecuentemente para hacer mosquiteros y manualidades",
@@ -2500,7 +2442,6 @@ export const DB_ALL: ClassDBItem[] = [
     tags: ["juguetes"],
   },
   {
-    noStock: true,
     id: 87,
     label: "60x8x6mm",
     categorie: ["imanes", "ferrita"],
@@ -2510,7 +2451,7 @@ export const DB_ALL: ClassDBItem[] = [
       prices: {
         base: 4600,
       },
-      update: "29/8/2025",
+      update: "6/3/26",
     },
     measures: {
       largo: 60,
@@ -2551,17 +2492,17 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 6000,
+        base: 7500,
       },
       pricesQtts: {
-        "1": 6000,
-        "5": 5600,
-        "0.2": 7250,
-        "0.5": 6600,
+        "1": 7500,
+        "5": 7000,
+        "0.2": 8500,
+        "0.5": 8000,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "3/11/2025",
+      update: "18/3/2026",
     },
     measures: {
       ancho: 310,
@@ -2647,20 +2588,16 @@ export const DB_ALL: ClassDBItem[] = [
     categorie: ["imanes", "neodimio"],
     forma: ["redondo", "fresado"],
     priceData: {
-      usePrice: "discount",
+      usePrice: "base",
       prices: {
-        base: 610,
-        discount: 500,
+        base: 600,
       },
       pricesQtts: {
-        "1": 610,
+        "1": 600,
         "50": 570,
-        "100": 520,
-        "250": 440,
-        "500": 390,
-      },
-      discountsPercentages: {
-        discount: 0.18,
+        "100": 535,
+        "250": 485,
+        "500": 435,
       },
       update: "21/4/2025",
     },
@@ -2695,6 +2632,7 @@ export const DB_ALL: ClassDBItem[] = [
     measures: {
       largo: 35,
       alto: 14,
+      peso: 16.2,
     },
     description:
       "De hematita, magnetizadas y pulidas de 35mm de largo y 14mm de diámetro central. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
@@ -2742,14 +2680,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 136,
+        base: 134,
       },
       pricesQtts: {
-        "1": 136,
-        "50": 130,
-        "100": 118,
-        "500": 100,
-        "1000": 88,
+        "1": 134,
+        "50": 128,
+        "100": 116,
+        "500": 98,
+        "1000": 86,
       },
       update: "23/5",
     },
@@ -2760,7 +2698,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.3,
     },
     isComparable: true,
-    caracteristicas: ["N35"],
+    especificaciones: {
+      denominacion: "N35",
+    },
   },
   {
     id: 97,
@@ -2770,14 +2710,11 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 154,
+        base: 180,
       },
       pricesQtts: {
-        "1": 154,
-        "50": 146,
-        "100": 134,
-        "500": 112,
-        "1000": 100,
+        "1": 180,
+        "50": 165,
       },
       update: "23/5",
     },
@@ -2788,7 +2725,9 @@ export const DB_ALL: ClassDBItem[] = [
       fuerzaExp: 0.6,
     },
     isComparable: true,
-    caracteristicas: ["N35"],
+    especificaciones: {
+      denominacion: "N35",
+    },
   },
   {
     id: 98,
@@ -2803,9 +2742,9 @@ export const DB_ALL: ClassDBItem[] = [
       pricesQtts: {
         "1": 335,
         "50": 315,
-        "100": 290,
-        "500": 244,
-        "1000": 216,
+        "100": 296,
+        "500": 270,
+        "1000": 242,
       },
       update: "10/2/2026",
     },
@@ -2936,14 +2875,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 190,
+        base: 188,
       },
       pricesQtts: {
-        "1": 190,
-        "50": 180,
-        "100": 164,
-        "500": 138,
-        "1000": 122,
+        "1": 188,
+        "50": 178,
+        "100": 166,
+        "500": 152,
+        "1000": 136,
       },
       update: "10/2/2026",
     },
@@ -2951,11 +2890,11 @@ export const DB_ALL: ClassDBItem[] = [
       largo: 6,
       alto: 2,
       peso: 0.42,
-      fuerzaExp: 0.83,
+      fuerzaExp: 0.8,
     },
     isComparable: true,
     especificaciones: {
-      denominacion: "N40",
+      denominacion: "N45",
     },
   },
   {
@@ -2966,14 +2905,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 2050,
+        base: 2020,
       },
       pricesQtts: {
-        "1": 2050,
-        "10": 1950,
-        "25": 1750,
-        "50": 1550,
-        "120": 1390,
+        "1": 2020,
+        "10": 1910,
+        "25": 1790,
+        "50": 1670,
+        "100": 1550,
       },
       update: "8/9/2025",
     },
@@ -3005,6 +2944,7 @@ export const DB_ALL: ClassDBItem[] = [
       fuerza: 50,
       fuerzaLevante: 35,
       fuerzaArrastre: 60,
+      peso: 315,
     },
     isComparable: true,
     caracteristicas: ["N52"],
@@ -3043,16 +2983,15 @@ export const DB_ALL: ClassDBItem[] = [
     ],
   },
   {
-    noStock: true,
     id: 110,
     label: "Magnetismo",
     categorie: ["imanes", "otrosImanes"],
     priceData: {
       usePrice: "base",
       prices: {
-        base: 16000,
+        base: 18000,
       },
-      update: "26/10/25",
+      update: "6/3/26",
     },
     measures: {
       largo: 275,
@@ -3107,17 +3046,17 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 4500,
+        base: 5300,
       },
       pricesQtts: {
-        "1": 4500,
-        "5": 4000,
+        "1": 5300,
+        "5": 4900,
         "0.2": 6000,
-        "0.5": 5000,
+        "0.5": 5600,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "3/11/2025",
+      update: "18/3/2026",
     },
     measures: {
       ancho: 310,
@@ -3139,17 +3078,17 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 9000,
+        base: 9800,
       },
       pricesQtts: {
-        "1": 9000,
-        "5": 8500,
-        "0.2": 11000,
-        "0.5": 10000,
+        "1": 9800,
+        "5": 9100,
+        "0.2": 11200,
+        "0.5": 10500,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "3/11/2025",
+      update: "18/3/2026",
     },
     measures: {
       ancho: 610,
@@ -3171,17 +3110,17 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 11000,
+        base: 14000,
       },
       pricesQtts: {
-        "1": 11000,
-        "5": 10000,
-        "0.2": 13000,
-        "0.5": 12000,
+        "1": 14000,
+        "5": 13100,
+        "0.2": 16100,
+        "0.5": 15000,
       },
       salesUnit: "m",
       salesDecimal: [0.2, 0.5],
-      update: "3/11/2025",
+      update: "18/3/2026",
     },
     measures: {
       ancho: 610,
@@ -3204,14 +3143,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1650,
+        base: 1620,
       },
       pricesQtts: {
-        "1": 1650,
-        "10": 1550,
-        "25": 1400,
-        "50": 1180,
-        "120": 1040,
+        "1": 1620,
+        "10": 1530,
+        "25": 1440,
+        "50": 1310,
+        "100": 1170,
       },
       update: "10/2/2026",
     },
@@ -3231,14 +3170,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1650,
+        base: 1660,
       },
       pricesQtts: {
-        "1": 1650,
-        "10": 1550,
-        "25": 1440,
-        "50": 1210,
-        "120": 1070,
+        "1": 1660,
+        "10": 1570,
+        "25": 1480,
+        "50": 1340,
+        "100": 1200,
       },
       update: "10/2/2026",
     },
@@ -3263,16 +3202,16 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1450,
+        base: 570,
       },
       pricesQtts: {
-        "1": 1450,
-        "10": 1370,
-        "25": 1250,
-        "50": 1050,
-        "120": 930,
+        "1": 570,
+        "50": 535,
+        "100": 505,
+        "250": 460,
+        "500": 410,
       },
-      update: "20/8/2025",
+      update: "18/3/2026",
     },
     measures: {
       largo: 6,
@@ -3327,6 +3266,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     measures: {
       diametro: 17,
+      peso: 14.7,
     },
     description:
       "De hematita, magnetizadas y pulidas de 17mm de diámetro. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
@@ -3355,15 +3295,15 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 90,
+        base: 75,
       },
       pricesQtts: {
-        "1": 90,
-        "50": 80,
-        "100": 70,
+        "1": 75,
+        "50": 70,
+        "100": 65,
         "200": 60,
       },
-      update: "13/11/2025",
+      update: "18/3/2026",
     },
     measures: {
       largo: 12,
@@ -3384,15 +3324,15 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 100,
+        base: 90,
       },
       pricesQtts: {
-        "1": 100,
-        "50": 90,
-        "100": 80,
-        "200": 70,
+        "1": 90,
+        "50": 80,
+        "100": 75,
+        "200": 65,
       },
-      update: "13/11/2025",
+      update: "18/3/2026",
     },
     measures: {
       largo: 14,
@@ -3417,10 +3357,11 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 160,
-        "50": 130,
-        "100": 120,
+        "50": 145,
+        "100": 130,
+        "200": 120,
       },
-      update: "26/01/2026",
+      update: "18/3/2026",
     },
     measures: {
       largo: 20,
@@ -3527,14 +3468,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1350,
+        base: 1340,
       },
       pricesQtts: {
-        "1": 1350,
-        "20": 1280,
-        "40": 1160,
-        "80": 980,
-        "200": 870,
+        "1": 1340,
+        "20": 1270,
+        "40": 1200,
+        "80": 1080,
+        "200": 970,
       },
       update: "10/2/2026",
     },
@@ -3554,14 +3495,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1600,
+        base: 1610,
       },
       pricesQtts: {
-        "1": 1600,
-        "10": 1500,
-        "25": 1390,
-        "50": 1170,
-        "120": 1030,
+        "1": 1610,
+        "10": 1520,
+        "25": 1430,
+        "50": 1290,
+        "100": 1160,
       },
       update: "23/1/2026",
     },
@@ -3585,10 +3526,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       pricesQtts: {
         "1": 1410,
-        "20": 1340,
-        "40": 1220,
-        "80": 1020,
-        "200": 910,
+        "20": 1330,
+        "40": 1250,
+        "80": 1130,
+        "200": 1020,
       },
       update: "10/2/2026",
     },
@@ -3615,14 +3556,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 600,
+        base: 595,
       },
       pricesQtts: {
-        "1": 600,
-        "50": 570,
-        "100": 520,
-        "250": 435,
-        "500": 385,
+        "1": 595,
+        "50": 565,
+        "100": 530,
+        "250": 480,
+        "500": 430,
       },
       update: "28/8/2025",
     },
@@ -3643,14 +3584,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 600,
+        base: 595,
       },
       pricesQtts: {
-        "1": 600,
-        "50": 570,
-        "100": 520,
-        "250": 435,
-        "500": 385,
+        "1": 595,
+        "50": 565,
+        "100": 530,
+        "250": 480,
+        "500": 430,
       },
       update: "28/8/2025",
     },
@@ -3664,6 +3605,7 @@ export const DB_ALL: ClassDBItem[] = [
     isComparable: true,
   },
   {
+    noStock: true,
     id: 133,
     label: "3x1.5mm",
     categorie: ["imanes", "neodimio"],
@@ -3671,14 +3613,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 134,
+        base: 130,
       },
       pricesQtts: {
-        "1": 134,
-        "50": 126,
-        "100": 114,
-        "500": 96,
-        "1000": 86,
+        "1": 130,
+        "50": 124,
+        "100": 116,
+        "500": 106,
+        "1000": 94,
       },
       update: "30/9/2025",
     },
@@ -3744,14 +3686,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1390,
+        base: 1380,
       },
       pricesQtts: {
-        "1": 1390,
-        "20": 1310,
-        "40": 1200,
-        "80": 1000,
-        "200": 890,
+        "1": 1380,
+        "20": 1300,
+        "40": 1230,
+        "80": 1110,
+        "200": 1000,
       },
       update: "10/2/2026",
     },
@@ -3769,14 +3711,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 1550,
+        base: 1530,
       },
       pricesQtts: {
-        "1": 1550,
-        "10": 1460,
-        "25": 1330,
-        "50": 1120,
-        "120": 990,
+        "1": 1530,
+        "10": 1450,
+        "25": 1360,
+        "50": 1240,
+        "100": 1110,
       },
       update: "23/1/2026",
     },
@@ -3796,14 +3738,14 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 820,
+        base: 810,
       },
       pricesQtts: {
-        "1": 820,
-        "50": 770,
-        "100": 700,
-        "250": 590,
-        "500": 520,
+        "1": 810,
+        "50": 765,
+        "100": 720,
+        "250": 655,
+        "500": 585,
       },
       update: "30/9/2025",
     },
@@ -3843,7 +3785,7 @@ export const DB_ALL: ClassDBItem[] = [
       autoadhesivo: "No",
     },
     description:
-      "Es sublimable, es decir, se puede imprimir sobre su cara de PVC y ya viene lista para ello. Usada generalmente en carteles y señaléticas comerciales, proyectos DIY y decoración, exhibidores, imanes promocionales o personalizados, etc. \nSe vende por 50cm, 100cm o combinaciones de estos(70cm, 120cm, 150cm...)",
+      "Es sublimable, es decir, se puede imprimir sobre su cara de PVC y ya viene lista para ello. Usada generalmente en carteles y señaléticas comerciales, proyectos DIY y decoración, exhibidores, imanes promocionales o personalizados, etc.",
     tags: ["plancha"],
   },
   {
@@ -3854,20 +3796,21 @@ export const DB_ALL: ClassDBItem[] = [
     priceData: {
       usePrice: "base",
       prices: {
-        base: 385,
+        base: 380,
       },
       pricesQtts: {
-        "1": 385,
+        "1": 380,
         "50": 360,
-        "100": 330,
-        "500": 278,
-        "1000": 246,
+        "100": 335,
+        "500": 305,
+        "1000": 274,
       },
       update: "12/12/2025",
     },
     measures: {
       largo: 9,
       alto: 2,
+      peso: 1,
     },
     isComparable: true,
   },
@@ -3893,6 +3836,9 @@ export const DB_ALL: ClassDBItem[] = [
     measures: {
       largo: 8,
       alto: 3,
+    },
+    especificaciones: {
+      peso: "79g/m",
     },
     description:
       "Imantado de una cara. Usado frecuentemente para hacer mosquiteros y manualidades",
@@ -3925,7 +3871,7 @@ export const DB_ALL: ClassDBItem[] = [
       autoadhesivo: "No",
     },
     description:
-      "Es sublimable, es decir, se puede imprimir sobre su cara de PVC y ya viene lista para ello. Usada generalmente en carteles y señaléticas comerciales, proyectos DIY y decoración, exhibidores, imanes promocionales o personalizados, etc. \nSe vende por 50cm, 100cm o combinaciones de estos(70cm, 120cm, 150cm...)",
+      "Es sublimable, es decir, se puede imprimir sobre su cara de PVC y ya viene lista para ello. Usada generalmente en carteles y señaléticas comerciales, proyectos DIY y decoración, exhibidores, imanes promocionales o personalizados, etc.",
     tags: ["plancha"],
   },
   {
@@ -3972,5 +3918,96 @@ export const DB_ALL: ClassDBItem[] = [
     },
     isComparable: true,
     tags: ["pesca"],
+  },
+  {
+    id: 145,
+    label: "8x2mm",
+    categorie: ["imanes", "neodimio"],
+    forma: ["redondo", "plano"],
+    priceData: {
+      usePrice: "base",
+      prices: {
+        base: 375,
+      },
+      update: "10/2/2026",
+      pricesQtts: {
+        "1": 375,
+        "50": 355,
+        "100": 335,
+        "500": 305,
+        "1000": 272,
+      },
+    },
+    measures: {
+      largo: 8,
+      alto: 2,
+      peso: 0.75,
+    },
+    isComparable: true,
+    especificaciones: {
+      denominacion: "N42",
+    },
+  },
+  {
+    id: 148,
+    label: "Lámina 61cm/0.3mm PVC",
+    categorie: ["imanes", "flexibles", "lamina"],
+    priceData: {
+      usePrice: "base",
+      prices: {
+        base: 16500,
+      },
+      pricesQtts: {
+        "1": 16500,
+        "0.5": 17500,
+      },
+      salesUnit: "m",
+      salesDecimal: [0.5],
+      update: "2/4/26",
+    },
+    measures: {
+      ancho: 610,
+      grosor: 0.3,
+    },
+    especificaciones: {
+      fuerza: "20g/cm",
+      color: "blanco",
+      peso: "827g/m",
+      autoadhesivo: "No",
+    },
+    description:
+      "Es sublimable, es decir, se puede imprimir sobre su cara de PVC y ya viene lista para ello. Usada generalmente en carteles y señaléticas comerciales, proyectos DIY y decoración, exhibidores, imanes promocionales o personalizados, etc.",
+    tags: ["plancha"],
+  },
+  {
+    id: 149,
+    label: "Lámina 31cm/0.3mm PVC",
+    categorie: ["imanes", "flexibles", "lamina"],
+    priceData: {
+      usePrice: "base",
+      prices: {
+        base: 9200,
+      },
+      pricesQtts: {
+        "1": 9200,
+        "0.5": 10000,
+      },
+      salesUnit: "m",
+      salesDecimal: [0.5],
+      update: "2/4/26",
+    },
+    measures: {
+      ancho: 310,
+      grosor: 0.3,
+    },
+    especificaciones: {
+      fuerza: "20g/cm",
+      color: "blanco",
+      peso: "413g/m",
+      autoadhesivo: "No",
+    },
+    description:
+      "Es sublimable, es decir, se puede imprimir sobre su cara de PVC y ya viene lista para ello. Usada generalmente en carteles y señaléticas comerciales, proyectos DIY y decoración, exhibidores, imanes promocionales o personalizados, etc.",
+    tags: ["plancha"],
   },
 ];

@@ -20,8 +20,8 @@ export default function LinkCustom({
   title = undefined,
   className = undefined,
   target = "_blank",
-  startIcon = <></>,
-  endIcon = <></>,
+  startIcon = null,
+  endIcon = null,
   custom1 = false,
   isExternal = false,
   ...props
@@ -40,7 +40,9 @@ export default function LinkCustom({
       {...props}
     >
       {startIcon}
+      {startIcon && " "}
       {children}
+      {endIcon && " "}
       {endIcon}
       {isExternal && (
         <OpenInNewIcon className="ms-0.5" style={{ fontSize: "inherit" }} />

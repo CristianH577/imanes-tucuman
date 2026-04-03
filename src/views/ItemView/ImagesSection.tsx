@@ -62,7 +62,7 @@ export default function ImagesSection({
 
   if (!imgsData.imgs) {
     return (
-      <section className="flex justify-center p-2 gap-2 sm:p-4 border dark:border-neutral-500 rounded-md shadow-md flex-1">
+      <section className="flex items-center justify-center p-2 gap-2 sm:p-4 border dark:border-neutral-500 rounded-md shadow-md flex-1 bg-content1">
         {SvgForma ? (
           <SvgForma className="h-[320px] max-w-[320px] w-full" />
         ) : (
@@ -95,14 +95,14 @@ export default function ImagesSection({
           onSwiper={setThumbsSwiper}
         >
           {SvgForma && (
-            <SwiperSlide className="cursor-pointer rounded-md hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-divider/15 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1 p-1">
+            <SwiperSlide className="cursor-pointer rounded-md hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-content1 border dark:border-neutral-500 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1 p-1">
               <SvgForma className="w-full h-full" />
             </SwiperSlide>
           )}
           {imgsData.thumbnails.map((img, i) => (
             <SwiperSlide
               key={i}
-              className="cursor-pointer rounded-md hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-divider/15 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1"
+              className="cursor-pointer rounded-md hover:scale-95 hover:opacity-100 opacity-70 overflow-hidden bg-content1 border dark:border-neutral-500 h-[50px] [&.swiper-slide-thumb-active]:opacity-100 [&.swiper-slide-thumb-active]:border-2 [&.swiper-slide-thumb-active]:border-custom2 dark:[&.swiper-slide-thumb-active]:border-custom1"
             >
               <ImageCustom
                 src={img}
@@ -116,7 +116,7 @@ export default function ImagesSection({
       )}
 
       <motion.article
-        className="relative flex items-center border dark:border-neutral-500 rounded-md px-2 sm:px-4 shadow-md flex-1  bg-content1"
+        className="relative flex items-center rounded-md px-2 sm:px-4 shadow-md flex-1 bg-content1 border dark:border-neutral-500"
         variants={{
           hidden: { opacity: 0, scale: 0 },
           visible: { opacity: 1, scale: 1 },

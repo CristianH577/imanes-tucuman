@@ -10,6 +10,7 @@ import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 
 import Pagos from "./Faqs/Pagos";
 import Envios from "./Faqs/Envios";
+import BasesYCond from "./Faqs/BasesYCond";
 import InputSearch from "../components/InputSearch";
 import LinkCustom from "../components/LinkCustom";
 
@@ -61,19 +62,6 @@ export default function Faqs() {
         "debito",
         "transferencia",
       ],
-    },
-    {
-      title: "Pedidos grandes",
-      content: (
-        <article>
-          <p>Los pedidos de 500 o más unidades pueden conllevar:</p>
-          <ul className="list-disc">
-            <li>Una seña de entre un 30-50%.</li>
-            <li>Un costo de envio de entre $2000-$80000 aprox.</li>
-            <li>Un tiempo de entrega de 1 a 3 semanas.</li>
-          </ul>
-        </article>
-      ),
     },
     {
       title: "Como se consigue la mayor fuerza de atracción del imán?",
@@ -167,6 +155,10 @@ export default function Faqs() {
         </ol>
       ),
     },
+    {
+      title: "Bases y Condiciones",
+      content: <BasesYCond />,
+    },
 
     ...listFaqs,
   ].sort((a, b) => a.title.localeCompare(b.title));
@@ -254,7 +246,7 @@ export default function Faqs() {
       {items.length < 1 ? (
         <b>Sin resultados</b>
       ) : (
-        <section className="w-full max-w-[900px]">
+        <section className="font-sans">
           {items.map((item, idx) => (
             <Accordion
               key={idx}

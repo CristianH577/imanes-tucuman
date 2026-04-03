@@ -1,20 +1,5 @@
 export const listFaqs = [
   {
-    title: "Cuales son las condiciones de venta?",
-    content:
-      "Los productos pueden traer defectos de fabrica, revíselos al comprar. Las fuerzas y medidas mostradas son aproximadas y pueden variar ligeramente.",
-  },
-  {
-    title: "Cuales son las condiciones de envío por Uber?",
-    content:
-      "Se realiza el pago de la compra antes por transferencia. El envío lo puede pagar en efectivo cuando lo entreguen o transferirlo con el pago. Se usara la información a disposición (nombre, numero de teléfono, etc.) para utilizar el PIN de seguridad dentro de la app.",
-  },
-  {
-    title: "Los productos tienen garantia?",
-    content:
-      "Los productos no son reembolsables pero tienen 3 días de garantía para cambios siempre y cuando no hayan sido usados y estén en condiciones. Esto NO aplica para el iman en tira y plancha que deben ser cortados. \nLos productos pueden traer algún pequeño defecto de forma de fabrica, recuerde revisar o avisar si esto es un problema.",
-  },
-  {
     title: "Se pueden cortar o perforar los imanes de neodimio?",
     content:
       "No es recomendable hacerlo ya que son frágiles y su corte puede generar polvo inflamable y reducir o perder su magnetismo ademas de quitar la capa de recubrimiento que los protege.",

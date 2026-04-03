@@ -68,7 +68,7 @@ export default function TablePrices({
     >
       <table
         aria-label={tableAriaLabel || undefined}
-        className="w-full xs:min-w-[750px] text-tert table- max-xs:border-separate border-spacing-y-3"
+        className="w-full xs:min-w-[720px] lg:w-fit lg:justify-self-center text-tert max-xs:border-separate border-spacing-y-3"
       >
         <thead className="border-b-4 max-xs:hidden">
           <tr>
@@ -86,7 +86,7 @@ export default function TablePrices({
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="font-semibold">
           {visibleRows?.map((item) => {
             const noStock = item?.noStock || false;
             const inCart = item.id in cart;
@@ -101,12 +101,12 @@ export default function TablePrices({
                   },
                 }}
                 key={item.id}
-                className="group hover:font-semibold hover:bg-secondary/30 data-[incart=false]:data-[nostock=true]:bg-divider/15 data-[incart=true]:!bg-success/30 max-xs:grid max-xs:grid-cols-1 max-xs:border-2 max-xs:rounded-lg max-xs:mb-3 xs:even:text-custom2-10 xs:dark:even:text-custom1"
+                className="group hover:bg-secondary/30 data-[incart=false]:data-[nostock=true]:bg-divider/15 data-[incart=true]:!bg-success/30 max-xs:grid max-xs:grid-cols-1 max-xs:border-2 max-xs:rounded-lg max-xs:mb-3 xs:even:text-custom2-10 xs:dark:even:text-custom1 text-"
                 data-nostock={noStock}
                 data-incart={inCart}
               >
-                <td className="px-2 py-1 xs:py-2 whitespace-nowrap xs:col-span-2 max-xs:border-b-4 xs:border-e-4 xs:text-start">
-                  <div className="flex flex-col gap-1 xs:gap-2 items-center w-full break-all max-xs:py-1 xs:flex-row">
+                <td className="px-2 py-1 xs:py-2 whitespace-nowrap xs:col-span-2 max-xs:border-b-4 xs:border-e-4">
+                  <div className="break-all max-xs:py-1">
                     <Button
                       color="secondary"
                       variant="contained"
@@ -125,12 +125,13 @@ export default function TablePrices({
                       title="Ver producto"
                       className="max-xs:whitespace-normal hover:underline"
                     >
+                      {" "}
                       {item.label}
                     </a>
                   </div>
 
                   {item.measures && item.measures.fuerzaExp && (
-                    <p className="text-center mt-1">
+                    <p className="mt-1">
                       <TooltipFuerzaExp exp /> ≈{item.measures.fuerzaExp}kg
                     </p>
                   )}
