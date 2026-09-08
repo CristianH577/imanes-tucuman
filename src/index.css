@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "calvera";
+    src: url("./assets/fonts/Calvera.ttf");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "menulis";
+    src: url("./assets/fonts/menulis.ttf");
+    font-display: swap;
+  }
+}
+
+:root {
+  --font-size-primary: medium;
+  --font-size-secondary: small;
+  --font-size-tertiary: large;
+
+  --color-customSwitch: 32 35 85;
+
+  --color-heroui-content1: #ffffff;
+  --color-heroui-content2: #f4f4f5;
+  --color-heroui-content3: #e4e4e7;
+  --color-heroui-content4: #d4d4d8;
+  --color-heroui-divider: 17 17 17;
+  --color-heroui-danger: #f31260;
+  --color-heroui-success: 23 201 100;
+
+  --color-heroui-secondary: 120 40 200;
+  --color-heroui-secondary-700: 72 24 120;
+
+  --color-neutralSwitch: 115 115 115;
+}
+
+.dark {
+  --color-customSwitch: 255 139 0;
+
+  --color-heroui-content1: #18181b;
+  --color-heroui-content2: #27272a;
+  --color-heroui-content3: #3f3f46;
+  --color-heroui-content4: #52525b;
+  --color-heroui-divider: 255 255 255;
+
+  --color-heroui-secondary: 147 83 211;
+  --color-heroui-secondary-700: 201 169 233;
+
+  --color-neutralSwitch: 163 163 163;
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-size: var(--font-size-primary);
+}
+.font-size-primary {
+  font-size: var(--font-size-primary);
+}
+.font-size-secondary {
+  font-size: var(--font-size-secondary);
+}
+.font-size-tertiary {
+  font-size: var(--font-size-tertiary);
+}
+
+.bg-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
+.drop-shadow-custom {
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+@media (max-width: 360px) {
+  .table-dinamic-xs {
+    thead {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    td:before {
+      content: attr(data-label);
+      align-self: center;
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .table-dinamic-sm,
+  .table-dinamic {
+    thead {
+      display: none;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    td:before {
+      content: attr(data-label);
+      align-self: center;
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+  }
+}

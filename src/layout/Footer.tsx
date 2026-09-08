@@ -1,0 +1,207 @@
+import { m } from "framer-motion";
+import { scrollToBottom, scrollToTop } from "../libs/functions";
+
+import { Button, ButtonGroup, Divider } from "@mui/material";
+
+import Logo from "../components/Logo";
+import Redes from "../components/Redes";
+import ImageCustom from "../components/ImageCustom";
+import LinkCustom from "../components/LinkCustom";
+
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import RoomIcon from "@mui/icons-material/Room";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import EmailIcon from "@mui/icons-material/Email";
+import GavelIcon from "@mui/icons-material/Gavel";
+
+import qrWp from "../assets/qr-wp.webp";
+import {
+  SVGArrowBigDownLine,
+  SVGArrowBigUpLine,
+} from "../assets/svgs/svgsIcons";
+
+function Footer({ whatsapp = "#", fotos = "#" }) {
+  const info_items = [
+    {
+      icon: CalendarTodayIcon,
+      content: (
+        <>
+          Lunes a Sábados (
+          <LinkCustom
+            href={
+              whatsapp +
+              "?text=Hola. Vi el sitio web y quiero consultar por los horarios de atención."
+            }
+            title="Consultar horarios por Whatsapp"
+            isExternal
+            custom1
+            startIcon={<WhatsAppIcon className="h-5 w-fit" />}
+          >
+            Consultar
+          </LinkCustom>
+          )
+        </>
+      ),
+    },
+    {
+      icon: RoomIcon,
+      content: <>9 de julio 4900, S.M. de Tucumán, Tucumán</>,
+      subtext: (
+        <b className="font-size-secondary text-neutral-400">
+          No es local. Solo retiro.
+        </b>
+      ),
+    },
+    {
+      icon: EmailIcon,
+      content: "info@imanestucuman.com.ar",
+    },
+    {
+      icon: GavelIcon,
+      content: (
+        <LinkCustom
+          href="#faqs"
+          title="Ver bases y condiciones"
+          className=""
+          target="_self"
+        >
+          Bases y Condiciones
+        </LinkCustom>
+      ),
+    },
+  ];
+
+  const sections = [
+    { label: "Fotos", href: fotos, isExternal: true },
+    { label: "Ubicacion", href: "#faqs?view=ubicacion" },
+    { label: "Opiniones", href: "#?view=opiniones" },
+    { label: "Consideraciones", href: "#faqs" },
+  ];
+
+  return (
+    <footer
+      id="footer"
+      className="bg-gradient-to-b from-custom2-4 to-custom2 text-white flex flex-col items-center px-2 py-4 gap-4 shadow-inner shadow-black/50 pt-16 sm:pt-12 max-sm:pb-14"
+    >
+      <ButtonGroup
+        className="fixed bottom-2 right-6 z-20"
+        color="warning"
+        variant="contained"
+        size="small"
+        sx={{
+          "& .MuiButton-root": {
+            px: 0.5,
+          },
+        }}
+      >
+        <Button title="Ir abajo" onClick={scrollToBottom}>
+          <SVGArrowBigDownLine className="h-6 w-fit" />
+        </Button>
+
+        <Button title="Ir arriba" onClick={scrollToTop}>
+          <SVGArrowBigUpLine className="h-6 w-fit" />
+        </Button>
+      </ButtonGroup>
+
+      <Logo id="footer_logo" className="w-fit max-h-64 place-self-center" />
+
+      <Redes
+        className="py-4 px-2 gap-6"
+        classNames={{
+          link: "text-neutral-300 hover:text-custom1",
+          icon: "h-10 w-fit",
+        }}
+      />
+
+      <Divider variant="middle" className="w-4/6 bg-neutral-500/80" />
+
+      <div className="flex flex-col items-center gap-4 md:flex-row-reverse">
+        <m.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+        >
+          <ImageCustom
+            src={qrWp}
+            alt="QR del link al chat de Whatsapp"
+            width={150}
+            height={150}
+            classes={{
+              wrapper:
+                "shadow-md shadow-black border-4 border-neutral-500 bg-gradient-to-t from-custom1 to-custom1-6",
+            }}
+          />
+        </m.div>
+
+        <m.div
+          className="space-y-4 text-center"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                delayChildren: 0.1,
+                staggerChildren: 0.2,
+              },
+            },
+          }}
+          initial="hidden"
+          whileInView="visible"
+        >
+          {info_items.map((item, i) => (
+            <m.div
+              key={"info-" + i}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              initial="hidden"
+              whileInView="visible"
+            >
+              <p className="inline-block">
+                {item?.icon && <item.icon className="h-5 w-fit me-1" />}
+                {item.content}
+              </p>
+              {item?.subtext && <p>{item.subtext}</p>}
+            </m.div>
+          ))}
+        </m.div>
+      </div>
+
+      <Divider variant="middle" className="w-3/5 bg-neutral-500/80" />
+
+      <div className="flex flex-wrap justify-evenly gap-4 font-size-secondary">
+        {sections.map((section) => (
+          <LinkCustom
+            key={section.label}
+            href={section.href}
+            target={section.isExternal ? undefined : "_self"}
+            className="text-neutral-400"
+            isExternal={section.isExternal || undefined}
+            title={"Ir a " + section.label}
+          >
+            {section.label}
+          </LinkCustom>
+        ))}
+      </div>
+
+      <Divider variant="middle" className="w-5/6 bg-neutral-500/80" />
+
+      <p className="text-neutral-500 text-center">
+        2024 - Diseñado por{" "}
+        <a
+          href="https://github.com/CristianH577"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Ir al perfil de Github"
+          className="text-inherit hover:underline"
+        >
+          <span className="font-mono">©</span>
+          VerdeAve
+          <OpenInNewIcon className="h-4 w-fit" />
+        </a>
+      </p>
+    </footer>
+  );
+}
+
+export default Footer;

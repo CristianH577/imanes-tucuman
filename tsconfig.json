@@ -1,0 +1,9 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  // "exclude": ["z", "imanes-tuc-api"]
+  "exclude": ["z", "imanes-tuc-api", "dev-only"]
+}
