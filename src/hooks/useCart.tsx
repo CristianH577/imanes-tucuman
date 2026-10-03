@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import type { TypeCart } from "../consts/types";
 
-const STORAGE_KEY = "cart:v1.0";
+const STORAGE_KEY = "cart:v1.0.2";
 
 const inizializete = (): TypeCart => {
   try {

@@ -16,7 +16,7 @@ import { Divider, Button } from "@mui/material";
 
 import ButtonAddCart from "../../components/ButtonAddCart";
 import LabelPrice from "../../components/LabelPrice";
-import ButtonsStoreOnline from "../../components/ButtonsStoreOnline";
+// import ButtonsStoreOnline from "../../components/ButtonsStoreOnline";
 import LabelStockData from "../../components/LabelStockData";
 import InputAddCart from "./InputAddCart";
 
@@ -34,7 +34,7 @@ export default function TableItemPrices({ itemData }: IntfProps) {
   const inCart = itemData.id in cart;
   const qttCart = inCart ? cart[itemData.id] : 0;
   const pricesQtts = itemData?.priceData?.pricesQtts;
-  const salesUnit = itemData.priceData.salesUnit || "U";
+  const salesUnit = itemData.priceData.salesUnit || "u";
   const categories = itemData.categorie.map((cat) => capitalizeText(cat));
 
   const measures = itemData.measures;
@@ -54,23 +54,19 @@ export default function TableItemPrices({ itemData }: IntfProps) {
   const [qttFix, setQttFix] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  const handleChangeQttFix = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("handleChangeQttFix")
-    const qtt = Number(event.target.value);
-    itemData.priceData = handlePriceData(itemData.priceData, qtt);
+  const handleChangeQttFix = (qtt: number) => {
+    // itemData.priceData = handlePriceData(itemData.priceData, qtt);
+    handlePriceData(itemData.priceData, qtt);
     setQttFix(qtt);
   };
-  const handleBlurQttFix = (event: React.FocusEvent<HTMLInputElement>) => {
-    let qtt = Number(event.target.value);
-
+  const handleBlurQttFix = (qtt: number) => {
     if (
       qtt > 0 &&
       qtt < 1 &&
       !itemData?.priceData?.salesDecimal?.includes(qtt)
     ) {
       qtt = 1;
-      itemData.priceData = handlePriceData(itemData.priceData, qtt);
-      setQttFix(qtt);
+      handleChangeQttFix(qtt)
     }
   };
 
@@ -83,7 +79,7 @@ export default function TableItemPrices({ itemData }: IntfProps) {
     }
 
     context.cart.add(itemData.id, qtt_);
-    setQttFix(qtt_);
+    handleChangeQttFix(qtt_)
   };
 
   const handleCopyPrices = async () => {
@@ -93,12 +89,13 @@ export default function TableItemPrices({ itemData }: IntfProps) {
       let text = "➤" + categories.join(" > ") + "\n";
 
       text += "➤" + itemData.label + "\n";
-      text += "➤Precios x"+salesUnit+":\n";
+      text += "➤Precios x" + salesUnit.toUpperCase() + ":\n";
 
       Object.entries(prices).forEach(([key, val]) => {
         text += toPriceFormat(val);
+        text += " x" + key + String(salesUnit);
         text += " = " + toPriceFormat(Number(key) * Number(val))
-          + "\n";
+        text += "\n"
       });
 
       try {
@@ -118,8 +115,7 @@ export default function TableItemPrices({ itemData }: IntfProps) {
 
   useEffect(() => {
     if (qttCart > 0) {
-      itemData.priceData = handlePriceData(itemData.priceData, qttCart);
-      setQttFix(qttCart);
+      handleChangeQttFix(qttCart)
     }
   }, []);
 
@@ -179,9 +175,9 @@ export default function TableItemPrices({ itemData }: IntfProps) {
               className="text-tert place-self-end"
             />
 
-            {itemData.links && (
+            {/* {itemData.links && (
               <ButtonsStoreOnline links={itemData.links} complete />
-            )}
+            )} */}
 
             <p>
               <a
@@ -212,7 +208,7 @@ export default function TableItemPrices({ itemData }: IntfProps) {
                 }}
                 className="rounded-md bg-gradient-to-r from-custom1 to-custom1-5 p-2 text-center font-bold shadow-md text-black"
               >
-                Precios x{salesUnit}
+                Precios x<span className="uppercase">{salesUnit}</span>
                 {loading && (
                   <>
                     <br />
@@ -252,7 +248,7 @@ export default function TableItemPrices({ itemData }: IntfProps) {
                           }
 
                           context.cart.add(itemData.id, qtt_);
-                          setQttFix(qtt_);
+                          handleChangeQttFix(qtt_)
                         }}
                       />
                     </div>

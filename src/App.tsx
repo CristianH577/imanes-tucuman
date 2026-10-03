@@ -16,7 +16,7 @@ import ViewDefault from "./layout/ViewDefault.tsx";
 // import Faqs from "./views/Faqs.tsx";
 // import UyA from "./views/Uya.tsx";
 // import Home from "./views/Home.tsx";
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+// import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 
 const Home = lazy(() => import("./views/Home"));

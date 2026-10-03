@@ -101,58 +101,62 @@ export default function ItemView() {
         {(itemData?.measures ||
           itemData?.especificaciones ||
           itemData?.caracteristicas) && (
-          <>
-            <Divider className="col-span-full" />
-            <m.section
-              variants={{
-                hidden: { opacity: 0, x: 200 },
-                visible: { opacity: 1, x: 0 },
-              }}
-              className="col-span-full prose dark:prose-invert max-w-none"
-            >
-              <h3 className="font-semibold text-tertiary">Caracteristicas</h3>
+            <>
+              <Divider className="col-span-full" />
+              <m.section
+                variants={{
+                  hidden: { opacity: 0, x: 200 },
+                  visible: { opacity: 1, x: 0 },
+                }}
+                className="col-span-full prose dark:prose-invert max-w-none"
+              >
+                <h3 className="font-semibold text-tertiary">Caracteristicas</h3>
 
-              <ol className="list-none xs:flex flex-wrap gap-x-4 bg-content1 py-1 px-4 rounded-md font-sans">
-                {itemData.measures &&
-                  Object.entries(itemData.measures).map(([id, value]) => {
-                    const item_data =
-                      OBJ_MEASURES[id as keyof typeof OBJ_MEASURES];
-                    return (
-                      <li key={id}>
-                        <b className="capitalize italic">
-                          {item_data.label ?? id}:{" "}
-                        </b>
-                        {id === "fuerzaExp" && "≈"}
-                        {value}
-                        {item_data.measure}{" "}
-                        {id === "fuerzaExp" && <TooltipFuerzaExp exp />}
-                        {id === "fuerza" && <TooltipFuerzaExp />}
+                <ol className="list-none xs:flex flex-wrap gap-x-4 bg-content1 py-1 px-4 rounded-md font-sans">
+                  {itemData.measures &&
+                    Object.entries(itemData.measures).map(([id, value]) => {
+                      const item_data =
+                        OBJ_MEASURES[id as keyof typeof OBJ_MEASURES];
+                      return (
+                        <li key={id}>
+                          <b className="capitalize italic">
+                            {item_data.label ?? id}:{" "}
+                          </b>
+                          {id === "fuerzaExp" && "≈"}
+                          {value}
+                          {item_data.measure}{" "}
+                          {id === "fuerzaExp" && <TooltipFuerzaExp exp />}
+                          {id === "fuerza" && <TooltipFuerzaExp />}
+                        </li>
+                      );
+                    })}
+
+                  {itemData.especificaciones &&
+                    Object.entries(itemData.especificaciones).map(
+                      ([key, value]) => (
+                        <li key={key}>
+                          <b className="capitalize italic">
+                            {key.replace(/_/g, " ")}:{" "}
+                          </b>
+                          {value}
+                        </li>
+                      )
+                    )}
+
+                  {itemData.caracteristicas &&
+                    itemData.caracteristicas.map((caract) => (
+                      <li key={caract} className="capitalize italic break-words">
+                        <b>{caract}</b>
                       </li>
-                    );
-                  })}
+                    ))}
+                </ol>
 
-                {itemData.especificaciones &&
-                  Object.entries(itemData.especificaciones).map(
-                    ([key, value]) => (
-                      <li key={key}>
-                        <b className="capitalize italic">
-                          {key.replace(/_/g, " ")}:{" "}
-                        </b>
-                        {value}
-                      </li>
-                    )
-                  )}
-
-                {itemData.caracteristicas &&
-                  itemData.caracteristicas.map((caract) => (
-                    <li key={caract} className="capitalize italic break-words">
-                      <b>{caract}</b>
-                    </li>
-                  ))}
-              </ol>
-            </m.section>
-          </>
-        )}
+                <div className="font-bold border-2 py-1 px-2 rounded-md text-yellow-600 border-yellow-500/50 bg-yellow-500/20 max-w-96 place-self-center text-center"  >
+                  Las medidas son aproximadas y pueden tener un error. Algunos valores son de los fabricantes y bajo condiciones.
+                </div>
+              </m.section>
+            </>
+          )}
 
         {itemData?.description && (
           <>

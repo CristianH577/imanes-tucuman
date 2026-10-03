@@ -38,8 +38,10 @@ const variants_card = {
   },
 };
 
+const EMPTY_ITEMS: ClassDBItem[] = []
+
 export default function ItemsViewHorizontal({
-  items = [],
+  items = EMPTY_ITEMS,
   loading = false,
   databaseImgs = {},
 }: IntfProps) {
@@ -167,7 +169,7 @@ export default function ItemsViewHorizontal({
                         {Object.entries(item.priceData.pricesQtts).map(
                           ([qtt, price], i) => (
                             <li
-                              key={i}
+                              key={"qtt" + i}
                               className={
                                 "px-2 gap-2 grid grid-cols-2" +
                                 (qtt === "1" || i > 5 ? " hidden" : "")

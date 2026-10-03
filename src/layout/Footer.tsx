@@ -46,7 +46,7 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
     },
     {
       icon: RoomIcon,
-      content: <>9 de julio 4900, S.M. de Tucumán, Tucumán</>,
+      content: <>Altura 9 de julio 4900, S.M. de Tucumán, Tucumán</>,
       subtext: (
         <b className="font-size-secondary text-neutral-400">
           No es local. Solo retiro.

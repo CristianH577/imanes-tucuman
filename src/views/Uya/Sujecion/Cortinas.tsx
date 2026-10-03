@@ -29,7 +29,7 @@ export default function Cortinas() {
           <div className="sm:flex justify-center rounded-lg shadow-md overflow-hidden">
             {[img_1, img_2].map((src, i) => (
               <ImageCustom
-                key={i}
+                key={"img" + i}
                 src={src}
                 alt={`Imagen de ejemplo ${i + 1}`}
                 className="w-full"

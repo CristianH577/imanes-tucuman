@@ -25,8 +25,8 @@ type TypeButtonAddCart = {
   className?: string;
   placeholder?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onChange?: (qtt: number) => void;
+  onBlur?: (qtt: number) => void;
   qttCart?: number;
   // salesUnit?: string;
 };
@@ -44,10 +44,23 @@ export default function InputAddCart({
   const state = !qttCart
     ? "empty"
     : qttCart === Number(value)
-    ? "same"
-    : "change";
+      ? "same"
+      : "change";
 
   const design = designs[state];
+
+  const onChange_ = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (onChange) {
+      const qtt = Number(e.target.value);
+      onChange(qtt)
+    }
+  }
+  const onBlur_ = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onBlur) {
+      const qtt = Number(e.target.value);
+      onBlur(qtt)
+    }
+  }
 
   return (
     <div>
@@ -105,8 +118,8 @@ export default function InputAddCart({
           </Button>
         }
         value={value}
-        onChange={onChange}
-        onBlur={onBlur}
+        onChange={onChange_}
+        onBlur={onBlur_}
       />
 
       <p className="text-xs text-neutralSwitch mt-1 text-center font-bold">

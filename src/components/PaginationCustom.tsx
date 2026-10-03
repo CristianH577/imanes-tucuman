@@ -1,22 +1,23 @@
 import { useEffect, useState } from "react";
 import "./PaginationCustom.css";
 
+type TypeClasses = {
+  list?: string;
+  li?: string;
+  prev?: string;
+  first?: string;
+  item?: string;
+  last?: string;
+  next?: string;
+  elipsisInf?: string;
+  elipsisSup?: string;
+}
 interface InterfaceProps {
   totalItems: number;
   itemsPerPage?: number;
   currentPage?: number;
   className?: string;
-  classes?: {
-    list?: string;
-    li?: string;
-    prev?: string;
-    first?: string;
-    item?: string;
-    last?: string;
-    next?: string;
-    elipsisInf?: string;
-    elipsisSup?: string;
-  };
+  classes?: TypeClasses;
   setPage: (page: number) => void;
   iconNext?: string;
   iconPrev?: string;
@@ -68,13 +69,15 @@ const icon_arrow_curv_right = (
   </svg>
 );
 
+const EMPTY_CLASSES: TypeClasses = {}
+
 export default function PaginationCustom({
   totalItems = 0,
   itemsPerPage = 10,
   currentPage = 1,
   className = "",
-  classes = {},
-  setPage = () => {},
+  classes = EMPTY_CLASSES,
+  setPage = () => { },
   iconNext = ">",
   iconPrev = "<",
   iconLast = ">>",
@@ -102,14 +105,14 @@ export default function PaginationCustom({
     currentPage - configs.siblings < 1
       ? 1
       : currentPage + configs.siblings > totalPages
-      ? totalPages - configs.siblings * 2
-      : currentPage - configs.siblings;
+        ? totalPages - configs.siblings * 2
+        : currentPage - configs.siblings;
   const lim_sup =
     currentPage + configs.siblings > totalPages
       ? totalPages
       : currentPage - configs.siblings < 1
-      ? 1 + configs.siblings * 2
-      : currentPage + configs.siblings;
+        ? 1 + configs.siblings * 2
+        : currentPage + configs.siblings;
 
   // style
   const class_li =
@@ -194,101 +197,107 @@ export default function PaginationCustom({
       className={classes_.wrapper}
     >
       <ul data-slot="list" className={classes_.list}>
-        <li
-          data-slot="prev"
-          role="button"
-          aria-label="previous page button"
-          title="Página anterior"
-          className={classes_.prev}
-          data-disabled={currentPage <= 1}
-          onClick={actions.prev}
-        >
-          {iconPrev}
+        <li>
+          <button
+            data-slot="prev"
+            aria-label="previous page button"
+            title="Página anterior"
+            className={classes_.prev}
+            data-disabled={currentPage <= 1}
+            onClick={actions.prev}
+          >
+            {iconPrev}
+          </button>
         </li>
 
-        <li
-          data-slot="first"
-          role="button"
-          aria-label="first page button"
-          title="Primera página"
-          data-hidden={configs.showJumps ? lim_inf <= 1 : true}
-          className={classes_.first}
-          onClick={actions.first}
-        >
-          {iconFirst}
+        <li>
+          <button
+            data-slot="first"
+            aria-label="first page button"
+            title="Primera página"
+            data-hidden={configs.showJumps ? lim_inf <= 1 : true}
+            className={classes_.first}
+            onClick={actions.first}
+          >
+            {iconFirst}
+          </button>
         </li>
 
-        <li
-          data-slot="elipsisInf"
-          role="button"
-          aria-label="elipsis inferior button"
-          title={"Saltar " + configs.siblings * 2 + " páginas atrás"}
-          data-hidden={configs.showElipsis ? lim_inf <= 1 : true}
-          className={classes_.elipsisInf}
-          onClick={actions.elipsisInf}
-        >
-          <span className="group-hover:hidden">{iconElipsisInf}</span>
-          <span className="hidden group-hover:block">
-            {iconElipsisHoverInf}
-          </span>
+        <li>
+          <button
+            data-slot="elipsisInf"
+            aria-label="elipsis inferior button"
+            title={"Saltar " + configs.siblings * 2 + " páginas atrás"}
+            data-hidden={configs.showElipsis ? lim_inf <= 1 : true}
+            className={classes_.elipsisInf}
+            onClick={actions.elipsisInf}
+          >
+            <span className="group-hover:hidden">{iconElipsisInf}</span>
+            <span className="hidden group-hover:block">
+              {iconElipsisHoverInf}
+            </span>
+          </button>
         </li>
 
         {[...Array(totalPages)].map((_, i) => {
           const num = i + 1;
           return (
-            <li
-              key={num}
-              data-slot="item"
-              role="button"
-              aria-label={"pagination item " + num}
-              title={"Página " + num}
-              data-active={currentPage === num}
-              data-hidden={num < lim_inf || num > lim_sup}
-              className={classes_.item}
-              onClick={() => setPage(num)}
-            >
-              {num}
+            <li key={"btn" + num} >
+              <button
+                data-slot="item"
+                aria-label={"pagination item " + num}
+                title={"Página " + num}
+                data-active={currentPage === num}
+                data-hidden={num < lim_inf || num > lim_sup}
+                className={classes_.item}
+                onClick={() => setPage(num)}
+              >
+                {num}
+              </button>
             </li>
           );
         })}
 
-        <li
-          data-slot="elipsisSup"
-          role="button"
-          aria-label="elipsis superior button"
-          title={"Saltar " + configs.siblings * 2 + " páginas adelante"}
-          data-hidden={configs.showElipsis ? lim_sup === totalPages : true}
-          className={classes_.elipsisSup}
-          onClick={actions.elipsisSup}
-        >
-          <span className="group-hover:hidden">{iconElipsisSup}</span>
-          <span className="hidden group-hover:block">
-            {iconElipsisHoverSup}
-          </span>
+        <li>
+          <button
+            data-slot="elipsisSup"
+            aria-label="elipsis superior button"
+            title={"Saltar " + configs.siblings * 2 + " páginas adelante"}
+            data-hidden={configs.showElipsis ? lim_sup === totalPages : true}
+            className={classes_.elipsisSup}
+            onClick={actions.elipsisSup}
+          >
+            <span className="group-hover:hidden">{iconElipsisSup}</span>
+            <span className="hidden group-hover:block">
+              {iconElipsisHoverSup}
+            </span>
+          </button>
         </li>
 
-        <li
-          data-slot="last"
-          role="button"
-          aria-label="last page button"
-          title="Última página"
-          data-hidden={configs.showJumps ? lim_sup >= totalPages : true}
-          className={classes_.last}
-          onClick={actions.last}
-        >
-          {iconLast}
+        <li>
+          <button
+            data-slot="last"
+            aria-label="last page button"
+            title="Última página"
+            data-hidden={configs.showJumps ? lim_sup >= totalPages : true}
+            className={classes_.last}
+            onClick={actions.last}
+          >
+            {iconLast}
+          </button>
         </li>
 
-        <li
-          data-slot="next"
-          role="button"
-          aria-label="next page button"
-          title="Página siguiente"
-          data-disabled={currentPage >= totalPages}
-          className={classes_.next}
-          onClick={actions.next}
-        >
-          {iconNext}
+        <li>
+          <button
+            data-slot="next"
+            aria-label="next page button"
+            title="Página siguiente"
+            data-disabled={currentPage >= totalPages}
+            className={classes_.next}
+            onClick={actions.next}
+          >
+            {iconNext}
+          </button>
         </li>
       </ul>
     </nav>

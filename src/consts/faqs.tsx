@@ -7,7 +7,7 @@ export const FAQ_DATA: TypeChatItem[] = [
     id: "shipping-1",
     q: "Como retiro un pedido",
     a: `Puede retirar, PREVIO AVISO, de Lunes a Viernes de 11 a 21hs. Tenga en cuenta que NO ES LOCAL.
-    📍 9 de julio 4900, San Miguel de Tucumán`,
+    📍 Altura 9 de julio 4900, San Miguel de Tucumán`,
     category: "shipping",
     aliases: ["Cuales son los horarios de atención", "Donde esta el local"],
     keywords: [
@@ -179,10 +179,10 @@ export const FAQ_DATA: TypeChatItem[] = [
     id: "legal-1",
     q: "Bases y Condiciones",
     a: `➤ Condiciones de los articulos
-      Los productos pueden traer algún pequeño defecto de forma de fabrica, recuerde revisar o avisar si esto es un problema. Las fuerzas y medidas mostradas son aproximadas y pueden variar ligeramente. Las bolsas pueden tener arrugas o marcas de dobleces que vienen de fabrica.
+      Los productos pueden traer algún defecto de fabrica, recuerde revisar o avisar si esto es un problema. Las fuerzas y medidas mostradas son aproximadas y pueden variar ligeramente. Las bolsas pueden tener arrugas o marcas de dobleces que vienen de fabrica.
 
       ➤ Envios
-      Si se realiza el envio a traves del servicio de Uber se efectua el pago de la compra antes por transferencia, el envío lo puede pagar en efectivo cuando lo entreguen o transferirlo con el pago. Se usara la información a disposición (nombre, numero de teléfono, etc.) para utilizar el PIN de seguridad dentro de la app.
+      Si se realiza el envio a traves del servicio de Uber se efectua el pago de la compra antes por transferencia, el envío lo puede pagar en efectivo cuando lo entreguen o transferirlo con el pago. Se usara la información a disposición (nombre, numero de teléfono, etc.) para utilizar el PIN de seguridad dentro de la app. En caso de problemas se resuelve a traves de la app con sus tiempos y condiciones; si desea mejorar el seguro debera avisarlo previo a solicitar el viaje.
 
       ➤ Pedidos grandes
       Los pedidos grandes deben pagarse con antelacion y pueden llevar un costo adicional del transporte. Tienen un tiempo de demora de entre 2 y 4 semanas.

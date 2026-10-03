@@ -274,6 +274,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 9,
+    "stock": 0,
     "label": "5x4mm",
     "categorie": [
       "imanes",
@@ -442,6 +443,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 14,
+    stock: "low",
     "label": "8x3mm",
     "categorie": [
       "imanes",
@@ -477,6 +479,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 15,
+    stock: 0,
     "label": "8x4mm",
     "categorie": [
       "imanes",
@@ -642,6 +645,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 20,
+    "stock": "low",
     "label": "10x3mm",
     "categorie": [
       "imanes",
@@ -1089,7 +1093,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 33,
-    "stock": "low",
+    "stock": 0,
     "label": "20x5mm",
     "categorie": [
       "imanes",
@@ -1260,7 +1264,6 @@ export const DB_ALL: ClassDBItem[] = [
     }
   },
   {
-    "stock": 0,
     "id": 38,
     "label": "30x3mm",
     "categorie": [
@@ -1423,7 +1426,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 43,
-    "stock": "low",
+    "stock": 0,
     "label": "38x8mm",
     "categorie": [
       "imanes",
@@ -1592,7 +1595,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 48,
-    "stock": 0,
     "label": "10x10x2mm",
     "categorie": [
       "imanes",
@@ -1866,6 +1868,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 56,
+    "stock": 0,
     "label": "40x10x5mm",
     "categorie": [
       "imanes",
@@ -1895,7 +1898,6 @@ export const DB_ALL: ClassDBItem[] = [
       "peso": 15.5,
       "fuerzaExp": 5.9
     },
-    "stock": "low"
   },
   {
     "id": 57,
@@ -1999,6 +2001,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 60,
+    "stock": 0,
     "label": "50x20x10mm",
     "categorie": [
       "imanes",
@@ -2027,7 +2030,6 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 10,
       "peso": 75
     },
-    "stock": "low"
   },
   {
     "stock": 0,
@@ -2725,10 +2727,10 @@ export const DB_ALL: ClassDBItem[] = [
         "5": 1800,
         "10": 1600,
         "25": 1400,
-        "50": 1250,
-        "100": 1150
+        "50": 1200,
+        "100": 1100
       },
-      "update": "18/4/26",
+      "update": "8/9/26",
       "salesUnit": "m"
     },
     "measures": {
@@ -2755,16 +2757,16 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 2400
+        "base": 2300
       },
       "pricesQtts": {
-        "1": 2400,
-        "5": 2200,
-        "10": 2000,
-        "25": 1700,
-        "50": 1500
+        "1": 2300,
+        "5": 2000,
+        "10": 1800,
+        "25": 1600,
+        "50": 1450
       },
-      "update": "16/4/26",
+      "update": "8/9/26",
       "salesUnit": "m"
     },
     "measures": {
@@ -2932,7 +2934,8 @@ export const DB_ALL: ClassDBItem[] = [
       "pricesQtts": {
         "1": 8500,
         "5": 8000,
-        "10": 7500,
+        "10": 7000,
+        "20": 6500,
         "0.5": 9000
       },
       "salesUnit": "m",
@@ -2962,6 +2965,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 90,
+    stock: "low",
     "label": "Sales de polifosfato redondas",
     "categorie": [
       "otros"
@@ -3210,6 +3214,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 98,
+    "stock": 0,
     "label": "6x4mm",
     "categorie": [
       "imanes",
@@ -3289,6 +3294,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 103,
+    stock: "low",
     "label": "Para Portón Automático",
     "categorie": [
       "imanes",
@@ -3380,7 +3386,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 106,
-    stock: "low",
+    stock: 0,
     "label": "6x2mm",
     "categorie": [
       "imanes",
@@ -3447,7 +3453,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 108,
-    "stock": "ult",
+    "stock": 0,
     "label": "50x20mm",
     "categorie": [
       "imanes",
@@ -3458,10 +3464,9 @@ export const DB_ALL: ClassDBItem[] = [
       "arrastre"
     ],
     "priceData": {
-      "usePrice": "discount",
+      "usePrice": "base",
       "prices": {
         "base": 40000,
-        "discount": 30000
       },
       "update": "12/8/25"
     },
@@ -3477,7 +3482,7 @@ export const DB_ALL: ClassDBItem[] = [
     "caracteristicas": [
       "N52"
     ],
-    "description": "El iman interior tiene 40x11mm aprox. ",
+    "description": "El iman interior tiene 40x10mm aprox",
     "tags": [
       "pesca"
     ]
@@ -3669,7 +3674,7 @@ export const DB_ALL: ClassDBItem[] = [
       "pricesQtts": {
         "1": 16000,
         "5": 15000,
-        "10": 14000,
+        "10": 13500,
       },
       "salesUnit": "m",
       "update": "4/8/2026"
@@ -4382,7 +4387,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     "measures": {
       "largo": 18,
-      "alto": 2
+      "alto": 2,
+      "peso": 4.2
     },
     "links": {
       "mercadolibre": "iman-neodimio-redondo-x5u/up/MLAU3459919401"
@@ -4647,7 +4653,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 145,
-    "stock": 0,
     "label": "8x2mm",
     "categorie": [
       "imanes",
@@ -4773,6 +4778,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 147,
+    stock: 0,
     "label": "Bolsas Ecommerce x10u 20x30cm Tricapa Con Texto",
     "categorie": [
       "otros"
@@ -4915,7 +4921,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 154,
-    stock: 0,
     "label": "5x3mm",
     "categorie": [
       "imanes",
@@ -5134,6 +5139,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 162,
+    stock: 0,
     "label": "6x1.5mm",
     "categorie": [
       "imanes",
@@ -5160,6 +5166,7 @@ export const DB_ALL: ClassDBItem[] = [
     "measures": {
       "largo": 6,
       "alto": 1.5,
+      "peso": 0.32
     },
   },
   {
@@ -5298,6 +5305,7 @@ export const DB_ALL: ClassDBItem[] = [
     "measures": {
       "largo": 9,
       "alto": 3,
+      "peso": 1.5
     },
   },
   {
@@ -5371,6 +5379,42 @@ export const DB_ALL: ClassDBItem[] = [
     "tags": [
       "sobres",
       "empaques"
+    ]
+  },
+  {
+    "id": 169,
+    "label": "12x2mm 5a5mm",
+    "categorie": [
+      "imanes",
+      "neodimio"
+    ],
+    "forma": [
+      "redondo",
+      "fresado"
+    ],
+    "priceData": {
+      "usePrice": "base",
+      "prices": {
+        "base": 720
+      },
+      "pricesQtts": {
+        "1": 720,
+        "50": 660,
+        "100": 620,
+        "500": 540,
+        "1000": 480
+      },
+      "update": "16/9/2026"
+    },
+    "measures": {
+      "largo": 12,
+      "alto": 2,
+      "diametroSup": 5,
+      "diametroInf": 5,
+      "peso": 1.4,
+    },
+    "tags": [
+      "arandela"
     ]
   },
 ]

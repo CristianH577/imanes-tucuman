@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function ArticlesList({ list }: Props) {
-  const handleClick = (e: React.MouseEvent<HTMLLIElement>) => {
+  const handleShowArticle = (e: any) => {
     const target = e.target as HTMLElement;
     const id = target.dataset?.id;
 
@@ -31,7 +31,7 @@ export default function ArticlesList({ list }: Props) {
 
   return (
     <Accordion
-      className="w-full max-w-sm border-2 border-custom1-2 bg-content1 text-foreground shadow-none rounded-lg"
+      className="w-full max-w-sm border-2 border-custom1-2 bg-content text-foreground shadow-none rounded-lg"
       title="Ver artículos"
     >
       <AccordionSummary
@@ -46,13 +46,15 @@ export default function ArticlesList({ list }: Props) {
       <AccordionDetails>
         <ul className="list-disc list-inside text-start space-y-2">
           {list.map((item, i: number) => (
-            <li
-              key={i}
-              className="hover:text-custom1 cursor-pointer hover:font-semibold"
-              data-id={item?.id}
-              onClick={handleClick}
+            <li key={i}
             >
-              {item.title}
+              <button
+                className="hover:text-custom1 cursor-pointer hover:font-semibold"
+                data-id={item?.id}
+                onClick={handleShowArticle}
+              >
+                {item.title}
+              </button>
             </li>
           ))}
         </ul>

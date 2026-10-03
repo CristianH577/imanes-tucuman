@@ -35,7 +35,7 @@ export default function MenuConfigs() {
     });
   };
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleOpenMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -51,7 +51,7 @@ export default function MenuConfigs() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         title="Configuraciones"
-        onClick={handleClick}
+        onClick={handleOpenMenu}
       >
         <SettingsIcon
           fontSize="inherit"

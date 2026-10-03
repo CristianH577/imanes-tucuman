@@ -17,7 +17,7 @@ export default function Llaveros() {
 
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-8">
         {[img_2, img_3].map((src, i) => (
-          <CardUya key={i} src={src} />
+          <CardUya key={"img" + i} src={src} />
         ))}
       </div>
     </div>

@@ -1,21 +1,21 @@
 .pagination-custom {
-  li {
+  li button {
     color: black;
     background-color: rgb(245, 245, 245);
     cursor: pointer;
     user-select: none;
   }
 
-  li:hover {
+  li button:hover {
     background-color: rgb(212, 212, 212);
   }
 
-  li[data-active="true"] {
+  li button[data-active="true"] {
     background-color: rgb(212, 212, 212);
     cursor: default;
   }
 
-  li[data-disabled="true"] {
+  li button[data-disabled="true"] {
     color: rgb(180, 180, 180);
     pointer-events: none;
   }

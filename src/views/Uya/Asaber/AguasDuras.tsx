@@ -59,7 +59,7 @@ export default function AguasDuras() {
               </p>
 
               <div
-                className="h-36 w-36 bg-gradient-to-t from-blue-600 to-blue-400 relative font-semibold"
+                className="size-36 bg-gradient-to-t from-blue-600 to-blue-400 relative font-semibold"
                 style={{
                   clipPath: "polygon(0 0, 100% 0, 80% 100%, 20% 100%)",
                 }}

@@ -78,11 +78,12 @@ export default function CartList({ downloading = false }) {
     switch (col) {
       case "label":
         return (
-          <div>
+          // <div className={`max-w-64 sm:overflow-x-scroll ${scrollStyle}`}>
+          <div className="xs:max-w-64">
             <a
               href={"#buscar/" + row.id}
               title="Ver producto"
-              className="max-xs:whitespace-normal hover:underline"
+              className="whitespace-normal hover:underline"
             >
               {row.label}
             </a>
@@ -131,7 +132,7 @@ export default function CartList({ downloading = false }) {
               type="number"
               size="small"
               color="warning"
-              className="w-20 text-prima text-current"
+              className="w-28 text-prima text-current"
               startAdornment="x"
               endAdornment={
                 <span className="px-1 text-xs">{row?.priceData?.salesUnit || "U"}</span>

@@ -21,8 +21,8 @@ const items = [
     desc: "Conseguir 2 tubos de PVC que entre uno dentro de otro casi justo",
     img: (
       <div className="flex gap-4 h-[200px]">
-        <SVGTuboA size={6} className="from-slate-400 to-slate-500" />
-        <SVGTuboB size={6} className="from-slate-200 to-slate-300" />
+        <SVGTuboA size={6} className="from-zinc-400 to-zinc-500" />
+        <SVGTuboB size={6} className="from-zinc-200 to-zinc-300" />
       </div>
     ),
   },
@@ -32,9 +32,9 @@ const items = [
       <div className="flex flex-col items-center gap-2 relative rotate-45 h-[200px]">
         <ArrowDownwardIcon className="absolute top-2 -right-10 text-black h-12 w-fit" />
 
-        <SVGTapaB size={scale} className="from-slate-300 to-slate-400" />
-        <SVGTuboB size={scale} className="from-slate-200 to-slate-300" />
-        <SVGImanes size={scale - 1} className="from-gray-300 to-gray-500" />
+        <SVGTapaB size={scale} className="from-zinc-300 to-zinc-400" />
+        <SVGTuboB size={scale} className="from-zinc-200 to-zinc-300" />
+        <SVGImanes size={scale - 1} className="from-neutral-300 to-neutral-500" />
         <SVGTaponB size={scale} />
 
         <ArrowUpwardIcon className="absolute bottom-12 -right-10 text-black h-12 w-fit" />
@@ -49,8 +49,8 @@ const items = [
           size={scale}
           className="from-yellow-200 to-yellow-500 absolute top-1"
         />
-        <SVGTuboA size={scale} className="from-slate-400 to-slate-500" />
-        <SVGTapaA size={scale} className="from-slate-500 to-slate-600" />
+        <SVGTuboA size={scale} className="from-zinc-400 to-zinc-500" />
+        <SVGTapaA size={scale} className="from-zinc-500 to-zinc-600" />
 
         <ArrowUpwardIcon className="absolute bottom-2 -right-10 text-black h-14 w-fit" />
       </div>
@@ -62,17 +62,17 @@ const items = [
       <div className="flex flex-col items-center relative pt-16 rotate-45 h-[200px]">
         <SVGTuboB
           size={scale}
-          className="from-slate-200 to-slate-300 absolute top-0"
+          className="from-neutral-200 to-neutral-300 absolute top-0"
         />
         <SVGTapaB
           size={scale}
-          className="from-slate-300 to-slate-400 absolute top-0"
+          className="from-neutral-300 to-neutral-400 absolute top-0"
         />
 
-        <SVGTuboA size={scale} className="from-slate-400 to-slate-500 z-10" />
+        <SVGTuboA size={scale} className="from-neutral-400 to-neutral-500 z-10" />
         <SVGTapaA
           size={scale}
-          className="from-slate-500 to-slate-600 absolute bottom-0 z-10"
+          className="from-neutral-500 to-neutral-600 absolute bottom-0 z-10"
         />
         <SVGTope
           size={scale}
@@ -99,7 +99,7 @@ export default function Recogedor() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {items.map((item, i) => (
-          <div key={i} className="flex flex-col items-center gap-2">
+          <div key={"item" + i} className="flex flex-col items-center gap-2">
             {item?.img}
 
             <p>

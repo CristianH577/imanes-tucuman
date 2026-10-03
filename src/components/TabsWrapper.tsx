@@ -11,10 +11,12 @@ type TypeProps = {
   className?: string;
 };
 
+const EMPTY_ITEMS: string[] = [];
+
 export default function TabsWrapper({
   ariaLAbel = "",
   tabSelected = 0,
-  tabs = [],
+  tabs = EMPTY_ITEMS,
   setTabSelected,
   className,
 }: TypeProps) {
@@ -32,12 +34,13 @@ export default function TabsWrapper({
         className="flex w-fit relative gap-2"
       >
         {tabs.map((tab, i) => (
-          <li key={i}>
+          <li key={"tab" + i}>
             <Button
               color="inherit"
               size="small"
               role="tab"
               data-selected={i === tabSelected}
+              aria-selected={i === tabSelected}
               className="whitespace-nowrap font-semibold data-[selected=true]:text-shadow-md data-[selected=true]:text-custom2 text-shadow-black/30 text-white"
               title={"Ver " + tab}
               onClick={() => setTabSelected && setTabSelected(i)}
