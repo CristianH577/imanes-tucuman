@@ -96,11 +96,11 @@ function Footer({ whatsapp = "#", fotos = "#" }) {
         }}
       >
         <Button title="Ir abajo" onClick={scrollToBottom}>
-          <SVGArrowBigDownLine className="h-6 w-fit" />
+          <SVGArrowBigDownLine className="h-6 w-6" />
         </Button>
 
         <Button title="Ir arriba" onClick={scrollToTop}>
-          <SVGArrowBigUpLine className="h-6 w-fit" />
+          <SVGArrowBigUpLine className="h-6 w-6" />
         </Button>
       </ButtonGroup>
 

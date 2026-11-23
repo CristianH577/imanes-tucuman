@@ -196,6 +196,8 @@ export default function SearchView() {
               PRESIONE la imagen, nombre o flecha para ver mas detalles.
               <br />
               Los precios pueden variar.
+              <br />
+              Imagenes meramente ilustrativas.
             </p>
           </article>
         </section>

@@ -98,10 +98,11 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 1,
       "peso": 0.2,
       "fuerzaExp": 0.1
-    },
+    }
   },
   {
     "id": 4,
+    stock: "low",
     "label": "3x2mm",
     "categorie": [
       "imanes",
@@ -114,16 +115,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 140
+        "base": 142
       },
       "pricesQtts": {
-        "1": 140,
-        "50": 132,
-        "100": 126,
-        "500": 114,
-        "1000": 102
-      },
-      "update": "3/4/2026"
+        "1": 142,
+        "50": 130,
+        "100": 122,
+        "500": 108,
+        "1000": 96
+      }
     },
     "measures": {
       "largo": 3,
@@ -181,16 +181,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 152
+        "base": 156
       },
       "pricesQtts": {
-        "1": 152,
-        "50": 140,
-        "100": 130,
-        "500": 114,
-        "1000": 102
-      },
-      "update": "27/7/2026"
+        "1": 156,
+        "50": 144,
+        "100": 134,
+        "500": 118,
+        "1000": 104
+      }
     },
     "measures": {
       "largo": 4,
@@ -216,16 +215,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 152
+        "base": 156
       },
       "pricesQtts": {
-        "1": 152,
-        "50": 140,
-        "100": 130,
-        "500": 114,
-        "1000": 102
-      },
-      "update": "27/7/2026"
+        "1": 156,
+        "50": 142,
+        "100": 134,
+        "500": 116,
+        "1000": 104
+      }
     },
     "measures": {
       "largo": 5,
@@ -251,16 +249,16 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 174
+        "base": 176
       },
       "pricesQtts": {
-        "1": 174,
-        "50": 158,
+        "1": 176,
+        "50": 160,
         "100": 150,
-        "500": 130,
+        "500": 132,
         "1000": 116
       },
-      "update": "27/7/2026"
+      "update": "18/11/2026"
     },
     "measures": {
       "largo": 5,
@@ -274,7 +272,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 9,
-    "stock": 0,
+    stock: "low",
     "label": "5x4mm",
     "categorie": [
       "imanes",
@@ -287,16 +285,16 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 310
+        "base": 305
       },
       "pricesQtts": {
-        "1": 310,
-        "50": 284,
-        "100": 268,
-        "500": 234,
-        "1000": 208
+        "1": 305,
+        "50": 282,
+        "100": 264,
+        "500": 230,
+        "1000": 204
       },
-      "update": "27/7/2026"
+      "update": "18/11/2026"
     },
     "measures": {
       "largo": 5,
@@ -352,16 +350,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 286
+        "base": 305
       },
       "pricesQtts": {
-        "1": 286,
-        "50": 270,
-        "100": 254,
+        "1": 305,
+        "50": 282,
+        "100": 264,
         "500": 230,
-        "1000": 206
-      },
-      "update": "3/4/2026"
+        "1000": 204
+      }
     },
     "measures": {
       "largo": 6,
@@ -443,7 +440,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 14,
-    stock: "low",
+    "stock": 0,
     "label": "8x3mm",
     "categorie": [
       "imanes",
@@ -479,7 +476,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 15,
-    stock: 0,
+    "stock": 0,
     "label": "8x4mm",
     "categorie": [
       "imanes",
@@ -508,7 +505,7 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 4,
       "peso": 1.6,
       "fuerzaExp": 1.7
-    },
+    }
   },
   {
     "id": 16,
@@ -574,7 +571,7 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 1.5,
       "peso": 0.75,
       "fuerzaExp": 0.72
-    },
+    }
   },
   {
     "id": 18,
@@ -625,23 +622,22 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 585
+        "base": 610
       },
       "pricesQtts": {
-        "1": 585,
-        "50": 555,
-        "100": 520,
-        "250": 475,
-        "500": 425
-      },
-      "update": "3/4/2026"
+        "1": 610,
+        "50": 560,
+        "100": 525,
+        "500": 460,
+        "1000": 410
+      }
     },
     "measures": {
       "largo": 10,
       "alto": 2,
       "peso": 1.5,
       "fuerzaExp": 1.13
-    },
+    }
   },
   {
     "id": 20,
@@ -923,16 +919,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1310
+        "base": 1520
       },
       "pricesQtts": {
-        "1": 1310,
-        "25": 1230,
-        "50": 1160,
-        "100": 1080,
-        "250": 925
-      },
-      "update": "27/7/2026"
+        "1": 1520,
+        "25": 1430,
+        "50": 1340,
+        "100": 1250,
+        "250": 1070
+      }
     },
     "measures": {
       "largo": 12,
@@ -1020,6 +1015,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 31,
+    stock: 0,
     "label": "15x5mm",
     "categorie": [
       "imanes",
@@ -1032,16 +1028,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1960
+        "base": 2020
       },
       "pricesQtts": {
-        "1": 1960,
-        "25": 1850,
-        "50": 1730,
-        "100": 1620,
-        "250": 1390
-      },
-      "update": "22/7/2026"
+        "1": 2020,
+        "25": 1910,
+        "50": 1790,
+        "100": 1670,
+        "250": 1430
+      }
     },
     "measures": {
       "largo": 15,
@@ -1070,16 +1065,16 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1740
+        "base": 1700
       },
       "pricesQtts": {
-        "1": 1740,
-        "25": 1640,
-        "50": 1540,
-        "100": 1430,
-        "250": 1230
+        "1": 1700,
+        "25": 1600,
+        "50": 1500,
+        "100": 1400,
+        "250": 1200
       },
-      "update": "27/7/2026"
+      "update": "18/11/2026"
     },
     "measures": {
       "largo": 20,
@@ -1093,7 +1088,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 33,
-    "stock": 0,
     "label": "20x5mm",
     "categorie": [
       "imanes",
@@ -1106,15 +1100,14 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 3200
+        "base": 3360
       },
       "pricesQtts": {
-        "1": 3200,
-        "20": 3000,
-        "40": 2800,
-        "80": 2600,
-      },
-      "update": "22/8/2026"
+        "1": 3360,
+        "20": 3140,
+        "40": 2940,
+        "80": 2720
+      }
     },
     "measures": {
       "largo": 20,
@@ -1243,15 +1236,14 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 3900
+        "base": 4500
       },
       "pricesQtts": {
-        "1": 3900,
-        "5": 3700,
-        "15": 3500,
-        "30": 3260
-      },
-      "update": "3/4/2026"
+        "1": 4500,
+        "10": 4200,
+        "25": 3900,
+        "50": 3600
+      }
     },
     "measures": {
       "largo": 25,
@@ -1460,11 +1452,11 @@ export const DB_ALL: ClassDBItem[] = [
     },
     "links": {
       "mercadolibre": "iman-neodimio-redondo-x1u/up/MLAU3460278333"
-    },
+    }
   },
   {
-    "stock": 0,
     "id": 44,
+    "stock": 0,
     "label": "40x5mm",
     "categorie": [
       "imanes",
@@ -1477,28 +1469,25 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 10100
+        "base": 11600
       },
       "pricesQtts": {
-        "1": 10100,
-        "5": 9750,
-        "15": 9400,
-        "30": 9050
+        "1": 11600,
+        "5": 11150,
+        "15": 10700,
+        "20": 10300
       },
-      "update": "10/2/2026"
+      "update": "24/10/2026"
     },
     "measures": {
       "largo": 40,
       "alto": 5,
       "peso": 46.5
-    },
-    "especificaciones": {
-      "denominacion": "N48"
     }
   },
   {
     "id": 45,
-    "stock": "ult",
+    "stock": 0,
     "label": "54x3mm",
     "categorie": [
       "imanes",
@@ -1624,7 +1613,7 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 2,
       "peso": 2,
       "fuerzaExp": 2
-    },
+    }
   },
   {
     "id": 49,
@@ -1697,8 +1686,8 @@ export const DB_ALL: ClassDBItem[] = [
     }
   },
   {
-    "stock": 0,
     "id": 51,
+    "stock": 0,
     "label": "20x10x10mm",
     "categorie": [
       "imanes",
@@ -1897,7 +1886,7 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 5,
       "peso": 15.5,
       "fuerzaExp": 5.9
-    },
+    }
   },
   {
     "id": 57,
@@ -2029,7 +2018,7 @@ export const DB_ALL: ClassDBItem[] = [
       "ancho": 20,
       "alto": 10,
       "peso": 75
-    },
+    }
   },
   {
     "stock": 0,
@@ -2101,7 +2090,9 @@ export const DB_ALL: ClassDBItem[] = [
       "mercadolibre": "iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995880070"
     },
     "tags": [
-      "arandela"
+      "arandela",
+      "perforado",
+      "perforacion"
     ]
   },
   {
@@ -2141,11 +2132,14 @@ export const DB_ALL: ClassDBItem[] = [
       "mercadolibre": "iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990693417"
     },
     "tags": [
-      "arandela"
+      "arandela",
+      "perforado",
+      "perforacion"
     ]
   },
   {
     "id": 64,
+    "stock": 0,
     "label": "15x3mm 7a3.5mm",
     "categorie": [
       "imanes",
@@ -2181,11 +2175,14 @@ export const DB_ALL: ClassDBItem[] = [
       "mercadolibre": "iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2995893094"
     },
     "tags": [
-      "arandela"
+      "arandela",
+      "perforado",
+      "perforacion"
     ]
   },
   {
     "id": 65,
+    "stock": 0,
     "label": "20x4mm 11a4.5mm",
     "categorie": [
       "imanes",
@@ -2220,11 +2217,14 @@ export const DB_ALL: ClassDBItem[] = [
       "mercadolibre": "iman-neodimio-redondo-fresado-x10u--arandela/up/MLAU2990699711"
     },
     "tags": [
-      "arandela"
+      "arandela",
+      "perforado",
+      "perforacion"
     ]
   },
   {
     "id": 66,
+    "stock": "low",
     "label": "20x10x5mm 8a4mm",
     "categorie": [
       "imanes",
@@ -2259,7 +2259,9 @@ export const DB_ALL: ClassDBItem[] = [
     "links": {
       "mercadolibre": "iman-neodimio-rectangular-fresado-20x10x5mm-8a4mm/up/MLAU3459316705"
     },
-    "stock": "low"
+    "tags": [
+      "perforado"
+    ]
   },
   {
     "stock": 0,
@@ -2382,8 +2384,8 @@ export const DB_ALL: ClassDBItem[] = [
     ]
   },
   {
-    "stock": 0,
     "id": 71,
+    "stock": "low",
     "label": "42mm",
     "categorie": [
       "imanes",
@@ -2394,26 +2396,27 @@ export const DB_ALL: ClassDBItem[] = [
       "arrastre"
     ],
     "priceData": {
-      "usePrice": "base",
+      "usePrice": "discount",
       "prices": {
-        "base": 29500
+        "base": 29000,
+        "discount": 26000
       },
-      "update": "10/2/26"
+      "update": "31/10/26"
     },
     "measures": {
       "largo": 42,
       "alto": 7.5,
       "altoTotal": 38,
-      "fuerza": 40,
-      "peso": 118
+      "fuerza": 30,
+      "peso": 120
     },
     "tags": [
       "pesca"
     ]
   },
   {
-    "stock": 0,
     "id": 72,
+    "stock": 0,
     "label": "48mm",
     "categorie": [
       "imanes",
@@ -2564,6 +2567,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 77,
+    "stock": 0,
     "label": "Empalme Clip 2 Bocas",
     "categorie": [
       "electricidad"
@@ -2789,17 +2793,18 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 20000
+        "base": 16000,
       },
-      "update": "22/8/26"
+      "update": "9/11/26"
     },
-    "description": "Juego de 20 piedras ovaladas de hematita magnetizadas y pulidas de 38mm de largo y 14mm de diámetro central + cuerda de polipropileno",
+    "description": "Juego de 20 piedras ovaladas o esféricas de hematita magnetizadas y pulidas + cuerda de polipropileno. \n Ovaladas: 38mm de largo y 14mm de diámetro central. \n Esféricas: 17mm de diámetro. \n Reglas: los jugadores se turnan para colocar sus imanes, si algunos se atraen entre sí deberá llevárselos y seguir jugando con todos ellos. Gana el primero en colocar todos sus imanes",
     "links": {
       "mercadolibre": "juego-imanes-ovalados-x20piezaskluster/up/MLAU2480455379"
     },
     "tags": [
       "antiestres",
-      "semilla"
+      "semillas",
+      "juego"
     ]
   },
   {
@@ -2829,7 +2834,8 @@ export const DB_ALL: ClassDBItem[] = [
     },
     "description": "216 imanes esféricos de 5mm de diámetro. Multicolor(6 distintos)",
     "tags": [
-      "juguetes"
+      "juguetes",
+      "juego"
     ]
   },
   {
@@ -2857,12 +2863,13 @@ export const DB_ALL: ClassDBItem[] = [
     },
     "description": "216 imanes esféricos de 5mm de diámetro de color dorado",
     "tags": [
-      "juguetes"
+      "juguetes",
+      "juego"
     ]
   },
   {
     "id": 87,
-    "stock": "ult",
+    "stock": "low",
     "label": "60x8x6mm",
     "categorie": [
       "imanes",
@@ -2927,9 +2934,10 @@ export const DB_ALL: ClassDBItem[] = [
       "lamina"
     ],
     "priceData": {
-      "usePrice": "base",
+      "usePrice": "discount",
       "prices": {
-        "base": 8500
+        "base": 8500,
+        "discount": 7500
       },
       "pricesQtts": {
         "1": 8500,
@@ -2965,18 +2973,18 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 90,
-    stock: "low",
     "label": "Sales de polifosfato redondas",
     "categorie": [
       "otros"
     ],
     "priceData": {
-      "usePrice": "base",
+      "usePrice": "discount",
       "prices": {
-        "base": 29000
+        "base": 29000,
+        discount: 26000
       },
       "salesUnit": "kg",
-      "update": "4/8/26"
+      "update": "18/11/26"
     },
     "caracteristicas": [
       "Calidad Alimentaria"
@@ -3066,12 +3074,13 @@ export const DB_ALL: ClassDBItem[] = [
       "fuerzaExp": 1.7
     },
     "tags": [
-      "arandela"
+      "arandela",
+      "perforado",
+      "perforacion"
     ]
   },
   {
     "id": 94,
-    "stock": "low",
     "label": "Piedras magnéticas ovaladas",
     "categorie": [
       "imanes",
@@ -3080,28 +3089,29 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1200
+        "base": 1000
       },
       "pricesQtts": {
-        "1": 1200,
-        "10": 1100,
-        "20": 1000
+        "1": 1000,
+        "10": 850,
+        "20": 750
       },
-      "update": "22/8/26"
+      "update": "9/11/26"
     },
     "measures": {
-      "largo": 35,
+      "largo": 38,
       "alto": 14,
       "peso": 16.2
     },
-    "description": "De hematita, magnetizadas y pulidas de 38mm de largo y 14mm de diámetro central. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
+    "description": "De hematita, magnetizadas y pulidas de 38mm de largo y 14mm de diámetro central. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés y juguetes",
     "links": {
       "mercadolibre": "pack-imanes-ovalados-x20/up/MLAU2924784171"
     },
     "tags": [
       "juguetes",
       "antiestres",
-      "semilla"
+      "semillas",
+      "juego"
     ]
   },
   {
@@ -3227,16 +3237,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 350
+        "base": 380
       },
       "pricesQtts": {
-        "1": 350,
-        "50": 325,
-        "100": 305,
-        "500": 264,
-        "1000": 234
-      },
-      "update": "27/7/2026"
+        "1": 380,
+        "50": 350,
+        "100": 325,
+        "500": 284,
+        "1000": 254
+      }
     },
     "measures": {
       "largo": 6,
@@ -3294,7 +3303,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 103,
-    stock: "low",
+    "stock": "low",
     "label": "Para Portón Automático",
     "categorie": [
       "imanes",
@@ -3334,9 +3343,9 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 7500
+        "base": 9500
       },
-      "update": "13/11/25"
+      "update": "12/11/26"
     },
     "measures": {
       "largo": 51,
@@ -3386,7 +3395,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 106,
-    stock: 0,
     "label": "6x2mm",
     "categorie": [
       "imanes",
@@ -3399,23 +3407,22 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 202
+        "base": 210
       },
       "pricesQtts": {
-        "1": 202,
-        "50": 186,
-        "100": 174,
-        "500": 152,
-        "1000": 134
-      },
-      "update": "27/7/2026"
+        "1": 210,
+        "50": 192,
+        "100": 180,
+        "500": 158,
+        "1000": 140
+      }
     },
     "measures": {
       "largo": 6,
       "alto": 2,
       "peso": 0.42,
       "fuerzaExp": 0.8
-    },
+    }
   },
   {
     "id": 107,
@@ -3466,7 +3473,7 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 40000,
+        "base": 40000
       },
       "update": "12/8/25"
     },
@@ -3496,9 +3503,13 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1800
+        "base": 2500
       },
-      "update": "13/11/25"
+      "pricesQtts": {
+        "1": 2500,
+        "5": 2000
+      },
+      "update": "12/11/26"
     },
     "measures": {
       "largo": 168,
@@ -3509,7 +3520,7 @@ export const DB_ALL: ClassDBItem[] = [
       "luz": "blanca",
       "batería": "x3 AAA"
     },
-    "description": "Cuenta con un imán que facilita colocarla en una posición cómoda. No incluye pilas",
+    "description": "Cuenta con un imán que facilita colocarla en una posición cómoda. NO incluye pilas",
     "tags": [
       "auto",
       "magnetica",
@@ -3521,7 +3532,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 110,
-    "stock": "low",
+    "stock": "ult",
     "label": "Magnetismo",
     "categorie": [
       "imanes",
@@ -3530,22 +3541,24 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 18000
+        "base": 18500
       },
-      "update": "6/3/26"
+      "update": "9/11/26"
     },
     "measures": {
-      "largo": 275,
-      "ancho": 275,
+      "largo": 280,
+      "ancho": 280,
       "alto": 40
     },
     "caracteristicas": [
       "+14 años"
     ],
-    "description": "Juego de mesa estratégico con imanes esféricos. Incluye 1 tablero y una bolsa con 20 imanes",
+    "especificaciones": { "marca": "Ditoys" },
+    "description": "Juego de mesa estratégico con imanes.\n Incluye 1 tablero y una bolsa con 20 imanes esféricos. \n Reglas: los jugadores se turnan para colocar sus imanes, si algunos se atraen entre sí deberá llevárselos y seguir jugando con todos ellos. Gana el primero en colocar todos sus imanes",
     "tags": [
       "juguetes",
-      "piedra"
+      "piedras",
+      "juego"
     ]
   },
   {
@@ -3638,10 +3651,10 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 9800
+        "base": 10000
       },
       "salesUnit": "m",
-      "update": "18/3/2026"
+      "update": "15/11/2026"
     },
     "measures": {
       "ancho": 610,
@@ -3667,14 +3680,15 @@ export const DB_ALL: ClassDBItem[] = [
       "lamina"
     ],
     "priceData": {
-      "usePrice": "base",
+      "usePrice": "discount",
       "prices": {
-        "base": 16000
+        "base": 16000,
+        "discount": 14000
       },
       "pricesQtts": {
         "1": 16000,
         "5": 15000,
-        "10": 13500,
+        "10": 13500
       },
       "salesUnit": "m",
       "update": "4/8/2026"
@@ -3710,16 +3724,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1690
+        "base": 2040
       },
       "pricesQtts": {
-        "1": 1690,
-        "25": 1590,
-        "50": 1490,
-        "100": 1390,
-        "250": 1190
-      },
-      "update": "9/5/2026"
+        "1": 2040,
+        "25": 1930,
+        "50": 1810,
+        "100": 1690,
+        "250": 1450
+      }
     },
     "measures": {
       "largo": 15,
@@ -3730,7 +3743,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 117,
-    "stock": 0,
     "label": "20x10x3mm",
     "categorie": [
       "imanes",
@@ -3780,16 +3792,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 605
+        "base": 1360
       },
       "pricesQtts": {
-        "1": 605,
-        "50": 570,
-        "100": 540,
-        "250": 485,
-        "500": 435
-      },
-      "update": "3/4/2026"
+        "1": 1360,
+        "25": 1280,
+        "50": 1200,
+        "100": 1120,
+        "250": 965
+      }
     },
     "measures": {
       "largo": 6,
@@ -3810,10 +3821,10 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "discount",
       "prices": {
-        "base": 26000,
-        "discount": 23000
+        "base": 85000,
+        "discount": 50000
       },
-      "update": "13/11/25"
+      "update": "12/11/26"
     },
     "especificaciones": {
       "color": "Negro",
@@ -3822,7 +3833,11 @@ export const DB_ALL: ClassDBItem[] = [
     "caracteristicas": [
       "Puntero Táctil"
     ],
-    "description": "Incluye: estuche, 3 tubos de tinta, 1 clip, 13 tubos magnéticos, 2 esferas pequeñas, 8 esferas medianas, 2 esferas grandes, 2 tapas para bolígrafo, 1 tubo con punta para bolígrafo, 2 puntas para pantalla táctil. Los imanes son de neodimio"
+    "description": "Incluye: estuche, 3 tubos de tinta, 1 clip, 13 tubos magnéticos, 2 esferas pequeñas, 8 esferas medianas, 2 esferas grandes, 2 tapas para bolígrafo, 1 tubo con punta para bolígrafo, 2 puntas para pantalla táctil. Los imanes son de neodimio",
+    "tags": [
+      "juego",
+      "lapicera"
+    ]
   },
   {
     "id": 120,
@@ -3837,23 +3852,24 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1200
+        "base": 1000
       },
       "pricesQtts": {
-        "1": 1200,
-        "10": 1100,
-        "20": 1000
+        "1": 1000,
+        "10": 850,
+        "20": 750
       },
-      "update": "22/8/26"
+      "update": "9/11/26"
     },
     "measures": {
       "diametro": 17,
       "peso": 14.7
     },
-    "description": "De hematita, magnetizadas y pulidas de 17mm de diámetro. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés",
+    "description": "De hematita, magnetizadas y pulidas de 17mm de diámetro. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés y juguetes",
     "tags": [
       "juguetes",
-      "antiestres"
+      "antiestres",
+      "juego"
     ]
   },
   {
@@ -3866,24 +3882,25 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1000
+        "base": 650
       },
       "pricesQtts": {
-        "1": 1000,
-        "10": 800
+        "1": 650,
+        "10": 550
       },
-      "update": "22/8/26"
+      "update": "9/11/26"
     },
-    "description": "De hematita, magnetizadas y pulidas. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés. Esferas de 17mm y ovalados de 38x14mm",
+    "description": "De hematita, magnetizadas y pulidas. Son suaves y al golpearse entre si producen vibraciones. Usados en tratamientos antiestrés y juguetes. \n Ovaladas: 38mm de largo y 14mm de diámetro central. \n Esféricas: 17mm de diámetro",
     "tags": [
       "juguetes",
       "antiestres",
-      "semilla"
+      "semilla",
+      "juego"
     ]
   },
   {
     "id": 122,
-    "stock": "low",
+    "stock": 0,
     "label": "12x3mm",
     "categorie": [
       "imanes",
@@ -3989,14 +4006,14 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 125,
-    stock: 0,
+    "stock": 0,
     "label": "Bolsas Ecommerce x10u 15x20cm",
     "categorie": [
       "otros"
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 600
       },
@@ -4026,14 +4043,14 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 126,
-    stock: 0,
+    "stock": 0,
     "label": "Bolsas Ecommerce x10u 20x30cm",
     "categorie": [
       "otros"
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 900
       },
@@ -4062,8 +4079,8 @@ export const DB_ALL: ClassDBItem[] = [
     ]
   },
   {
-    "stock": "hidden",
     "id": 127,
+    "stock": "hidden",
     "label": "Caja Cartón 12.5x11.4x5cm",
     "categorie": [
       "otros"
@@ -4101,6 +4118,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 128,
+    "stock": 0,
     "label": "15x3mm",
     "categorie": [
       "imanes",
@@ -4113,16 +4131,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1320
+        "base": 1520
       },
       "pricesQtts": {
-        "1": 1320,
-        "25": 1240,
-        "50": 1160,
-        "100": 1080,
-        "250": 930
-      },
-      "update": "27/7/2026"
+        "1": 1520,
+        "25": 1430,
+        "50": 1340,
+        "100": 1250,
+        "250": 1070
+      }
     },
     "measures": {
       "largo": 15,
@@ -4166,7 +4183,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 130,
-    stock: "low",
+    "stock": 0,
     "label": "20x10x2mm",
     "categorie": [
       "imanes",
@@ -4320,9 +4337,9 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 9000
+        "base": 12000
       },
-      "update": "13/11/25"
+      "update": "12/11/26"
     },
     "measures": {
       "largo": 170,
@@ -4358,7 +4375,10 @@ export const DB_ALL: ClassDBItem[] = [
       },
       "update": "13/9/2025"
     },
-    "description": "Juego de 25 imanes de neodimio de 5x20mm y 30 esferas de acero de 8mm de diámetro"
+    "description": "Juego de 25 imanes de neodimio de 5x20mm y 30 esferas de acero de 8mm de diámetro",
+    "tags": [
+      "juego"
+    ]
   },
   {
     "id": 136,
@@ -4433,6 +4453,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 138,
+    "stock": "low",
     "label": "5x20mm",
     "categorie": [
       "imanes",
@@ -4498,6 +4519,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 140,
+    "stock": "low",
     "label": "9x2mm",
     "categorie": [
       "imanes",
@@ -4510,16 +4532,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 415
+        "base": 425
       },
       "pricesQtts": {
-        "1": 415,
-        "50": 380,
-        "100": 355,
-        "500": 310,
-        "1000": 276
-      },
-      "update": "27/7/2026"
+        "1": 425,
+        "50": 390,
+        "100": 365,
+        "500": 320,
+        "1000": 284
+      }
     },
     "measures": {
       "largo": 9,
@@ -4623,7 +4644,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 144,
-    stock: "low",
+    "stock": 0,
     "label": "42mm Chato",
     "categorie": [
       "imanes",
@@ -4636,9 +4657,9 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 25000,
+        "base": 29000
       },
-      "update": "12/8/26"
+      "update": "20/10/26"
     },
     "measures": {
       "largo": 42,
@@ -4665,15 +4686,14 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 405
+        "base": 415
       },
-      "update": "27/7/2026",
       "pricesQtts": {
-        "1": 405,
-        "50": 370,
-        "100": 350,
-        "500": 305,
-        "1000": 272
+        "1": 415,
+        "50": 380,
+        "100": 360,
+        "500": 310,
+        "1000": 278
       }
     },
     "measures": {
@@ -4683,7 +4703,7 @@ export const DB_ALL: ClassDBItem[] = [
     },
     "especificaciones": {
       "denominacion": "N42"
-    },
+    }
   },
   {
     "id": 148,
@@ -4696,10 +4716,10 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 15500
+        "base": 17000
       },
       "salesUnit": "m",
-      "update": "4/8/2026"
+      "update": "15/11/2026"
     },
     "measures": {
       "ancho": 610,
@@ -4774,18 +4794,20 @@ export const DB_ALL: ClassDBItem[] = [
     "especificaciones": {
       "material": "plástico",
       "modelo": "Pavo real"
-    }
+    },
+    "tags": [
+      "juego"
+    ]
   },
   {
     "id": 147,
-    stock: 0,
     "label": "Bolsas Ecommerce x10u 20x30cm Tricapa Con Texto",
     "categorie": [
       "otros"
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 1800
       },
@@ -4823,7 +4845,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 2800
       },
@@ -4861,7 +4883,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 4500
       },
@@ -4933,16 +4955,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 202
+        "base": 210
       },
       "pricesQtts": {
-        "1": 202,
-        "50": 186,
-        "100": 174,
-        "500": 152,
-        "1000": 134
-      },
-      "update": "27/7/2026"
+        "1": 210,
+        "50": 192,
+        "100": 180,
+        "500": 158,
+        "1000": 140
+      }
     },
     "measures": {
       "largo": 5,
@@ -4992,9 +5013,9 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 2000
+        "base": 2000,
       },
-      "update": "4/8/2026"
+      "update": "15/11/2026"
     },
     "measures": {
       "ancho": 200,
@@ -5024,9 +5045,9 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 1300
+        "base": 1400
       },
-      "update": "18/3/2026"
+      "update": "15/11/2026"
     },
     "measures": {
       "ancho": 200,
@@ -5046,6 +5067,7 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 159,
+    "stock": "low",
     "label": "9x1mm",
     "categorie": [
       "imanes",
@@ -5058,16 +5080,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 232
+        "base": 256
       },
       "pricesQtts": {
-        "1": 232,
-        "50": 214,
-        "100": 200,
-        "500": 174,
-        "1000": 156
-      },
-      "update": "27/7/2026"
+        "1": 256,
+        "50": 236,
+        "100": 220,
+        "500": 192,
+        "1000": 172
+      }
     },
     "measures": {
       "largo": 9,
@@ -5120,16 +5141,15 @@ export const DB_ALL: ClassDBItem[] = [
     "priceData": {
       "usePrice": "base",
       "prices": {
-        "base": 585
+        "base": 630
       },
       "pricesQtts": {
-        "1": 585,
-        "50": 535,
-        "100": 505,
-        "500": 440,
-        "1000": 390
-      },
-      "update": "27/6/2026"
+        "1": 630,
+        "50": 580,
+        "100": 545,
+        "500": 475,
+        "1000": 420
+      }
     },
     "measures": {
       "largo": 6,
@@ -5139,7 +5159,6 @@ export const DB_ALL: ClassDBItem[] = [
   },
   {
     "id": 162,
-    stock: 0,
     "label": "6x1.5mm",
     "categorie": [
       "imanes",
@@ -5167,7 +5186,7 @@ export const DB_ALL: ClassDBItem[] = [
       "largo": 6,
       "alto": 1.5,
       "peso": 0.32
-    },
+    }
   },
   {
     "id": 163,
@@ -5177,7 +5196,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 800
       },
@@ -5212,7 +5231,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 1800
       },
@@ -5250,7 +5269,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 700
       },
@@ -5306,7 +5325,7 @@ export const DB_ALL: ClassDBItem[] = [
       "largo": 9,
       "alto": 3,
       "peso": 1.5
-    },
+    }
   },
   {
     "id": 167,
@@ -5316,7 +5335,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 1200
       },
@@ -5351,7 +5370,7 @@ export const DB_ALL: ClassDBItem[] = [
     ],
     "priceData": {
       "usePrice": "base",
-      salesUnit: "Pack",
+      "salesUnit": "Pack",
       "prices": {
         "base": 1800
       },
@@ -5411,10 +5430,74 @@ export const DB_ALL: ClassDBItem[] = [
       "alto": 2,
       "diametroSup": 5,
       "diametroInf": 5,
-      "peso": 1.4,
+      "peso": 1.4
     },
     "tags": [
-      "arandela"
+      "arandela",
+      "perforado",
+      "perforacion"
     ]
   },
+  {
+    "id": 171,
+    "stock": "ult",
+    "label": "Magnetismo: Formas",
+    "categorie": [
+      "imanes",
+      "juguetes"
+    ],
+    "priceData": {
+      "usePrice": "base",
+      "prices": {
+        "base": 18500
+      },
+      "update": "9/11/26"
+    },
+    "measures": {
+      "largo": 280,
+      "ancho": 280,
+      "alto": 40
+    },
+    "caracteristicas": [
+      "+14 años"
+    ],
+    "especificaciones": { "marca": "Ditoys" },
+    "description": "Juego de mesa estratégico con imanes.\n Incluye 1 tablero y una bolsa con 20 imanes de distintas formas. \n Reglas: los jugadores se turnan para colocar sus imanes, si algunos se atraen entre sí deberá llevárselos y seguir jugando con todos ellos. Gana el primero en colocar todos sus imanes",
+    "tags": [
+      "juguetes",
+      "piedras",
+      "juego"
+    ]
+  },
+  {
+    "id": 172,
+    "stock": "ult",
+    "label": "Magnetism",
+    "categorie": [
+      "imanes",
+      "juguetes"
+    ],
+    "priceData": {
+      "usePrice": "base",
+      "prices": {
+        "base": 14000
+      },
+      "update": "9/11/26"
+    },
+    "measures": {
+      "largo": 290,
+      "ancho": 290,
+      "alto": 40
+    },
+    "caracteristicas": [
+      "+12 años"
+    ],
+    "especificaciones": { "marca": "Monococo" },
+    "description": "Juego de mesa estratégico con imanes.\n Incluye 1 tablero y una bolsa con 20 imanes esféricos. \n Reglas: los jugadores se turnan para colocar sus imanes, si algunos se atraen entre sí deberá llevárselos y seguir jugando con todos ellos. Gana el primero en colocar todos sus imanes",
+    "tags": [
+      "juguetes",
+      "piedras",
+      "juego"
+    ]
+  }
 ]

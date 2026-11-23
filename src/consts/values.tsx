@@ -207,3 +207,43 @@ export const FILTERS_VALUES_DEFAULT: TypeFiltersValues = {
   stock: false,
   discount: false,
 };
+
+export const FORMAS_ENTREGA = {
+  retiro: {
+    label: "Voy a retirar",
+    description_item: "Quiero pasar a retirar",
+    description_select: "Debe coordinar cuando quiera pasar.",
+  },
+  coordinar: {
+    label: "Quiero coordinar",
+    description_item: "Quiero saber cuando se hagan entregas en el centro",
+    description_select: "",
+  },
+  cadete: {
+    label: "Mando a buscarlo",
+    description_item: "Quiero enviar a que lo busquen",
+    description_select:
+      "Se transfiere el pago antes de entregar al cadete.",
+  },
+  envio: {
+    label: "Envío",
+    description_item: "Quiero que me lo envíen",
+    description_select: "Se transfiere el envío antes y se paga en la entrega.",
+  },
+  envio_app: {
+    label: "Envío: aplicación",
+    description_item: "Quiero que me lo envíen por aplicación",
+    description_select: "Se transfiere el pago antes.",
+  },
+  // envio_online: {
+  //   label: "Envío: Tienda Online",
+  //   description_item: "Quiero intermediar con Mercado Libre",
+  //   description_select:
+  //     "Puede comprar y arreglar por medio de ML(se pagan comisiones).",
+  // },
+  envio_encomienda: {
+    label: "Envío: Encomienda",
+    description_item: "Quiero arreglar un envío por correo",
+    description_select: "",
+  },
+}

@@ -20,6 +20,7 @@ import LabelStockData from "../../components/LabelStockData";
 import { Button, Divider, Skeleton } from "@mui/material";
 
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
+import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 
 interface IntfProps {
   items: ClassDBItem[];
@@ -143,9 +144,10 @@ export default function ItemsViewHorizontal({
 
                   <LabelPrice
                     itemData={item}
-                    className="row-span-2 self-end"
+                    className="row-span-2 self-end rounded-lg px-3 py-1 bg-custom1/20 dark:bg-transparent text- dark:text-custom1"
+                    // border-2 border-customSwitch/60
                     classNames={{
-                      price: "text-customSwitch",
+                      // price: "text-customSwitch",
                       discountWrapper: "text-second",
                     }}
                   />
@@ -162,7 +164,8 @@ export default function ItemsViewHorizontal({
                       />
                       <ul className="text-second self-center flex-1">
                         <li className="px-2 gap-2 grid grid-cols-2">
-                          <p className="col-start-2">Precios </p>
+                          <LocalOfferIcon className="col-start-2" fontSize="small"/>
+                          {/* <p className="col-start-2">Precios </p> */}
                           {/* {item.priceData.salesUnit && <span>x{item.priceData.salesUnit}</span>} */}
 
                         </li>

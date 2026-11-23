@@ -51,7 +51,7 @@ export default function ModalFullImg({
           className="absolute top-4 right-4 z-10 p-0.5 rounded-md min-w-0"
           onClick={() => setOpen(false)}
         >
-          <FullscreenExitIcon className="h-9 w-fit" />
+          <FullscreenExitIcon className="h-9 w-9" />
         </Button>
 
         <ButtonGroup

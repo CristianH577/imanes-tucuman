@@ -7,6 +7,7 @@ import { handlePriceData, toPriceFormat } from "../libs/functions";
 import { DB_ALL } from "../consts/dbs";
 import { LINKS_SITES } from "../consts/siteConfig";
 import type { TypeOutletContext } from "../consts/types";
+import { FORMAS_ENTREGA } from "../consts/values";
 
 import { CircularProgress, Tooltip, Button } from "@mui/material";
 
@@ -22,14 +23,13 @@ export default function CartView() {
   const cart = context.cart.value;
 
   const [downloading, setDownloading] = useState(false);
-  const [entrega, setEntrega] = useState({
-    value: "retiro",
-    label: "Voy a retirar",
-  });
+  const [entrega, setEntrega] = useState("retiro");
 
   const handleSend = () => {
+    const forma_entrega = FORMAS_ENTREGA?.[entrega as keyof typeof FORMAS_ENTREGA]
+
     const items_msg = ["Hola. Me interesa hacer este pedido:\n"];
-    items_msg.push(`*${entrega.label}\n`);
+    items_msg.push(`*${forma_entrega.label}\n`);
 
     let total: number = 0;
     let items = DB_ALL.sort((a, b) => a.label.localeCompare(b.label)).filter(
@@ -48,7 +48,7 @@ export default function CartView() {
 
       total += subtotal;
 
-      array.push(item.id + " -");
+      array.push("C" + item.id + " -");
       array.push(label + " =>");
       array.push(toPriceFormat(price));
       array.push(`x${qtt}${priceData.salesUnit || "u"}`);

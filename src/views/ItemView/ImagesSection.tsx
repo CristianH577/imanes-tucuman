@@ -132,7 +132,7 @@ export default function ImagesSection({
             onClick={() => setOpenFullImgs(true)}
             sx={{ minWidth: 0, px: 1, borderRadius: 2 }}
           >
-            <FullscreenIcon className="h-9 w-fit" />
+            <FullscreenIcon className="h-9 w-9" />
           </Button>
         )}
 
@@ -196,6 +196,8 @@ export default function ImagesSection({
           />
         </Suspense>
       )}
+
+      <p className="text-second text-neutralSwitch font-semibold text-center p-1">*Imagenes meramente ilustrativas. El producto puede presentar pequeñas diferencias respecto del modelo mostrado.</p>
     </m.section>
   );
 }

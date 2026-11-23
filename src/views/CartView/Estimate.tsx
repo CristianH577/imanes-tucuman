@@ -1,3 +1,5 @@
+import { FORMAS_ENTREGA } from "../../consts/values";
+
 import { Divider, FormControl, InputLabel, MenuItem } from "@mui/material";
 import { Select } from "@mui/material";
 
@@ -16,66 +18,23 @@ import {
 
 interface InterfaceEstimateProps {
   downloading: boolean;
-  entrega: TypeEntrega;
-  setEntrega: (obj: TypeEntrega) => void;
+  entrega: string;
+  setEntrega: (str: string) => void;
 }
-
-type TypeEntrega = { value: string; label: string };
-
-const conditions_items = {
-  retiro: {
-    label: "Voy a retirar",
-    description_item: "Quiero pasar a retirar",
-    description_select: "Debe coordinar cuando quiera pasar.",
-  },
-  coordinar: {
-    label: "Quiero coordinar",
-    description_item: "Quiero saber cuando se hagan entregas en el centro",
-    description_select: "",
-  },
-  cadete: {
-    label: "Mando a buscarlo",
-    description_item: "Quiero enviar a que lo busquen",
-    description_select:
-      "Si es un Uber, se transfiere el pago antes de entregar.",
-  },
-  envio: {
-    label: "Envío",
-    description_item: "Quiero que me lo envíen",
-    description_select: "Se transfiere el envío antes y se paga en la entrega.",
-  },
-  envio_uber: {
-    label: "Envío: Uber",
-    description_item: "Quiero que me lo envíen por Uber",
-    description_select: "Se transfiere el pago + envío antes.",
-  },
-  envio_online: {
-    label: "Envío: Tienda Online",
-    description_item: "Quiero intermediar con Mercado Libre",
-    description_select:
-      "Puede comprar y arreglar por medio de ML(se pagan comisiones).",
-  },
-  envio_encomienda: {
-    label: "Envío: Encomienda",
-    description_item: "Quiero arreglar un envío por correo",
-    description_select: "",
-  },
-};
 
 export default function Estimate({
   downloading = false,
-  entrega = { value: "retiro", label: "" },
+  entrega = "retiro",
   setEntrega,
 }: InterfaceEstimateProps) {
   const condition =
-    conditions_items?.[entrega.value as keyof typeof conditions_items];
+    FORMAS_ENTREGA?.[entrega as keyof typeof FORMAS_ENTREGA];
 
   return (
     <div
       id="presupuesto"
-      className={`flex flex-col gap-4 bg-content1 font-bold p-4 rounded-md shadow-md${
-        downloading ? " w-fit" : ""
-      }`}
+      className={`flex flex-col gap-4 bg-content1 font-bold p-4 rounded-md shadow-md${downloading ? " w-fit" : ""
+        }`}
     >
       <Logo id="presupuesto_logo" className="max-w-44 my-2" />
 
@@ -103,21 +62,17 @@ export default function Estimate({
               },
             },
           }}
-          value={entrega.value}
+          value={entrega}
           onChange={(e) => {
             const val = e.target.value ? String(e.target.value) : "retiro";
-            const entrega_: TypeEntrega = { ...entrega };
-            entrega_.value = val;
-            entrega_.label = condition?.label;
-
-            setEntrega(entrega_);
+            setEntrega(val);
           }}
         >
           <MenuItem className="italic font-[menulis] text-neutral-500 dark:text-neutral-300 font-bold">
             Seleccione
           </MenuItem>
 
-          {Object.entries(conditions_items).map(([key, obj]) => (
+          {Object.entries(FORMAS_ENTREGA).map(([key, obj]) => (
             <MenuItem
               key={key}
               value={key}
